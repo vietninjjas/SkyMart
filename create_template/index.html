@@ -10,14 +10,14 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
   <link rel="stylesheet" href="./assets/css/main.css">
-
+  <link rel="stylesheet" href="./assets/css/base.css">
   <script src="./assets/js/js.js"></script>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./assets/font/fontawesome-free-5.14.0-web/css/all.min.css">
 
   <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
   <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-  <link rel="stylesheet" href="./assets/css/base.css">
+  
 </head>
 
 <body>
@@ -25,21 +25,22 @@
     <header class="header">
       <div class="top-menu">
         <div class="grid-top-menu">
+          
           <ul>
-            <li>
+            <li class="notifications-help">
               Chào mừng bạn đã đến cửa hàng của chúng tôi
             </li>
-            <li> Hãy Kết Nối Với Chúng Tôi
+            <li class="notifications-help"> Hãy Kết Nối Với Chúng Tôi
               <a href=""> <i class="fab fa-facebook"></i></a>
               <a href=""><i class="fab fa-twitter"></i></a>
             </li>
           </ul>
           <ul>
             <li>
-              <a href=""><i class="fa fa-bell" aria-hidden="true"></i> Thông Báo </a>
+              <a href="" class="notifications-help"><i class="fa fa-bell" aria-hidden="true"></i> Thông Báo </a>
             </li>
             <li>
-              <a href=""><i class="fa fa-question" aria-hidden="true"></i> Trợ Giúp</a>
+              <a href="" class="notifications-help"><i class="fa fa-question" aria-hidden="true"></i> Trợ Giúp</a>
             </li>
             <li>
               <a href="">Đăng Nhập</a>
@@ -71,9 +72,10 @@
     <!-- end header -->
     <div class="container">
       <div class="container-row">
-        <div class="column-list-product">
+        <div id="top-heading-res" class="column-list-product">
           <nav class="list_product">
             <h3 class="heading"><i class="fas fa-list"></i>Danh mục</h3>
+            
             <ul class="product-list">
               <li class="product-list-item">
                 <a href="#" class="item-link">Điện Thoại - Máy Tính Bảng</a>
@@ -664,6 +666,34 @@
               </a>
             </ul>
           </div>
+          <div class="list-product-res">
+            <ul class="list-product-res-content">
+              <li class="product-res-content">
+                <a href=""> Công Nghệ</a>
+              </li>
+              <li class="product-res-content">
+                <a href=""> Gia Đình</a>
+              </li>
+              <li class="product-res-content">
+                <a href=""> Sức Khỏe</a>
+              </li>
+              <li class="product-res-content">
+                <a href=""> Mẹ & Bé</a>
+              </li>
+              <li class="product-res-content">
+                <a href=""> Đời Sống</a>
+              </li>
+              <li class="product-res-content">
+                <a href=""> Thời Trang</a>
+              </li>
+              <li class="product-res-content">
+                <a href=""> Xe Cộ</a>
+              </li>
+              <li class="product-res-content">
+                <a href=""> Sạch</a>
+              </li>
+            </ul>
+          </div>
           <div class="banner_bottom_container">
             <div class="Banners-MainGrid"><a href=""><img src="./assets/images/Banners-MainGrid1.png" alt=""></a></div>
             <div class="Banners-MainGrid"><a href=""><img src="./assets/images/Banners-MainGrid2.png" alt=""></a></div>
@@ -1029,13 +1059,13 @@
         </div>
         <div class="footer-column">
           <h5>PHƯƠNG THỨC THANH TOÁN</h5>
-          <img width="345" src="./assets/images/logo-thanhtoan.png" alt="">
+          <img width="100%" src="./assets/images/logo-thanhtoan.png" alt="">
         </div>
         <div class="footer-column">
           <h5>KẾT NỐI VỚI CHÚNG TÔI</h5>
-          <img width="40" src="./assets/images/fb.png" alt="">
-          <img width="60" src="./assets/images/youtube.svg" alt="">
-          <img width="70" src="./assets/images/zl.png" alt="">
+          <img width="10%" src="./assets/images/fb.png" alt="">
+          <img width="15%" src="./assets/images/youtube.svg" alt="">
+          <img width="20%" src="./assets/images/zl.png" alt="">
         </div>
       </div>
     </footer>

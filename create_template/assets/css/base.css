@@ -31,6 +31,7 @@
     text-decoration: none;
     color: white;
 }
+
 .header-content{
     display: flex;
     width: 100%;
@@ -142,14 +143,16 @@
 }
 .product-list{
     padding: 0;
+    width: 100%;
+    padding-bottom: 0;
 }
 .product-list-item:first-child{
     margin-top: 10px;
 }
 .product-list-item{
     list-style: none;
-    padding: 5px 0 5px 50px;
-    
+    width: 100%;
+    padding: 5px 5%;
 }
 .product-list-item:hover{
     background-color: rgb(24, 158, 255);
@@ -264,6 +267,35 @@
  border-radius: 14px 0 0 14px;
 }
 /*  */
+.list-product-res{
+    width: 100%;
+    margin-top: 10px;
+    display: flex;
+    box-sizing: border-box;
+    display: none;
+}
+.list-product-res-content{
+    width: 100%;
+    margin-top: 10px;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+}
+.product-res-content{
+    list-style: none;
+    margin: 0 14px 5px 14px;
+    width: 20%;
+    background-color: #337ab7;
+    border: 1px solid #666;
+}
+.product-res-content a{
+    text-decoration: none;
+    color: white;
+    display: flex;
+    padding: 12%;
+    font-size: 1.4rem;
+}
+/*  */
 .banner_bottom_container{
     margin-top: 20px;
     width: 100%;
@@ -329,6 +361,12 @@
 #gallery .slick-arrow{
     background:#f5f5f5;
 }
+#gallery .slick-prev{
+    margin-left: 0;
+}
+#gallery .slick-next{
+    margin-right: 0;
+}
 #gallery  img{
     margin: .2rem;
 }
@@ -379,10 +417,10 @@
     overflow: hidden;
   }
   .slick-next{
-    right: -30px;
+    right: -15px;
   }
   .slick-prev{
-    left: -30px;
+    left: -15px;
     
   }
   .slick-next:before{
@@ -567,6 +605,7 @@ footer{
     justify-content: space-around;
 }
 .footer-column{
+    text-align: center;
     flex: 1;
     color: white;
     padding:  20px 0;
@@ -587,4 +626,40 @@ footer{
     font-weight: normal;
 }
 /*end footer */
-  
+
+@media (max-width: 873px){
+
+    .column-list-product{
+        display: none;
+    }
+    .column-quangcao{
+        display: none;
+    }
+    .column-content{
+        width: 100%;
+        margin-right: 0;
+    }
+    .notifications-help{
+        display: none;
+    }
+    .grid-top-menu a{
+        text-decoration: none;
+    }
+    .list-product-res{
+        display: block;
+    }
+    .product-res-content{
+        margin: 10px 2% 10px 2%;
+    }
+    .product-res-content a{
+        width: 100%;
+    }
+    .product-res-content a p{
+        color: white;
+        width: 100%;
+    }
+    .banner_bottom_container{
+        margin-top: 0;
+    }
+
+}
