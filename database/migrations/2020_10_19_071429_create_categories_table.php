@@ -18,6 +18,7 @@ class CreateCategoriesTable extends Migration
             $table->unsignedInteger('cate_id')->autoIncrement();
             $table->string('cate_name')->unique();
             $table->text('cate_desc')->nullable();
+            $table->text('cate_logo')->nullable();
             $table->integer('parent_id')->unsigned()->nullable();
             $table->timestamps();
             $table->softDeletes();
