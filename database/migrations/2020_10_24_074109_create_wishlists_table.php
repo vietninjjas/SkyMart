@@ -15,6 +15,7 @@ class CreateWishlistsTable extends Migration
     {
         Schema::disableForeignKeyConstraints();
         Schema::create('wishlists', function (Blueprint $table) {
+            $table->unsignedInteger('wish_id')->autoIncrement();
             $table->unsignedInteger('user_id');
             $table->unsignedInteger('pro_id');
             $table->foreign('user_id')->references('user_id')->on('users');
