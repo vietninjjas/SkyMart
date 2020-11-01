@@ -12,5 +12,13 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('layouts.welcome');
 });
+
+Auth::routes([
+    'register' => true,
+    'verify' => true,
+    'reset' => true,
+]);
+
+Route::get('/home', 'HomeController@index')->name('home');

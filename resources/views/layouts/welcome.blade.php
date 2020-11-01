@@ -47,7 +47,7 @@
               <a href="" class="notifications-help"><i class="fa fa-question" aria-hidden="true"></i> Trợ Giúp</a>
             </li>
             <li>
-              <a href="">Đăng Nhập</a>
+              <a href="{{ route('home') }}">Đăng Nhập</a>
             </li>
             <li>
               <a href="">Đăng Xuất</a>
