@@ -55,6 +55,12 @@ img{
     text-decoration: none;
     color: white;
 }
+.grid-top-menu select{
+    background: none;
+    border: none;
+    font-size: 1.4rem;
+    outline: none;
+}
 
 .header-content{
     display: flex;
@@ -814,6 +820,7 @@ ul.select-input-list li a:hover{
 }
 
 .selling-max{
+    margin-bottom: 30px;
     width: 100%;
     background-color: #fff;
     display: block;
@@ -1095,3 +1102,13 @@ footer{
     text-align: right;
 }
 /*end shopping -cart*/
+.container-product{
+    width: 1200px;
+    margin: auto;
+    max-width: 100%;
+    font-family: sans-serif;
+    letter-spacing: 1px;
+    padding: 15px;
+    background-color: white;
+    margin-bottom: 50px;
+}
