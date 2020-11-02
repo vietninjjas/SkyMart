@@ -12,20 +12,113 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+<<<<<<< HEAD:resources/views/layouts/welcome.blade.php
   <link rel="stylesheet" href="assets/css/main.css">
   <link rel="stylesheet" href="assets/css/base.css">
   <script src="assets/js/js.js"></script>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/font/fontawesome-free-5.14.0-web/css/all.min.css">
 
+=======
+  <link rel="stylesheet" href="./assets/css/main.css">
+  <link rel="stylesheet" href="./assets/css/base.css">
+  <script src="./assets/js/js.js"></script>
+  <script src="./assets/js/jquery.modal.min.js"></script>
+  <link rel="stylesheet" href="./assets/css/jquery.modal.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./assets/font/fontawesome-free-5.14.0-web/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700,800&display=swap" rel="stylesheet">
+>>>>>>> 62e20cb... nguyen update template:create_template/index.html
   <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
   <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-  
+  <link rel="stylesheet" href="./assets/css/owl.carousel.min.css">
+  <link rel="stylesheet" href="./assets/css/owl.theme.default.min.css">
+    <script src="./assets/js/owl.carousel.min.js"></script>
 </head>
 
 <body>
   <div class="main">
-   
+    <div id="form-modal">
+      <div class="cont" id="ex1">
+        <div class="form sign-in">
+          <h2>Đăng nhập</h2>
+          <label>
+            <span>Email hoặc SĐT</span>
+            <input type="email" name="email">
+          </label>
+          
+          <label>
+            <span>Mật khẩu</span>
+            <input type="password" name="password">
+          </label>
+          <button class="submit" type="button">Đăng nhập</button>
+          <p class="forgot-pass">Quên mật khẩu?</p>
+    
+          <div class="social-media">
+            <p>Hoặc đăng nhập bằng tài khoản bằng mạng xã hội:</p>
+            <ul>
+              <li><img src="./assets/images/facebook.png"></li>
+              <li><img src="./assets/images/google.png"></li>
+              <li><img src="./assets/images/zalo.png"></li>
+              <li><img src="./assets/images/linkedin.png"></li>
+            </ul>
+          </div>
+        </div>
+    
+        <div class="sub-cont">
+          <div class="img">
+            <div class="img-text m-up">
+              <h2>Tạo tài khoản</h2>
+              <p>Tạo tài khoản để theo dõi đơn hàng, lưu
+                danh sách sản phẩm yêu thích, nhận
+                nhiều ưu đãi hấp dẫn.!</p>
+            </div>
+            <div class="img-text m-in">
+              <h2>Đăng nhập</h2>
+              <p>Đăng nhập để theo dõi đơn hàng, lưu
+                danh sách sản phẩm yêu thích, nhận
+                nhiều ưu đãi hấp dẫn!</p>
+            </div>
+            <div class="img-btn">
+              <span class="m-up">Đăng ký</span>
+              <span class="m-in">Đăng nhập</span>
+            </div>
+          </div>
+          <div class="form sign-up">
+            <h2>Đăng ký tài khoản</h2>
+            <label>
+              <span>Họ và tên</span>
+              <input type="text">
+            </label>
+            <label>
+              <span>Email</span>
+              <input type="email">
+            </label>
+            <label>
+              <span>Số điện thoại</span>
+              <input type="text">
+            </label>
+            <label>
+              <span>Mật khẩu</span>
+              <input type="password">
+            </label>
+            <label>
+              <span>Ngày sinh</span>
+              <input type="date">
+            </label>
+            <label>
+              <span>Giới tính</span>
+              <select name="" id="">
+                <option value="">Nam</option>
+                <option value="">Nữ</option>
+              </select>
+              
+            </label>
+            <button type="button" class="submit">Sign Up Now</button>
+          </div>
+        </div>
+      </div>
+    </div>
     <header class="header">
       <div class="top-menu">
         <div class="grid-top-menu">
@@ -47,10 +140,18 @@
               <a href="" class="notifications-help"><i class="fa fa-question" aria-hidden="true"></i> Trợ Giúp</a>
             </li>
             <li>
+<<<<<<< HEAD:resources/views/layouts/welcome.blade.php
               <a href="{{ route('home') }}">Đăng Nhập</a>
+=======
+              <a href="#ex1" rel="modal:open"><i class="fas fa-user"></i> Tài khoản</a>
+            </li>
+            
+            <li>
+              <a href=""><i class="fas fa-sign-out-alt"></i> Đăng Xuất</a>
+>>>>>>> 62e20cb... nguyen update template:create_template/index.html
             </li>
             <li>
-              <a href="">Đăng Xuất</a>
+              <a href="">Tiếng việt</a> | <a href="">Tiếng anh</a>
             </li>
           </ul>
         </div>
@@ -64,11 +165,37 @@
           <div class="seach">
             <input type="text" placeholder="Tìm Kiếm Sản Phẩm">
             <div class="option">
-              <button><i class="fas fa-search button-icon"></i></button>
+              <button><i class="fas fa-search button-icon"></i> Tìm kiếm</button>
             </div>
           </div>
           <div class="category">
-            <i class="cart-icon fas fa-shopping-cart"></i>
+            <i class="cart-icon fas fa-shopping-cart"></i><span class="cart-text">Giỏ hàng <span class="cart-num">0</span></span>
+          </div>
+        </div>
+      </div>
+      <div class="bot-header">
+        <div class="container">
+    
+          <div class="bot-danhmuc">
+            <ul>
+              <li class="head-danhmuc"><i class="fa fa-bars"></i><a href=""></a> Danh mục sản phẩm</li>
+              <li><i class="fas fa-map-marker-alt giao-toi "></i> <span style="text-align: justify;">Bạn muốn giao tới đâu</span> </li>
+              <li><i class="fas fa-shipping-fast giao-hang"></i> Miễn phí giao hàng</li>
+              <li><i class="fas fa-language change-language"></i> Thay đổi ngôn ngữ</li>
+            </ul>
+            <!-- <div class="col-lg-3 col-md-6 ">
+             <h3 class="head-danhmuc"><i class="fa fa-bars"></i> Danh mục sản phẩm</h3>
+            </div>
+            <div class="col-lg-3 giao-toi ">
+              <i class="fas fa-map-marker-alt "></i> <span style="text-align: justify;">Bạn muốn giao tới đâu</span> 
+            </div>
+            <div class="col-lg-3 giao-hang ">
+              <i class="fas fa-shipping-fast"></i> Miễn phí giao hàng
+            </div>
+            <div class="col-lg-3 change-language ">
+              <i class="fas fa-language"></i> Thay đổi ngôn ngữ
+            </div>
+             -->
           </div>
         </div>
       </div>
@@ -78,7 +205,7 @@
       <div class="container-row">
         <div id="top-heading-res" class="column-list-product">
           <nav class="list_product">
-            <h3 class="heading"><i class="fa fa-bars"></i>Danh mục</h3>
+           
             
             <ul class="product-list">
               <li class="product-list-item">
@@ -135,6 +262,54 @@
                 </div>
               </li>
               <!-- end -->
+              <li class="product-list-item">
+                <a href="#" class="item-link"><i class="fas fa-tv"></i> Đện tử - Điện lạnh</a>
+                <div class="lon">
+                  <div class="cac">
+                    <ul>
+                      <h5>Tivi</h5>
+                      <li><a href="#">Tivi bán chạy</a></li>
+                      <li><a href="#">Tivi mới 2020</a></li>
+                      <li><a href="#">Tivi cao cấp</a></li>
+                      <li><a href="#">Smart Tivi - Android Tivi</a></li>
+                      <li><a href="#">Internet Tivi</a></li>
+                      <li><a href="#">Tivi 4K</a></li>
+                      <li><a href="#">Tivi LED thường</a></li>
+                      <li><a href="#">Tivi OLED</a></li>
+                      <li><a href="#">Tivi QLED</a></li>
+                    </ul>
+                    <ul>
+                      <h5>Máy Lạnh- Máy Điều Hòa</h5>
+                      <li><a href="">Máy lạnh bán chạy</a></li>
+                      <li><a href="">Máy lạnh mới 2020</a></li>
+                      <li><a href="">Máy lạnh Inverter</a></li>
+                      <li><a href="">Tủ lạnh Side by side</a></li>
+                      <li><a href="">Tủ lạnh mới 2020</a></li>
+                      <li><a href="">Tủ Đông - Tủ Mát</a></li>
+                      <li><a href="">Máy Rửa Chén</a></li>
+                      <li><a href="">Tủ Ướp Rượu</a></li>
+                      <li><a href="">Máy Nước Nóng</a></li>
+                    </ul>
+                    <ul>
+                      <h5>Máy Giặt</h5>
+                      <li><a href="">Máy giặt bán chạy</a></li>
+                      <li><a href="">Máy giặt mới 2020</a></li>
+                      <li><a href="">Máy giặt Inverter</a></li>
+                      <li><a href="">Máy Sấy Quần Áo</a></li>
+                    </ul>
+                    <ul>
+                      <li class="menu-details__list-item">
+                        <a href="#" class="ads-item">
+                          <img
+                            src="https://salt.tikicdn.com/ts/banner/22/5b/ba/74f7ac3ba734049cb3a6f36506841a6f.png"
+                            alt=""
+                          />
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </li>
               <li class="product-list-item">
                 <a href="#" class="item-link"><i class="fas fa-tv"></i> Đện tử - Điện lạnh</a>
                 <div class="lon">
@@ -1421,6 +1596,8 @@
       </div>
   </footer>
     <!-- end footer -->
+    
+    <script type="text/javascript" src="./assets/js/script.js"></script>
 </body>
 
 </html>
