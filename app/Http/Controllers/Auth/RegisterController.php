@@ -29,15 +29,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
-
-    protected function redirectTo()
-    {
-        if (auth()->user()->role == 1) {
-            return '/admin';
-        }
-        return '/home';
-    }
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
@@ -58,12 +50,9 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'username' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
-            'firstname' => ['required'],
-            'lastname' => ['required'],
-            'phone' => ['required'],
+            'username' => ['required', 'string', 'max:255', 'unique:users'],
+            'email' => ['required', 'string', 'email', 'max:255'],
+            'password' => ['required', 'string', 'min:6'],
             'birthday' => ['required'],
             'gender' => ['required'],
         ]);
@@ -80,10 +69,8 @@ class RegisterController extends Controller
         return User::create([
             'username' => $data['username'],
             'email' => $data['email'],
-            'password' => Hash::make($data['password']),
-            'firstname' => $data['firstname'],
-            'lastname' => $data['lastname'],
-            'phone' => $data['phone'],
+            'password' => ($data['password']),
+            'fullname' => $data['fullname'],
             'birthday' => $data['birthday'],
             'gender' => $data['gender'],
             'role' => config('app.user_role'),
