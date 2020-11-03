@@ -11,14 +11,18 @@
 |
 */
 
-Route::get('/', function () {
-    return view('layouts.welcome');
+Route::group(['middleware' => 'locale'], function() {
+    Route::get('change-language/{language}', 'changeLanguageController@changeLanguage')
+        ->name('user.change-language');
 });
+Route::get('/', 'HomeController@index')->name('home');
+
 
 Auth::routes([
-    'register' => true,
-    'verify' => true,
-    'reset' => true,
+    'verify' => false,
 ]);
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::name('admin.')->prefix('admin')->middleware(['auth', 'can:accessAdmin'])->group(function () {
+    Route::get('dashboard', 'DashboardController@index')->name('index');   
+    
+});

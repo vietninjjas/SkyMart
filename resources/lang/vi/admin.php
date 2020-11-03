@@ -2,16 +2,16 @@
 
 return [
     'user' => [
-        'fullname' => 'Full name',
+        'fullname' => 'Họ và tên',
         'email' => 'Email',
-        'birthday' => 'Birthday',
-        'phone' => 'Phone number',
-        'username' => 'Username',
-        'gender' => 'Gender',
+        'birthday' => 'Ngày sinh',
+        'phone' => 'Số điện thoại',
+        'username' => 'Tên đăng nhập',
+        'gender' => 'Giới tính',
         'created_at' => 'Created At',
-        'role' => 'Role',
+        'role' => 'Quyền',
         'admin_role' => 'Admin',
-        'user_role' => 'User'
+        'user_role' => 'Người dùng'
     ],
 
 ];

@@ -24,8 +24,7 @@ class User extends Authenticatable
         'username',
         'email', 
         'password',
-        'firstname',
-        'lastname',
+        'fullname',
         'avatar',
         'phone',
         'birthday',
@@ -72,5 +71,9 @@ class User extends Authenticatable
     public function reviews()
     {
         $this->hasMany(Review::class, 'user_id');
+    }
+    public function role($role) {     
+        if($role == $this->role) return true;
+        return false; 
     }
 }
