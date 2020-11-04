@@ -1,6 +1,7 @@
 <?php
 
 return [
+    'title' => 'TRANG QUẢN TRỊ',
     'user' => [
         'fullname' => 'Họ và tên',
         'email' => 'Email',
@@ -12,6 +13,23 @@ return [
         'role' => 'Quyền',
         'admin_role' => 'Admin',
         'user_role' => 'Người dùng'
+    ],
+    'action' => [
+        'create' => 'Thêm',
+        'edit' => 'Sửa',
+        'delete' => 'Xóa',
+        'search' => 'Tìm kiếm',
+    ],
+    'categories' => [
+        'cate_manage' => 'Quản lý danh mục',
+        'view' => 'Liệt kê danh mục',
+        'create' => 'Thêm danh mục',
+        'edit' => 'Sửa danh mục',
+        'id' => 'ID',
+        'cate_name' => 'Tên danh mục',
+        'cate_image' => 'Logo',
+        'cate_desc' => 'Mô tả',
+        'parent' => 'Danh mục',
     ],
 
 ];

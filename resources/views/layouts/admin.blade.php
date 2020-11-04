@@ -9,7 +9,7 @@
 	<link rel="icon" href="{{asset('assets/images/favico.ico')}}" type="image/ico" />
 
     <title>Trang quản trị | </title>
-
+    <base href="{{ asset('') }}">
     <!-- Bootstrap -->
     <link href="{{asset('./assets/vendors/bootstrap/dist/css/bootstrap.min.css')}}" rel="stylesheet">
     <!-- Font Awesome -->
@@ -36,7 +36,7 @@
         <div class="col-md-3 left_col">
           <div class="left_col scroll-view">
             <div class="navbar nav_title" style="border: 0;">
-              <a href="index.html" class="site_title">TRANG QUẢN TRỊ</a>
+              <a href="index.html" class="site_title">@lang('admin.title')</a>
             </div>
 
             <div class="clearfix"></div>
@@ -44,11 +44,15 @@
             <!-- menu profile quick info -->
             <div class="profile clearfix">
               <div class="profile_pic">
-                <img src="{{asset('./assets/images/img.jpg')}}" alt="..." class="img-circle profile_img">
+                @if(Auth::user()->avatar == null )
+                <img style="width: 50px; height:50px;" class="img-circle profile_img" src="https://scontent.fhan4-1.fna.fbcdn.net/v/t31.0-8/28516618_200630624025450_8616031184556736929_o.jpg?_nc_cat=104&ccb=2&_nc_sid=730e14&_nc_ohc=k67LiHerbroAX8cOilR&_nc_ht=scontent.fhan4-1.fna&oh=01f6237c7d825492f9671d468e0b33c7&oe=5FC611A6" alt="..." >
+                @else 
+                <img style="width: 50px; height:50px;" class="img-circle profile_img" src="images/users/{{ Auth::user()->avatar }}" alt="">
+                @endif
               </div>
               <div class="profile_info">
-                <span>Xin chào,</span>
-                <h2>Nguyên Dương</h2>
+                <span>@lang('main.acc.hello'),</span>
+                <h2>{{ Auth::user()->fullname }}</h2>
               </div>
             </div>
             <!-- /menu profile quick info -->
@@ -58,7 +62,7 @@
             <!-- sidebar menu -->
             <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
               <div class="menu_section">
-                <h3>General</h3>
+                <h3>Menu</h3>
                 <ul class="nav side-menu">
                   <li><a><i class="fa fa-home"></i> Trang chủ <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
@@ -72,10 +76,10 @@
                       <li><a href="banner.html">Liệt kê banner</a></li>
                     </ul>
                   </li>
-                  <li><a><i class="fa fa-navicon"></i> Quản lý danh mục <span class="fa fa-chevron-down"></span></a>
+                  <li><a><i class="fa fa-navicon"></i> @lang('admin.categories.cate_manage') <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="them-danhmuc.html">Thêm danh mục</a></li>
-                      <li><a href="xem-danhmuc.html">Liệt kê danh mục</a></li>
+                      <li><a href="{{ route('admin.category.create') }}">@lang('admin.categories.create')</a></li>
+                      <li><a href="{{ route('admin.category.index') }}">@lang('admin.categories.view')</a></li>
                     </ul>
                   </li>
                   <li><a><i class="fa fa-laptop"></i> Quản lý sản phẩm <span class="fa fa-chevron-down"></span></a>
@@ -108,7 +112,7 @@
                       <li><a href="banner.html">Thống kê khách hàng</a></li>
                     </ul>
                   </li>
-                  <li><a><i class="fa fa-backward"></i> Về trang chủ </a>
+                  <li><a href="{{ route('home') }}"><i class="fa fa-backward"></i> Về trang chủ </a>
                     
                   </li>
                  
