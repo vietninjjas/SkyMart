@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Category;
 use App\Product;
+use App\Deal;
 
 class HomeController extends Controller
 {
@@ -25,6 +26,7 @@ class HomeController extends Controller
         $banners = Banner::all();
         $products = Product::All();
         $proCount =1;
+        $deals = Deal::all();
         $categories = Category::with('products')->get();
         $topSales = Product::where('pro_sale', 1)->orderBy('updated_at', 'desc')->get();
         $hots = Product::orderBy('view', 'desc')->get();
@@ -35,7 +37,8 @@ class HomeController extends Controller
             'products',
             'proCount',
             'topSales',
-            'hots'
+            'hots',
+            'deals'
         ));
     }
 }

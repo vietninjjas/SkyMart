@@ -57,5 +57,14 @@ return [
         'create' => 'Tạo sản phẩm',
         'edit' => 'Cập nhật sản phẩm',
     ],
+    'deals' => [
+        'deal_manage' => 'Quản lý deal',
+        'view' => 'Liệt kê deal',
+        'create' => 'Thêm deal',
+        'edit' => 'Sửa banner',
+        'id' => 'ID',
+        'deal_image' => 'Ảnh Deal',
+        'deal_name' => 'Tên Deal',
+    ],
 
 ];
