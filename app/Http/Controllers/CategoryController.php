@@ -27,6 +27,7 @@ class CategoryController extends Controller
     public function create()
     {
         $categories = Category::whereNull('parent_id')->get();
+        
         return view('category.create', compact('categories'));
     }
 
@@ -104,17 +105,11 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-<<<<<<< HEAD
-    public function destroy($id)
-    {
-        //
-=======
     public function destroy($cateId)
     {
         $cate = Category::findOrFail($cateId);
         $cate->delete();
 
         return redirect()->route('admin.category.index');
->>>>>>> Category in admin and show main-site by viet
     }
 }

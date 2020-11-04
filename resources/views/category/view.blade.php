@@ -59,7 +59,7 @@
                   </tr>
                 </thead>
                 <tbody>
-                    @foreach($categories as $cate)
+                  @foreach($categories as $cate)
                   <tr>
                     <td>{{ $cate->cate_id }}</td>
                     <td>{{ $cate->cate_name }}</td>
@@ -73,9 +73,6 @@
                     <td>{{ $cate->cate_desc }}</td>
                     <td class="text-center"><a href="{{ route('admin.category.edit', $cate->cate_id) }}" class="btn btn-outline-info btn-xs"><i class="fa fa-pencil"></i> @lang('admin.action.edit') </a></td>
                     <td class="text-center">
-                      <a href="#" class="btn btn-outline-danger btn-xs"><i class="fa fa-trash-o"></i> @lang('admin.action.delete') </a>
-                    </td>
-                  </tr>
                       <form action="{{ route('admin.category.destroy', $cate->cate_id) }}" method="post">
                         @csrf
                         @method('DELETE')
