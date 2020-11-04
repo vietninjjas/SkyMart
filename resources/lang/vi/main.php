@@ -27,4 +27,5 @@ return [
         'acc_info' => 'Thông tin tài khoản',
         'admin_page' => 'Trang quản trị',
     ],
+    'categories' => 'Danh mục',
 ];
