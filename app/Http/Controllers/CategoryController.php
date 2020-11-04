@@ -87,9 +87,11 @@ class CategoryController extends Controller
     public function update(Request $request, $cateId)
     {
         $cate = Category::findOrFail($cateId);
+
         $file = $request->file('cate_logo');
         $fileName = uniqid() . '_' . $file->getClientOriginalName();
         $file->move('images/categories', $fileName);
+        
         $cate->cate_name = $request->input('cate_name');
         $cate->cate_desc = $request->input('cate_desc');
         $cate->cate_logo = $fileName;
