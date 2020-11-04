@@ -76,6 +76,35 @@
                       <a href="#" class="btn btn-outline-danger btn-xs"><i class="fa fa-trash-o"></i> @lang('admin.action.delete') </a>
                     </td>
                   </tr>
+                      <form action="{{ route('admin.category.destroy', $cate->cate_id) }}" method="post">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-outline-danger"><i class="fa fa-trash-o"></i> @lang('admin.action.delete') </button>
+                      </form>
+                    </td>
+                  </tr>
+                    @foreach($cate->children as $key)
+                    <tr>
+                      <td>{{ $key->cate_id }}</td>
+                      <td>―― {{ $key->cate_name }}</td>
+                      <td>
+                          @if ($key->cate_logo == null)
+                              <img class="img-thumbnail" style="width: 100px; height:100px;" src="https://logos.textgiraffe.com/logos/logo-name/Cate-designstyle-smoothie-m.png" alt="">
+                          @else 
+                              <img class="img-thumbnail" style="width: 100px; height:100px;" src="images/categories/{{ $cate->cate_logo }}" alt="">
+                          @endif
+                      </td>
+                      <td>{{ $key->cate_desc }}</td>
+                      <td class="text-center"><a href="{{ route('admin.category.edit', $key->cate_id) }}" class="btn btn-outline-info btn-xs"><i class="fa fa-pencil"></i> @lang('admin.action.edit') </a></td>
+                      <td class="text-center">
+                        <form action="{{ route('admin.category.destroy', $key->cate_id) }}" method="post">
+                          @csrf
+                          @method('DELETE')
+                          <button type="submit" class="btn btn-outline-danger"><i class="fa fa-trash-o"></i> @lang('admin.action.delete') </button>
+                        </form>
+                      </td>
+                    </tr>
+                    @endforeach
                     @endforeach
                 </tbody>
               </table>

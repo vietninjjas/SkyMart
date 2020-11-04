@@ -10,7 +10,9 @@
             <ul class="product-list">
                 @foreach($categories as $cate)
                 <li class="product-list-item">
-                    <a href="{{$cate->cate_id}}" class="item-link"><i class="fas fa-tablet-alt"></i>{{ $cate->cate_name }}</a>
+                    <a href="{{$cate->cate_id}}" class="item-link">
+                        <img style="width: 20px; height:20px" src="images/categories/{{ $cate->cate_logo }}" alt="">
+                        {{ $cate->cate_name }}</a>
                     <div class="lon">
                         <div class="cac">
                             <ul>
