@@ -72,8 +72,8 @@
                   </li>
                   <li><a><i class="fa fa-image"></i> Quản lý banner <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="them-banner.html">Thêm banner mới</a></li>
-                      <li><a href="banner.html">Liệt kê banner</a></li>
+                      <li><a href="{{ route('admin.banner.create')}}">Thêm banner mới</a></li>
+                      <li><a href="{{ route('admin.banner.index')}}">Liệt kê banner</a></li>
                     </ul>
                   </li>
                   <li><a><i class="fa fa-navicon"></i> @lang('admin.categories.cate_manage') <span class="fa fa-chevron-down"></span></a>

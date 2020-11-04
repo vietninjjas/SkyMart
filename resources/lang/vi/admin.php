@@ -31,5 +31,14 @@ return [
         'cate_desc' => 'Mô tả',
         'parent' => 'Danh mục',
     ],
+    'banners' => [
+        'ban_manage' => 'Quản lý banner',
+        'view' => 'Liệt kê banner',
+        'create' => 'Thêm banner',
+        'edit' => 'Sửa banner',
+        'id' => 'ID',
+        'ban_image' => 'Ảnh Banner',
+        'ban_name' => 'Tên Banner', 
+    ]
 
 ];
