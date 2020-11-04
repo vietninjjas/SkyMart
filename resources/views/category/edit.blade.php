@@ -53,17 +53,21 @@
                         <img class="img-thumbnail" style="width: 100px; height:100px;" src="images/categories/{{ $cate->cate_logo }}" alt="">
                     @endif
                 </div>
+                @if($cate->parent_id != null)
                 <div class="item form-group">
                   <label for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">@lang('admin.categories.parent')</label>
                   <div class="col-md-6 col-sm-6 ">
                     <select class="form-control" name="parent_id">
                         <option value="">___</option>
                         @foreach ($categories as $category)
+                            @if($category->cate_id != $cate->cate_id)
                             <option value="{{ $category->cate_id }}">{{ $category->cate_name }}</option>
+                            @endif
                         @endforeach
                     </select>
                   </div>
                 </div>
+                @endif
                 <div class="ln_solid"></div>
                 <div class="item form-group">
                   <div class="col-md-6 col-sm-6 offset-md-3">
