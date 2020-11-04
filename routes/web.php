@@ -25,4 +25,5 @@ Auth::routes([
 Route::name('admin.')->prefix('admin')->middleware(['auth', 'can:accessAdmin'])->group(function () {
     Route::get('dashboard', 'DashboardController@index')->name('index');
     Route::resource('category', 'CategoryController');
+    Route::resource('banner', 'BannerController');
 });
