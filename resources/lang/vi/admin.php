@@ -39,6 +39,23 @@ return [
         'id' => 'ID',
         'ban_image' => 'Ảnh Banner',
         'ban_name' => 'Tên Banner', 
-    ]
+    ],
+    'products' => [
+        'id' => 'ID',
+        'pro_name' => 'Tên sản phẩm',
+        'pro_manage' => 'Quản lý sản phẩm',
+        'view' => 'Liệt kê sản phẩm',
+        'pro_image' => 'Ảnh',
+        'pro_desc' => 'Mô tả',
+        'category' => 'Danh mục',
+        'quantity' => 'Số lượng',
+        'pro_old_price' => 'Giá cũ',
+        'pro_new_price' => 'Giá mới',
+        'pro_sale' => 'Giảm giá',
+        'sale' => 'Có',
+        'not_sale' => 'Không',
+        'create' => 'Tạo sản phẩm',
+        'edit' => 'Cập nhật sản phẩm',
+    ],
 
 ];

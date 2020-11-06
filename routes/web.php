@@ -26,4 +26,6 @@ Route::name('admin.')->prefix('admin')->middleware(['auth', 'can:accessAdmin'])-
     Route::get('dashboard', 'DashboardController@index')->name('index');
     Route::resource('category', 'CategoryController');
     Route::resource('banner', 'BannerController');
+    Route::resource('product', 'ProductController');
 });
+route::get('product/show/{id}', 'ProductController@show')->name('product.show');
