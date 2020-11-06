@@ -84,8 +84,8 @@
                   </li>
                   <li><a><i class="fa fa-laptop"></i> Quản lý sản phẩm <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="them-sp.html">Thêm sản phẩm</a></li>
-                      <li><a href="banner.html">Liệt kê sản phẩm</a></li>
+                      <li><a href="{{ route('admin.product.create') }}">Thêm sản phẩm</a></li>
+                      <li><a href="{{ route('admin.product.index') }}">Liệt kê sản phẩm</a></li>
                     </ul>
                   </li>
                   <li><a><i class="fa fa-edit"></i> Quản lý đánh giá, bình luận <span class="fa fa-chevron-down"></span></a>

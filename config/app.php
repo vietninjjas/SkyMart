@@ -20,6 +20,10 @@ return [
     ],
     'user_role' => 0,
     'admin_role' => 1,
+    'sale_status' => [
+        1 => 'sale',
+        0 => 'not_sale',
+    ],
     /*
     |--------------------------------------------------------------------------
     | Application Environment

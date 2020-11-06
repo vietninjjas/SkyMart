@@ -6,6 +6,7 @@ use App\Banner;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Category;
+use App\Product;
 
 class HomeController extends Controller
 {
@@ -21,8 +22,20 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $categories = Category::whereNull('parent_id')->get();
         $banners = Banner::all();
-        return view('home', compact('categories', 'banners'));
+        $products = Product::All();
+        $proCount =1;
+        $categories = Category::with('products')->get();
+        $topSales = Product::where('pro_sale', 1)->orderBy('updated_at', 'desc')->get();
+        $hots = Product::orderBy('view', 'desc')->get();
+        
+        return view('home', compact(
+            'banners',
+            'categories',
+            'products',
+            'proCount',
+            'topSales',
+            'hots'
+        ));
     }
 }
