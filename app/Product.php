@@ -25,17 +25,17 @@ class Product extends Model
 
     public function category()
     {
-        $this->belongsTo(Category::class, 'cate_id');
+        return $this->belongsTo(Category::class, 'cate_id');
     }
 
     public function reviews()
     {
-        $this->hasMany(Review::class, 'pro_id');
+        return $this->hasMany(Review::class, 'pro_id');
     }
 
     public function wishlists()
     {
-        $this->hasMany(Wishlist::class, 'pro_id');
+        return $this->hasMany(Wishlist::class, 'pro_id');
     }
 
 }
