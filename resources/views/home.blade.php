@@ -12,7 +12,7 @@
                     @foreach ($categories as $cate)
                     @if ($cate->parent_id == null)
                     <li class="product-list-item">
-                        <a href="{{ $cate->cate_id }}" class="item-link">
+                        <a href="{{ route('category.show', $cate->cate_id) }}" class="item-link">
                             <img style="width: 20px; height:20px" src="images/categories/{{ $cate->cate_logo }}" alt="">
                             {{ $cate->cate_name }}
                         </a>
@@ -26,6 +26,7 @@
                                     @if ($proCount++ == 5) @break @endif
                                     @endforeach
                                 </ul>
+                                @if ($cateCount++ == 3) @break @endif
                                 @endforeach
                             </div>
                         </div>

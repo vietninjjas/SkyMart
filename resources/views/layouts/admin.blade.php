@@ -37,7 +37,7 @@
       <div class="col-md-3 left_col">
         <div class="left_col scroll-view">
           <div class="navbar nav_title" style="border: 0;">
-            <a href="index.html" class="site_title">@lang('admin.title')</a>
+            <a href="{{ route('admin.index')}}" class="site_title">@lang('admin.title')</a>
           </div>
 
           <div class="clearfix"></div>
@@ -49,7 +49,7 @@
               <ul class="nav side-menu">
                 <li><a><i class="fa fa-home"></i> Trang chủ <span class="fa fa-chevron-down"></span></a>
                   <ul class="nav child_menu">
-                    <li><a href="index.html">Dashboard</a></li>
+                    <li><a href="{{ route('admin.index')}}">Dashboard</a></li>
 
                   </ul>
                 </li>
@@ -106,81 +106,12 @@
             </div>
 
           </div>
-          <div class="profile_info">
-            <span>@lang('main.acc.hello'),</span>
-            <h2>{{ Auth::user()->fullname }}</h2>
-          </div>
         </div>
         <!-- /menu profile quick info -->
 
         <br />
 
-        <!-- sidebar menu -->
-        <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
-          <div class="menu_section">
-            <h3>Menu</h3>
-            <ul class="nav side-menu">
-              <li><a><i class="fa fa-home"></i> Trang chủ <span class="fa fa-chevron-down"></span></a>
-                <ul class="nav child_menu">
-                  <li><a href="index.html">Dashboard</a></li>
-
-                </ul>
-              </li>
-              <li><a><i class="fa fa-image"></i> Quản lý banner <span class="fa fa-chevron-down"></span></a>
-                <ul class="nav child_menu">
-                  <li><a href="{{ route('admin.deal.create')}}">Thêm deal mới</a></li>
-                  <li><a href="{{ route('admin.deal.index')}}">Liệt kê deal</a></li>
-                  <li><a href="{{ route('admin.banner.create')}}">Thêm banner mới</a></li>
-                  <li><a href="{{ route('admin.banner.index')}}">Liệt kê banner</a></li>
-                </ul>
-              </li>
-              <li><a><i class="fa fa-navicon"></i> @lang('admin.categories.cate_manage') <span class="fa fa-chevron-down"></span></a>
-                <ul class="nav child_menu">
-                  <li><a href="{{ route('admin.category.create') }}">@lang('admin.categories.create')</a></li>
-                  <li><a href="{{ route('admin.category.index') }}">@lang('admin.categories.view')</a></li>
-                </ul>
-              </li>
-              <li><a><i class="fa fa-laptop"></i> Quản lý sản phẩm <span class="fa fa-chevron-down"></span></a>
-                <ul class="nav child_menu">
-                  <li><a href="them-sp.html">Thêm sản phẩm</a></li>
-                  <li><a href="banner.html">Liệt kê sản phẩm</a></li>
-                </ul>
-              </li>
-              <li><a><i class="fa fa-edit"></i> Quản lý đánh giá, bình luận <span class="fa fa-chevron-down"></span></a>
-                <ul class="nav child_menu">
-                  <li><a href="banner.html">Xem đánh giá, bình luận</a></li>
-
-                </ul>
-              </li>
-              <li><a><i class="fa fa-money"></i> Quản lý đơn hàng <span class="fa fa-chevron-down"></span></a>
-                <ul class="nav child_menu">
-                  <li><a href="banner.html">Xem đơn hàng</a></li>
-                </ul>
-              </li>
-              <li><a><i class="fa fa-user"></i> Quản lý khách hàng <span class="fa fa-chevron-down"></span></a>
-                <ul class="nav child_menu">
-                  <li><a href="banner.html">Thêm người dùng mới</a></li>
-                  <li><a href="banner.html">Xem chi tiết khách hàng</a></li>
-                </ul>
-              </li>
-              <li><a><i class="fa fa-bar-chart"></i> Thống kê <span class="fa fa-chevron-down"></span></a>
-                <ul class="nav child_menu">
-                  <li><a href="banner.html">Thống kê hoàng hóa</a></li>
-                  <li><a href="banner.html">Thống kê đơn hàng</a></li>
-                  <li><a href="banner.html">Thống kê khách hàng</a></li>
-                </ul>
-              </li>
-              <li><a href="{{ route('home') }}"><i class="fa fa-backward"></i> Về trang chủ </a>
-
-              </li>
-
-
-            </ul>
-          </div>
-
-        </div>
-        <!-- /sidebar menu -->
-
+        
         <!-- /menu footer buttons -->
         <div class="sidebar-footer hidden-small">
           <a data-toggle="tooltip" data-placement="top" title="Settings">

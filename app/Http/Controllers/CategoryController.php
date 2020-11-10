@@ -60,6 +60,14 @@ class CategoryController extends Controller
      */
     public function show($cateId)
     {
+        $categories = Category::all();
+        $cate = Category::findOrFail($cateId);
+
+        return view('category.show', compact('cate', 'categories'));
+    }
+
+    public function filterProductCategory($search)
+    {
         
     }
 
