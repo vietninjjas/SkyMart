@@ -144,20 +144,21 @@
                                 <div class="dropdown">
                                     <button class="dropdown-toggle" type="button" id="dropdownMenuButton"
                                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <i class="fas fa-user"></i> 
                                         @lang('main.acc.hello') {{ Auth::user()->fullname }}
                                     </button>
-                                    <div class="dropdown-menu bg-info" aria-labelledby="dropdownMenuButton">
-                                        <a class="dropdown-item text-dark" href="#">@lang('main.acc.acc_info')</a>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                        <a class="dropdown-item text-dark" href="#"><i class="fas fa-user"></i> @lang('main.acc.acc_info')</a>
                                         @if (Auth::user()->role == 1)
                                             <a class="dropdown-item text-dark"
-                                                href="{{ route('admin.index') }}">@lang('main.acc.admin_page')</a>
+                                                href="{{ route('admin.index') }}"><i class="fas fa-user-shield"></i> @lang('main.acc.admin_page')</a>
                                         @endif
                                         <a class="dropdown-item text-dark"
-                                            href="#">@lang('main.acc.changed_password')</a>
-                                        <form action="{{ route('logout') }}" method="post">
+                                            href="#"> <i class="fas fa-exchange-alt"></i> @lang('main.acc.changed_password')</a>
+                                        <form action="{{ route('logout') }}" method="post" style="margin-left: 40px">
                                             @csrf
                                             <button>
-                                                <i class="fas fa-sign-out-alt"></i>
+                                                <i class="fas fa-sign-out-alt"></i> 
                                                 @lang('main.acc.logout')
                                             </button>
                                         </form>
@@ -166,7 +167,7 @@
                             </li>
                         @else
                             <li>
-                                <a href="#ex1" rel="modal:open">@lang('main.acc.login')</a>
+                                <a href="#ex1" rel="modal:open"><i class="fa fa-user" aria-hidden="true"></i> @lang('main.acc.login')</a>
 
                             </li>
                         @endif
