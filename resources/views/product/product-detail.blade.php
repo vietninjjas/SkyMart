@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-    <div class="container-product p-5">
+    <div class="container-product">
         <div class="container-row">
             <div class="product-image">
                 <img class="demo"
@@ -164,7 +164,7 @@
         </div>
     </div>
     <!-- end brand -->
-    <div class="container m-5">
+    <div class="container">
         <h2>SẢN PHẨM TƯƠNG TỰ</h2>
         <div class="container-row">
             <div class="custom-slider">
@@ -231,7 +231,7 @@
             <li>Tròng kính có khả năng chống tia cực tím, bảo vệ an toàn tuyệt đối đôi mắt của bạn khi đi ngoài trời
                 nắng gắt.</li>
         </ul>
-        <p>Giá sản phẩm trên Tiki đã bao gồm thuế theo luật hiện hành. Tuy nhiên tuỳ vào từng loại sản phẩm hoặc
+        <p>Giá sản phẩm trên Sky Mart đã bao gồm thuế theo luật hiện hành. Tuy nhiên tuỳ vào từng loại sản phẩm hoặc
             phương thức, địa chỉ giao hàng mà có thể phát sinh thêm chi phí khác như phí vận chuyển, phụ phí hàng
             cồng kềnh, ...</p>
     </div>
@@ -331,4 +331,14 @@
             </div>
         </div>
     </div>
+    <script>
+        $(document).ready(function(){
+            $("#haha li img").click(function(){ //khi click vào thẻ img
+                var getId = $(this).attr("src"); // đặt biến là getID = src ảnh của khi click
+                console.log(getId); //xuất ra xem
+                $(".demo").attr("src",getId); //sau khi click thẻ img có class demo sẽ thay đổi src mặc định sang src của getID(ảnh được click)
+            })
+        })
+    </script>
 @endsection
+
