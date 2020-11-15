@@ -225,6 +225,12 @@
     width: 30%;
 }
 /*  */
+.container-product{
+    width: 1200px;
+    max-width: 100%;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
 .container-product table tbody tr td{
     font-size: 1.3rem;
 }
