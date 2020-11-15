@@ -33,7 +33,15 @@ Route::name('admin.')->prefix('admin')->middleware(['auth', 'can:accessAdmin'])-
         Route::resource('banner', 'BannerController');
         Route::resource('product', 'ProductController');
         Route::resource('deal', 'DealController');
+        Route::resource('user', 'Auth\UserController');
     }
 );
 route::get('product/show/{id}', 'ProductController@show')->name('product.show');
 route::get('category/show/{id}', 'CategoryController@show')->name('category.show');
+Route::resource('account', 'Auth\AccountController')->only(
+    [
+        'show',
+        'edit',
+        'update'
+    ]
+);

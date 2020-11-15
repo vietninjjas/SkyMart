@@ -12,13 +12,20 @@ return [
         'created_at' => 'Created At',
         'role' => 'Quyền',
         'admin_role' => 'Admin',
-        'user_role' => 'Người dùng'
+        'user_role' => 'Người dùng',
+        'user_manage' => 'Quản lý khách hàng',
+        'cate_manage' => 'Quản lý danh mục',
+        'view' => 'Danh sách khách hàng',
+        'show' => 'Chi tiết',
+        'edit' => 'Chỉnh sửa',
+        'id' => 'ID',
     ],
     'action' => [
         'create' => 'Thêm',
         'edit' => 'Sửa',
         'delete' => 'Xóa',
         'search' => 'Tìm kiếm',
+        'show' => 'Chi tiết',
     ],
     'categories' => [
         'cate_manage' => 'Quản lý danh mục',
