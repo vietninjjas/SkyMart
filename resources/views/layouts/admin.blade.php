@@ -86,8 +86,7 @@
                 </li>
                 <li><a><i class="fa fa-user"></i> Quản lý khách hàng <span class="fa fa-chevron-down"></span></a>
                   <ul class="nav child_menu">
-                    <li><a href="banner.html">Thêm người dùng mới</a></li>
-                    <li><a href="banner.html">Xem chi tiết khách hàng</a></li>
+                    <li><a href="{{ route('admin.user.index') }}">@lang('admin.user.view')</a></li>
                   </ul>
                 </li>
                 <li><a><i class="fa fa-bar-chart"></i> Thống kê <span class="fa fa-chevron-down"></span></a>

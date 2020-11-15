@@ -148,7 +148,7 @@
                                         @lang('main.acc.hello') {{ Auth::user()->fullname }}
                                     </button>
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                        <a class="dropdown-item text-dark" href="#"><i class="fas fa-user"></i> @lang('main.acc.acc_info')</a>
+                                        <a class="dropdown-item text-dark" href="{{ route('account.show', Auth::user()->user_id) }}"><i class="fas fa-user"></i> @lang('main.acc.acc_info')</a>
                                         @if (Auth::user()->role == 1)
                                             <a class="dropdown-item text-dark"
                                                 href="{{ route('admin.index') }}"><i class="fas fa-user-shield"></i> @lang('main.acc.admin_page')</a>
