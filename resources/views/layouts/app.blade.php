@@ -154,7 +154,7 @@
                                                 href="{{ route('admin.index') }}"><i class="fas fa-user-shield"></i> @lang('main.acc.admin_page')</a>
                                         @endif
                                         <a class="dropdown-item text-dark"
-                                            href="#"> <i class="fas fa-exchange-alt"></i> @lang('main.acc.changed_password')</a>
+                                    href=""> <i class="fas fa-exchange-alt"></i> @lang('main.acc.changed_password')</a>
                                         <form action="{{ route('logout') }}" method="post" style="margin-left: 40px">
                                             @csrf
                                             <button>
