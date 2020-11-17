@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\User;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -49,7 +50,9 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
+        $user = User::findOrFail($id);
+
+        return view('auth.admin.show', compact('user'));
     }
 
     /**
@@ -83,6 +86,8 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        User::destroy($id);
+
+        return redirect()->route('admin.user.index');
     }
 }

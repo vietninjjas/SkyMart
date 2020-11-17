@@ -19,6 +19,8 @@ return [
         'show' => 'Chi tiết',
         'edit' => 'Chỉnh sửa',
         'id' => 'ID',
+        'female' => 'Nữ',
+        'male' => 'Nam',
     ],
     'action' => [
         'create' => 'Thêm',

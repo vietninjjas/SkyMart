@@ -213,6 +213,7 @@
             <h2 class="alert alert-warning">@lang('main.cate_quantam')</h2>
             <div id="gallery">
                 @foreach ($categories as $cate)
+                @if($cate->parent_id != null)
                 <div class="pro-hov">
                     <div class="product-top">
                         <img src="images/categories/{{ $cate->cate_logo }}" alt="">
@@ -221,6 +222,7 @@
                         <p class="title text-center">{{ $cate->cate_name }}</p>
                     </div>
                 </div>
+                @endif
                 @endforeach
             </div>
             <!-- end top bán chạy -->
