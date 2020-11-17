@@ -38,10 +38,6 @@ Route::name('admin.')->prefix('admin')->middleware(['auth', 'can:accessAdmin'])-
 );
 route::get('product/show/{id}', 'ProductController@show')->name('product.show');
 route::get('category/show/{id}', 'CategoryController@show')->name('category.show');
-Route::resource('account', 'Auth\AccountController')->only(
-    [
-        'show',
-        'edit',
-        'update'
-    ]
-);
+Route::resource('account', 'Auth\AccountController');
+Route::get('account/{id}/changePass', 'Auth\AccountController@changePass')->name('account.changePass');
+Route::post('account/{id}/updatePass', 'Auth\AccountController@updatePass')->name('account.updatePass');
