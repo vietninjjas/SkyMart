@@ -64,10 +64,11 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        $view = Product::findOrFail($id);
-        $view->increment('view');
+        $products = Product::all();
+        $product = Product::findOrFail($id);
+        $product->increment('view');
 
-        return view('product.product-detail');
+        return view('product.product-detail', compact('product', 'products'));
     }
 
     /**
