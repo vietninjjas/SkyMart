@@ -4,9 +4,7 @@
         <div class="container-product p-5 mt-5">
             <div class="container-row">
                 <div class="product-image">
-                    <img class="demo"
-                        src="https://salt.tikicdn.com/cache/w444/ts/product/a2/f7/42/6f366d0c02929dddd7d35ed524e1cd1d.jpg"
-                        alt="">
+                    <img class="demo" src="images/products/{{ $product->pro_image }}" alt="">
                     <ul id="haha">
                         <li>
                             <img src="https://salt.tikicdn.com/cache/w444/ts/product/a2/f7/42/6f366d0c02929dddd7d35ed524e1cd1d.jpg"
@@ -33,15 +31,13 @@
                 <!-- end img -->
                 <div class="brand">
                     <ul class="top-brand">
-                        <li>Thương Hiệu: <a href="">DKY</a></li>
-                        <li>Đứng thứ 1 trong <a href="">Top 1000 Kính mát nữ bán chạy tháng này</a></li>
+                        <li>@lang('main.categories') <a href="">{{ $product->category->cate_name }}</a></li>
                     </ul>
                     <div class="brand-header">
                         <ul>
                             <li><img src="./assets/images/logo_nne.png" alt=""></li>
                             <li>
-                                Mắt kính nữ form vuông chữ V màu đen gọng vàng, tròng Polaroid phân cực chống tia UV. mã
-                                DKY6035D
+                                {{ $product->pro_name }}
                             </li>
                             <li>
                                 <i class="fas fa-star"></i>
@@ -51,24 +47,20 @@
                                 <i class="fas fa-star"></i>
                                 (xem 49 đánh giá)
                             </li>
-    
+
                         </ul>
                     </div>
                     <div class="brand-content">
                         <div class="left">
                             <div class="price-and-icon">
                                 <div class="flash-sale-price">
-                                    <span>144.000 ₫</span>
-                                    <span>-64%</span>
-                                    <span>399.000 ₫</span>
+                                    <span>{{ $product->pro_new_price }} ₫</span>
+                                    <span>{{ FLOOR(($product->pro_new_price / $product->pro_old_price) * 100) }}%</span>
+                                    <span>{{ $product->pro_old_price }}</span>
                                 </div>
                             </div>
-                            <div class="coupon">
-                                1 Mã giảm giá
-                                <div class="coupon__tag">Giảm 10K</div>
-                            </div>
                             <div class="inner">
-                                Bạn hãy <a href="">NHẬP ĐỊA CHỈ</a> nhận hàng để được dự báo thời gian & chi phí giao
+                                Bạn hãy NHẬP ĐỊA CHỈ nhận hàng để được dự báo thời gian & chi phí giao
                                 hàng
                                 một cách chính xác nhất.
                             </div>
@@ -85,7 +77,7 @@
                                             src="https://frontend.tikicdn.com/_desktop-next/static/img/pdp_revamp_v2/icons-add.svg">
                                     </button>
                                 </div>
-                                <div class="yellow"><span>Chỉ còn lại 3 sản phẩm</span></div>
+                                <div class="yellow"><span>Chỉ còn lại {{ $product->quantity }} sản phẩm</span></div>
                                 <div class="group-button">
                                     <button class="btn btn-add-to-cart">Chọn mua</button>
                                 </div>
@@ -113,135 +105,38 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="right">
-                            <div class="seller-description">Cam kết chính hiệu bởi</div>
-                            <!--  -->
-                            <div class="seller-icon-and-name">
-                                <img class="icon-store"
-                                    src="https://salt.tikicdn.com/cache/w220/ts/seller/80/db/22/6de50458d7db49471069a181b36074c1.jpg">
-                                <div>
-                                    <a href="https://tiki.vn/cua-hang/cty-tnhh-tan-thien-phat" class="seller-name">
-                                        <span>Cty TNHH Tân Thiên Phát</span> <br>
-                                        <span class="view-more">Xem Shop</span>
-                                    </a>
-                                </div>
-                            </div>
-                            <!--  -->
-                            <div class="warranty-item">
-                                <span class="itemLeft">Thời gian bảo hành</span>
-                                <span class="itemRight"> 6 tháng</span>
-                            </div>
-                            <!--  -->
-                            <div class="benefit-item">
-                                <div class="compensation">
-                                    <img src="https://frontend.tikicdn.com/_desktop-next/static/img/icons/compensation.svg">
-                                    <br>
-                                    <span>Hoàn tiền<br><b>
-                                            111%
-                                        </b><br><a style="color:#242424; text-decoration: underline;"
-                                            href="https://drive.google.com/file/d/1po3r6qApp-q7JDB5kwGKujVtvInfO-ih/view"
-                                            target="_blank">nếu giả</a></span>
-                                </div>
-                                <div class="guarantee">
-                                    <img
-                                        src="https://frontend.tikicdn.com/_desktop-next/static/img/pdp_revamp_v2/guarantee.svg">
-                                    <br>
-                                    <span>
-                                        <!-- -->Mở hộp<br>kiểm tra<br>nhận hàng
-                                        <!-- -->
-                                    </span>
-                                </div>
-                                <div class="refund">
-                                    <img src="https://frontend.tikicdn.com/_desktop-next/static/img/icons/refund.svg">
-                                    <br>
-                                    <span>Đổi trả trong<br><b>7 ngày</b><br>nếu sp lỗi</span>
-                                </div>
-                            </div>
-                            <!--  -->
-                        </div>
                     </div>
                 </div>
                 <!-- end brand -->
             </div>
         </div>
     </div>
-    
+
     <!-- end brand -->
     <div class="container">
         <h2>SẢN PHẨM TƯƠNG TỰ</h2>
         <div class="container-product">
-            
+
             <div class="container-row">
                 <div class="custom-slider">
-                    <div class="custom-box"><a href="#"><img src="../assets/images/topbanchay1.jpg" alt=""> </a></div>
-                    <div class="custom-box"><a href="#"><img src="../assets/images/topbanchay2.jpg" alt=""></a></div>
-                    <div class="custom-box"><a href="#"><img src="../assets/images/topbanchay3.jpg" alt=""></a></div>
-                    <div class="custom-box"><a href="#"><img src="../assets/images/topbanchay4.png" alt=""></a></div>
-                    <div class="custom-box"><a href="#"><img src="../assets/images/topbanchay5.jpg" alt=""></a></div>
-                    <div class="custom-box"><a href="#"><img src="../assets/images/topbanchay6.jpg" alt=""></a></div>
-                    <div class="custom-box"><a href="#"><img src="../assets/images/topbanchay7.jpg" alt=""></a></div>
-                    <div class="custom-box"><a href="#"><img src="../assets/images/topbanchay8.jpg" alt=""></a></div>
-                    <div class="custom-box"><a href="#"><img src="../assets/images/topbanchay10.jpg" alt=""></a></div>
-                    <div class="custom-box"><a href="#"><img src="../assets/images/topbanchay11.jpg" alt=""></a></div>
-                    <div class="custom-box"><a href="#"><img src="../assets/images/topbanchay12.jpg" alt=""></a></div>
-                    <div class="custom-box"><a href="#"><img src="../assets/images/topbanchay13.jpg" alt=""></a></div>
-                    <div class="custom-box"><a href="#"><img src="../assets/images/topbanchay14.jpg" alt=""></a></div>
-                    <div class="custom-box"><a href="#"><img src="../assets/images/topbanchay15.jpg" alt=""></a></div>
-                    <div class="custom-box"><a href="#"><img src="../assets/images/topbanchay9.jpg" alt=""></a></div>
+                    @foreach ($products as $pro)
+                        @if ($pro->cate_id == $product->cate_id && $pro->pro_id != $product->pro_id)
+                            <div class="custom-box">
+                                <a href="{{ route('product.show', $pro->pro_id) }}">
+                                    <img src="images/products/{{ $pro->pro_image }}" alt="">
+                                </a>
+                            </div>
+                        @endif
+                    @endforeach
                 </div>
             </div>
         </div>
-        <h2>THÔNG TIN CHI TIẾT</h2>
-        <div class="container-product">
-            
-            <table class="table table-striped table-bordered ">
-                <tbody>
-                    <tr>
-                        <td>Thương hiệu</td>
-                        <td>Chanel</td>
-                    </tr>
-                    <tr>
-                        <td>Xuất xứ thương hiệu</td>
-                        <td>Việt Nam</td>
-                    </tr>
-                    <tr>
-                        <td>Xuất xứ</td>
-                        <td>Ấn Độ</td>
-                    </tr>
-                    <tr>
-                        <td>SKU</td>
-                        <td>1346871900650</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
         <h2>MÔ TẢ SẢN PHẨM</h2>
         <div class="container-product">
-            
-            <ul class="ToggleContent">
-                <li>Kính râm là phụ kiện hoàn hảo dành cho những bạn trẻ ưa vẻ đẹp đơn giản và hiện đại.</li>
-                <li>Kính râm không chỉ đơn là một vật dụng bảo vệ đôi mắt mà còn góp phần khẳng định phong cách của
-                    người sử dụng.</li>
-                <li>Với thiết kế tối giản, kính râm sẽ là phụ kiện hoàn hảo cho người dùng.</li>
-                <li>Tròng kính có khả năng chống tia cực tím, bảo vệ an toàn tuyệt đối đôi mắt của bạn khi đi ngoài trời
-                    nắng gắt.</li>
-            </ul>
-            <!--  -->
-           
-            <p>Giá sản phẩm trên Tiki đã bao gồm thuế theo luật hiện hành. Tuy nhiên tuỳ vào từng loại sản phẩm hoặc
-                phương thức, địa chỉ giao hàng mà có thể phát sinh thêm chi phí khác như phí vận chuyển, phụ phí hàng
-                cồng kềnh, ...</p>
+            <p>{{ $product->pro_desc }}</p>
         </div>
         <h2>ĐÁNH GIÁ</h2>
-        <div class=" container-product ">
-            
-            <ul class="filter-review-item">
-                <li>5 <i class="far fa-star"></i></li>
-                <li>4 <i class="far fa-star"></i></li>
-                <li>3 <i class="far fa-star"></i></li>
-                <li>2 <i class="far fa-star"></i></li>
-                <li>1 <i class="far fa-star"></i></li>
-            </ul>
+        <div class="container-product">
             <!-- end phần nút bấm đánh giá -->
             <div class="review-rating__inner">
                 <div class="review-rating__summary">
@@ -281,8 +176,8 @@
                 <div class="review-rating__detail">
                     <div class="review-rating__level">
                         <div class="Stars__StyledStars-sc-15olgyg-0 jucQbJ">
-                            <div style="width: 100%;"><span><svg xmlns="http://www.w3.org/2000/svg" width="12"
-                                        height="12" viewBox="0 0 32 32">
+                            <div style="width: 100%;"><span><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12"
+                                        viewBox="0 0 32 32">
                                         <path fill="#FDD835" fill-rule="evenodd" stroke="#FFB500" stroke-width="1.5"
                                             d="M16 1.695l-4.204 8.518-9.401 1.366 6.802 6.631-1.605 9.363L16 23.153l8.408 4.42-1.605-9.363 6.802-6.63-9.4-1.367L16 1.695z">
                                         </path>
