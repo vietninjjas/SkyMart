@@ -81,9 +81,6 @@
                                     </div>
                                     <div class="yellow"><span>Chỉ còn lại {{ $product->quantity }} sản phẩm</span></div>
                                     <input type="hidden" name="pro_id" value="{{ $product->pro_id }}">
-                                    <input type="hidden" name="pro_name" value="{{ $product->pro_name }}">
-                                    <input type="hidden" name="pro_image" value="{{ $product->pro_image }}">
-                                    <input type="hidden" name="pro_new_price" value="{{ $product->pro_new_price }}">
                                     <div class="group-button">
                                         <button type="submit" class="btn btn-add-to-cart">Chọn mua</button>
                                     </div>
