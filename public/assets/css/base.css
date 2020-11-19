@@ -705,6 +705,34 @@ img{
     font-size: 15px;
     padding-bottom: 10px;
 }
+.product-bottom button{
+    width: 100px;
+    height: 30px;
+    background-color: #007bff;
+    border-radius: 5px;
+    margin: 15px auto;
+}
+.product-bottom button:hover{
+   
+    background-color: #fff;
+    border: 1px solid #007bff;
+    color: #007bff;
+   
+}
+.product-bottom button a{
+    color: #fff;
+    font-size: 13px;
+}
+.product-bottom button a:hover{
+    color: #007bff;
+}
+.img-ads {
+    margin: 20px auto;
+}
+.img-ads img{
+    width: 85%;
+    margin: 0 30px;
+}
 .overlay
 {
     display: block;
@@ -769,7 +797,7 @@ box-shadow: 4px 4px 16px -4px rgba(0,0,0,0.66);
     padding-bottom: 4px;
     z-index: 1;
     color: rgb(255, 255, 255);
-    font-weight: 500;
+    font-weight: bold;
     width: 40px;
     height: 36px;
     background-image: url(https://frontend.tikicdn.com/_desktop-next/static/img/icons/product/deal-tag.png);
@@ -808,7 +836,8 @@ box-shadow: 4px 4px 16px -4px rgba(0,0,0,0.66);
     text-align: left;
     text-overflow: ellipsis;
     overflow: hidden;
-    white-space: nowrap;
+    white-space: pre-wrap;
+   
 }
 /*  */
 .select-input{
@@ -947,6 +976,9 @@ h2{
     width: 100%;
     background-color: #fff;
     display: block;
+}
+.selling-max .col-md-3{
+    width: 20%;
 }
 .selling-title{
     -webkit-box-align: center;

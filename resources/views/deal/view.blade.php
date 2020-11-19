@@ -72,7 +72,7 @@
                                                     <form action="{{ route('admin.deal.destroy', $deal->id) }}" method="post">
                                                         @csrf
                                                         @method('DELETE')
-                                                        <button type="submit" class="btn btn-outline-danger"><i class="fa fa-trash-o"></i> @lang('admin.action.delete') </button>
+                                                        <button type="submit" onclick="return confirm('Bạn có chắc muốn xóa?');" class="btn btn-outline-danger"><i class="fa fa-trash-o"></i> @lang('admin.action.delete') </button>
                                                     </form>
                                                 </td>
                                             </tr>

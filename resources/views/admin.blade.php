@@ -351,4 +351,8 @@
 
     </div>
   </div>
+  <script src="{{asset('./assets/ckeditor/ckeditor.js')}}"></script>
+  <script >
+      CKEDITOR.replace.('ckeditor');
+  </script>
 @endsection

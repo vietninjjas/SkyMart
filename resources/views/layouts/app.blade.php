@@ -34,12 +34,12 @@
                     <h2>@lang('main.acc.login')</h2>
                     <label>
                         <span>@lang('main.acc.username')</span>
-                        <input type="text" name="username">
+                        <input type="text" name="username"  required>
                     </label>
 
                     <label>
                         <span>@lang('main.acc.password')</span>
-                        <input type="password" name="password">
+                        <input type="password" name="password" required>
                     </label>
                     <button class="submit" type="submit">@lang('main.acc.login')</button>
                     <p class="forgot-pass">@lang('main.acc.quenpass')</p>
@@ -364,6 +364,11 @@
         </footer>
         <!-- end footer -->
         <script type="text/javascript" src="{{asset('/assets/js/script.js')}}"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/formvalidation/0.6.2-dev/js/formValidation.min.js"></script>
+        <script type="text/javascript">
+        $.validate({
+      
+        });
 </body>
 
 </html>

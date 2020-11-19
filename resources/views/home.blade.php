@@ -13,7 +13,7 @@
                     @if ($cate->parent_id == null)
                     <li class="product-list-item">
                         <a href="{{ route('category.show', $cate->cate_id) }}" class="item-link">
-                            <img style="width: 20px; height:20px" src="images/categories/{{ $cate->cate_logo }}" alt="">
+                            <img style="width: 20px; height:20px" class="mr-3" src="images/categories/{{ $cate->cate_logo }}" alt="">
                             {{ $cate->cate_name }}
                         </a>
                         <div class="lon">
@@ -186,10 +186,11 @@
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star-half"></i>
                         <i class="far fa-star"></i>
-                        <p class="title">{{ $pro->pro_name }}</p>
+                        <a href="{{ route('product.show', $pro->pro_id) }}"><p class="title">{{ $pro->pro_name }}</p></a>
                         <h5 class="price">{{ number_format($pro->pro_new_price) }} đ
                             <span class="original deal">{{ number_format($pro->pro_old_price) }}đ</span>
                         </h5>
+                        <button class=""><a href="{{ route('product.show', $pro->pro_id) }}">Xem ngay</a></button>
                     </div>
                 </div>
                 @endif

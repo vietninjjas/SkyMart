@@ -1,5 +1,6 @@
 @extends('layouts.app')
 @section('content')
+<div class="container">
     <div class="container-product p-5">
         <div class="container-row">
             <div class="product-image">
@@ -28,6 +29,9 @@
                             alt="">
                     </li>
                 </ul>
+                <div class="img-ads">
+                    <img src="https://c0.anthill.vn/images/2020/11/19/6140b5c3f6078fc094ec22e606f64cb9.jpg" alt="">
+                </div>
             </div>
             <!-- end img -->
             <div class="brand">
@@ -107,9 +111,7 @@
                                         alt="">
                                 </a>
                             </div>
-                            <div class="btn-more text-center mt-3 mb-3">
-                                <a href="">Xem thêm</a>
-                            </div>
+                           
                         </div>
                     </div>
                     <div class="right">
@@ -163,8 +165,10 @@
             <!-- end brand -->
         </div>
     </div>
+</div>
+   
     <!-- end brand -->
-    <div class="container m-5">
+    <div class="container ">
         <h2>SẢN PHẨM TƯƠNG TỰ</h2>
         <div class="container-row">
             <div class="custom-slider">
@@ -187,148 +191,162 @@
         </div>
     </div>
     <!-- end sp tương tự -->
-    <div class="container-product">
-        <h2>THÔNG TIN CHI TIẾT</h2>
-        <table class="table table-striped table-bordered">
-            <tbody>
-                <tr>
-                    <td>Thương hiệu</td>
-                    <td>Chanel</td>
-                </tr>
-                <tr>
-                    <td>Xuất xứ thương hiệu</td>
-                    <td>Việt Nam</td>
-                </tr>
-                <tr>
-                    <td>Xuất xứ</td>
-                    <td>Ấn Độ</td>
-                </tr>
-                <tr>
-                    <td>SKU</td>
-                    <td>1346871900650</td>
-                </tr>
-            </tbody>
-        </table>
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-9">
+                <h2>THÔNG TIN CHI TIẾT</h2>
+                <div class="container-product">
+                    <table class="table table-striped table-bordered">
+                        <tbody>
+                            <tr>
+                                <td>Thương hiệu</td>
+                                <td>Chanel</td>
+                            </tr>
+                            <tr>
+                                <td>Xuất xứ thương hiệu</td>
+                                <td>Việt Nam</td>
+                            </tr>
+                            <tr>
+                                <td>Xuất xứ</td>
+                                <td>Ấn Độ</td>
+                            </tr>
+                            <tr>
+                                <td>SKU</td>
+                                <td>1346871900650</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                   
+                    <!--  -->
+                    <ul class="ToggleContent">
+                        <h3>Thông Tin Sản Phẩm</h3>
+                        <li>Kính râm là phụ kiện hoàn hảo dành cho những bạn trẻ ưa vẻ đẹp đơn giản và hiện đại.</li>
+                        <li>Kính râm không chỉ đơn là một vật dụng bảo vệ đôi mắt mà còn góp phần khẳng định phong cách của
+                            người sử dụng.</li>
+                        <li>Với thiết kế tối giản, kính râm sẽ là phụ kiện hoàn hảo cho người dùng.</li>
+                        <li>Tròng kính có khả năng chống tia cực tím, bảo vệ an toàn tuyệt đối đôi mắt của bạn khi đi ngoài trời
+                            nắng gắt.</li>
+                    </ul>
+                    <p>Giá sản phẩm trên Tiki đã bao gồm thuế theo luật hiện hành. Tuy nhiên tuỳ vào từng loại sản phẩm hoặc
+                        phương thức, địa chỉ giao hàng mà có thể phát sinh thêm chi phí khác như phí vận chuyển, phụ phí hàng
+                        cồng kềnh, ...</p>
+                </div>
+            </div>
+            <div class="col-3">
+                <img class="mt-5" src="https://c0.anthill.vn/images/2020/11/16/46524b889f7d5522e3cd8552edf1351e.jpg" alt="">
+            </div>
+        </div>
+
+        
     </div>
+    
     <!-- end thông tin chi tiết -->
-    <div class="container-product">
-        <h2>MÔ TẢ SẢN PHẨM</h2>
-        <ul class="ToggleContent">
-            <li>Kính râm là phụ kiện hoàn hảo dành cho những bạn trẻ ưa vẻ đẹp đơn giản và hiện đại.</li>
-            <li>Kính râm không chỉ đơn là một vật dụng bảo vệ đôi mắt mà còn góp phần khẳng định phong cách của
-                người sử dụng.</li>
-            <li>Với thiết kế tối giản, kính râm sẽ là phụ kiện hoàn hảo cho người dùng.</li>
-            <li>Tròng kính có khả năng chống tia cực tím, bảo vệ an toàn tuyệt đối đôi mắt của bạn khi đi ngoài trời
-                nắng gắt.</li>
-        </ul>
-        <!--  -->
-        <ul class="ToggleContent">
-            <h3>Thông Tin Sản Phẩm</h3>
-            <li>Kính râm là phụ kiện hoàn hảo dành cho những bạn trẻ ưa vẻ đẹp đơn giản và hiện đại.</li>
-            <li>Kính râm không chỉ đơn là một vật dụng bảo vệ đôi mắt mà còn góp phần khẳng định phong cách của
-                người sử dụng.</li>
-            <li>Với thiết kế tối giản, kính râm sẽ là phụ kiện hoàn hảo cho người dùng.</li>
-            <li>Tròng kính có khả năng chống tia cực tím, bảo vệ an toàn tuyệt đối đôi mắt của bạn khi đi ngoài trời
-                nắng gắt.</li>
-        </ul>
-        <p>Giá sản phẩm trên Tiki đã bao gồm thuế theo luật hiện hành. Tuy nhiên tuỳ vào từng loại sản phẩm hoặc
-            phương thức, địa chỉ giao hàng mà có thể phát sinh thêm chi phí khác như phí vận chuyển, phụ phí hàng
-            cồng kềnh, ...</p>
+    <div class="container">
+        
     </div>
+    
     <!-- end mô tả sản phẩm -->
-    <div class="container-product">
-        <h2>ĐÁNH GIÁ</h2>
-        <ul class="filter-review-item">
-            <li>5 <i class="far fa-star"></i></li>
-            <li>4 <i class="far fa-star"></i></li>
-            <li>3 <i class="far fa-star"></i></li>
-            <li>2 <i class="far fa-star"></i></li>
-            <li>1 <i class="far fa-star"></i></li>
-        </ul>
-        <!-- end phần nút bấm đánh giá -->
-        <div class="review-rating__inner">
-            <div class="review-rating__summary">
-                <div class="review-rating__point">4.5</div>
-                <div class="Stars__StyledStars-sc-15olgyg-0 jucQbJ">
-                    <div style="width: 100%;">
-                        <span><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 32 32">
-                                <path fill="#FDD835" fill-rule="evenodd" stroke="#FFB500" stroke-width="1.5"
-                                    d="M16 1.695l-4.204 8.518-9.401 1.366 6.802 6.631-1.605 9.363L16 23.153l8.408 4.42-1.605-9.363 6.802-6.63-9.4-1.367L16 1.695z">
-                                </path>
-                            </svg></span><span><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12"
-                                viewBox="0 0 32 32">
-                                <path fill="#FDD835" fill-rule="evenodd" stroke="#FFB500" stroke-width="1.5"
-                                    d="M16 1.695l-4.204 8.518-9.401 1.366 6.802 6.631-1.605 9.363L16 23.153l8.408 4.42-1.605-9.363 6.802-6.63-9.4-1.367L16 1.695z">
-                                </path>
-                            </svg></span><span><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12"
-                                viewBox="0 0 32 32">
-                                <path fill="#FDD835" fill-rule="evenodd" stroke="#FFB500" stroke-width="1.5"
-                                    d="M16 1.695l-4.204 8.518-9.401 1.366 6.802 6.631-1.605 9.363L16 23.153l8.408 4.42-1.605-9.363 6.802-6.63-9.4-1.367L16 1.695z">
-                                </path>
-                            </svg></span><span><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12"
-                                viewBox="0 0 32 32">
-                                <path fill="#FDD835" fill-rule="evenodd" stroke="#FFB500" stroke-width="1.5"
-                                    d="M16 1.695l-4.204 8.518-9.401 1.366 6.802 6.631-1.605 9.363L16 23.153l8.408 4.42-1.605-9.363 6.802-6.63-9.4-1.367L16 1.695z">
-                                </path>
-                            </svg></span><span><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12"
-                                viewBox="0 0 32 32">
-                                <path fill="#FDD835" fill-rule="evenodd" stroke="#FFB500" stroke-width="1.5"
-                                    d="M16 1.695l-4.204 8.518-9.401 1.366 6.802 6.631-1.605 9.363L16 23.153l8.408 4.42-1.605-9.363 6.802-6.63-9.4-1.367L16 1.695z">
-                                </path>
-                            </svg></span>
+    <div class="container">
+        <h2>KHÁCH HÀNG NHẬN XÉT</h2>
+
+        <div class="row">
+            <div class="col-9">
+                <div class="container-product">  
+                    <!-- end phần nút bấm đánh giá -->
+                    <div class="review-rating__inner">
+                        <div class="review-rating__summary">
+                            <div>
+                                <h3 class="mt-5">ĐÁNH GIÁ</h3>
+                            </div>
+                            <div class="review-rating__point">4.5</div>
+                            <div class="Stars__StyledStars-sc-15olgyg-0 jucQbJ">
+                                <div style="width: 100%;">
+                                    <span><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 32 32">
+                                            <path fill="#FDD835" fill-rule="evenodd" stroke="#FFB500" stroke-width="1.5"
+                                                d="M16 1.695l-4.204 8.518-9.401 1.366 6.802 6.631-1.605 9.363L16 23.153l8.408 4.42-1.605-9.363 6.802-6.63-9.4-1.367L16 1.695z">
+                                            </path>
+                                        </svg></span><span><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12"
+                                            viewBox="0 0 32 32">
+                                            <path fill="#FDD835" fill-rule="evenodd" stroke="#FFB500" stroke-width="1.5"
+                                                d="M16 1.695l-4.204 8.518-9.401 1.366 6.802 6.631-1.605 9.363L16 23.153l8.408 4.42-1.605-9.363 6.802-6.63-9.4-1.367L16 1.695z">
+                                            </path>
+                                        </svg></span><span><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12"
+                                            viewBox="0 0 32 32">
+                                            <path fill="#FDD835" fill-rule="evenodd" stroke="#FFB500" stroke-width="1.5"
+                                                d="M16 1.695l-4.204 8.518-9.401 1.366 6.802 6.631-1.605 9.363L16 23.153l8.408 4.42-1.605-9.363 6.802-6.63-9.4-1.367L16 1.695z">
+                                            </path>
+                                        </svg></span><span><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12"
+                                            viewBox="0 0 32 32">
+                                            <path fill="#FDD835" fill-rule="evenodd" stroke="#FFB500" stroke-width="1.5"
+                                                d="M16 1.695l-4.204 8.518-9.401 1.366 6.802 6.631-1.605 9.363L16 23.153l8.408 4.42-1.605-9.363 6.802-6.63-9.4-1.367L16 1.695z">
+                                            </path>
+                                        </svg></span><span><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12"
+                                            viewBox="0 0 32 32">
+                                            <path fill="#FDD835" fill-rule="evenodd" stroke="#FFB500" stroke-width="1.5"
+                                                d="M16 1.695l-4.204 8.518-9.401 1.366 6.802 6.631-1.605 9.363L16 23.153l8.408 4.42-1.605-9.363 6.802-6.63-9.4-1.367L16 1.695z">
+                                            </path>
+                                        </svg></span>
+                                </div>
+                            </div>
+                            <div class="review-rating__total">50 nhận xét</div>
+                        </div>
+                        <!-- số đánh giá -->
+                        <div class="review-rating__detail">
+                            <div class="review-rating__level mt-5">
+                                <div class="Stars__StyledStars-sc-15olgyg-0 jucQbJ">
+                                    <div style="width: 100%;"><span><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12"
+                                                viewBox="0 0 32 32">
+                                                <path fill="#FDD835" fill-rule="evenodd" stroke="#FFB500" stroke-width="1.5"
+                                                    d="M16 1.695l-4.204 8.518-9.401 1.366 6.802 6.631-1.605 9.363L16 23.153l8.408 4.42-1.605-9.363 6.802-6.63-9.4-1.367L16 1.695z">
+                                                </path>
+                                            </svg></span><span><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12"
+                                                viewBox="0 0 32 32">
+                                                <path fill="#FDD835" fill-rule="evenodd" stroke="#FFB500" stroke-width="1.5"
+                                                    d="M16 1.695l-4.204 8.518-9.401 1.366 6.802 6.631-1.605 9.363L16 23.153l8.408 4.42-1.605-9.363 6.802-6.63-9.4-1.367L16 1.695z">
+                                                </path>
+                                            </svg></span><span><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12"
+                                                viewBox="0 0 32 32">
+                                                <path fill="#FDD835" fill-rule="evenodd" stroke="#FFB500" stroke-width="1.5"
+                                                    d="M16 1.695l-4.204 8.518-9.401 1.366 6.802 6.631-1.605 9.363L16 23.153l8.408 4.42-1.605-9.363 6.802-6.63-9.4-1.367L16 1.695z">
+                                                </path>
+                                            </svg></span><span><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12"
+                                                viewBox="0 0 32 32">
+                                                <path fill="#FDD835" fill-rule="evenodd" stroke="#FFB500" stroke-width="1.5"
+                                                    d="M16 1.695l-4.204 8.518-9.401 1.366 6.802 6.631-1.605 9.363L16 23.153l8.408 4.42-1.605-9.363 6.802-6.63-9.4-1.367L16 1.695z">
+                                                </path>
+                                            </svg></span><span><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12"
+                                                viewBox="0 0 32 32">
+                                                <path fill="#FDD835" fill-rule="evenodd" stroke="#FFB500" stroke-width="1.5"
+                                                    d="M16 1.695l-4.204 8.518-9.401 1.366 6.802 6.631-1.605 9.363L16 23.153l8.408 4.42-1.605-9.363 6.802-6.63-9.4-1.367L16 1.695z">
+                                                </path>
+                                            </svg></span></div>
+                                </div>
+                                <div class="style__StyledProcessBar-sc-103p4dk-2 KCfxa">
+                                    <div style="width: 66%;"></div>
+                                </div>
+                                <div class="review-rating__number ml-3">33 nhận xét</div>
+                            </div>
+                        </div>
+                        <!-- chi tiết số đánh giá -->
+                    </div>
+                    <!-- đây là phần số liệu đánh giá -->
+                    <div class="review-comment__avatar">
+                        <ul class="mt-3 ml-3">
+                            <li><img class="" src="../assets/images/yua-mikami.jpg" alt=""></li>
+                            <li>Yua Mikami</li>
+                            <li>Yua Mikami</li>
+                            <li><i class="fas fa-comments"></i> Đã mua hàng ở SkyMart</li>
+                        </ul>
+                        <div class="review-comment-content ">
+                            <p style="font-weight:bold">hàng chất đấy xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
+                            
+                        </div>
                     </div>
                 </div>
-                <div class="review-rating__total">50 nhận xét</div>
-            </div>
-            <!-- số đánh giá -->
-            <div class="review-rating__detail">
-                <div class="review-rating__level">
-                    <div class="Stars__StyledStars-sc-15olgyg-0 jucQbJ">
-                        <div style="width: 100%;"><span><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12"
-                                    viewBox="0 0 32 32">
-                                    <path fill="#FDD835" fill-rule="evenodd" stroke="#FFB500" stroke-width="1.5"
-                                        d="M16 1.695l-4.204 8.518-9.401 1.366 6.802 6.631-1.605 9.363L16 23.153l8.408 4.42-1.605-9.363 6.802-6.63-9.4-1.367L16 1.695z">
-                                    </path>
-                                </svg></span><span><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12"
-                                    viewBox="0 0 32 32">
-                                    <path fill="#FDD835" fill-rule="evenodd" stroke="#FFB500" stroke-width="1.5"
-                                        d="M16 1.695l-4.204 8.518-9.401 1.366 6.802 6.631-1.605 9.363L16 23.153l8.408 4.42-1.605-9.363 6.802-6.63-9.4-1.367L16 1.695z">
-                                    </path>
-                                </svg></span><span><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12"
-                                    viewBox="0 0 32 32">
-                                    <path fill="#FDD835" fill-rule="evenodd" stroke="#FFB500" stroke-width="1.5"
-                                        d="M16 1.695l-4.204 8.518-9.401 1.366 6.802 6.631-1.605 9.363L16 23.153l8.408 4.42-1.605-9.363 6.802-6.63-9.4-1.367L16 1.695z">
-                                    </path>
-                                </svg></span><span><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12"
-                                    viewBox="0 0 32 32">
-                                    <path fill="#FDD835" fill-rule="evenodd" stroke="#FFB500" stroke-width="1.5"
-                                        d="M16 1.695l-4.204 8.518-9.401 1.366 6.802 6.631-1.605 9.363L16 23.153l8.408 4.42-1.605-9.363 6.802-6.63-9.4-1.367L16 1.695z">
-                                    </path>
-                                </svg></span><span><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12"
-                                    viewBox="0 0 32 32">
-                                    <path fill="#FDD835" fill-rule="evenodd" stroke="#FFB500" stroke-width="1.5"
-                                        d="M16 1.695l-4.204 8.518-9.401 1.366 6.802 6.631-1.605 9.363L16 23.153l8.408 4.42-1.605-9.363 6.802-6.63-9.4-1.367L16 1.695z">
-                                    </path>
-                                </svg></span></div>
-                    </div>
-                    <div class="style__StyledProcessBar-sc-103p4dk-2 KCfxa">
-                        <div style="width: 66%;"></div>
-                    </div>
-                    <div class="review-rating__number">33</div>
-                </div>
-            </div>
-            <!-- chi tiết số đánh giá -->
-        </div>
-        <!-- đây là phần số liệu đánh giá -->
-        <div class="review-comment__avatar">
-            <ul>
-                <li><img src="../assets/images/yua-mikami.jpg" alt=""></li>
-                <li>Yua Mikami</li>
-                <li><i class="fas fa-comments"></i> Đã mua hàng ở SkyMart</li>
-            </ul>
-            <div class="review-comment-content">
-                hàng chất đấy xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
             </div>
         </div>
+       
     </div>
+   
 @endsection

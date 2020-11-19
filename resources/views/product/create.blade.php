@@ -28,13 +28,13 @@
                 <div class="item form-group">
                   <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">@lang('admin.products.pro_name') <span class="required">*</span></label>
                   <div class="col-md-6 col-sm-6 ">
-                    <input type="text" id="first-name" required="required" name="pro_name" class="form-control ">
+                    <input type="text" id="ckeditor1" required="required" name="pro_name" class="form-control ">
                   </div>
                 </div>
                 <div class="item form-group">
                   <label for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">@lang('admin.products.pro_desc')</label>
                   <div class="col-md-6 col-sm-6 ">
-                    <input id="middle-name" class="form-control" type="text" name="pro_desc">
+                    <input id="ckeditor" class="form-control" type="text" name="pro_desc">
                   </div>
                 </div>
                 <div class="item form-group">
@@ -58,7 +58,7 @@
                 <div class="item form-group">
                     <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">@lang('admin.products.quantity')</label>
                     <div class="col-md-6 col-sm-6 ">
-                      <input type="number" id="last-name" name="quantity" class="form-control">
+                      <input type="number" id="ckeditor" name="quantity" class="form-control">
                     </div>
                 </div>
                 <div class="item form-group">
