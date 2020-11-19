@@ -187,13 +187,16 @@
                         <a href=""><img src="./assets/images/logo_nne.png" alt=""></a>
                     </div>
                     <div class="seach">
-                        <input type="text" placeholder="{{trans('main.search')}}">
-                        <div class="option">
-                            <button>
-                                <i class="fas fa-search button-icon"></i>
-                                @lang('main.search')
-                            </button>
-                        </div>
+                        <form action="{{url('search')}}" method="post">
+                            @csrf
+                            <input type="text" placeholder="{{trans('main.search')}}" name="key">
+                            <div class="option">
+                                <button type="submit">
+                                    <i class="fas fa-search button-icon"></i>
+                                    @lang('main.search')
+                                </button>
+                            </div>
+                        </form>
                     </div>
                     <div class="category">
                         <i class="cart-icon fas fa-shopping-cart"></i>
