@@ -6,8 +6,6 @@
         <div class="title_left">
           <h3>@lang('admin.banners.ban_manage')</h3>
         </div>
-
-       
       </div>
       <div class="clearfix"></div>
       <div class="row">
@@ -43,10 +41,9 @@
                 <div class="item form-group">
                   <div class="col-md-6 col-sm-6 offset-md-3">
                     <button class="btn btn-primary" type="reset">Reset</button>
-                    <button type="submit" class="btn btn-success">Submit</button>
+                    <button id="hihi" type="submit" class="btn btn-success">Submit</button>
                   </div>
                 </div>
-
               </form>
             </div>
           </div>
@@ -54,4 +51,23 @@
       </div>
     </div>
   </div>
+  <script>
+    $(document).ready(function(){
+      $("#hihi").click(function(){
+        var last_name = $(this).closest("form").find("#first-name").val();
+        var flag = true;
+        if(last_name == ''){
+          $("#first-name").css({"background" : "rgba(255, 147, 146, 0.3)", "border" : "2px solid rgb(255, 0, 0, 0.3)"});
+          flag = false
+      }else{
+        $("#first-name").text()
+      }
+      if (flag == true) {
+        alert("ok")
+        return true
+      }
+      return false;
+    })
+    })
+  </script>
 @endsection

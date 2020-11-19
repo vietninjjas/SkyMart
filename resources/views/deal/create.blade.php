@@ -28,14 +28,14 @@
               <div class="item form-group">
                 <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">@lang('admin.deals.deal_image')</label>
                 <div class="col-md-6 col-sm-6 ">
-                  <input type="file" id="last-name" required="required" name="deal_image" class="form-control">
+                  <input type="file" id="last-name"  name="deal_image" class="form-control">
                 </div>
               </div>
               <div class="ln_solid"></div>
               <div class="item form-group">
                 <div class="col-md-6 col-sm-6 offset-md-3">
                   <button class="btn btn-primary" type="reset">Reset</button>
-                  <button type="submit" class="btn btn-success">Submit</button>
+                  <button id="hihi" type="submit" class="btn btn-success">Submit</button>
                 </div>
               </div>
 
@@ -46,4 +46,23 @@
     </div>
   </div>
 </div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+  $(document).ready(function(){
+    $("#hihi").click(function(){
+      var last_name = $(this).closest("form").find(".form-control");
+      console.log(last_name)
+       var flag = true
+       if(last-name ==''){
+        $("input.last-name").css({"background" : "rgba(255, 147, 146, 0.3)", "border" : "2px solid rgb(255, 0, 0, 0.3)"});
+      }else{
+        $("input.last-name").text()
+      }
+      if (flag == true) {
+        alert("ok")
+      }
+      return false;
+    })
+  })
+</script>
 @endsection

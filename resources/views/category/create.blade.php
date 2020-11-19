@@ -30,7 +30,7 @@
                 <div class="item form-group">
                   <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">@lang('admin.categories.cate_name') <span class="required">*</span></label>
                   <div class="col-md-6 col-sm-6 ">
-                    <input type="text" id="first-name" required="required" name="cate_name" class="form-control ">
+                    <input type="text" id="first-name" name="cate_name" class="form-control ">
                   </div>
                 </div>
                 <div class="item form-group">
@@ -42,13 +42,13 @@
                 <div class="item form-group">
                     <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">@lang('admin.categories.cate_image')</label>
                     <div class="col-md-6 col-sm-6 ">
-                      <input type="file" id="last-name" required="required" name="cate_logo" class="form-control">
+                      <input type="file" id="last-name" name="cate_logo" class="form-control">
                     </div>
                 </div>
                 <div class="item form-group">
                   <label for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">@lang('admin.categories.parent')</label>
                   <div class="col-md-6 col-sm-6 ">
-                    <select class="form-control" name="parent_id" id="">
+                    <select class="form-control" name="parent_id" id="select">
                         <option value="">___</option>
                         @foreach ($categories as $category)
                             <option value="{{ $category->cate_id }}">{{ $category->cate_name }}</option>
@@ -60,10 +60,9 @@
                 <div class="item form-group">
                   <div class="col-md-6 col-sm-6 offset-md-3">
                     <button class="btn btn-primary" type="reset">Reset</button>
-                    <button type="submit" class="btn btn-success">Submit</button>
+                    <button id="hihi" type="submit" class="btn btn-success">Submit</button>
                   </div>
                 </div>
-
               </form>
             </div>
           </div>
@@ -71,4 +70,40 @@
       </div>
     </div>
   </div>
+
+  <script>
+    $(document).ready(function(){
+      $("#hihi").click(function(){
+        var last_name = $(this).closest("form").find("#first-name").val();
+        var middle_name = $(this).closest("form").find("#middle-name").val();
+        var select = $(this).closest("form").find("#select").val();
+        var flag = true;
+        if(last_name == ''){
+          $("#first-name").css({"background" : "rgba(255, 147, 146, 0.3)", "border" : "2px solid rgb(255, 0, 0, 0.3)"});
+          flag = false
+      }else{
+        $("#first-name").text()
+      }
+      if(middle_name == ''){
+        $("#middle-name").css({"background" : "rgba(255, 147, 146, 0.3)", "border" : "2px solid rgb(255, 0, 0, 0.3)"});
+        flag = false
+    }else{
+      $("#middle-name").text()
+    }
+
+    if(select == ''){
+      $("#select").css({"background" : "rgba(255, 147, 146, 0.3)", "border" : "2px solid rgb(255, 0, 0, 0.3)"});
+      flag = false
+    }else{
+      $("#middle-name").text()
+    }
+
+      if (flag == true) {
+        alert("ok")
+        return true
+      }
+      return false;
+    })
+    })
+  </script>
 @endsection
