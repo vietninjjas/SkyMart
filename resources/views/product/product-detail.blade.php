@@ -64,24 +64,31 @@
                                 hàng
                                 một cách chính xác nhất.
                             </div>
-                            <div class="QualityInput__Wrapper">
-                                <p>Số Lượng</p>
-                                <div class="group-input">
-                                    <button class="disable">
-                                        <img
-                                            src="https://frontend.tikicdn.com/_desktop-next/static/img/pdp_revamp_v2/icons-remove.svg">
-                                    </button>
-                                    <input type="text" value="1" class="input">
-                                    <button>
-                                        <img
-                                            src="https://frontend.tikicdn.com/_desktop-next/static/img/pdp_revamp_v2/icons-add.svg">
-                                    </button>
+                            <form action="{{ route('addCart') }}" method="post">
+                                @csrf
+                                <div class="QualityInput__Wrapper">
+                                    <p>Số Lượng</p>
+                                    <div class="group-input">
+                                        <button class="disable">
+                                            <img
+                                                src="https://frontend.tikicdn.com/_desktop-next/static/img/pdp_revamp_v2/icons-remove.svg">
+                                        </button>
+                                        <input type="number" value="1" name="quantity" class="input">
+                                        <button>
+                                            <img
+                                                src="https://frontend.tikicdn.com/_desktop-next/static/img/pdp_revamp_v2/icons-add.svg">
+                                        </button>
+                                    </div>
+                                    <div class="yellow"><span>Chỉ còn lại {{ $product->quantity }} sản phẩm</span></div>
+                                    <input type="hidden" name="pro_id" value="{{ $product->pro_id }}">
+                                    <input type="hidden" name="pro_name" value="{{ $product->pro_name }}">
+                                    <input type="hidden" name="pro_image" value="{{ $product->pro_image }}">
+                                    <input type="hidden" name="pro_new_price" value="{{ $product->pro_new_price }}">
+                                    <div class="group-button">
+                                        <button type="submit" class="btn btn-add-to-cart">Chọn mua</button>
+                                    </div>
                                 </div>
-                                <div class="yellow"><span>Chỉ còn lại {{ $product->quantity }} sản phẩm</span></div>
-                                <div class="group-button">
-                                    <button class="btn btn-add-to-cart">Chọn mua</button>
-                                </div>
-                            </div>
+                            </form>
                             <div class="coupon">
                                 Thường Được Mua Cùng
                                 <div class="images">
