@@ -191,7 +191,7 @@
                         <a href=""><img src="./assets/images/logo_nne.png" alt=""></a>
                     </div>
                     <div class="seach">
-                        <form action="{{url('search')}}" method="post">
+                        <form action="{{url('search')}}" method="get">
                             @csrf
                             <input type="text" placeholder="{{trans('main.search')}}" name="key">
                             <div class="option">
