@@ -44,4 +44,4 @@ Route::get('account/{id}/changePass', 'Auth\AccountController@changePass')->name
 Route::post('account/{id}/updatePass', 'Auth\AccountController@updatePass')->name('account.updatePass');
 Route::post('add-cart', 'CartController@save_cart')->name('addCart');
 
-Route::post('/search', 'HomeController@search');
+Route::get('/search', 'HomeController@search');
