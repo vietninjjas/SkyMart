@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Product;
 use Cart;
 use Illuminate\Http\Request;
 use Session;
@@ -12,9 +13,10 @@ class CartController extends Controller
     {
         $pro_id = $request->input('pro_id');
         $quantity = $request->input('quantity');
-        $pro_name = $request->input('pro_name');
-        $pro_image = $request->input('pro_image');
-        $pro_new_price = $request->input('pro_new_price');
+        $getpro = Product::find($pro_id);
+        $pro_name = $getpro->pro_name;
+        $pro_image = $getpro->pro_image;
+        $pro_new_price = $getpro->pro_new_price;
 
         $data = [
             'id' => $pro_id,
@@ -29,5 +31,10 @@ class CartController extends Controller
         Cart::add($data);
 
         return redirect()->back();
+    }
+
+    public function show_cart()
+    {
+        return view('cart.view');
     }
 }
