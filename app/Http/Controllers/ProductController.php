@@ -97,7 +97,7 @@ class ProductController extends Controller
         $pro = Product::findOrFail($id);
         $file = $request->file('pro_image');
         $fileName = uniqid() . '_' . $file->getClientOriginalName();
-        $file->move('images/categories', $fileName);
+        $file->move('images/products', $fileName);
         $pro->pro_name = $request->input('pro_name');
         $pro->cate_id = $request->input('cate_id');
         $pro->pro_desc = $request->input('pro_desc');
