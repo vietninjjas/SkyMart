@@ -106,7 +106,6 @@
 .inner{
     border-top: 1px solid rgb(242, 242, 242);
     padding-top: 20px;
-    margin-top: 20px;
     font-size: 1.2rem;
 }
 
@@ -242,8 +241,39 @@
 }
 .container-product p{
     font-size: 1.3rem;
-    padding: 30px 30px;
-    color: red;
+    padding: 10px 30px;
+    color: rgb(68, 65, 65);
+}
+.form-cmt{
+    display: flex;
+    padding: 20px;
+}
+.form-cmt form{
+    flex: 1 1 0%;
+    display: inline-block;
+}
+.form-cmt input{
+    width: 100%;
+    height: 40px;
+    padding: 0px 10px;
+    font-size: 13px;
+    border: 1px solid rgb(224, 224, 224);
+    border-radius: 4px;
+    transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+}
+.form-cmt button{
+    cursor: pointer;
+    width: 154px;
+    height: 40px;
+    margin: 15px 290px;
+    padding: 0px;
+    color: rgb(253, 251, 251);
+    font-size: 13px;
+    font-weight: bold;
+    background: rgb(253, 210, 47);
+    border: 0px;
+    border-radius: 4px;
+    outline: none;
 }
 .container-product ul.filter-review-item {
     display: flex;
@@ -362,32 +392,6 @@
         display: none;
     }
 }
-.form-cmt{
-    display: block;
-}
-.form-cmt form{
-    margin: 20px auto;
-}
-.form-cmt form input{
-    width: 52%;
-    height: 30px;
-    display: block;
-    margin-top: 5px;
-    font-size: 16px;
-    padding-bottom: 5px;
-    border-bottom: 1px solid rgba(109, 93, 93, 0.4);
-    text-align: center;
-    font-family: 'Nunito', sans-serif;
-    border-top: none;
-    border-left: none;
-    border-right: none;
-}
-.form-cmt button{
-    width: 150px;
-    height: 30px;
-    color: #fff;
-    background: rgb(10, 149, 204);
-    font-size: 13px;
-    border-radius: 4px;
-    margin: 20px 250px;
-}
+
+
+
