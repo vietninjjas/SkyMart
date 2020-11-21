@@ -240,6 +240,8 @@
   <script src="{{asset('./assets/ckeditor/ckeditor.js')}}"></script>
   <script >
       CKEDITOR.replace('ckeditor');
+      CKEDITOR.replace('ckeditor1');
+      CKEDITOR.replace('ckeditor2');
   </script>
   <!-- jQuery -->
   <script src="{{asset('./assets/vendors/jquery/dist/jquery.min.js')}}"></script>

@@ -262,7 +262,7 @@ nav{
     box-sizing: border-box;
 }
 .column-list-product{
-    width: 25%;
+    width: 23%;
     background-color: white;
     /* border-radius: 5px; */
     margin: 20px 10px 20px 0;
@@ -288,7 +288,7 @@ nav{
     box-sizing: border-box;
 }
 .column-quangcao{
-    width: 25%;
+    width: 28%;
     box-sizing: border-box;
 }
 .product-list{
@@ -387,6 +387,7 @@ nav{
 }
 
 .cac ul{
+    width: 20px;
     margin: 10px;
     flex: 1;
 }
@@ -407,6 +408,9 @@ nav{
     font-weight: 400;
     line-height: 22px;
     text-decoration: none;
+    overflow: hidden;
+    white-space: nowrap; 
+    text-overflow: ellipsis
 }
 .cac ul li a:hover{
     color: #337ab7;
@@ -457,7 +461,7 @@ nav{
  width: auto;
  height: auto;
  padding: 2%;
- background: #2a2a2a;
+ background: #bdb6b6;
  text-decoration: none;
  color: #fff;
  opacity: 0.8;
@@ -471,12 +475,12 @@ nav{
 }
 .prev
 {
- border-radius: 0 14px 14px 0;
+ border-radius: 160%;
 }
 .next
 {
  right: 0;
- border-radius: 14px 0 0 14px;
+ border-radius: 160%;
 }
 /*  */
 .list-product-res{
@@ -509,7 +513,7 @@ nav{
 }
 /*  */
 .banner_bottom_container{
-    margin-top: 20px;
+    margin-top: 30px;
     width: 100%;
     display: flex;
 }
@@ -524,7 +528,7 @@ nav{
 }
 /* end slider */
 .banner_qc_container{
-    margin: 20px 0 45px;
+    margin: 20px 0 35px;
     width: 100%;
     display: flex;
 }
@@ -586,7 +590,7 @@ nav{
     margin-right: 0;
 }
 #gallery  img{
-    margin: .2rem;
+    margin: .2rem 15px;
 }
 #gallery .slick-prev:before{
     color: #f5f5f5;
@@ -626,7 +630,7 @@ nav{
     border: none;
     outline: none;
     border-radius: 50px;
-    background: #535658;
+    background: #a0a1a2;
     opacity: 50%;
     margin: 0 20px;
     z-index: 1;
@@ -636,25 +640,25 @@ nav{
     overflow: hidden;
   }
   .slick-next{
-    right: -15px;
+    right: -5px;
   }
   .slick-prev{
-    left: -15px;
+    left: -5px;
     
   }
   .slick-next:before{
     content: '\003e';
     font-size: 1.5em;
     font-weight: 1000;
-    padding-left: 12px;
+    padding-left: 18px;
     color: white;
   }
   .slick-prev:before{
     content: '\003c';
     font-size: 1.5em;
     font-weight: 1000;
-    padding-left: 9px;
-    color: white;
+    padding-left: 18px;
+    color: rgb(233, 226, 226);
   }
 /* end Khuyến Mãi */
 
