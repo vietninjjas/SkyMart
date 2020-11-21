@@ -13,7 +13,7 @@
                             @if ($cate->parent_id == null)
                                 <li class="product-list-item">
                                     <a href="{{ route('category.show', $cate->cate_id) }}" class="item-link">
-                                        <img style="width: 20px; height:20px" src="images/categories/{{ $cate->cate_logo }}"
+                                        <img style="width: 20px; height:20px" class="mr-3" src="images/categories/{{ $cate->cate_logo }}"
                                             alt="">
                                         {{ $cate->cate_name }}
                                     </a>
@@ -24,9 +24,12 @@
                                                     <h5>{{ $catehihi->cate_name }}</h5>
                                                     @foreach ($catehihi->products as $pro)
                                                         <li><a href="#">{{ $pro->pro_name }}</a></li>
+                                                        
                                                         @if ($proCount++ == 5) @break
                                                         @endif
+                                                     
                                                     @endforeach
+                                                    
                                                 </ul>
                                                 @if ($cateCount++ == 3) @break
                                                 @endif
@@ -42,8 +45,8 @@
             </div>
             <div class="column-content">
                 <div id="slider">
-                    <p href="#" class="control next">&gt;</p>
-                    <p href="#" class="control prev">&lt;</p>
+                    <p href="#" class="control next"><i class="fas fa-chevron-right"></i></p>
+                    <p href="#" class="control prev"><i class="fas fa-chevron-left"></i></p>
                     <ul>
                         @foreach ($banners as $ban)
                             <a href="#">
@@ -189,7 +192,7 @@
                                         </form>
                                     </div>
                                 </div>
-                                <span class="percent deal">{{(($pro->pro_new_price/$pro->pro_old_price)*100)}}%</span>
+                                <span class="percent deal">{{FLOOR(($pro->pro_new_price/$pro->pro_old_price)*100)}}%</span>
                                 <div class="product-bottom text-center">
                                     <i class="fas fa-star"></i>
                                     <i class="fas fa-star"></i>
@@ -217,7 +220,7 @@
                 <div class="custom-slider">
                     @foreach ($topSales as $sa)
                         <div class="custom-box">
-                            <a href="#"><img src="./assets/images/topbanchay1.jpg" alt=""></a>
+                        <a href="#"><img src="images/products/{{$sa->pro_image}}" alt=""></a>
                         </div>
                     @endforeach
                 </div>
@@ -271,7 +274,7 @@
                                         </form>
                                     </div>
                                 </div>
-                                <span class="percent deal">{{(($hot->pro_new_price/$hot->pro_old_price)*100)}}%</span>
+                                <span class="percent deal">{{FLOOR(($hot->pro_new_price/$hot->pro_old_price)*100)}}%</span>
                                 <div class="product-bottom text-center">
                                     <i class="fas fa-star"></i>
                                     <i class="fas fa-star"></i>
