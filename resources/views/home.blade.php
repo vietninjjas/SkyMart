@@ -189,17 +189,19 @@
                                         </form>
                                     </div>
                                 </div>
-                                <span class="percent deal">HOT</span>
+                                <span class="percent deal">{{(($pro->pro_new_price/$pro->pro_old_price)*100)}}%</span>
                                 <div class="product-bottom text-center">
                                     <i class="fas fa-star"></i>
                                     <i class="fas fa-star"></i>
                                     <i class="fas fa-star"></i>
                                     <i class="fas fa-star-half"></i>
                                     <i class="far fa-star"></i>
-                                    <p class="title">{{ $pro->pro_name }}</p>
+                                    <a href="{{ route('product.show', $pro->pro_id) }}"><p class="title">{{ $pro->pro_name }}</p></a>
+                                    
                                     <h5 class="price">{{ number_format($pro->pro_new_price) }} đ
                                         <span class="original deal">{{ number_format($pro->pro_old_price) }}đ</span>
                                     </h5>
+                                    <button class=""><a href="{{ route('product.show', $pro->pro_id) }}">Xem ngay</a></button>
                                 </div>
                             </div>
                         @endif
@@ -269,7 +271,7 @@
                                         </form>
                                     </div>
                                 </div>
-                                <span class="percent deal">HOT</span>
+                                <span class="percent deal">{{(($hot->pro_new_price/$hot->pro_old_price)*100)}}%</span>
                                 <div class="product-bottom text-center">
                                     <i class="fas fa-star"></i>
                                     <i class="fas fa-star"></i>

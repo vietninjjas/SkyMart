@@ -237,7 +237,10 @@
     <!-- /footer content -->
   </div>
   </div>
-
+  <script src="{{asset('./assets/ckeditor/ckeditor.js')}}"></script>
+  <script >
+      CKEDITOR.replace('ckeditor');
+  </script>
   <!-- jQuery -->
   <script src="{{asset('./assets/vendors/jquery/dist/jquery.min.js')}}"></script>
   <!-- Bootstrap -->

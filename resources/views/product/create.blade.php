@@ -34,7 +34,7 @@
                 <div class="item form-group">
                   <label for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">@lang('admin.products.pro_desc')</label>
                   <div class="col-md-6 col-sm-6 ">
-                    <input id="middle-name" class="form-control" type="text" name="pro_desc">
+                    <input id="ckeditor" class="form-control" type="text" name="pro_desc">
                   </div>
                 </div>
                 <div class="item form-group">
