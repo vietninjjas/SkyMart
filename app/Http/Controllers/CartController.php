@@ -37,4 +37,18 @@ class CartController extends Controller
     {
         return view('cart.view');
     }
+
+    public function delete_cart($rowId)
+    {
+        Cart::remove($rowId);
+
+        return redirect()->back();
+    }
+
+    public function update_quantity(Request $request, $rowId)
+    {
+        Cart::update($rowId, $request->input('update_qty'));
+
+        return redirect()->back();
+    }
 }

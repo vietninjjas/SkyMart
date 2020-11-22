@@ -192,7 +192,7 @@
                                         </form>
                                     </div>
                                 </div>
-                                <span class="percent deal">{{FLOOR(($pro->pro_new_price/$pro->pro_old_price)*100)}}%</span>
+                                <span class="percent deal">{{FLOOR(100-($pro->pro_new_price/$pro->pro_old_price)*100)}}%</span>
                                 <div class="product-bottom text-center">
                                     <i class="fas fa-star"></i>
                                     <i class="fas fa-star"></i>
@@ -274,7 +274,7 @@
                                         </form>
                                     </div>
                                 </div>
-                                <span class="percent deal">{{FLOOR(($hot->pro_new_price/$hot->pro_old_price)*100)}}%</span>
+                                <span class="percent deal">{{FLOOR(100-($hot->pro_new_price/$hot->pro_old_price)*100)}}%</span>
                                 <div class="product-bottom text-center">
                                     <i class="fas fa-star"></i>
                                     <i class="fas fa-star"></i>
@@ -282,7 +282,7 @@
                                     <i class="fas fa-star-half"></i>
                                     <i class="far fa-star"></i>
                                     <p class="title">{{ $hot->pro_name }}</p>
-                                    <h5 class="price">{{ number_format($hot->pro_new_price) }}000 đ
+                                    <h5 class="price">{{ number_format($hot->pro_new_price) }} đ
                                         <span class="original deal">{{ number_format($hot->pro_old_price) }} đ</span>
                                     </h5>
                                 </div>

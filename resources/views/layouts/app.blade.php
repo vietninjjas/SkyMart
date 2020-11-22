@@ -205,7 +205,7 @@
                     <div class="category">
                         <a href="{{ route('showCart') }}">
                             <i class="cart-icon fas fa-shopping-cart"></i>
-                            <span class="cart-text">@lang('main.cart')
+                            <span class="cart-text">@lang('main.cart.cart')
                                 <span class="cart-num">{{ Cart::content()->count() }}</span>
                             </span>
                         </a>
