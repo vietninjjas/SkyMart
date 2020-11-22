@@ -40,6 +40,7 @@ return [
         'changed_password' => 'Đổi mật khẩu',
         'acc_info' => 'Thông tin tài khoản',
         'admin_page' => 'Trang quản trị',
+        'must_login' => 'Bạn phải đăng nhập',
     ],
     'product' => [
         'detail' => 'Xem chi tiết',
@@ -57,6 +58,7 @@ return [
         'ship_price' => 'Phí vận chuyển',
         'taxed' => 'Đã bao gồm thuế',
         'order' => 'Đặt hàng',
+        'add' => 'Thêm vào giỏ',
     ],
     'footer' => [
         'reg_get_news' => 'Đăng ký nhận bản tin Sky mart',

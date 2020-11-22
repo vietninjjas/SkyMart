@@ -13,6 +13,7 @@ class Category extends Model
         'cate_name',
         'cate_desc',
         'cate_logo',
+        'cate_image',
         'parent_id',
     ];
 

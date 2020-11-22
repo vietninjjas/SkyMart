@@ -16,9 +16,10 @@ class CreateCategoriesTable extends Migration
         Schema::disableForeignKeyConstraints();
         Schema::create('categories', function (Blueprint $table) {
             $table->unsignedInteger('cate_id')->autoIncrement();
-            $table->string('cate_name')->unique();
+            $table->string('cate_name');
             $table->text('cate_desc')->nullable();
             $table->text('cate_logo')->nullable();
+            $table->text('cate_image')->nullable();
             $table->integer('parent_id')->unsigned()->nullable();
             $table->timestamps();
             $table->softDeletes();

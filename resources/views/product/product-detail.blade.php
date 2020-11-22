@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('title', $product->pro_name)
 @section('content')
     <div class="container">
         <div class="container-product p-5 mt-5">
@@ -85,7 +86,16 @@
                                     <div class="yellow"><span>Chỉ còn lại {{ $product->quantity }} sản phẩm</span></div>
                                     <input type="hidden" name="pro_id" value="{{ $product->pro_id }}">
                                     <div class="group-button">
-                                        <button type="submit" class="btn btn-add-to-cart">Chọn mua</button>
+                                        @if(Auth::check())
+                                        <form action="{{ route('addCart') }}" method="post">
+                                            @csrf
+                                            <input type="hidden" name="quantity" value="1">
+                                            <input type="hidden" name="pro_id" value="{{ $product->pro_id }}">
+                                            <button type="submit" class="btn btn-add-to-cart">@lang('main.cart.add')</button>
+                                        </form>
+                                        @else
+                                        <button type="button" onclick="alert(' @lang('main.acc.must_login') ')" class="btn btn-add-to-cart">@lang('main.cart.add')</button>
+                                        @endif
                                     </div>
                                 </div>
                             </form>
@@ -155,7 +165,8 @@
                             <div class="review-rating__point">4.5</div>
                             <div class="Stars__StyledStars-sc-15olgyg-0 jucQbJ">
                                 <div style="width: 100%;">
-                                    <span><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 32 32">
+                                    <span><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12"
+                                            viewBox="0 0 32 32">
                                             <path fill="#FDD835" fill-rule="evenodd" stroke="#FFB500" stroke-width="1.5"
                                                 d="M16 1.695l-4.204 8.518-9.401 1.366 6.802 6.631-1.605 9.363L16 23.153l8.408 4.42-1.605-9.363 6.802-6.63-9.4-1.367L16 1.695z">
                                             </path>
@@ -188,28 +199,28 @@
                         <div class="review-rating__detail   ">
                             <div class="review-rating__level mt-5">
                                 <div class="Stars__StyledStars-sc-15olgyg-0 jucQbJ">
-                                    <div style="width: 100%;"><span><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12"
-                                                viewBox="0 0 32 32">
+                                    <div style="width: 100%;"><span><svg xmlns="http://www.w3.org/2000/svg" width="12"
+                                                height="12" viewBox="0 0 32 32">
                                                 <path fill="#FDD835" fill-rule="evenodd" stroke="#FFB500" stroke-width="1.5"
                                                     d="M16 1.695l-4.204 8.518-9.401 1.366 6.802 6.631-1.605 9.363L16 23.153l8.408 4.42-1.605-9.363 6.802-6.63-9.4-1.367L16 1.695z">
                                                 </path>
-                                            </svg></span><span><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12"
-                                                viewBox="0 0 32 32">
+                                            </svg></span><span><svg xmlns="http://www.w3.org/2000/svg" width="12"
+                                                height="12" viewBox="0 0 32 32">
                                                 <path fill="#FDD835" fill-rule="evenodd" stroke="#FFB500" stroke-width="1.5"
                                                     d="M16 1.695l-4.204 8.518-9.401 1.366 6.802 6.631-1.605 9.363L16 23.153l8.408 4.42-1.605-9.363 6.802-6.63-9.4-1.367L16 1.695z">
                                                 </path>
-                                            </svg></span><span><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12"
-                                                viewBox="0 0 32 32">
+                                            </svg></span><span><svg xmlns="http://www.w3.org/2000/svg" width="12"
+                                                height="12" viewBox="0 0 32 32">
                                                 <path fill="#FDD835" fill-rule="evenodd" stroke="#FFB500" stroke-width="1.5"
                                                     d="M16 1.695l-4.204 8.518-9.401 1.366 6.802 6.631-1.605 9.363L16 23.153l8.408 4.42-1.605-9.363 6.802-6.63-9.4-1.367L16 1.695z">
                                                 </path>
-                                            </svg></span><span><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12"
-                                                viewBox="0 0 32 32">
+                                            </svg></span><span><svg xmlns="http://www.w3.org/2000/svg" width="12"
+                                                height="12" viewBox="0 0 32 32">
                                                 <path fill="#FDD835" fill-rule="evenodd" stroke="#FFB500" stroke-width="1.5"
                                                     d="M16 1.695l-4.204 8.518-9.401 1.366 6.802 6.631-1.605 9.363L16 23.153l8.408 4.42-1.605-9.363 6.802-6.63-9.4-1.367L16 1.695z">
                                                 </path>
-                                            </svg></span><span><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12"
-                                                viewBox="0 0 32 32">
+                                            </svg></span><span><svg xmlns="http://www.w3.org/2000/svg" width="12"
+                                                height="12" viewBox="0 0 32 32">
                                                 <path fill="#FDD835" fill-rule="evenodd" stroke="#FFB500" stroke-width="1.5"
                                                     d="M16 1.695l-4.204 8.518-9.401 1.366 6.802 6.631-1.605 9.363L16 23.153l8.408 4.42-1.605-9.363 6.802-6.63-9.4-1.367L16 1.695z">
                                                 </path>
@@ -246,9 +257,9 @@
                 <img class="mt-5" src="https://c0.anthill.vn/images/2020/11/16/46524b889f7d5522e3cd8552edf1351e.jpg" alt="">
             </div>
         </div>
-       
-        
-       
-       
+
+
+
+
     </div>
 @endsection

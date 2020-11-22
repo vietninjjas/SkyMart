@@ -16,10 +16,16 @@ class CreateOrdersTable extends Migration
         Schema::disableForeignKeyConstraints();
         Schema::create('orders', function (Blueprint $table) {
             $table->unsignedInteger('order_id')->autoIncrement();
-            $table->unsignedInteger('pro_id');
+            $table->unsignedInteger('user_id');
+            $table->string('order_name');
+            $table->string('order_phone');
+            $table->string('order_address');
+            $table->tinyInteger('ship_method');
+            $table->tinyInteger('pay_method');
+            $table->integer('total_price');
             $table->timestamps();
             $table->softDeletes();
-            $table->foreign('pro_id')->references('pro_id')->on('products');
+            $table->foreign('user_id')->references('user_id')->on('users');
         });
         Schema::enableForeignKeyConstraints();
     }

@@ -3,24 +3,28 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Product;
-use App\Checkout;
+use App\User;
 
 class Order extends Model
 {
     protected $primaryKey = 'order_id';
 
     protected $fillable = [
-        'pro_id',
+        'user_id',
+        'order_name',
+        'order_phone',
+        'order_address',
+        'ship_method',
+        'pay_method',
+        'total_price',
     ];
 
-    public function product()
+    public function user()
     {
-        $this->belongsTo(Product::class, 'pro_id');
+        $this->belongsTo(User::class, 'user_id');
     }
-
     public function checkouts()
     {
-        $this->belongsTo(checkout::class, 'order_id');
+        $this->hasMany(Checkout::class, 'order_id');
     }
 }
