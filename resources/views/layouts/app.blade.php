@@ -203,12 +203,21 @@
                         </form>
                     </div>
                     <div class="category">
+                        @if(Auth::check())
                         <a href="{{ route('showCart') }}">
                             <i class="cart-icon fas fa-shopping-cart"></i>
                             <span class="cart-text">@lang('main.cart.cart')
                                 <span class="cart-num">{{ Cart::content()->count() }}</span>
                             </span>
                         </a>
+                        @else
+                        <button onclick="alert(' @lang('main.acc.must_login')')">
+                            <i class="cart-icon fas fa-shopping-cart"></i>
+                            <span class="cart-text">@lang('main.cart.cart')
+                                <span class="cart-num">0</span>
+                            </span>
+                        </button>
+                        @endif
                     </div>
                 </div>
             </div>

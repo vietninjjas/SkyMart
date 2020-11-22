@@ -15,14 +15,15 @@ class CreateCheckoutsTable extends Migration
     {
         Schema::disableForeignKeyConstraints();
         Schema::create('checkouts', function (Blueprint $table) {
-            $table->unsignedInteger('cart_id');
+            $table->unsignedInteger('check_id')->autoIncrement();
             $table->unsignedInteger('order_id');
-            $table->tinyInteger('check_status')->default(0);
-            $table->integer('total_price')->nullable();
-            $table->tinyInteger('payment')->default(0);
+            $table->unsignedInteger('pro_id');
+            $table->integer('quantity');
+            $table->integer('total_price');
             $table->timestamps();
-            $table->foreign('cart_id')->references('cart_id')->on('carts');
+            $table->foreign('pro_id')->references('pro_id')->on('products');
             $table->foreign('order_id')->references('order_id')->on('orders');
+            $table->softDeletes();
         });
         Schema::enableForeignKeyConstraints();
     }

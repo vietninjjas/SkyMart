@@ -39,13 +39,17 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        $file = $request->file('cate_logo');
-        $fileName = uniqid() . '_' . $file->getClientOriginalName();
-        $file->move('images/categories', $fileName);
+        $fileLogo = $request->file('cate_logo');
+        $fileNameLogo = uniqid() . '_' . $fileLogo->getClientOriginalName();
+        $fileLogo->move('images/categories/logos', $fileNameLogo);
+        $fileImage = $request->file('cate_image');
+        $fileNameImage = uniqid() . '_' . $fileImage->getClientOriginalName();
+        $fileImage->move('images/categories/images', $fileNameImage);
         Category::create([
             'cate_name' => $request->input('cate_name'),
             'cate_desc' => $request->input('cate_desc'),
-            'cate_logo' => $fileName,
+            'cate_logo' => $fileNameLogo,
+            'cate_image' => $fileNameImage,
             'parent_id' => $request->input('parent_id'),
         ]);
 
@@ -96,13 +100,17 @@ class CategoryController extends Controller
     {
         $cate = Category::findOrFail($cateId);
 
-        $file = $request->file('cate_logo');
-        $fileName = uniqid() . '_' . $file->getClientOriginalName();
-        $file->move('images/categories', $fileName);
+        $fileLogo = $request->file('cate_logo');
+        $fileNameLogo = uniqid() . '_' . $fileLogo->getClientOriginalName();
+        $fileLogo->move('images/categories/logos', $fileNameLogo);
+        $fileImage = $request->file('cate_image');
+        $fileNameImage = uniqid() . '_' . $fileImage->getClientOriginalName();
+        $fileImage->move('images/categories/images', $fileNameImage);
         
         $cate->cate_name = $request->input('cate_name');
         $cate->cate_desc = $request->input('cate_desc');
-        $cate->cate_logo = $fileName;
+        $cate->cate_image = $fileNameImage;
+        $cate->cate_logo = $fileNameLogo;
         $cate->parent_id = $request->input('parent_id');
         $cate->save();
 

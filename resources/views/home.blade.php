@@ -13,7 +13,7 @@
                             @if ($cate->parent_id == null)
                                 <li class="product-list-item">
                                     <a href="{{ route('category.show', $cate->cate_id) }}" class="item-link">
-                                        <img style="width: 20px; height:20px" class="mr-3" src="images/categories/{{ $cate->cate_logo }}"
+                                        <img style="width: 20px; height:20px" class="mr-3" src="images/categories/images/{{ $cate->cate_image }}"
                                             alt="">
                                         {{ $cate->cate_name }}
                                     </a>
@@ -231,7 +231,7 @@
                         @if ($cate->parent_id != null)
                             <div class="pro-hov">
                                 <div class="product-top">
-                                    <img src="images/categories/{{ $cate->cate_logo }}" alt="">
+                                    <img src="images/categories/logos/{{ $cate->cate_logo }}" alt="">
                                 </div>
                                 <div class="product-bottom text-center">
                                     <p class="title text-center">{{ $cate->cate_name }}</p>

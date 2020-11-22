@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use App\Category;
 use App\Review;
 use App\Wishlist;
+use App\Checkout;
 
 class Product extends Model
 {
@@ -38,4 +39,8 @@ class Product extends Model
         return $this->hasMany(Wishlist::class, 'pro_id');
     }
 
+    public function checkouts()
+    {
+        $this->hasMany(Checkout::class, 'pro_id');
+    }
 }
