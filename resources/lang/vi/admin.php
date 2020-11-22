@@ -28,6 +28,7 @@ return [
         'delete' => 'Xóa',
         'search' => 'Tìm kiếm',
         'show' => 'Chi tiết',
+        'delete_all' => 'Xóa tất cả',
     ],
     'categories' => [
         'cate_manage' => 'Quản lý danh mục',
