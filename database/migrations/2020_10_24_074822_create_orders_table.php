@@ -25,6 +25,7 @@ class CreateOrdersTable extends Migration
             $table->string('order_address');
             $table->tinyInteger('ship_method');
             $table->tinyInteger('pay_method');
+            $table->tinyInteger('order_status')->default(0);
             $table->timestamps();
             $table->softDeletes();
             $table->foreign('user_id')->references('user_id')->on('users');
