@@ -59,6 +59,7 @@ return [
         'taxed' => 'Đã bao gồm thuế',
         'order' => 'Đặt hàng',
         'add' => 'Thêm vào giỏ',
+        'vated' => 'Đã bao gồm VAT nếu có',
     ],
     'footer' => [
         'reg_get_news' => 'Đăng ký nhận bản tin Sky mart',
