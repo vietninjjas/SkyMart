@@ -8,6 +8,7 @@ use App\Product;
 
 class Checkout extends Model
 {
+    protected $primaryKey = 'check_id';
     protected $fillable = [
         'order_id',
         'pro_id',

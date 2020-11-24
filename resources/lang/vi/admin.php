@@ -29,6 +29,9 @@ return [
         'search' => 'Tìm kiếm',
         'show' => 'Chi tiết',
         'delete_all' => 'Xóa tất cả',
+        'next' => 'Tiếp theo',
+        'return' => 'Quay lại',
+        'here' => 'tại đây',
     ],
     'categories' => [
         'cate_manage' => 'Quản lý danh mục',

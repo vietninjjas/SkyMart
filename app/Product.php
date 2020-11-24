@@ -41,6 +41,6 @@ class Product extends Model
 
     public function checkouts()
     {
-        $this->hasMany(Checkout::class, 'pro_id');
+        $this->hasMany(Checkout::class);
     }
 }

@@ -42,17 +42,9 @@
                         <td>@lang('main.cart.total_price')</td>
                         <td>{{ Cart::subTotal() }}đ</td>
                     </tr>
-                    <tr>
-                        <td>@lang('main.cart.ship_price')</td>
-                        <td>20.000đ</td>
-                    </tr>
-                    <tr>
-                        <td>@lang('main.cart.total_order')</td>
-                        <td>{{ Cart::total() }}đ <i>(@lang('main.cart.taxed'))</i></td>
-                    </tr>
                 </table>
                 <div class="btn-more text-center mt-3 mb-3">
-                    <a href="">@lang('main.cart.order')</a>
+                    <a href="{{ route('order.create') }}">@lang('main.cart.order')</a>
                 </div>
             </div>
         </div>

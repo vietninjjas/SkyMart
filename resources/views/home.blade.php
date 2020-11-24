@@ -23,7 +23,7 @@
                                                 <ul>
                                                     <h5>{{ $catehihi->cate_name }}</h5>
                                                     @foreach ($catehihi->products as $pro)
-                                                        <li><a href="#">{{ $pro->pro_name }}</a></li>
+                                                        <li><a href="{{ route('product.show', $pro->pro_id) }}">{{ $pro->pro_name }}</a></li>
                                                         
                                                         @if ($proCount++ == 5) @break
                                                         @endif
