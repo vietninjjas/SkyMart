@@ -45,3 +45,7 @@ Route::post('account/{id}/updatePass', 'Auth\AccountController@updatePass')->nam
 Route::post('add-cart', 'CartController@save_cart')->name('addCart');
 Route::get('/search', 'HomeController@search');
 Route::get('show-cart', 'CartController@show_cart')->name('showCart');
+
+
+//Send mai;
+

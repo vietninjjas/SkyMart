@@ -389,6 +389,17 @@
         cssEase: 'linear'
     });
 
+if ($('.ty-compact-list').length > 8) {
+  $('.ty-compact-list:gt(7)').hide();
+  $('.show-more').show();
+}
+
+$('.show-more').on('click', function() {
+  //toggle elements with class .ty-compact-list that their index is bigger than 2
+  $('.ty-compact-list:gt(6)').toggle();
+  //change text of show more element just for demonstration purposes to this demo
+  $(this).text() === 'Xem thêm' ? $(this).text('Xem thêm') : $(this).text('Rút gọn');
+});
 </script>
 <!-- scrip của khuyến mãi -->
 <script>

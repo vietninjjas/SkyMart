@@ -192,7 +192,7 @@
                                         </form>
                                     </div>
                                 </div>
-                                <span class="percent deal">{{FLOOR(($pro->pro_new_price/$pro->pro_old_price)*100)}}%</span>
+                                <span class="percent deal">{{FLOOR(100-(($pro->pro_new_price/$pro->pro_old_price)*100))}}%</span>
                                 <div class="product-bottom text-center">
                                     <i class="fas fa-star"></i>
                                     <i class="fas fa-star"></i>
@@ -249,7 +249,7 @@
                 <div class="container">
                     <div class="row">
                         @foreach ($hots as $hot)
-                            <div class="col-md-3 pro-hov">
+                            <div class="col-md-3 pro-hov ty-compact-list">
                                 <div class="product-top">
                                     <img src="images/products/{{ $hot->pro_image }}" alt="">
                                     <div class="overlay">
@@ -274,22 +274,24 @@
                                         </form>
                                     </div>
                                 </div>
-                                <span class="percent deal">{{FLOOR(($hot->pro_new_price/$hot->pro_old_price)*100)}}%</span>
+                                <span class="percent deal">{{FLOOR(100-(($hot->pro_new_price/$hot->pro_old_price)*100))}}%</span>
                                 <div class="product-bottom text-center">
                                     <i class="fas fa-star"></i>
                                     <i class="fas fa-star"></i>
                                     <i class="fas fa-star"></i>
                                     <i class="fas fa-star-half"></i>
                                     <i class="far fa-star"></i>
-                                    <p class="title">{{ $hot->pro_name }}</p>
-                                    <h5 class="price">{{ number_format($hot->pro_new_price) }}000 đ
+                                    <p class="title"><a style="color: rgb(71, 73, 73)" href="{{ route('product.show', $hot->pro_id) }}">{{ $hot->pro_name }}</a></p>
+                                    <h5 class="price">{{ number_format($hot->pro_new_price) }} đ
                                         <span class="original deal">{{ number_format($hot->pro_old_price) }} đ</span>
                                     </h5>
+                                    <button class=""><a href="{{ route('product.show', $pro->pro_id) }}">Xem ngay</a></button>
                                 </div>
                             </div>
+                           
                         @endforeach
-                        <div class="btn-more text-center mt-3 mb-3">
-                            <a href="">@lang('main.see_more')</a>
+                        <div class="btn-more text-center mt-3 mb-3 show-more">
+                            <button><p>@lang('main.see_more')</p></button>
                         </div>
                     </div>
                 </div>
