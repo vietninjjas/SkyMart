@@ -92,5 +92,33 @@ return [
         'copy_right2' => 'Giấy chứng nhận Đăng ký Kinh doanh số 0309532909 do Sở Kế hoạch và Đầu tư
         Thành phố Hồ Chí Minh cấp ngày 10/10/2020',
     ],
+    'order' => [
+        'title_info' => 'Thông tin thanh toán',
+        'title_method' => 'Phương thức thanh toán',
+        'title_viewcart' => 'Thanh toán & đặt mua',
+        'title_complete' => 'Hoàn thành',
+        'name' => 'Họ và tên',
+        'phone' => 'Số điện thoại nhận hàng',
+        'city' => 'Tỉnh/Thành phố',
+        'district' => 'Quận/Huyện',
+        'ward' => 'Phường/Xã',
+        'address' => 'Địa chỉ',
+        'sologan' => 'Đặt hàng cùng Skymart ngay hôm nay để nhận được nhiều khuyến mãi hấp dẫn',
+        'see_your_order' => 'Xem đơn hàng của bạn',
+        'here' => 'Tại đây',
+    ],
+    'ship' => [
+        'select_ship' => 'Chọn hình thức giao hàng',
+        'ship1' => 'Giao hàng tiêu chuẩn',
+        'ship2' => 'Giao nhanh',
+        'ship_fee' => 'Phí ship',
+        'ship_desc1' => 'Giao từ 4-7 ngày tính từ ngày đặt hàng',
+        'ship_desc2' => 'Giao từ 2-3 ngày tính từ ngày đặt hàng',
+    ],
+    'payment' => [
+        'select_pay' => 'Chọn hình thức thanh toán',
+        'monney' => 'Thanh toán khi nhận hàng',
+        'paypal' => 'Thanh toán bằng paypal',
+    ]
 
 ];

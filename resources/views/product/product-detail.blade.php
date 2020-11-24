@@ -73,12 +73,12 @@
                                 <div class="QualityInput__Wrapper">
                                     <p>Số Lượng</p>
                                     <div class="group-input">
-                                        <button class="disable">
+                                        <button type="button" class="disable">
                                             <img
                                                 src="https://frontend.tikicdn.com/_desktop-next/static/img/pdp_revamp_v2/icons-remove.svg">
                                         </button>
                                         <input type="number" value="1" name="quantity" class="input">
-                                        <button>
+                                        <button type="button">
                                             <img
                                                 src="https://frontend.tikicdn.com/_desktop-next/static/img/pdp_revamp_v2/icons-add.svg">
                                         </button>
@@ -86,15 +86,13 @@
                                     <div class="yellow"><span>Chỉ còn lại {{ $product->quantity }} sản phẩm</span></div>
                                     <input type="hidden" name="pro_id" value="{{ $product->pro_id }}">
                                     <div class="group-button">
-                                        @if(Auth::check())
-                                        <form action="{{ route('addCart') }}" method="post">
-                                            @csrf
-                                            <input type="hidden" name="quantity" value="1">
+                                        @if (Auth::check())
                                             <input type="hidden" name="pro_id" value="{{ $product->pro_id }}">
-                                            <button type="submit" class="btn btn-add-to-cart">@lang('main.cart.add')</button>
-                                        </form>
+                                            <button type="submit"
+                                                class="btn btn-add-to-cart">@lang('main.cart.add')</button>
                                         @else
-                                        <button type="button" onclick="alert(' @lang('main.acc.must_login') ')" class="btn btn-add-to-cart">@lang('main.cart.add')</button>
+                                            <button type="button" onclick="alert(' @lang('main.acc.must_login') ')"
+                                                class="btn btn-add-to-cart">@lang('main.cart.add')</button>
                                         @endif
                                     </div>
                                 </div>

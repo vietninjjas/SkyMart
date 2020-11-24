@@ -19,10 +19,12 @@ class CreateOrdersTable extends Migration
             $table->unsignedInteger('user_id');
             $table->string('order_name');
             $table->string('order_phone');
+            $table->string('order_city');
+            $table->string('order_district');
+            $table->string('order_ward');
             $table->string('order_address');
             $table->tinyInteger('ship_method');
             $table->tinyInteger('pay_method');
-            $table->integer('total_price');
             $table->timestamps();
             $table->softDeletes();
             $table->foreign('user_id')->references('user_id')->on('users');
