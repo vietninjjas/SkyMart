@@ -8,11 +8,13 @@ use App\Product;
 
 class Review extends Model
 {
-    protected $primaryKey = 'wish_id';
+    protected $primaryKey = 'rev_id';
 
     protected $fillable = [
         'user_id',
         'pro_id',
+        'comment',
+        'rate',
     ];
 
     public function user()

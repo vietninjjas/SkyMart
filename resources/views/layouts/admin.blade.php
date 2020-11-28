@@ -64,9 +64,9 @@
                                         <li><a
                                                 href="{{ route('admin.deal.index') }}">@lang('admin.banners.list_deal')</a>
                                         </li>
-                                        <li><a href="{{ route('admin.banner.create') }}">@lang('admin.banner.view')</a>
+                                        <li><a href="{{ route('admin.banner.create') }}">@lang('admin.banners.create')</a>
                                         </li>
-                                        <li><a href="{{ route('admin.banner.index') }}">@lang('admin.banner.view')</a>
+                                        <li><a href="{{ route('admin.banner.index') }}">@lang('admin.banners.view')</a>
                                         </li>
                                     </ul>
                                 </li>

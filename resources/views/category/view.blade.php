@@ -76,7 +76,7 @@
                                                             @else
                                                                 <img class="img-thumbnail"
                                                                     style="width: 100px; height:100px;"
-                                                                    src="images/categories/images/{{ $cate->cate_image }}" alt="">
+                                                                    src="images/categories/cate_images/{{ $cate->cate_image }}" alt="">
                                                             @endif
                                                         </td>
                                                         <td>
@@ -122,7 +122,7 @@
                                                                 @else
                                                                     <img class="img-thumbnail"
                                                                         style="width: 100px; height:100px;"
-                                                                        src="images/categories/images/{{ $cate->cate_image }}"
+                                                                        src="images/categories/cate_images/{{ $key->cate_image }}"
                                                                         alt="">
                                                                 @endif
                                                             </td>

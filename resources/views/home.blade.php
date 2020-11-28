@@ -12,27 +12,31 @@
                         @foreach ($categories as $cate)
                             @if ($cate->parent_id == null)
                                 <li class="product-list-item">
-                                    <a href="{{ route('category.show', $cate->cate_id) }}" class="item-link">
-                                        <img style="width: 20px; height:20px" class="mr-3" src="images/categories/images/{{ $cate->cate_image }}"
-                                            alt="">
+                                    <a href="#" class="item-link">
+                                        <img style="width: 20px; height:20px" class="mr-3"
+                                            src="images/categories/logos/{{ $cate->cate_logo }}" alt="">
                                         {{ $cate->cate_name }}
                                     </a>
                                     <div class="lon">
                                         <div class="cac">
                                             @foreach ($cate->children as $catehihi)
                                                 <ul>
-                                                    <h5>{{ $catehihi->cate_name }}</h5>
+                                                    <h5>
+                                                        <a href="{{ route('category.show', $catehihi->cate_id) }}">
+                                                            {{ $catehihi->cate_name }}
+                                                        </a>
+                                                    </h5>
                                                     @foreach ($catehihi->products as $pro)
-                                                        <li><a href="{{ route('product.show', $pro->pro_id) }}">{{ $pro->pro_name }}</a></li>
-                                                        
-                                                        @if ($proCount++ == 5) @break
-                                                        @endif
-                                                     
+                                                        <li><a
+                                                                href="{{ route('product.show', $pro->pro_id) }}">{{ $pro->pro_name }}</a>
+                                                        </li>
+
+                                                        @if ($proCount++ == 5) @break @endif
+
                                                     @endforeach
-                                                    
+
                                                 </ul>
-                                                @if ($cateCount++ == 3) @break
-                                                @endif
+                                                @if ($cateCount++ == 3) @break @endif
                                             @endforeach
                                         </div>
                                     </div>
@@ -192,19 +196,23 @@
                                         </form>
                                     </div>
                                 </div>
-                                <span class="percent deal">{{FLOOR(100-($pro->pro_new_price/$pro->pro_old_price)*100)}}%</span>
+                                <span
+                                    class="percent deal">{{ FLOOR(100 - ($pro->pro_new_price / $pro->pro_old_price) * 100) }}%</span>
                                 <div class="product-bottom text-center">
                                     <i class="fas fa-star"></i>
                                     <i class="fas fa-star"></i>
                                     <i class="fas fa-star"></i>
                                     <i class="fas fa-star-half"></i>
                                     <i class="far fa-star"></i>
-                                    <a href="{{ route('product.show', $pro->pro_id) }}"><p class="title">{{ $pro->pro_name }}</p></a>
-                                    
+                                    <a href="{{ route('product.show', $pro->pro_id) }}">
+                                        <p class="title">{{ $pro->pro_name }}</p>
+                                    </a>
+
                                     <h5 class="price">{{ number_format($pro->pro_new_price) }} đ
                                         <span class="original deal">{{ number_format($pro->pro_old_price) }}đ</span>
                                     </h5>
-                                    <button class=""><a href="{{ route('product.show', $pro->pro_id) }}">Xem ngay</a></button>
+                                    <button class=""><a href="{{ route('product.show', $pro->pro_id) }}">Xem
+                                            ngay</a></button>
                                 </div>
                             </div>
                         @endif
@@ -220,7 +228,7 @@
                 <div class="custom-slider">
                     @foreach ($topSales as $sa)
                         <div class="custom-box">
-                        <a href="#"><img src="images/products/{{$sa->pro_image}}" alt=""></a>
+                            <a href="#"><img src="images/products/{{ $sa->pro_image }}" alt=""></a>
                         </div>
                     @endforeach
                 </div>
@@ -231,7 +239,7 @@
                         @if ($cate->parent_id != null)
                             <div class="pro-hov">
                                 <div class="product-top">
-                                    <img src="images/categories/logos/{{ $cate->cate_logo }}" alt="">
+                                    <img src="images/categories/cate_images/{{ $cate->cate_image }}" alt="">
                                 </div>
                                 <div class="product-bottom text-center">
                                     <p class="title text-center">{{ $cate->cate_name }}</p>
@@ -274,7 +282,8 @@
                                         </form>
                                     </div>
                                 </div>
-                                <span class="percent deal">{{FLOOR(100-($hot->pro_new_price/$hot->pro_old_price)*100)}}%</span>
+                                <span
+                                    class="percent deal">{{ FLOOR(100 - ($hot->pro_new_price / $hot->pro_old_price) * 100) }}%</span>
                                 <div class="product-bottom text-center">
                                     <i class="fas fa-star"></i>
                                     <i class="fas fa-star"></i>
