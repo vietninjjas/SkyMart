@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use App\User;
+use App\Checkout;
 
 class Order extends Model
 {
@@ -17,17 +18,18 @@ class Order extends Model
         'order_district',
         'order_ward',
         'order_address',
+        'order_status',
         'ship_method',
         'pay_method',
-        
+        'order_total',
     ];
 
     public function user()
     {
-        $this->belongsTo(User::class, 'user_id');
+        return $this->belongsTo(User::class, 'user_id');
     }
     public function checkouts()
     {
-        $this->hasMany(Checkout::class, 'order_id');
+        return $this->hasMany(Checkout::class, 'order_id');
     }
 }
