@@ -129,10 +129,12 @@
                     </ul>
                     <ul>
                         <li>
+                            @if(Auth::check())
                             <a href="" class="notifications-help">
-                                <i class="fa fa-bell" aria-hidden="true"></i>
-                                @lang('main.alert')
+                                <i class="fas fa-heart" aria-hidden="true"></i>
+                                @lang('main.wishlist') (0)
                             </a>
+                            @endif
                         </li>
                         <li>
                             <a href="" class="notifications-help">

@@ -2,6 +2,10 @@
 
 return [
     'title' => 'TRANG QUẢN TRỊ',
+    'go_home' => 'Về trang chủ',
+    'dashboard' => [
+        'dashboard' => 'Tổng quan',
+    ],
     'user' => [
         'fullname' => 'Họ và tên',
         'email' => 'Email',
@@ -53,6 +57,8 @@ return [
         'id' => 'ID',
         'ban_image' => 'Ảnh Banner',
         'ban_name' => 'Tên Banner', 
+        'new_deal' => 'Thêm deal mới',
+        'list_deal' => 'Liệt kê deal',
     ],
     'products' => [
         'id' => 'ID',
@@ -80,5 +86,45 @@ return [
         'deal_image' => 'Ảnh Deal',
         'deal_name' => 'Tên Deal',
     ],
-
+    'reviews' => [
+        'rev_manage' => 'Quản lý đánh giá, bình luận',
+        'rev_view' => 'Xem đánh giá, bình luận',
+    ],
+    'orders' => [
+        'order_manage' => 'Quản lý đơn hàng',
+        'order_view' => 'Xem đơn hàng',
+        'order_of' => 'Đơn hàng của ',
+        'order_list' => 'Danh sách đơn hàng',
+        'detail' => 'Chi tiết',
+        'id' => 'ID',
+        'order_name' => 'Người mua',
+        'order_phone' => 'Số điện thoại',
+        'order_city' => 'Tỉnh/Thành phố',
+        'order_district' => 'Quận/Huyện',
+        'order_ward' => 'Xã/phường',
+        'order_address' => 'Địa chỉ',
+        'order_qty' => 'Tổng số',
+        'order_total' => 'Tổng giá',
+        'order_status' => [
+            'order_status' => 'Trạng thái',
+            'wait' => 'Đang chờ',
+            'shippingNotPay' => 'Đang giao, chưa thanh toán',
+            'shippingPaid' => 'Đang giao, đã thanh toán',
+            'complete' => 'Hoàn thành',
+            'cancelled' => 'Đã hủy',
+        ],
+        'ship_method' => [
+            'ship_price' => 'Giá ship',
+            'ship_method' => 'Hình thức giao hàng',
+            'ship1' => 'Giao hàng tiêu chuẩn',
+            'ship2' => 'Giao hàng nhanh',
+        ],
+        'pay_method' => [
+            'pay_method' => 'Hình thức thanh toán',
+            'pay1' => 'Thanh toán khi nhận hàng',
+            'pay2' => 'Thanh toán bằng paypal'
+        ],
+        'quantity' => 'Số lượng',
+        'total_price' => 'Thành tiền',
+    ],
 ];
