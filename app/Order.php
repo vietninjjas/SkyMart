@@ -18,10 +18,11 @@ class Order extends Model
         'order_district',
         'order_ward',
         'order_address',
-        'order_status',
         'ship_method',
         'pay_method',
         'order_total',
+        'order_qty',
+        'order_status',
     ];
 
     public function user()

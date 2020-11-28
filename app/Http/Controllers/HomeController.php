@@ -27,6 +27,7 @@ class HomeController extends Controller
         $products = Product::All();
         $proCount =1;
         $cateCount =1;
+        $CateParentCount = 1;
         $deals = Deal::all();
         $categories = Category::with('products')->get();
         $topSales = Product::where('pro_sale', 1)->orderBy('updated_at', 'desc')->get();
@@ -37,6 +38,7 @@ class HomeController extends Controller
             'categories',
             'products',
             'proCount',
+            'CateParentCount',
             'topSales',
             'hots',
             'deals',
