@@ -2569,7 +2569,6 @@ footer{
 .pagination {
   margin: 20px ;
   color: #555;
-  float: right;
   font-family: 'Inter UI', sans-serif;
   font-size: 1.25em;
   justify-content: center;

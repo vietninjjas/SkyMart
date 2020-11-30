@@ -157,7 +157,7 @@
 }
 .coupon .images{
     margin-top: 10px;
-    width: 80%;
+    width: 100%;
     display: flex;
     align-items: center;
 }
@@ -247,8 +247,6 @@
 .form-cmt{
     display: flex;
     padding: 20px;
-}
-.form-cmt form{
     flex: 1 1 0%;
     display: inline-block;
 }
@@ -260,10 +258,11 @@
     border: 1px solid rgb(224, 224, 224);
     border-radius: 4px;
     transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+    outline: none;
 }
 .form-cmt button{
     cursor: pointer;
-    width: 154px;
+    width: 200px;
     height: 40px;
     margin: 15px 290px;
     padding: 0px;
@@ -307,12 +306,24 @@
     align-items: center;
     -webkit-box-pack: center;
     justify-content: center;
+    position: relative;
 }
 .review-rating__point {
-    font-size: 33px;
+    font-size: 25px;
     line-height: 40px;
     margin: 0px 0px 4px;
+    position: relative;
 }
+
+.point_span{
+    position: absolute;
+    z-index: 2;
+    left:53px;
+    top:50px;
+    color: #fff;
+    text-shadow: 0 0 5px brown;
+}
+
 .jucQbJ {
     position: relative;
     z-index: 1;

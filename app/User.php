@@ -9,6 +9,7 @@ use App\Feeback;
 use App\Cart;
 use App\Wishlish;
 use App\Review;
+use App\Order;
 
 class User extends Authenticatable
 {
@@ -53,24 +54,28 @@ class User extends Authenticatable
 
     public function setPasswordAttribute($password)
     {
-        $this->attributes['password'] = bcrypt($password);
+        return $this->attributes['password'] = bcrypt($password);
     }
 
     public function feedbacks()
     {
-        $this->hasMany(Feedback::class, 'user_id');
+        return $this->hasMany(Feedback::class, 'user_id');
     }
     public function carts()
     {
-        $this->hasMany(Cart::class, 'user_id');
+        return $this->hasMany(Cart::class, 'user_id');
     }
     public function wishlist()
     {
-        $this->hasMany(wishlist::class, 'user_id');
+        return $this->hasMany(Wishlist::class, 'user_id');
     }
     public function reviews()
     {
-        $this->hasMany(Review::class, 'user_id');
+        return $this->hasMany(Review::class, 'user_id');
+    }
+    public function orders()
+    {
+        return $this->hasMany(Order::class, 'user_id');
     }
     public function role($role) {     
         if($role == $this->role) return true;

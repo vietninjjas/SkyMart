@@ -1,5 +1,5 @@
 @extends('layouts.admin')
-@section('title', 'admin.title')
+@section('title', trans('admin.title'))
 @section('content')
     <div class="right_col" role="main">
         <div class="">
