@@ -52,7 +52,7 @@
                     <th>@lang('admin.products.id')</th>
                     <th>@lang('admin.products.pro_name')</th>
                     <th>@lang('admin.categories.cate_name')</th>
-                    <th>@lang('admin.products.pro_image')</th>
+                    <th style="width=250px">@lang('admin.products.pro_image')</th>
                     <th>@lang('admin.products.pro_desc')</th>
                     <th>@lang('admin.products.quantity')</th>
                     <th>@lang('admin.products.pro_old_price')</th>
@@ -76,7 +76,7 @@
                             <img class="img-thumbnail" style="width: 100px; height:100px;" src="images/products/{{ $pro->pro_image }}" alt="">
                         @endif
                     </td>
-                    <td>{{ $pro->pro_desc }}</td>
+                    <td >{{ $pro->pro_desc }}</td>
                     <td>{{ $pro->quantity }}</td>
                     <td>{{ $pro->pro_old_price }}</td>
                     <td>{{ $pro->pro_new_price }}</td>
@@ -86,7 +86,7 @@
                       <form action="{{ route('admin.product.destroy', $pro->pro_id) }}" method="post">
                         @csrf
                         @method('DELETE')
-                        <button type="submit" class="btn btn-outline-danger"><i class="fa fa-trash-o"></i> @lang('admin.action.delete') </button>
+                        <button type="submit" class="btn btn-outline-danger" class="confirmation" onclick="return confirm('Bạn có chắc muốn xóa?');"><i class="fa fa-trash-o"></i> @lang('admin.action.delete') </button>
                       </form>
                     </td>
                   </tr>

@@ -124,9 +124,11 @@
         </div>
         <div class="row">
             <div class="col-9">
-                <h2>@lang('main.product.product_desc')</h2>
-                <div class="container-product">
-                    <p>{{ $product->pro_desc }}</p>
+                <h2>MÔ TẢ SẢN PHẨM</h2>
+                <div class="container-product" >
+                    @php
+                        Echo($product->pro_desc);
+                    @endphp                   
                 </div>
                 <h2>@lang('main.product.cus_review')</h2>
                 <div class="container-product">
