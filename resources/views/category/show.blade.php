@@ -40,11 +40,18 @@
                                 <h4>@lang('main.category')</h4>
                             </div>
                             <div>
+                                <script>
+                                    $(document).ready(function(){
+                                      $(".cate-h").click(function(){
+                                        $(".cate-a").toggle();
+                                      });
+                                    });
+                                    </script>
                                 <ul class="cate-pro-item">
                                     @foreach ($categories as $category)
                                         @if ($category->parent_id == null)
-                                            <li><a href="{{ route('category.show', $category->cate_id) }}">{{ $category->cate_name }}<span>({{ $category->children->count() }})</span></a>
-                                                <ul>
+                                            <li  ><a style="font-weight:bold"  href="{{ route('category.show', $category->cate_id) }}">{{ $category->cate_name }}<span>({{ $category->children->count() }})</span><i class="fas fa-angle-down ml-2"></i></a>
+                                                <ul class="cate-s">
                                                     @foreach ($category->children as $c)
                                                         <li><a href="{{ route('category.show', $c->cate_id) }}">-{{ $c->cate_name }}<span>({{ $c->products->count() }})</span></a></li>
                                                     @endforeach
@@ -141,12 +148,44 @@
                                     <i class="fas fa-star"></i>
                                     <i class="fas fa-star-half"></i>
                                     <i class="far fa-star"></i>
-                                    <p class="title"> {{ $pro->pro_name }}</p>
+                                    <p class="title"><a style="color: rgb(73, 72, 72)" href="{{ route('product.show', $pro->pro_id) }}">{{ $pro->pro_name }}</a></p>
                                     <h5 class="price">{{ number_format($pro->pro_new_price) }} đ <span class="original deal">{{ number_format($pro->pro_old_price) }} đ</span></h5>
+                                    <button class=""><a href="{{ route('product.show', $pro->pro_id) }}">Xem ngay</a></button>
                                 </div>
                             </div>
+                            
                             @endforeach
                         </div>
+                        <div>
+                            <div class="pagination">
+                                <span><div class="index">1</div><div class="index">2</div><div class="index">3</div><div class="index">4</div><div class="index">5</div></span>
+                                <svg viewBox="0 0 100 100">
+                                  <path
+                                        d="m 7.1428558,49.999998 c -1e-7,-23.669348 19.1877962,-42.8571447 42.8571442,-42.8571446 23.669347,0 42.857144,19.1877966 42.857144,42.8571446" />
+                                </svg>
+                                <svg viewBox="0 0 100 100">
+                                  <path
+                                        d="m 7.1428558,49.999998 c -1e-7,23.669347 19.1877962,42.857144 42.8571442,42.857144 23.669347,0 42.857144,-19.187797 42.857144,-42.857144" />
+                                </svg>
+                                </div>
+                        </div>
+                        <script>
+                            const c = document.querySelector('.pagination')
+                            const indexs = Array.from(document.querySelectorAll('.index'))
+                            let cur = -1
+                            indexs.forEach((index, i) => {
+                            index.addEventListener('click', (e) => {
+                            c.className = 'pagination'
+                            void c.offsetWidth; // Reflow
+                            c.classList.add('open')
+                            c.classList.add(`i${i + 1}`)
+                            if (cur > i) {
+                            c.classList.add('flip')
+                            }
+                            cur = i
+                        })
+                        })
+                        </script>
                     </div>
                 </div>
             </div>

@@ -23,7 +23,7 @@
             </div>
             <div class="x_content">
               <br />
-              <form action="{{ route('admin.product.store') }}" method="POST" enctype="multipart/form-data" id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
+              <form action="{{ route('admin.product.store') }}" method="POST" enctype="multipart/form-data" id="demo-form2" onsubmit="createTextSnippet(); data-parsley-validate class="form-horizontal form-label-left">
                 @csrf
                 <div class="item form-group">
                   <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">@lang('admin.products.pro_name') <span class="required">*</span></label>
@@ -34,7 +34,9 @@
                 <div class="item form-group">
                   <label for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">@lang('admin.products.pro_desc')</label>
                   <div class="col-md-6 col-sm-6 ">
-                    <input id="ckeditor" class="form-control" type="text" name="pro_desc">
+                    <textarea id="ckeditor" class="form-control" type="text" name="pro_desc">
+                      
+                    </textarea>
                   </div>
                 </div>
                 <div class="item form-group">

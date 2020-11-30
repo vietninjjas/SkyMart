@@ -26,6 +26,15 @@
 </head>
 
 <body>
+    <div id='af-preloader'>
+
+        <div class='af-preloader-wrap'>
+      
+          <div class='af-sp af-sp-wave'></div>
+      
+        </div>
+      
+      </div>
     <div class="main">
         <div id="form-modal">
             <div class="cont" id="ex1">
@@ -231,7 +240,7 @@
                                 <a href=""></a>
                                 @lang('main.category')
                             </li>
-                            <li>
+                            <li >
                                 <i class="fas fa-map-marker-alt giao-toi"></i>
                                 <span style="text-align: justify;">@lang('main.ship_over')</span>
                             </li>
@@ -239,7 +248,7 @@
                                 <i class="fas fa-shipping-fast giao-hang"></i>
                                 @lang('main.ship_free')
                             </li>
-                            <li>
+                            <li class="giao-toi2">
                                 <i class="fas fa-language change-language"></i>
                                 @lang('main.i18n')
                             </li>
@@ -260,14 +269,14 @@
             <div class="footer__email">
                 <div class="container footer-leter">
                     <div class="row">
-                        <div class="col-lg-2 NewsLetter-icon">
+                        <div class="col-lg-2 col-md-3 col-sm-4 NewsLetter-icon">
                             <img src="./assets/images/newsletter.png" alt="">
                         </div>
-                        <div class="NewsLetter-description col-lg-4">
+                        <div class="NewsLetter-description col-lg-4 col-md-4 col-sm-6">
                             <h3>@lang('main.footer.reg_get_news')</h3>
                             <h5>@lang('main.footer.reg_get_news2')</h5>
                         </div>
-                        <div class="NewsLetter-form col-lg-5">
+                        <div class="NewsLetter-form col-lg-5 col-md-4 col-sm-5">
                             <div>
                                 <input type="email" placeholder="Địa chỉ email của bạn" value="">
                                 <button>@lang('main.acc.register')</button>
@@ -387,8 +396,10 @@
 </body>
 
 </html>
+
 <script>
-    $('#gallery').slick({
+    //Slider album ảnh
+    $('#gallery').slick({ 
         slidesToShow: 6,
         slidesToScroll: 1,
         autoplay: true,
@@ -397,9 +408,25 @@
         pauseOnHover: false,
         cssEase: 'linear'
     });
-
+//Hàm hiển thị số lượn sản phẩm ở trang chủ
+    if ($('.ty-compact-list2').length > 8) {
+  $('.ty-compact-list2:gt(7)').hide();
+  $('.show-more').show();
+}
+    if ($('.ty-compact-list').length > 8) {
+  $('.ty-compact-list:gt(7)').hide();
+  $('.show-more').show();
+}
+//Hiển thị thêm sản phẩm
+$('.show-more').on('click', function() {
+ 
+  $('.ty-compact-list:gt(6)').toggle();
+ 
+  $(this).text() === 'Xem thêm' ? $(this).text('Xem thêm') : $(this).text('Rút gọn');
+});
 </script>
 <!-- scrip của khuyến mãi -->
+<!-- Hiệu ứng slider slick-->
 <script>
     $('.custom-slider').slick({
         slidesToShow: 4,
@@ -434,5 +461,19 @@
     });
 
 </script>
+<!-- Hiệu ứng preloading-->
+<script>
+    window.addEventListener('load', function() {
+
+      document.getElementById('af-preloader').style.display = 'none'
+    })
+    $(window).on('load', function() {
+        
+        $('#af-preloader').delay(700).fadeOut('slow')
+      
+      })
+    
+    //]]></script>
+ 
 <!-- scrip của bán chạy -->
 <!-- script swiper slider -->

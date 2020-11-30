@@ -13,13 +13,10 @@ class Order extends Model
         'user_id',
         'order_name',
         'order_phone',
-        'order_city',
-        'order_district',
-        'order_ward',
         'order_address',
         'ship_method',
         'pay_method',
-        
+        'total_price',
     ];
 
     public function user()

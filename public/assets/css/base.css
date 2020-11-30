@@ -364,7 +364,7 @@ nav{
 .product-list-item:hover >a{
     color: white;
 }
-.lon{
+.nho{
     display: none;
     background-color: white;
     position: absolute;
@@ -381,24 +381,24 @@ nav{
     box-shadow: rgba(48, 47, 47, 0.06) -2px 0px 8px 0px;
     overflow: hidden;
 }
-.cac{
+.to{
     display: flex;
     flex-flow: row wrap;
 }
 
-.cac ul{
+.to ul{
     width: 20px;
     margin: 10px;
     flex: 1;
 }
-.cac ul li{
+.to ul li{
     list-style: none;
     padding: 1px;
 }
-.cac ul h5{
+.to ul h5{
     font-weight:  bold;
 }
-.cac ul li a{
+.to ul li a{
     text-decoration: none;
     color: rgb(41, 40, 40);
     display: block;
@@ -412,10 +412,10 @@ nav{
     white-space: nowrap; 
     text-overflow: ellipsis
 }
-.cac ul li a:hover{
+.to ul li a:hover{
     color: #337ab7;
 }
-.product-list-item:hover .lon{
+.product-list-item:hover .nho{
     display: block;
 }
 
@@ -1024,6 +1024,26 @@ h2{
     background-color:  rgb(24, 158, 255) ;
 }
 
+
+.btn-more button{
+    cursor: pointer;
+    display: inline-block;
+    width: 200px;
+    margin: 20px 0px;
+    padding: 0 16px;
+    border-radius: 5px;
+    border: 1px solid;
+    color: rgb(24, 158, 255);
+    font-size: 13px;
+    text-align: center;
+}
+.btn-more button p{
+    padding-top: 10px;
+}
+.btn-more button:hover{
+    color: #fff;
+    background-color:  rgb(24, 158, 255) ;
+}
 /* end product */
 footer{
     display: block;
@@ -1158,7 +1178,7 @@ footer{
 
 /*end footer */
 
-@media (max-width: 873px){
+@media (max-width: 1024px){
 
     .column-list-product{
         display: none;
@@ -1192,7 +1212,9 @@ footer{
     .banner_bottom_container{
         margin-top: 0;
     }
-
+    .Banners-MainGrid a img{
+        margin: 0 auto;
+    }
 }
 
 
@@ -1656,7 +1678,7 @@ footer{
        
    }
    .pro-cate ul li{
-    margin: 15px auto;
+    margin: 15px -10px;
      color: #242424;;
     }
     .pro-cate ul li a{
@@ -2194,6 +2216,39 @@ footer{
     }
 
     /* drop down*/
+    .product-page .dropdown-menu2 {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        z-index: 1000;
+        display: none;
+        float: left;
+        min-width: 19rem;
+        padding: .5rem 0;
+        margin: .125rem 0 0;
+        font-size: 1rem;
+        color: #212529;
+        text-align: left;
+        list-style: none;
+        background-color: #fff;
+        background-clip: padding-box;
+        border: 1px solid rgba(0,0,0,.15);
+        border-radius: .25rem;
+    }
+
+    .product-page .dropdown-item2 {
+        display: block;
+        width: 100%;
+        padding: .70rem 4.5rem;
+        clear: both;
+        font-weight: 400;
+        color: #212529;
+        text-align: inherit;
+        white-space: nowrap;
+        background-color: transparent;
+        border: 0;
+    }
+
     .dropdown-menu {
         position: absolute;
         top: 100%;
@@ -2229,6 +2284,9 @@ footer{
     .text-dark{
         color: #686b6d !important;
     }
+
+
+    
 /*information page*/
     .information-page{
         display: block;
@@ -2505,3 +2563,143 @@ footer{
         color: #fff;
         font-size: 13px;
     }
+
+    @import url('https://rsms.me/inter/inter-ui.css');
+
+.pagination {
+  margin: 20px ;
+  color: #555;
+  float: right;
+  font-family: 'Inter UI', sans-serif;
+  font-size: 1.25em;
+  justify-content: center;
+ 
+  display: inline-block;
+  position: relative;
+}
+.pagination .index {
+  cursor: pointer;
+  display: inline;
+  margin-right: 30px;
+  padding: 5px;
+  user-select: none;
+  -moz-user-select: none;
+}
+.pagination .index:last-child {
+  margin: 0;
+}
+.pagination svg {
+  left: -13px;
+  position: absolute;
+  top: -11px;
+  transition: transform 500ms;
+  width: 46px;
+}
+.pagination path {
+  fill:none;
+  stroke:#59a3e9;
+  stroke-dasharray: 150 150;
+  stroke-width:15;
+}
+.pagination.open:not(.flip) path {
+  animation: OpenRight 500ms;
+}
+.pagination.open.flip path {
+  animation: OpenLeft 500ms;
+}
+.pagination.i1 svg {
+  transform: translateX(0);
+}
+.pagination.i2 svg {
+  transform: translateX(46px);
+}
+.pagination.i3 svg {
+  transform: translateX(95px);
+}
+.pagination.i4 svg {
+  transform: translateX(143px);
+}
+.pagination.i5 svg {
+  transform: translateX(192px);
+}
+@keyframes OpenRight {
+  25% { stroke-dasharray: 100 150; }
+  60% { stroke-dasharray: 100 150; }
+  100% { stroke-dasharray: 150 150; }
+}
+@keyframes OpenLeft {
+  25% { stroke-dashoffset: -50px; }
+  60% { stroke-dashoffset: -50px; }
+  100% { stroke-dashoffset: 0; }
+}
+
+@media screen and (max-width: 990px){
+    .head-danhmuc{
+        display: none;
+    }
+    
+}
+@media screen and (max-width: 770px){
+    .giao-toi2{
+        display: none;
+    }
+    
+}
+
+#af-preloader{
+    width:100%;height:
+    100%;position:fixed;
+    background-color:#fff;
+    z-index:99999999;top:0;
+    left:0}
+
+.af-preloader-wrap{
+    position:absolute;
+    top:50%;left:50%;
+    -webkit-transform:translate(-50%,-50%);
+    transform:translate(-50%,-50%)}
+
+.af-sp{width:42px;
+    height:42px;
+    clear:both;
+    margin:20px auto}
+
+.af-sp-wave{border-radius:50%;
+    position:relative;
+    opacity:1}
+
+.af-sp-wave:before,.af-sp-wave:after{
+    content:'';
+    border:2px #33b5e5 solid;
+    border-radius:50%;
+    width:100%;
+    height:100%;
+    position:absolute;
+    left:0}
+
+.af-sp-wave:before{transform:scale(1,1);
+    opacity:1;-webkit-animation:spWaveBe .6s infinite linear;
+    animation:spWaveBe .6s infinite linear}
+
+.af-sp-wave:after{transform:scale(0,0);
+    opacity:0;
+    -webkit-animation:spWaveAf .6s infinite linear;
+    animation:spWaveAf .6s infinite linear}
+
+@-webkit-keyframes spWaveAf{
+    from{-webkit-transform:scale(.5,.5);opacity:0}
+    to{-webkit-transform:scale(1,1);opacity:1}}
+
+@keyframes spWaveAf{from{transform:scale(.5,.5);
+    opacity:0}
+    to{transform:scale(1,1);opacity:1}}
+
+@-webkit-keyframes spWaveBe{from
+    {-webkit-transform:scale(1,1);opacity:1}
+    to{-webkit-transform:scale(1.5,1.5);
+        opacity:0}}
+
+@keyframes spWaveBe{from
+    {-webkit-transform:scale(1,1);opacity:1}
+    to{-webkit-transform:scale(1.5,1.5);
+        opacity:0}}

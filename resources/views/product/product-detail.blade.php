@@ -149,8 +149,11 @@
         <div class="row">
             <div class="col-9">
                 <h2>MÔ TẢ SẢN PHẨM</h2>
-                <div class="container-product">
-                    <p>{{ $product->pro_desc }}</p>
+                <div class="container-product" >
+                    @php
+                        Echo($product->pro_desc);
+                    @endphp
+                    
                 </div>
                 <h2>KHÁCH HÀNG NHẬN XÉT</h2>
                 <div class="container-product">

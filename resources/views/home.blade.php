@@ -13,12 +13,12 @@
                             @if ($cate->parent_id == null)
                                 <li class="product-list-item">
                                     <a href="{{ route('category.show', $cate->cate_id) }}" class="item-link">
-                                        <img style="width: 20px; height:20px" class="mr-3" src="images/categories/images/{{ $cate->cate_image }}"
+                                        <img style="width: 20px; height:20px" class="mr-3" src="images/categories/logos/{{ $cate->cate_logo }}"
                                             alt="">
                                         {{ $cate->cate_name }}
                                     </a>
-                                    <div class="lon">
-                                        <div class="cac">
+                                    <div class="nho">
+                                        <div class="to">
                                             @foreach ($cate->children as $catehihi)
                                                 <ul>
                                                     <h5>{{ $catehihi->cate_name }}</h5>
@@ -166,7 +166,7 @@
                 <div class="row">
                     @foreach ($products as $pro)
                         @if ($pro->pro_sale == 1)
-                            <div class="col-md-3 pro-hov">
+                            <div class="col-lg-3 col-md-6 col-sm-6 col-xs-6  pro-hov ty-compact-list2">
                                 <div class="product-top">
                                     @if ($pro->pro_image == null)
                                         <img src="https://salt.tikicdn.com/cache/280x280/ts/product/34/5c/52/85412535723b0e4b72638d79ca2f521f.jpg"
@@ -231,7 +231,7 @@
                         @if ($cate->parent_id != null)
                             <div class="pro-hov">
                                 <div class="product-top">
-                                    <img src="images/categories/logos/{{ $cate->cate_logo }}" alt="">
+                                    <img src="images/categories/images/{{ $cate->cate_image }}" alt="">
                                 </div>
                                 <div class="product-bottom text-center">
                                     <p class="title text-center">{{ $cate->cate_name }}</p>
@@ -249,7 +249,7 @@
                 <div class="container">
                     <div class="row">
                         @foreach ($hots as $hot)
-                            <div class="col-md-3 pro-hov">
+                            <div class="col-lg-3 col-md-6 col-sm-6 col-xs-6 pro-hov ty-compact-list">
                                 <div class="product-top">
                                     <img src="images/products/{{ $hot->pro_image }}" alt="">
                                     <div class="overlay">
@@ -285,11 +285,12 @@
                                     <h5 class="price">{{ number_format($hot->pro_new_price) }} đ
                                         <span class="original deal">{{ number_format($hot->pro_old_price) }} đ</span>
                                     </h5>
+                                    <button class=""><a href="{{ route('product.show', $pro->pro_id) }}">Xem ngay</a></button>
                                 </div>
                             </div>
                         @endforeach
-                        <div class="btn-more text-center mt-3 mb-3">
-                            <a href="">@lang('main.see_more')</a>
+                        <div class="btn-more text-center mt-3 mb-3 show-more">
+                            <button><p>@lang('main.see_more')</p></button>
                         </div>
                     </div>
                 </div>

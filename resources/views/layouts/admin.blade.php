@@ -19,7 +19,7 @@
   <link href="{{asset('./assets/vendors/nprogress/nprogress.css')}}" rel="stylesheet">
   <!-- iCheck -->
   <link href="{{asset('./assets/vendors/iCheck/skins/flat/green.css')}}" rel="stylesheet">
-
+  
   <!-- bootstrap-progressbar -->
   <link href="{{asset('./assets/vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css')}}" rel="stylesheet">
   <!-- JQVMap -->
@@ -237,12 +237,43 @@
     <!-- /footer content -->
   </div>
   </div>
-  <script src="{{asset('./assets/ckeditor/ckeditor.js')}}"></script>
+  <script type="text/javascript">
+    $('.confirmation').on('click', function () {
+        return confirm('Are you sure?');
+    });
+</script>
+
+  <script src="{{asset('./assets/ckeditor4/ckeditor.js')}}"></script>
   <script >
-      CKEDITOR.replace('ckeditor');
+      CKEDITOR.replace('pro_desc');
       CKEDITOR.replace('ckeditor1');
       CKEDITOR.replace('ckeditor2');
+
+      CKEDITOR.editorConfig = function( config ) {
+	config.language = 'es';
+	config.uiColor = '#F7B42C';
+	config.height = 300;
+	config.toolbarCanCollapse = true;
+};
   </script>
+
+<script type="text/javascript">
+  function createTextSnippet() {
+      //example as before, replace YOUR_TEXTAREA_ID
+      var html=CKEDITOR.instances.YOUR_TEXTAREA_ID.getSnapshot();
+      var dom=document.createElement("#ckeditor"); 
+      dom.innerHTML=html;
+      var plain_text=(dom.textContent || dom.innerText);
+  
+      //create and set a 128 char snippet to the hidden form field
+      var snippet=plain_text.substr(0,127);
+      document.getElementById("hidden_snippet").value=snippet;
+  
+      //return true, ok to submit the form
+      return true;
+  }
+  </script>
+
   <!-- jQuery -->
   <script src="{{asset('./assets/vendors/jquery/dist/jquery.min.js')}}"></script>
   <!-- Bootstrap -->
