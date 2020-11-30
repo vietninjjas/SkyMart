@@ -95,7 +95,7 @@
                                 <li><a><i class="fa fa-edit"></i> @lang('admin.reviews.rev_manage') <span
                                             class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
-                                        <li><a href="banner.html">@lang('admin.reviews.rev_view')</a></li>
+                                        <li><a href="{{ route('admin.review.index') }}">@lang('admin.reviews.rev_view')</a></li>
                                     </ul>
                                 </li>
                                 <li><a><i class="fa fa-money"></i> @lang('admin.orders.order_manage') <span

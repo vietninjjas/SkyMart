@@ -18,8 +18,8 @@ class CreateReviewsTable extends Migration
             $table->unsignedInteger('rev_id')->autoIncrement();
             $table->unsignedInteger('user_id');
             $table->unsignedInteger('pro_id');
-            $table->text('comment')->nullable();
-            $table->tinyInteger('rate');
+            $table->text('comment');
+            $table->tinyInteger('rate')->nullable();
             $table->timestamps();
             $table->foreign('user_id')->references('user_id')->on('users');
             $table->foreign('pro_id')->references('pro_id')->on('products');

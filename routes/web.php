@@ -36,6 +36,7 @@ Route::name('admin.')->prefix('admin')->middleware(['auth', 'can:accessAdmin'])-
         Route::resource('deal', 'DealController');
         Route::resource('user', 'Auth\UserController');
         Route::resource('order', 'OrderController');
+        Route::resource('review', 'ReviewController');
     }
 );
 route::get('product/show/{id}', 'ProductController@show')->name('product.show');
@@ -50,3 +51,4 @@ Route::post('update-qty-cart{id}', 'CartController@update_quantity')->name('upda
 Route::get('delete-cart/{rowId}', 'CartController@delete_cart')->name('deleteCart');
 Route::get('order/create', 'OrderController@create')->name('order.create');
 Route::post('order/store', 'OrderController@store')->name('order.store');
+Route::post('review/store', 'ReviewController@store')->name('review.store');

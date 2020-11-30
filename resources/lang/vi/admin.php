@@ -89,6 +89,9 @@ return [
     'reviews' => [
         'rev_manage' => 'Quản lý đánh giá, bình luận',
         'rev_view' => 'Xem đánh giá, bình luận',
+        'num_rev' => 'Số lượt tương tác',
+        'cmt' => 'Bình luận',
+        'rate' => 'Số sao',
     ],
     'orders' => [
         'order_manage' => 'Quản lý đơn hàng',
