@@ -5,6 +5,7 @@ return [
     'welcome' => 'Chào mừng bạn đã đến cửa hàng của chúng tôi',
     'connect' => 'Hãy Kết Nối Với Chúng Tôi',
     'alert' => 'Thông báo',
+    'wishlist' => 'Yêu thích',
     'help' => 'Trợ giúp',
     'vietnam' => 'Tiếng việt',
     'english' => 'Tiếng anh',

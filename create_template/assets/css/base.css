@@ -2269,3 +2269,71 @@ footer{
         font-family: 'Nunito', sans-serif;
     }
     
+    .wishlist-page{
+       display: block;
+       margin: 20px auto;
+    }
+    .wishlist-main{
+        background-color: #fff;
+        font-size: 13px;
+    }
+    .wl-header{
+        text-align: center;
+        margin: 30px auto;
+    }
+    .wl-header img{
+        width: 30%;
+    }
+    .wl-header h2{
+        font-size: 40px;
+        font-weight: bold;
+        text-transform: uppercase;
+        color: #eb4d32;
+    }
+    .wl-content{
+        display: block;
+        border-bottom: 0.1px solid #cccaca;
+        margin-bottom: 15px;
+    }
+    .wl-content .wl-x{
+        font-size: 20px;
+        color: #256bb4;
+    }
+    .wl-content .wl-x a i{
+        padding: 50px 50px;
+        color: #f37c1b;
+    }
+    .wl-content .wl-x a i:hover{
+        color: #f8cd3f;
+    }
+    .wl-img img{
+        width: 80%;
+        margin-bottom: 20px;
+    }
+    .wl-name{
+        text-align: justify;
+        font-size: 13px;
+    }
+    .wl-name p{
+        font-weight: bold;
+        margin: 30px auto;
+    }
+    .wl-btn button{
+        margin: 20px 30px;
+        width: 90%;
+        height: 40px;
+        background-color: #f56950;
+        border-radius: 4px;
+        color: #fff;
+    }
+    .wl-btn button a{
+        color: #fff;
+    }
+    .wl-btn button:hover{
+        background-color: #fff;
+        border: 1px solid #f56950;
+        color: #f56950;
+    }
+    .wl-btn button a:hover{
+        color: #f56950;
+    }

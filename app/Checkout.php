@@ -18,12 +18,12 @@ class Checkout extends Model
 
     public function order()
     {
-        $this->belongsTo(Order::class, 'order_id');
+        return $this->belongsTo(Order::class, 'order_id');
     }
 
     public function product()
     {
-        $this->belongsTo(Product::class, 'pro_id');
+        return $this->belongsTo(Product::class, 'pro_id');
     }
 
 }

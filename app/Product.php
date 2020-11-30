@@ -7,6 +7,7 @@ use App\Category;
 use App\Review;
 use App\Wishlist;
 use App\Checkout;
+use App\proChillImage;
 
 class Product extends Model
 {
@@ -41,6 +42,11 @@ class Product extends Model
 
     public function checkouts()
     {
-        $this->hasMany(Checkout::class);
+        return $this->hasMany(Checkout::class);
+    }
+
+    public function proChillImages()
+    {
+        return $this->hasMany(proChillImage::class, 'pro_id');
     }
 }

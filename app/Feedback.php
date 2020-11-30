@@ -7,7 +7,7 @@ use App\User;
 
 class Feedback extends Model
 {
-    protected $primaryKey = 'fed_id',
+    protected $primaryKey = 'fed_id';
 
     protected $fillable = [
         'user_id',
@@ -16,6 +16,6 @@ class Feedback extends Model
 
     public function user()
     {
-        $this->belongsTo(User::class, 'user_id');
+        return $this->belongsTo(User::class, 'user_id');
     }
 }

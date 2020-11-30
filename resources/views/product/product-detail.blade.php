@@ -7,26 +7,12 @@
                 <div class="product-image">
                     <img class="demo" src="images/products/{{ $product->pro_image }}" alt="">
                     <ul id="haha">
+                        @foreach($product->proChillImages as $chill)
                         <li>
-                            <img src="https://salt.tikicdn.com/cache/w444/ts/product/a2/f7/42/6f366d0c02929dddd7d35ed524e1cd1d.jpg"
+                            <img src="images/chillImageProducts/{{ $chill->chill_image }}"
                                 alt="">
                         </li>
-                        <li>
-                            <img src="https://salt.tikicdn.com/cache/w64/ts/product/12/75/3f/8994524796fb44729c96ec79452090bf.jpg"
-                                alt="">
-                        </li>
-                        <li>
-                            <img src="https://salt.tikicdn.com/cache/w64/ts/product/fd/fb/b4/3af806dc8a0ed9c4ee5ed8178504203e.jpg"
-                                alt="">
-                        </li>
-                        <li>
-                            <img src="https://salt.tikicdn.com/cache/w64/ts/product/cc/8d/a7/0ab8d3215e13058aa1be5d5beca42427.jpg"
-                                alt="">
-                        </li>
-                        <li>
-                            <img src="https://salt.tikicdn.com/cache/w64/ts/product/c6/62/61/75d98645e2313679ee8c1c1b81577c1f.jpg"
-                                alt="">
-                        </li>
+                        @endforeach
                     </ul>
                     <div class="img-ads">
                         <img src="https://c0.anthill.vn/images/2020/11/19/6140b5c3f6078fc094ec22e606f64cb9.jpg" alt="">

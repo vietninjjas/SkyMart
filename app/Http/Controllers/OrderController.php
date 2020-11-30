@@ -18,7 +18,9 @@ class OrderController extends Controller
      */
     public function index()
     {
-        
+        $orders = Order::with('checkouts')->latest()->get(); 
+
+        return view('order.view', compact('orders'));
     }
 
     /**
@@ -50,8 +52,11 @@ class OrderController extends Controller
         $order ->order_address = $request->input('order_address');
         $order ->ship_method = $request->input('ship_method');
         $order ->pay_method = $request->input('pay_method');
+        $order->order_total = Cart::subTotal();
+        $order->order_qty = Cart::count();
         $order->save();
         $order_id = $order->order_id;
+
         //insert checkout
         foreach(Cart::content() as $check){
             Checkout::create([
@@ -75,7 +80,9 @@ class OrderController extends Controller
      */
     public function show($id)
     {
-        //
+        $order = Order::findOrFail($id); 
+
+        return view('order.detail', compact('order'));
     }
 
     /**
@@ -98,7 +105,11 @@ class OrderController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $order = Order::findOrFail($id);
+        $order->order_status = $request->input('order_status');
+        $order->save();
+
+        return redirect()->back();
     }
 
     /**
