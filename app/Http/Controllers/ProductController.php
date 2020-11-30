@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Category;
 use App\Product;
+use App\Review;
+use App\Order;
 
 class ProductController extends Controller
 {
@@ -67,8 +69,9 @@ class ProductController extends Controller
         $products = Product::all();
         $product = Product::findOrFail($id);
         $product->increment('view');
+        $productOrderSame = Product::inRandomOrder()->limit(3)->get();
 
-        return view('product.product-detail', compact('product', 'products'));
+        return view('product.product-detail', compact('product', 'products', 'productOrderSame'));
     }
 
     /**
