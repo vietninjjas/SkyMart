@@ -2,8 +2,12 @@
 *{
     box-sizing: border-box;
 }
-body{
-    background-color: rgb(239, 239, 239) ;;
+.main{
+    background-color: rgb(239, 239, 239) ;
+    font-family: 'Roboto', sans-serif;
+}
+.lag{
+    background-color: #fff3cd;
     font-family: 'Roboto', sans-serif;
 }
 .container
@@ -671,7 +675,6 @@ nav{
     background-color: #fff;
 }
 .product h2{
-    background-color: rgb(239, 239, 239) ;
     margin: 20px auto;
 }
 .product h1{

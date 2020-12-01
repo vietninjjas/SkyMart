@@ -33,7 +33,7 @@
                                         for="first-name">@lang('admin.categories.cate_name') <span
                                             class="required">*</span></label>
                                     <div class="col-md-6 col-sm-6 ">
-                                        <input type="text" id="first-name" required="required" name="cate_name"
+                                        <input type="text" id="first-name"  name="cate_name"
                                             class="form-control ">
                                     </div>
                                 </div>
@@ -48,7 +48,7 @@
                                     <label class="col-form-label col-md-3 col-sm-3 label-align"
                                         for="last-name">@lang('admin.categories.cate_logo')</label>
                                     <div class="col-md-6 col-sm-6 ">
-                                        <input type="file" id="last-name" required="required" name="cate_logo"
+                                        <input type="file" id="last-name"  name="cate_logo"
                                             class="form-control">
                                     </div>
                                 </div>
@@ -56,7 +56,7 @@
                                     <label class="col-form-label col-md-3 col-sm-3 label-align"
                                         for="last-name">@lang('admin.categories.cate_image')</label>
                                     <div class="col-md-6 col-sm-6 ">
-                                        <input type="file" id="last-name" required="required" name="cate_image"
+                                        <input type="file" id="file"  name="cate_image"
                                             class="form-control">
                                     </div>
                                 </div>
@@ -64,7 +64,7 @@
                                     <label for="middle-name"
                                         class="col-form-label col-md-3 col-sm-3 label-align">@lang('admin.categories.parent')</label>
                                     <div class="col-md-6 col-sm-6 ">
-                                        <select class="form-control" name="parent_id" id="">
+                                        <select class="form-control cars" name="parent_id" id="">
                                             <option value="">___</option>
                                             @foreach ($categories as $category)
                                                 <option value="{{ $category->cate_id }}">{{ $category->cate_name }}</option>
@@ -76,7 +76,7 @@
                                 <div class="item form-group">
                                     <div class="col-md-6 col-sm-6 offset-md-3">
                                         <button class="btn btn-primary" type="reset">Reset</button>
-                                        <button type="submit" class="btn btn-success">Submit</button>
+                                        <button id="submit" type="submit" class="btn btn-success">Submit</button>
                                     </div>
                                 </div>
 
@@ -87,4 +87,50 @@
             </div>
         </div>
     </div>
+    <script>
+        $(document).ready(function(){
+          $("button#submit").click(function(){
+            var submit = $("input#last-name").val();
+            var file = $("input#file").val();
+            var first_name = $("input#first-name").val();
+            var getSelect = $("select.cars").val();
+
+            var flag = true
+            if(submit ==''){
+              $("input#last-name").css({"background" : "rgba(255, 147, 146, 0.3)", "border" : "2px solid rgb(255, 0, 0, 0.3)"});
+              flag = false
+            }else{
+              $("input#last-name").css({"background" : "rgb(100 216 90 / 30%)", "border" : "2px solid rgb(147 161 146 / 30%)"});
+            }
+            {{--    --}}
+            if(file ==''){
+                $("input#file").css({"background" : "rgba(255, 147, 146, 0.3)", "border" : "2px solid rgb(255, 0, 0, 0.3)"});
+                flag = false
+            }else{
+                $("input#file").css({"background" : "rgb(100 216 90 / 30%)", "border" : "2px solid rgb(147 161 146 / 30%)"});
+            }
+            {{--    --}}
+            if(first_name ==''){
+                $("input#first-name").css({"background" : "rgba(255, 147, 146, 0.3)", "border" : "2px solid rgb(255, 0, 0, 0.3)"});
+                flag = false
+            }else{
+                $("input#first-name").css({"background" : "rgb(100 216 90 / 30%)", "border" : "2px solid rgb(147 161 146 / 30%)"});
+            }
+            {{--    --}}
+            if(getSelect ==''){
+                $("select.cars").css({"background" : "rgba(255, 147, 146, 0.3)", "border" : "2px solid rgb(255, 0, 0, 0.3)"});
+                flag = false
+            }else{
+                $("select.cars").css({"background" : "rgb(100 216 90 / 30%)", "border" : "2px solid rgb(147 161 146 / 30%)"});
+            }
+            {{--    --}}
+
+            if(flag == true){
+              alert("Thêm Thành Công")
+              return true
+            }
+            return false
+          })
+        })
+    </script>
 @endsection

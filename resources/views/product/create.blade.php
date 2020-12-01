@@ -29,11 +29,11 @@
                                 @csrf
                                 <div class="item form-group">
                                     <label class="col-form-label col-md-3 col-sm-3 label-align"
-                                        for="first-name">@lang('admin.products.pro_name') <span
-                                            class="required">*</span></label>
+                                        for="first-name">@lang('admin.products.pro_name') 
+                                        <span class="required">*</span></label>
                                     <div class="col-md-6 col-sm-6 ">
-                                        <input type="text" id="first-name" required="required" name="pro_name"
-                                            class="form-control ">
+                                        <input type="text" id="first-name" name="pro_name" class="form-control ">
+                                        {{--  tên sp  --}}
                                     </div>
                                 </div>
                                 <div class="item form-group">
@@ -48,7 +48,7 @@
                                         for="last-name">@lang('admin.products.pro_image')
                                     </label>
                                     <div class="col-md-6 col-sm-6">
-                                        <input type="file" required="required" id="last-name" name="pro_image"
+                                        <input type="file" id="last-name" name="pro_image"
                                             class="form-control">
                                     </div>
                                 </div>
@@ -63,7 +63,7 @@
                                     <label for="middle-name"
                                         class="col-form-label col-md-3 col-sm-3 label-align">@lang('admin.products.category')</label>
                                     <div class="col-md-6 col-sm-6 ">
-                                        <select class="form-control" name="cate_id" id="">
+                                        <select class="form-control cars" name="cate_id" id="">
                                             @foreach ($categories as $cate)
                                                 @if ($cate->parent_id != null)
                                                     <option selected value="{{ $cate->cate_id }}">{{ $cate->cate_name }}
@@ -77,21 +77,24 @@
                                     <label class="col-form-label col-md-3 col-sm-3 label-align"
                                         for="last-name">@lang('admin.products.quantity')</label>
                                     <div class="col-md-6 col-sm-6 ">
-                                        <input type="number" id="last-name" name="quantity" class="form-control">
+                                        <input type="number" id="quantity" name="quantity" class="form-control">
+                                        {{--  soluong  --}}
                                     </div>
                                 </div>
                                 <div class="item form-group">
                                     <label class="col-form-label col-md-3 col-sm-3 label-align"
                                         for="last-name">@lang('admin.products.pro_old_price')</label>
                                     <div class="col-md-6 col-sm-6 ">
-                                        <input type="number" id="last-name" name="pro_old_price" class="form-control">
+                                        <input type="number" id="old_price" name="pro_old_price" class="form-control">
+                                        {{--  giá cũ  --}}
                                     </div>
                                 </div>
                                 <div class="item form-group">
                                     <label class="col-form-label col-md-3 col-sm-3 label-align"
                                         for="last-name">@lang('admin.products.pro_new_price')</label>
                                     <div class="col-md-6 col-sm-6 ">
-                                        <input type="number" id="last-name" name="pro_new_price" class="form-control">
+                                        <input type="number" id="new_price" name="pro_new_price" class="form-control">
+                                        {{--  giá mới  --}}
                                     </div>
                                 </div>
                                 <div class="item form-group">
@@ -108,7 +111,7 @@
                                 <div class="item form-group">
                                     <div class="col-md-6 col-sm-6 offset-md-3">
                                         <button class="btn btn-primary" type="reset">Reset</button>
-                                        <button type="submit" class="btn btn-success">Submit</button>
+                                        <button id="submit" type="submit" class="btn btn-success">Submit</button>
                                     </div>
                                 </div>
                                 <div class="row justify-content-center" id="showImage">
@@ -122,4 +125,74 @@
             </div>
         </div>
     </div>
+    
+    <script>
+        $(document).ready(function(){
+          $("button#submit").click(function(){
+            var submit = $("input#last-name").val();
+            var file = $("input#file").val();
+            var new_price = $("input#new_price").val();
+            var old_price = $("input#old_price").val();
+            var quantity = $("input#quantity").val();
+            var first_name = $("input#first-name").val();
+            var getSelect = $("select.cars").val();
+            var flag = true
+            if(submit ==''){
+              $("input#last-name").css({"background" : "rgba(255, 147, 146, 0.3)", "border" : "2px solid rgb(255, 0, 0, 0.3)"});
+              flag = false
+            }else{
+              $("input#last-name").css({"background" : "rgb(100 216 90 / 30%)", "border" : "2px solid rgb(147 161 146 / 30%)"});
+            }
+            {{--    --}}
+            if(file ==''){
+                $("input#file").css({"background" : "rgba(255, 147, 146, 0.3)", "border" : "2px solid rgb(255, 0, 0, 0.3)"});
+                flag = false
+            }else{
+                $("input#file").css({"background" : "rgb(100 216 90 / 30%)", "border" : "2px solid rgb(147 161 146 / 30%)"});
+            }
+            {{--    --}}
+            if(first_name ==''){
+                $("input#first-name").css({"background" : "rgba(255, 147, 146, 0.3)", "border" : "2px solid rgb(255, 0, 0, 0.3)"});
+                flag = false
+            }else{
+                $("input#first-name").css({"background" : "rgb(100 216 90 / 30%)", "border" : "2px solid rgb(147 161 146 / 30%)"});
+            }
+            {{--    --}}
+            if(getSelect ==''){
+                $("select.cars").css({"background" : "rgba(255, 147, 146, 0.3)", "border" : "2px solid rgb(255, 0, 0, 0.3)"});
+                flag = false
+            }else{
+                $("select.cars").css({"background" : "rgb(100 216 90 / 30%)", "border" : "2px solid rgb(147 161 146 / 30%)"});
+            }
+            {{--    --}}
+            if(new_price ==''){
+                $("input#new_price").css({"background" : "rgba(255, 147, 146, 0.3)", "border" : "2px solid rgb(255, 0, 0, 0.3)"});
+                flag = false
+            }else{
+                $("input#new_price").css({"background" : "rgb(100 216 90 / 30%)", "border" : "2px solid rgb(147 161 146 / 30%)"});
+            }
+            {{--    --}}
+            if(old_price ==''){
+                $("input#old_price").css({"background" : "rgba(255, 147, 146, 0.3)", "border" : "2px solid rgb(255, 0, 0, 0.3)"});
+                flag = false
+            }else{
+                $("input#old_price").css({"background" : "rgb(100 216 90 / 30%)", "border" : "2px solid rgb(147 161 146 / 30%)"});
+            }
+            {{--    --}}
+            if(quantity ==''){
+                $("input#quantity").css({"background" : "rgba(255, 147, 146, 0.3)", "border" : "2px solid rgb(255, 0, 0, 0.3)"});
+                flag = false
+            }else{
+                $("input#quantity").css({"background" : "rgb(100 216 90 / 30%)", "border" : "2px solid rgb(147 161 146 / 30%)"});
+            }
+            {{--    --}}
+        
+            if(flag == true){
+              alert("Thêm Thành Công")
+              return true
+            }
+            return false
+          })
+        })
+    </script>
 @endsection
