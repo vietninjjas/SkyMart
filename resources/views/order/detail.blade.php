@@ -77,7 +77,7 @@
                                                         <th>@lang('admin.products.pro_name')</th>
                                                         <th>@lang('admin.products.pro_new_price')</th>
                                                         <th>@lang('admin.products.quantity')</th>
-                                                        <th>@lang('admin.orders.total_price')</th>
+                                                        <th>@lang('admin.orders.order_total')</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
