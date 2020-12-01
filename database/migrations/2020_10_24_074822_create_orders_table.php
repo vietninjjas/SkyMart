@@ -23,7 +23,7 @@ class CreateOrdersTable extends Migration
             $table->string('order_district');
             $table->string('order_ward');
             $table->string('order_address');
-            $table->integer('order_total');
+            $table->string('order_total');
             $table->integer('order_qty');
             $table->tinyInteger('ship_method');
             $table->tinyInteger('pay_method');

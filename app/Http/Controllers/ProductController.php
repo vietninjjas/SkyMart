@@ -7,6 +7,7 @@ use App\Category;
 use App\Product;
 use App\Review;
 use App\Order;
+use App\proChillImage;
 
 class ProductController extends Controller
 {
@@ -17,9 +18,10 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::with('category')->get();
+        $products = Product::with('category')->latest()->get();
+        $countModal = 1;
 
-        return view('product.view', compact('products'));
+        return view('product.view', compact('products', 'countModal'));
     }
 
     /**
@@ -44,16 +46,26 @@ class ProductController extends Controller
         $file = $request->file('pro_image');
         $fileName = uniqid() . '_' . $file->getClientOriginalName();
         $file->move('images/products', $fileName);
-        Product::create([
-            'pro_name' => $request->input('pro_name'),
-            'cate_id' => $request->input('cate_id'),
-            'pro_desc' => $request->input('pro_desc'),
-            'pro_image' => $fileName,
-            'quantity' => $request->input('quantity'),
-            'pro_old_price' => $request->input('pro_old_price'),
-            'pro_new_price' => $request->input('pro_new_price'),
-            'pro_sale' => $request->input('pro_sale'),
-        ]);
+        $product = new Product();
+        $product->pro_name = $request->input('pro_name');
+        $product->cate_id = $request->input('cate_id');
+        $product->pro_desc = $request->input('pro_desc');
+        $product->pro_image = $fileName;
+        $product->quantity = $request->input('quantity');
+        $product->pro_old_price = $request->input('pro_old_price');
+        $product->pro_new_price = $request->input('pro_new_price');
+        $product->pro_sale = $request->input('pro_sale');
+        $product->save();
+
+        foreach($request->file('chill_image') as $fileChill)
+        {
+            $nameChill = uniqid() . '_' . $fileChill->getClientOriginalName();;
+            $fileChill->move('images/chillImageProducts', $nameChill);
+            $chillImage = new proChillImage();
+            $chillImage->pro_id = $product->pro_id;
+            $chillImage->chill_image = $nameChill;
+            $chillImage->save();
+        }
 
         return redirect()->route('admin.product.index');
     }
@@ -111,6 +123,16 @@ class ProductController extends Controller
         $pro->pro_sale = $request->input('pro_sale');
         $pro->save();
 
+        foreach($request->file('chill_image') as $fileChill)
+        {
+            $nameChill = uniqid() . '_' . $fileChill->getClientOriginalName();;
+            $fileChill->move('images/chillImageProducts', $nameChill);
+            $chillImage = new proChillImage();
+            $chillImage->pro_id = $id;
+            $chillImage->chill_image = $nameChill;
+            $chillImage->save();
+        }
+
         return redirect()->route('admin.product.index');
     }
 
@@ -123,7 +145,11 @@ class ProductController extends Controller
     public function destroy($id)
     {
         $pro = Product::findOrFail($id);
+        $pro->proChillImages()->delete();
+        $pro->reviews()->delete();
+        $pro->wishlists()->delete();
         $pro->delete();
+
 
         return redirect()->route('admin.product.index');
     }

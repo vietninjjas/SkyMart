@@ -36,6 +36,7 @@ return [
         'next' => 'Tiếp theo',
         'return' => 'Quay lại',
         'here' => 'tại đây',
+        'close' => 'Đóng',
     ],
     'categories' => [
         'cate_manage' => 'Quản lý danh mục',
@@ -76,6 +77,10 @@ return [
         'not_sale' => 'Không',
         'create' => 'Tạo sản phẩm',
         'edit' => 'Cập nhật sản phẩm',
+        'pro_image_secondary' => 'Ảnh phụ',
+        'img_desc' => 'Ảnh và mô tả',
+        'primary_img' => 'Ảnh chính',
+        'secondary_img' => 'Ảnh phụ',
     ],
     'deals' => [
         'deal_manage' => 'Quản lý deal',

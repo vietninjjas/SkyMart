@@ -21,7 +21,6 @@ class CreateCheckoutsTable extends Migration
             $table->integer('quantity');
             $table->integer('total_price');
             $table->timestamps();
-            $table->foreign('pro_id')->references('pro_id')->on('products');
             $table->foreign('order_id')->references('order_id')->on('orders');
             $table->softDeletes();
         });
