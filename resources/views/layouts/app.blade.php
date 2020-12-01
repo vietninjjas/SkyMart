@@ -35,7 +35,7 @@
         </div>
       
       </div>
-    <div class="main">
+    <div class="main vc">
         <div id="form-modal">
             <div class="cont" id="ex1">
                 <form method="POST" action="{{ route('login') }}" class="form sign-in">
@@ -191,6 +191,8 @@
                             <a href="{{ route('user.change-language', ['vi']) }}">@lang('main.vietnam')</a>
                             |
                             <a href="{{ route('user.change-language', ['en']) }}">@lang('main.english')</a>
+                            |
+                            <a style="cursor: pointer" class="lol" id="clbg">Đổi Giao Diện</a>
                         </li>
                     </ul>
                 </div>
@@ -395,6 +397,19 @@
         </footer>
         <!-- end footer -->
         <script type="text/javascript" src="{{ asset('/assets/js/script.js') }}"></script>
+        <script>
+            $(document).ready(function(){
+                $("a#clbg").click(function(){
+                    if ($("div.vc").hasClass("main")) {
+                        $("div.vc").removeClass("main")
+                        $("div.vc").addClass("lag")
+                    }else{
+                        $("div.vc").removeClass("lag")
+                        $("div.vc").addClass("main")
+                    }
+                })
+            })
+        </script>
 </body>
 
 </html>

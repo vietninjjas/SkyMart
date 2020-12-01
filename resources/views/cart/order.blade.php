@@ -18,10 +18,6 @@
                             <li id="payment"><strong>@lang('main.order.title_viewcart')</strong></li>
                             <li id="confirm"><strong>@lang('main.order.title_complete')</strong></li>
                         </ul>
-                        <div class="progress">
-                            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
-                                aria-valuemin="0" aria-valuemax="100"></div>
-                        </div>
                         <fieldset>
                             <div class="form-card">
 
@@ -29,30 +25,36 @@
                                     <div class="col-md-3"></div>
                                     <div class="col-md-6">
                                         <div class="row">
-                                            <label class="fieldlabels col-3">@lang('main.order.name') : </label> <input name="order_name"
-                                                type="text" class="col-8" placeholder="{{ trans('main.order.name') }}" />
+                                            <label class="fieldlabels col-3">@lang('main.order.name') : </label> 
+                                            <input id="last-name" name="order_name" type="text" class="col-8" placeholder="{{ trans('main.order.name') }}" />
+                                            {{--  tên  --}}
 
                                             <label class="fieldlabels col-3">@lang('main.order.phone'): </label> 
-                                            <input type="text" name="order_phone" class="col-8" placeholder="{{ trans('main.order.phone') }}" />
+                                            <input id="first-name" type="text" name="order_phone" class="col-8" placeholder="{{ trans('main.order.phone') }}" />
+                                            {{--  sđt nhận hàng  --}}
 
                                             <label class="fieldlabels col-3">@lang('main.order.city'): </label> 
-                                            <input type="text" name="order_city" class="col-8" placeholder="{{ trans('main.order.city') }}" />
+                                            <input id="checkprice" type="text" name="order_city" class="col-8" placeholder="{{ trans('main.order.city') }}" />
+                                            {{--  thành phố  --}}
 
                                             <label class="fieldlabels col-3">@lang('main.order.district'): </label>
-                                            <input type="text" name="order_district" class="col-8" placeholder="{{ trans('main.order.district') }}">
+                                            <input id="file" type="text" name="order_district" class="col-8" placeholder="{{ trans('main.order.district') }}">
+                                            {{--  quận huyện  --}}
 
                                             <label class="fieldlabels col-3">@lang('main.order.ward'): </label>
-                                            <input type="text" name="order_ward" class="col-8" placeholder="{{ trans('main.order.ward') }}" />
+                                            <input id="cars" type="text" name="order_ward" class="col-8" placeholder="{{ trans('main.order.ward') }}" />
+                                            {{--  phường xã  --}}
 
                                             <label class="fieldlabels col-3">@lang('main.order.address'): </label> 
-                                            <input type="text" name="order_address" class="col-8" placeholder="{{ trans('main.order.address') }}" />
+                                            <input id="adress" type="text" name="order_address" class="col-8" placeholder="{{ trans('main.order.address') }}" />
+                                            {{--  địa chỉ  --}}
                                         </div>
                                         
                                     </div>
                                     <div class="col-md-3"></div>
                                 </div>
 
-                            </div> <input type="button" name="next" class="next action-button" value="{{ trans('admin.action.next') }}" />
+                            </div> <input type="button" id="submit" name="next" class="next action-button" value="{{ trans('admin.action.next') }}" />
                         </fieldset>
                         <fieldset>
                             <div class="form-card">
@@ -193,88 +195,161 @@
             </div>
         </div>
     </div>
+
+    <script>
+        $(document).ready(function(){
+          $("input#submit").click(function(){
+            var submit = $("input#last-name").val();
+            var file = $("input#file").val();
+            var ckeditor = $("input#ckeditor1").val();
+            var first_name = $("input#first-name").val();
+            var getSelect = $("input#cars").val();
+            var getCheckprice = $("input#checkprice").val();
+            var adress = $("input#adress").val();
+            var flag = true
+            if(submit ==''){
+              $("input#last-name").css({"background" : "rgba(255, 147, 146, 0.3)", "border" : "2px solid rgb(255, 0, 0, 0.3)"});
+              flag = false
+            }else{
+              $("input#last-name").css({"background" : "rgb(100 216 90 / 30%)", "border" : "2px solid rgb(147 161 146 / 30%)"});
+            }
+            {{--    --}}
+            if(file ==''){
+                $("input#file").css({"background" : "rgba(255, 147, 146, 0.3)", "border" : "2px solid rgb(255, 0, 0, 0.3)"});
+                flag = false
+            }else{
+                $("input#file").css({"background" : "rgb(100 216 90 / 30%)", "border" : "2px solid rgb(147 161 146 / 30%)"});
+            }
+            {{--    --}}
+            if(first_name ==''){
+                $("input#first-name").css({"background" : "rgba(255, 147, 146, 0.3)", "border" : "2px solid rgb(255, 0, 0, 0.3)"});
+                flag = false
+            }else{
+                $("input#first-name").css({"background" : "rgb(100 216 90 / 30%)", "border" : "2px solid rgb(147 161 146 / 30%)"});
+            }
+            {{--    --}}
+            if(getSelect ==''){
+                $("input#cars").css({"background" : "rgba(255, 147, 146, 0.3)", "border" : "2px solid rgb(255, 0, 0, 0.3)"});
+                flag = false
+            }else{
+                $("input#cars").css({"background" : "rgb(100 216 90 / 30%)", "border" : "2px solid rgb(147 161 146 / 30%)"});
+            }
+            {{--    --}}
+            if(ckeditor ==''){
+                $("input#ckeditor1").css({"background" : "rgba(255, 147, 146, 0.3)", "border" : "2px solid rgb(255, 0, 0, 0.3)"});
+                flag = false
+            }else{
+                $("input#ckeditor1").css({"background" : "rgb(100 216 90 / 30%)", "border" : "2px solid rgb(147 161 146 / 30%)"});
+            }
+            {{--    --}}
+            if(getCheckprice ==''){
+              $("input#checkprice").css({"background" : "rgba(255, 147, 146, 0.3)", "border" : "2px solid rgb(255, 0, 0, 0.3)"});
+              flag = false
+          }else{
+              $("input#checkprice").css({"background" : "rgb(100 216 90 / 30%)", "border" : "2px solid rgb(147 161 146 / 30%)"});
+          }
+          {{--    --}}
+
+          if(adress ==''){
+            $("input#adress").css({"background" : "rgba(255, 147, 146, 0.3)", "border" : "2px solid rgb(255, 0, 0, 0.3)"});
+            flag = false
+        }else{
+            $("input#adress").css({"background" : "rgb(100 216 90 / 30%)", "border" : "2px solid rgb(147 161 146 / 30%)"});
+        }
+        {{--    --}}
+      
+            if(flag == true){
+                var current_fs, next_fs, previous_fs; //fieldsets
+                var opacity;
+                var current = 1;
+                var steps = $("fieldset").length;
+    
+                setProgressBar(current);
+    
+                
+                $(".next").click(function() {
+    
+                    current_fs = $(this).parent();
+                    next_fs = $(this).parent().next();
+    
+                    //Add Class Active
+                    $("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
+    
+                    //show the next fieldset
+                    next_fs.show();
+                    //hide the current fieldset with style
+                    current_fs.animate({
+                        opacity: 0
+                    }, {
+                        step: function(now) {
+                            // for making fielset appear animation
+                            opacity = 1 - now;
+    
+                            current_fs.css({
+                                'display': 'none',
+                                'position': 'relative'
+                            });
+                            next_fs.css({
+                                'opacity': opacity
+                            });
+                        },
+                        duration: 500
+                    });
+                    setProgressBar(++current);
+                });
+    
+                $(".previous").click(function() {
+    
+                    current_fs = $(this).parent();
+                    previous_fs = $(this).parent().prev();
+    
+                    //Remove class active
+                    $("#progressbar li").eq($("fieldset").index(current_fs)).removeClass("active");
+    
+                    //show the previous fieldset
+                    previous_fs.show();
+    
+                    //hide the current fieldset with style
+                    current_fs.animate({
+                        opacity: 0
+                    }, {
+                        step: function(now) {
+                            // for making fielset appear animation
+                            opacity = 1 - now;
+    
+                            current_fs.css({
+                                'display': 'none',
+                                'position': 'relative'
+                            });
+                            previous_fs.css({
+                                'opacity': opacity
+                            });
+                        },
+                        duration: 500
+                    });
+                    setProgressBar(--current);
+                });
+    
+                function setProgressBar(curStep) {
+                    var percent = parseFloat(100 / steps) * curStep;
+                    percent = percent.toFixed();
+                    $(".progress-bar")
+                        .css("width", percent + "%")
+                }
+    
+                $(".submit").click(function() {
+                    return false;
+                })
+              
+            }
+            return false
+          })
+        })
+      </script>
+
     <script>
         $(document).ready(function() {
-            var current_fs, next_fs, previous_fs; //fieldsets
-            var opacity;
-            var current = 1;
-            var steps = $("fieldset").length;
-
-            setProgressBar(current);
-
-            $(".next").click(function() {
-
-                current_fs = $(this).parent();
-                next_fs = $(this).parent().next();
-
-                //Add Class Active
-                $("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
-
-                //show the next fieldset
-                next_fs.show();
-                //hide the current fieldset with style
-                current_fs.animate({
-                    opacity: 0
-                }, {
-                    step: function(now) {
-                        // for making fielset appear animation
-                        opacity = 1 - now;
-
-                        current_fs.css({
-                            'display': 'none',
-                            'position': 'relative'
-                        });
-                        next_fs.css({
-                            'opacity': opacity
-                        });
-                    },
-                    duration: 500
-                });
-                setProgressBar(++current);
-            });
-
-            $(".previous").click(function() {
-
-                current_fs = $(this).parent();
-                previous_fs = $(this).parent().prev();
-
-                //Remove class active
-                $("#progressbar li").eq($("fieldset").index(current_fs)).removeClass("active");
-
-                //show the previous fieldset
-                previous_fs.show();
-
-                //hide the current fieldset with style
-                current_fs.animate({
-                    opacity: 0
-                }, {
-                    step: function(now) {
-                        // for making fielset appear animation
-                        opacity = 1 - now;
-
-                        current_fs.css({
-                            'display': 'none',
-                            'position': 'relative'
-                        });
-                        previous_fs.css({
-                            'opacity': opacity
-                        });
-                    },
-                    duration: 500
-                });
-                setProgressBar(--current);
-            });
-
-            function setProgressBar(curStep) {
-                var percent = parseFloat(100 / steps) * curStep;
-                percent = percent.toFixed();
-                $(".progress-bar")
-                    .css("width", percent + "%")
-            }
-
-            $(".submit").click(function() {
-                return false;
-            })
+            
 
         });
 

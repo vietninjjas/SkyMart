@@ -184,9 +184,9 @@
                                 </div>
                         @endforeach
                         <div class="form-cmt">
-                            <input type="text" name="comment" placeholder="{{ trans('main.product.cmt_placeholder') }}">
+                            <input id="last-name" type="text" name="comment" placeholder="{{ trans('main.product.cmt_placeholder') }}">
                             <input type="hidden" value="{{ $product->pro_id }}" name="pro_id">
-                            <button type="submit">@lang('main.product.send_review')</button>
+                            <button id="submit" type="submit">@lang('main.product.send_review')</button>
                         </div>
                 </div>
                 </form>
@@ -197,7 +197,42 @@
         </div>
     </div>
 
+    <script>
+        $(document).ready(function(){
+            $("#haha li img").click(function(){ //khi click vào thẻ img
+                var getId = $(this).attr("src"); // đặt biến là getID = src ảnh của khi click
+                console.log(getId); //xuất ra xem
+                $(".demo").attr("src",getId); //sau khi click thẻ img có class demo sẽ thay đổi src mặc định sang src của getID(ảnh được click)
+            })
+            $("button#submit").click(function(){
+                var submit = $("input#last-name").val();
+                var getGender = $("input[type='radio']").is(":checked");
+                var flag = true
+                if (getGender != false) {
+                    alert("Đã chọn")
+                } else {
+                    alert("chưa chọn")
+                    flag = false;
+                }
+                    if(submit ==''){
+                    $("input#last-name").css({"background" : "rgba(255, 147, 146, 0.3)", "border" : "2px solid rgb(255, 0, 0, 0.3)"});
+                        flag = false
+                        alert("Bạn vui lòng nội dung vào phần bình luận")
+                    }else{
+                        $("input#last-name").css({"background" : "rgb(100 216 90 / 30%)", "border" : "2px solid rgb(147 161 146 / 30%)"});
+                    }
 
+                    
+                    if(flag){
+                        alert("Gửi bình luận thành công")
+                        return true
+                    }
+                return false
+            })
+        })
+
+        
+</script>
 
 
     </div>

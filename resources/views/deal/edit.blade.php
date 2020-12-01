@@ -45,7 +45,7 @@
                             <div class="item form-group">
                                 <div class="col-md-6 col-sm-6 offset-md-3">
                                     <button class="btn btn-primary" type="reset">Reset</button>
-                                    <button type="submit" class="btn btn-success">Submit</button>
+                                    <button id="submit" type="submit" class="btn btn-success">Submit</button>
                                 </div>
                             </div>
 
@@ -56,4 +56,24 @@
         </div>
     </div>
 </div>
+<script>
+    $(document).ready(function(){
+      $("button#submit").click(function(){
+        var submit = $("input#last-name").val();
+        var flag = true
+        if(submit ==''){
+          $("input#last-name").css({"background" : "rgba(255, 147, 146, 0.3)", "border" : "2px solid rgb(255, 0, 0, 0.3)"});
+          alert("Bạn chưa thêm file")
+          flag = false
+        }else{
+          $("input#last-name").css({"background" : "rgb(100 216 90 / 30%)", "border" : "2px solid rgb(147 161 146 / 30%)"});
+        }
+        if(flag == true){
+          alert("Thêm Thành Công")
+          return true
+        }
+        return false
+      })
+    })
+  </script>
 @endsection
