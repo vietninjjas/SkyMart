@@ -52,7 +52,7 @@ class OrderController extends Controller
         $order ->order_address = $request->input('order_address');
         $order ->ship_method = $request->input('ship_method');
         $order ->pay_method = $request->input('pay_method');
-        $order->order_total = Cart::subTotal();
+        $order->order_total = (string)Cart::subTotal();
         $order->order_qty = Cart::count();
         $order->save();
         $order_id = $order->order_id;
@@ -70,6 +70,7 @@ class OrderController extends Controller
         }
         Cart::destroy();
         return view('cart.complete_order');
+
     }
 
     /**

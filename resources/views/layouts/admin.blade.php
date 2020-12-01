@@ -344,6 +344,8 @@
 
     <!-- Custom Theme Scripts -->
     <script src="{{ asset('./assets/build/js/custom.min.js') }}"></script>
+    {{-- anh phu   --}}
+    <script src="{{ asset('./assets/js/anhphu.js') }}"></script>
 
 </body>
 
