@@ -56,14 +56,19 @@
                                             </thead>
                                             <tbody>
                                                 @foreach ($orders as $order)
-                                                    <tr @if($order->order_status == 0 || $order->order_status == 1) class="bg-warning" @endif>
-                                                        <td>{{ $order->order_id }}</td>
-                                                        <td>{{ $order->order_name }}</td>
-                                                        <td>{{ $order->order_phone }}</td>
-                                                        <td>{{ $order->order_qty }}</td>
-                                                        <td>{{ $order->order_total }}</td>
-                                                        <td class="text-center"><a href="{{ route('admin.order.show', $order->order_id) }}" class="btn btn-outline-info btn-xs"><i class="fa fa-eye"></i> @lang('admin.action.show') </a></td>
-                                                    </tr>
+                                                    <tr @if ($order->order_status == 0)
+                                                        class="bg-warning"
+                                                @endif>
+                                                <td>{{ $order->order_id }}</td>
+                                                <td>{{ $order->order_name }}</td>
+                                                <td>{{ $order->order_phone }}</td>
+                                                <td>{{ $order->order_qty }}</td>
+                                                <td>{{ $order->order_total }}</td>
+                                                <td class="text-center"><a
+                                                        href="{{ route('admin.order.show', $order->order_id) }}"
+                                                        @if($order->order_status != 0) class="btn btn-outline-light btn-xs">  @else class="btn btn-outline-light btn-xs"> @endif
+                                                        <i class="fa fa-eye text-dark"></i></a></td>
+                                                </tr>
                                                 @endforeach
                                             </tbody>
                                         </table>

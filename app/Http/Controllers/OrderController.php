@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Cart;
 use App\Order;
 use App\Checkout;
+use App\Events\NotificationEvent;
 use App\Product;
 use Illuminate\Support\Facades\Auth;
 
@@ -49,19 +50,39 @@ class OrderController extends Controller
     public function store(Request $request)
     {
         // insert order
-        $order = new Order;
-        $order ->user_id = Auth::user()->user_id;
-        $order ->order_name = $request->input('order_name');
-        $order ->order_phone = $request->input('order_phone');
-        $order ->order_city = $request->input('order_city');
-        $order ->order_district = $request->input('order_district');
-        $order ->order_ward = $request->input('order_ward');
-        $order ->order_address = $request->input('order_address');
-        $order ->ship_method = $request->input('ship_method');
-        $order ->pay_method = $request->input('pay_method');
-        $order->order_total = (string)Cart::subTotal();
-        $order->order_qty = Cart::count();
-        $order->save();
+        if($request->hasFile('bill_image')){
+            $file = $request->file('bill_image');
+            $fileName = uniqid() . '_' . $file->getClientOriginalName();
+            $file->move('images/cart', $fileName);
+            $order = new Order;
+            $order ->user_id = Auth::user()->user_id;
+            $order ->order_name = $request->input('order_name');
+            $order ->order_phone = $request->input('order_phone');
+            $order ->order_city = $request->input('order_city');
+            $order ->order_district = $request->input('order_district');
+            $order ->order_ward = $request->input('order_ward');
+            $order ->order_address = $request->input('order_address');
+            $order ->ship_method = $request->input('ship_method');
+            $order ->pay_method = $request->input('pay_method');
+            $order->order_total = Cart::subTotal();
+            $order->order_qty = Cart::count();
+            $order->bill_image = $fileName;
+            $order->save();
+        } else {
+            $order = new Order;
+            $order ->user_id = Auth::user()->user_id;
+            $order ->order_name = $request->input('order_name');
+            $order ->order_phone = $request->input('order_phone');
+            $order ->order_city = $request->input('order_city');
+            $order ->order_district = $request->input('order_district');
+            $order ->order_ward = $request->input('order_ward');
+            $order ->order_address = $request->input('order_address');
+            $order ->ship_method = $request->input('ship_method');
+            $order ->pay_method = $request->input('pay_method');
+            $order->order_total = (string)Cart::subTotal();
+            $order->order_qty = Cart::count();
+            $order->save();
+        }
         $order_id = $order->order_id;
 
         //insert checkout
@@ -77,11 +98,11 @@ class OrderController extends Controller
         }
         Cart::destroy();
         $data = [
-            'title' => trans('admin.notification.title'),
+            'title' => trans('admin.notification.title') . ' #' . $order->order_id,
             'content' => trans('admin.notification.content'),
         ];
         $this->notification->sendToAdmin($data);
-        
+
         return view('cart.complete_order');
 
     }

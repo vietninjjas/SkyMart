@@ -14,7 +14,7 @@ class UserTableSeed extends Seeder
     {
         User::create([
             'username' => 'adminskymart',
-            'email' => 'admin@gmail.com', 
+            'email' => 'vietnq812@gmail.com', 
             'password' => 'admin123',
             'fullname' => 'Sky Mart Admin',
             'avatar' => 'user.png',

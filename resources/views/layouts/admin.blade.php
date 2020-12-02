@@ -21,7 +21,8 @@
     <link href="{{ asset('./assets/vendors/iCheck/skins/flat/green.css') }}" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <script src="https://js.pusher.com/4.4/pusher.min.js"></script>
+    <script src="https://js.pusher.com/7.0/pusher.min.js"></script>
+
     <!-- bootstrap-progressbar -->
     <link href="{{ asset('./assets/vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css') }}"
         rel="stylesheet">
@@ -164,11 +165,12 @@
                             </a>
                         </li>
                         <li id="dropdown-notifications" class="nav-item dropdown p-2 text-nowrap">
-                            <a class="nav-link position-relative" href="#notifications-panel" id="notiDropdown" role="button" data-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false">
+                            <a class="nav-link position-relative" href="#notifications-panel" id="notiDropdown"
+                                role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 @lang('admin.notification.notification')
                                 <i class="fa fa-bell notification-icon"></i>
-                                <span style="position: absolute; right:-6px; top:-5px; border-radius:50%; color:red; text-shadow: 0 0 3px yellow">
+                                <span id="data-count"
+                                    style="position: absolute; right:-6px; top:-5px; border-radius:50%; color:red; text-shadow: 0 0 3px yellow">
                                     {{ count(Auth::user()->notifications) }}
                                 </span>
                             </a>
@@ -177,10 +179,11 @@
                                 </div>
                                 <div id="notiContent">
                                     @foreach (Auth::user()->notifications as $notification)
-                                        <a class="dropdown-item" href="{{ route('admin.order.index') }}"><strong>{{ $notification->data['title'] }}</strong>
+                                        <a class="dropdown-item"
+                                            href="{{ route('admin.order.index') }}"><strong>{{ $notification->data['title'] }}</strong>
                                             <br />
                                             <span class="text-muted text">{{ $notification->data['content'] }}</span>
-                                            <!--<small class="float-right">{{ $notification->created_at }}</small>-->
+                                            <small class="float-right">{{ $notification->created_at }}</small>
                                         </a>
                                     @endforeach
                                 </div>
@@ -219,11 +222,11 @@
             <
             div class = "pull-right" >
             Gentelella - Bootstrap Admin Template by < a href = "https://colorlib.com" > Colorlib < /a> < /
-            div > <
+        div > <
             div class = "clearfix" > < /div> < /
-            footer > <
+        footer > <
             !--/footer content --> < /
-            div > <
+        div > <
             /div> <
         script type = "text/javascript" >
             $('.confirmation').on('click', function() {
@@ -264,6 +267,7 @@
         }
 
     </script>
+    
 
     <!-- jQuery -->
     <script src="{{ asset('./assets/vendors/jquery/dist/jquery.min.js') }}"></script>
@@ -307,31 +311,6 @@
     <script src="{{ asset('./assets/build/js/custom.min.js') }}"></script>
     {{-- anh phu --}}
     <script src="{{ asset('./assets/js/anhphu.js') }}"></script>
-    <script type="text/javascript">
-        var pusher = new Pusher('eec3ab6632d20e677d76', {
-            encrypted: true,
-            cluster: "ap1"
-        });
-        var notificationsToggle = $('#dropdown-notifications').find('a[id="notiDropdown"]');
-        var notificationsCountElem = notificationsToggle.find('i[data-count]');
-        var notificationsCount = parseInt(notificationsCountElem.data('count'));
-        var channel = pusher.subscribe('NotificationEvent');
-        channel.bind('send-message', function(data) {
-            var newNotificationHtml = `
-            <a class="dropdown-item bg-warning" href="/admin/borrows"><strong>${data.title}</strong>
-            <br/>
-            <span class="text-muted text">${data.content}</span>
-            </a>
-            `;
-
-            $('#notiContent').prepend(newNotificationHtml);
-            notificationsCount += 1;
-            notificationsCountElem.attr('data-count', notificationsCount);
-            console.log(notificationsCount);
-        });
-
-    </script>
-
 </body>
 
 </html>

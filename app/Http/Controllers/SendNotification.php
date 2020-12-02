@@ -27,6 +27,6 @@ class SendNotification extends Controller
             $options
         );
 
-        $pusher->trigger('NotificationEvent', 'send-message', $data);
+        $pusher->trigger('Notify', 'send-message', $data);
     }
 }

@@ -9,7 +9,7 @@
                         <img src="./assets/images/logo_nne.png" alt="">
                         <p class="text-logo">@lang('main.order.sologan')</p>
                     </div>
-                    <form action="{{ route('order.store') }}" id="msform" method="POST">
+                    <form action="{{ route('order.store') }}" id="msform" method="POST" enctype="multipart/form-data">
                         @csrf
                         <!-- progressbar -->
                         <ul id="progressbar">
@@ -95,19 +95,43 @@
                                                         <p style="font-weight:bold"><img class="method-icon"
                                                                 src="https://frontend.tikicdn.com/_desktop-next/static/img/icons/checkout/icon-payment-method-cod.svg"
                                                                 alt=""> @lang('main.payment.monney') </p>
-                                                        <input type="radio" checked="checked" name="pay_method" value="1">
+                                                        <input id="dongchuyenkhoan" type="radio" checked="checked" name="pay_method" value="1">
                                                         <span class="checkmark"></span>
 
                                                     </label>
                                                     <label class="radio-check">
                                                         <p style="font-weight:bold"><img class="method-icon"
                                                                 src="https://frontend.tikicdn.com/_desktop-next/static/img/icons/checkout/icon-payment-method-credit.svg"
-                                                                alt=""> @lang('main.payment.paypal')</p>
+                                                                alt=""> @lang('main.payment.online')</p>
                                                         </p>
-                                                        <input type="radio" name="pay_method" value="2">
+                                                        <input id="mochuyenkhoan" type="radio" name="pay_method" value="2">
                                                         <span class="checkmark"></span>
 
                                                     </label>
+                                                    <div id="chuyenkhoan">
+                                                        <ul class="list-group" style="font-size:20px;">
+                                                            <li class="list-group-item text-center">@lang('main.payment.note_header')</li>
+                                                            <li class="list-group-item list-group-item-primary">TPBank: 03401732501</li>
+                                                            <li class="list-group-item list-group-item-secondary">BIDV: 51510000357364</li>
+                                                            <li class="list-group-item list-group-item-success">MOMO: 0829061243</li>
+                                                            <li class="list-group-item list-group-item-danger"><img class="img-fluid" src="images/cart/QRMOMO.jpg" alt=""></li>
+                                                            <li class="list-group-item list-group-item-warning">@lang('main.payment.note_footer')</li>
+                                                            <li class="list-group-item list-group-item-info">
+                                                                <input type="file" class="form-control" name="bill_image">
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                    <script>
+                                                        $(document).ready(function(){
+                                                            $("#chuyenkhoan").hide();
+                                                            $("#mochuyenkhoan").change(function(){
+                                                                $("#chuyenkhoan").show(600);
+                                                            });
+                                                            $("#dongchuyenkhoan").change(function(){
+                                                                $("#chuyenkhoan").hide(600);
+                                                            })
+                                                        })
+                                                    </script>
                                                 </div>
                                             </div>
                                         </div>
@@ -173,20 +197,18 @@
                         <fieldset>
                             <div class="form-card">
                                 <br><br>
-                                <h2 class="purple-text text-center"><strong>@lang('main.order.order_thanks')</strong>
                                 </h2> <br>
                                 <div class="row justify-content-center">
-                                    <div class="col-3"> <img
-                                            src="https://icon-library.com/images/complete-icon-png/complete-icon-png-6.jpg"
-                                            class="fit-image"> </div>
+                                    <div class="col-3 text-center justify-content-center"> 
+                                        <div style="width: 300px; height:300px" class="spinner-border text-info" role="status">
+                                            <span class="sr-only"></span>
+                                          </div>
+                                    </div>
                                 </div> <br>
 
                                 <div class="row justify-content-center">
                                     <div class="col-7 text-center">
-                                        <h4 class=" text-center">@lang('main.order.see_your_order') <a href=""
-                                                style="color: rgb(243, 54, 54);">@lang('admin.action.here')</a></h4>
-                                        <h4 class="purple-text text-center"><a href=""><i
-                                                    class="fas fa-cart-arrow-down"></i> Tiếp tục mua sắm</a></h4>
+                                        <h4 class=" text-center">@lang('main.order.loading')</h4>
                                     </div>
                                 </div>
                             </div>
