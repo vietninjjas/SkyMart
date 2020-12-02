@@ -306,23 +306,13 @@
     align-items: center;
     -webkit-box-pack: center;
     justify-content: center;
-    position: relative;
 }
 .review-rating__point {
     font-size: 25px;
     line-height: 40px;
     margin: 0px 0px 4px;
-    position: relative;
 }
 
-.point_span{
-    position: absolute;
-    z-index: 2;
-    left:53px;
-    top:50px;
-    color: #fff;
-    text-shadow: 0 0 5px brown;
-}
 
 .jucQbJ {
     position: relative;

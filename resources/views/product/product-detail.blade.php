@@ -29,8 +29,10 @@
                                 {{ $product->pro_name }}
                             </li>
                             <li>
-                                {{ round($product->reviews->avg('rate'), 1, PHP_ROUND_HALF_UP) }}
-                                <i class="fas fa-star"></i>
+                                <div class="ratings">
+                                    <div class="empty-stars"></div>
+                                    <div class="full-stars" style="width:{{ $product->reviews->avg('rate') * 20 }}%"></div>
+                                </div>
                                 @lang('main.product.number_review', ['sodanhgia' => $product->reviews->count()])
                             </li>
 
@@ -173,10 +175,12 @@
                                 <div>
                                     <h3 class="mt-5">@lang('main.product.review')</h3>
                                 </div>
-                                <div class="review-rating__point">
-                                    <span
-                                        class="point_span">{{ round($product->reviews->avg('rate'), 1, PHP_ROUND_HALF_UP) }}</span>
-                                    <img src="assets/images/star.png" alt="">
+                                <div class="review-rating__point text-center justtify-content-center">
+                                    <span class="point_span">{{ round($product->reviews->avg('rate'), 1, PHP_ROUND_HALF_UP) }}</span><br>
+                                    <div class="ratings">
+                                        <div class="empty-stars"></div>
+                                        <div class="full-stars" style="width:{{ $product->reviews->avg('rate') * 20 }}%"></div>
+                                    </div>
                                 </div>
                                 <div class="review-rating__total">{{ $product->reviews->count() }}
                                     @lang('main.product.review')</div>

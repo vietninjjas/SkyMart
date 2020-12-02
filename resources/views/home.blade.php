@@ -12,7 +12,7 @@
                         @foreach ($categories as $cate)
                             @if ($cate->parent_id == null)
                                 <li class="product-list-item">
-                                    <a href="{{ route('category.show', $cate->cate_id) }}" class="item-link">
+                                    <a href="#" class="item-link">
                                         <img style="width: 20px; height:20px" class="mr-3"
                                             src="images/categories/logos/{{ $cate->cate_logo }}" alt="">
                                         {{ $cate->cate_name }}
@@ -21,7 +21,7 @@
                                         <div class="to">
                                             @foreach ($cate->children as $catehihi)
                                                 <ul>
-                                                    <h5>{{ $catehihi->cate_name }}</h5>
+                                                    <h5><a href="{{ route('category.show', $catehihi->cate_id) }}">{{ $catehihi->cate_name }}</a> </h5>
                                                     @foreach ($catehihi->products as $pro)
                                                         <li><a
                                                                 href="{{ route('product.show', $pro->pro_id) }}">{{ $pro->pro_name }}</a>
@@ -170,8 +170,10 @@
                                 <span
                                     class="percent deal">{{ FLOOR(100 - ($pro->pro_new_price / $pro->pro_old_price) * 100) }}%</span>
                                 <div class="product-bottom text-center">
-                                    {{ round($pro->reviews->avg('rate'), 1, PHP_ROUND_HALF_UP) }}
-                                    <i class="fas fa-star"></i>
+                                    <div class="ratings">
+                                        <div class="empty-stars"></div>
+                                        <div class="full-stars" style="width:{{ $pro->reviews->avg('rate') * 20 }}%"></div>
+                                    </div>
                                     <a href="{{ route('product.show', $pro->pro_id) }}">
                                         <p class="title">{{ $pro->pro_name }}</p>
                                     </a>
@@ -255,8 +257,10 @@
                                 <span
                                     class="percent deal">{{ FLOOR(100 - ($hot->pro_new_price / $hot->pro_old_price) * 100) }}%</span>
                                 <div class="product-bottom text-center">
-                                    {{ round($hot->reviews->avg('rate'), 1, PHP_ROUND_HALF_UP) }}
-                                    <i class="fas fa-star"></i>
+                                    <div class="ratings">
+                                        <div class="empty-stars"></div>
+                                        <div class="full-stars" style="width:{{ $hot->reviews->avg('rate') * 20 }}%"></div>
+                                    </div>
                                     <p class="title">{{ $hot->pro_name }}</p>
                                     <h5 class="price">{{ number_format($hot->pro_new_price) }} đ
                                         <span class="original deal">{{ number_format($hot->pro_old_price) }} đ</span>
