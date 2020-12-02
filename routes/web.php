@@ -52,3 +52,4 @@ Route::get('delete-cart/{rowId}', 'CartController@delete_cart')->name('deleteCar
 Route::get('order/create', 'OrderController@create')->name('order.create');
 Route::post('order/store', 'OrderController@store')->name('order.store');
 Route::post('review/store', 'ReviewController@store')->name('review.store');
+Route::get('/filter', 'HomeController@filter');

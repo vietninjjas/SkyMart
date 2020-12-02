@@ -97,10 +97,11 @@
             <div class="col-lg-9 box-pro-2">
                 <div class="pro-box-right">
                     <div class="filter-list-box">
-                        @if ($resultFind-> isEmpty())
-                        <h2>Sorry, no results found for the term <b>"{{ $key }}"</b>.</h2>
+
+                        @if ($ketqua-> isEmpty())
+                        <h1>Có {{$ketqua1 ->count()}} sản phẩm phù hợp với yêu cầu của bạn</h1>
                         @else
-                        <h1>Có {{$resultFind->count()}} sản phẩm phù hợp với từ khóa "{{$key}}"</h1>
+                        <h1>Có {{$ketqua ->count()}} sản phẩm phù hợp với yêu cầu của bạn</h1>
                         <div class="option-box-wrap">
                             <div class="option-box">
                                 <div class="sort-box-holder">
@@ -125,11 +126,11 @@
                             </div>
                         </div>
                     </div>
-
+                    @endif
                 </div>
                 <div class="product-box-list">
                     <div class="row">
-                        @foreach($resultFind as $pro)
+                        @foreach($ketqua as $pro)
                         <div class="col-md-3 pro-hov">
                             <div class="product-top">
                                 <img src="images/products/{{ $pro->pro_image }}" alt="">
@@ -159,7 +160,38 @@
                             </div>
                         </div>
                         @endforeach
-                        @endif
+
+                        @foreach($ketqua1 as $pro)
+                        <div class="col-md-3 pro-hov">
+                            <div class="product-top">
+                                <img src="images/products/{{ $pro->pro_image }}" alt="">
+                                <div class="overlay">
+                                    <a href="{{ route('product.show', $pro->pro_id) }}" class="btn btn-secondary" title="Detail">
+                                        <i class="fa fa-eye"></i>
+                                    </a>
+                                    <button type="button" class="btn btn-secondary" title="Add to Wishlish">
+                                        <i class="fa fa-heart"></i>
+                                    </button>
+                                    <button type="button" class="btn btn-secondary" title="Add to cart">
+                                        <i class="fa fa-shopping-cart"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            @if($pro->pro_sale == 1)
+                            <span class="percent deal">HOT</span>
+                            @endif
+                            <div class="product-bottom text-center">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half"></i>
+                                <i class="far fa-star"></i>
+                                <p class="title"> {{ $pro->pro_name }}</p>
+                                <h5 class="price">{{ number_format($pro->pro_new_price) }} đ <span class="original deal">{{ number_format($pro->pro_old_price) }} đ</span></h5>
+                            </div>
+                        </div>
+                        @endforeach
+
                     </div>
                 </div>
             </div>
