@@ -135,4 +135,9 @@ return [
         'quantity' => 'Số lượng',
         'total_price' => 'Thành tiền',
     ],
+    'notification' => [
+        'notification' => 'Thông báo',
+        'title' => 'Có đơn hàng mới',
+        'content' => 'Xem ngay',
+    ]
 ];

@@ -33,11 +33,6 @@
                                 <li class="dropdown">
                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
                                         aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                                    {{-- <div class="dropdown-menu"
-                                        aria-labelledby="dropdownMenuButton">
-                                        <a class="dropdown-item" href="#">Settings 1</a>
-                                        <a class="dropdown-item" href="#">Settings 2</a>
-                                    </div> --}}
                                 </li>
                                 <li><a class="close-link"><i class="fa fa-close"></i></a>
                                 </li>
@@ -61,13 +56,13 @@
                                             </thead>
                                             <tbody>
                                                 @foreach ($orders as $order)
-                                                    <tr>
+                                                    <tr @if($order->order_status == 0 || $order->order_status == 1) class="bg-warning" @endif>
                                                         <td>{{ $order->order_id }}</td>
                                                         <td>{{ $order->order_name }}</td>
                                                         <td>{{ $order->order_phone }}</td>
                                                         <td>{{ $order->order_qty }}</td>
                                                         <td>{{ $order->order_total }}</td>
-                                                        <td class="text-center"><a href="{{ route('admin.order.show', $order->order_id) }}" class="btn btn-outline-info btn-xs"><i class="fas fa-eye"></i> @lang('admin.action.show') </a></td>
+                                                        <td class="text-center"><a href="{{ route('admin.order.show', $order->order_id) }}" class="btn btn-outline-info btn-xs"><i class="fa fa-eye"></i> @lang('admin.action.show') </a></td>
                                                     </tr>
                                                 @endforeach
                                             </tbody>

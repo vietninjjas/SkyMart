@@ -82,8 +82,9 @@ class ProductController extends Controller
         $product = Product::findOrFail($id);
         $product->increment('view');
         $productOrderSame = Product::inRandomOrder()->limit(3)->get();
+        $countReview = 1;
 
-        return view('product.product-detail', compact('product', 'products', 'productOrderSame'));
+        return view('product.product-detail', compact('product', 'products', 'productOrderSame', 'countReview'));
     }
 
     /**

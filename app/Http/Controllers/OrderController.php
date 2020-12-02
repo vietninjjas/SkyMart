@@ -11,11 +11,18 @@ use Illuminate\Support\Facades\Auth;
 
 class OrderController extends Controller
 {
+    protected $notification;
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct(
+        SendNotification $notification
+    ){
+        $this->notification = $notification;
+    }
+
     public function index()
     {
         $orders = Order::with('checkouts')->latest()->get(); 
@@ -69,6 +76,12 @@ class OrderController extends Controller
             Product::where('pro_id', $check->id)->update(['quantity' => $pro_quantity - $check->qty]);
         }
         Cart::destroy();
+        $data = [
+            'title' => trans('admin.notification.title'),
+            'content' => trans('admin.notification.content'),
+        ];
+        $this->notification->sendToAdmin($data);
+        
         return view('cart.complete_order');
 
     }
