@@ -56,6 +56,7 @@
                     <div class="social-media">
                         <p>@lang('main.acc.socialogin')</p>
                         <ul>
+                        <a href="{{ url('/auth/redirect/google') }}" class="btn btn-primary"><i class="fa fa-google"></i> Google</a>
                             <li><img src="{{ asset('/assets/images/facebook.png') }}"></li>
                             <li><img src="{{ asset('/assets/images/google.png') }}"></li>
                             <li><img src="{{ asset('/assets/images/zalo.png') }}"></li>

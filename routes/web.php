@@ -1,4 +1,5 @@
 <?php
+
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 /*
@@ -13,9 +14,10 @@ use Illuminate\Support\Facades\Auth;
 */
 
 Route::group(
-    ['middleware' => 'locale'], function () {
+    ['middleware' => 'locale'],
+    function () {
         Route::get('change-language/{language}', 'changeLanguageController@changeLanguage')
-        ->name('user.change-language');
+            ->name('user.change-language');
     }
 );
 Route::get('/', 'HomeController@index')->name('home');
@@ -53,3 +55,6 @@ Route::get('order/create', 'OrderController@create')->name('order.create');
 Route::post('order/store', 'OrderController@store')->name('order.store');
 Route::post('review/store', 'ReviewController@store')->name('review.store');
 Route::get('/filter', 'HomeController@filter');
+
+Route::get('/auth/redirect/{provider}', 'SocialController@redirect');
+Route::get('/{provider}/callback', 'SocialController@callback');
