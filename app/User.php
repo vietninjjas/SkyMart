@@ -23,14 +23,17 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'username',
-        'email', 
+        'email',
         'password',
         'fullname',
         'avatar',
         'phone',
         'birthday',
         'gender',
+
         'role',
+        'provider',
+         'provider_id'
     ];
 
     /**
@@ -39,7 +42,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 
+        'password',
         'remember_token',
     ];
 
@@ -77,8 +80,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Order::class, 'user_id');
     }
-    public function role($role) {     
-        if($role == $this->role) return true;
-        return false; 
+    public function role($role)
+    {
+        if ($role == $this->role) return true;
+        return false;
     }
 }
