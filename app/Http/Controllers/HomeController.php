@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Category;
 use App\Product;
 use App\Deal;
+use App\Review;
 
 class HomeController extends Controller
 {
@@ -49,7 +50,19 @@ class HomeController extends Controller
     public function search(Request $request){
         $cate = Category::all();
         $key = $request->get('key');
-        $resultFind = Product::where('pro_name', 'like', '%'.$key.'%')->orWhere('cate_id', 'like', '%'.$key.'%')->orWhere('pro_old_price', '=', "$key")->get();
+        $resultFind = Product::where('pro_name', 'like', '%'.$key.'%')->orWhere('cate_id', 'like', '%'.$key.'%')->orWhere('pro_new_price', '=', "$key")->get();
         return view('user.search', array('key' => $key, 'resultFind' => $resultFind, 'cate' => $cate));
+    }
+
+    public function filter(Request $request) {
+        $cate = Category::all();
+        $star = $request->get('star');
+        $min = $request->get('min');
+        $max = $request->get('max');
+        $ketqua = Product::whereBetween('pro_new_price', ["$min", "$max"])->get();
+
+        $ketqua1 = Review::Where('rate', '<', "$star")->get();
+        
+        return view('user.filter', array('ketqua' => $ketqua,'ketqua1' => $ketqua1, 'max' => $max, 'cate' => $cate));
     }
 }
