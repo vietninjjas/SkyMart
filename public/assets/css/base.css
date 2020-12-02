@@ -2811,3 +2811,157 @@ footer{
         content: '\f006';
         font-family: FontAwesome;
       }
+
+
+      .order-history{
+        display: block;
+    }
+    .order-page{
+        background-color: #fff;
+        margin: 20px auto;
+    }
+    .or-top{
+        margin: 15px auto;
+    }
+    .or-title{
+        margin: 20px auto;
+        border-bottom: 1px solid rgb(206, 203, 203);
+    }
+    .or-title h3{
+        font-size: 18px;
+        text-transform: uppercase;
+        color: rgb(88, 87, 87);
+        padding: 10px 20px;
+    }
+    .or-title p{
+        font-size: 15px;
+        color: rgb(126, 122, 122);
+        padding: 10px 98px;
+    }
+    .or-body{
+        display: block;
+    }
+   
+    .or-img img{
+        max-width: 70%;
+        margin: 0 15px;
+    }
+    .or-name a{
+        width: 100%;
+        overflow: hidden;
+        color: rgb(151, 148, 148);
+        text-overflow: ellipsis;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        margin-bottom: .3125rem;
+        font-size: 2rem;
+        line-height: 1rem;
+        max-height: 2rem;
+        margin-top: 25px;
+    }
+    .or-name  span{
+        display: block;
+        font-size: 15px;
+        margin-top: 10px;
+        
+    }
+    .or-price{
+        
+        overflow: hidden;
+        color: rgb(151, 148, 148);
+        text-overflow: ellipsis;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        margin-bottom: .3125rem;
+        font-size: 2rem;
+       
+        
+        margin-top: 25px;
+    }
+    .trang-thai{
+        overflow: hidden;
+        color: rgb(233, 83, 24);
+        text-overflow: ellipsis;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        margin-bottom: .3125rem;
+        font-size: 2rem;
+        margin-top: 25px;
+    }
+    .or-mid{
+        margin: 20px auto;
+        border-top: 1px dotted rgb(206, 203, 203);
+        
+    }
+    .or-total{
+        margin: 20px 20px;
+        color: rgba(66, 66, 66, 0.8);
+        font-size: 20px;
+    }
+    .or-total p{
+        margin-left: 80px;
+    }
+    .or-total span{
+        color: rgb(233, 83, 24);
+        font-size: 30px;
+        margin-left: 20px;
+        font-weight: bold;
+    }
+    .or-logo{
+        margin-left: 30px;
+    }
+    .or-logo img{
+        width: 30%;
+    }
+    .or-logo p{
+        font-size: 14px;
+        color: rgb(119, 117, 117);
+        margin-left: 10px;
+    }
+    .or-logo span{
+        color: rgb(44, 166, 236);
+        font-weight: bold;
+    }
+    .or-bot{
+        display: block;
+        height: 80px;
+    }
+    .or-btn{
+        margin: 30px 385px;
+    }
+    .or-btn button{
+        width: 150px;
+        height: 40px;
+        background-color:  rgb(233, 83, 24);
+        margin-right: 15px;
+    }
+    .or-btn button:hover{
+        background-color: rgb(223, 122, 64);
+    }
+    .or-btn button a{
+        color: white;
+        font-size: 13px;
+    }
+
+    .or-info{
+        display: block;
+        margin: 20px auto;
+        
+        border-bottom: 1px dotted rgb(206, 203, 203);;
+    }
+    .or-info-title{
+        text-align: center;
+        margin: 15px 30px;
+        text-transform: uppercase;
+        font-size: 18px;
+        color: rgb(71, 71, 70);
+    }
+    .or-info ul{
+        margin-left: 400px;
+        list-style: none;
+    }
+    .or-info ul li{
+        margin-bottom: 15px;
+        font-size: 13px;
+
+    }
