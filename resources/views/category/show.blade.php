@@ -50,7 +50,7 @@
                                 <ul class="cate-pro-item">
                                     @foreach ($categories as $category)
                                         @if ($category->parent_id == null)
-                                            <li  ><a style="font-weight:bold"  href="{{ route('category.show', $category->cate_id) }}">{{ $category->cate_name }}<span>({{ $category->children->count() }})</span><i class="fas fa-angle-down ml-2"></i></a>
+                                            <li>{{ $category->cate_name }}<span>({{ $category->children->count() }})</span><i class="fas fa-angle-down ml-2"></i>
                                                 <ul class="cate-s">
                                                     @foreach ($category->children as $c)
                                                         <li><a href="{{ route('category.show', $c->cate_id) }}">-{{ $c->cate_name }}<span>({{ $c->products->count() }})</span></a></li>
@@ -143,11 +143,10 @@
                                 <span class="percent deal">HOT</span>
                                 @endif
                                 <div class="product-bottom text-center">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star-half"></i>
-                                    <i class="far fa-star"></i>
+                                    <div class="ratings">
+                                        <div class="empty-stars"></div>
+                                        <div class="full-stars" style="width:{{ $pro->reviews->avg('rate') * 20 }}%"></div>
+                                    </div>
                                     <p class="title"><a style="color: rgb(73, 72, 72)" href="{{ route('product.show', $pro->pro_id) }}">{{ $pro->pro_name }}</a></p>
                                     <h5 class="price">{{ number_format($pro->pro_new_price) }} đ <span class="original deal">{{ number_format($pro->pro_old_price) }} đ</span></h5>
                                     <button class=""><a href="{{ route('product.show', $pro->pro_id) }}">Xem ngay</a></button>
