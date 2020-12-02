@@ -13,8 +13,8 @@
                             @if ($cate->parent_id == null)
                                 <li class="product-list-item">
                                     <a href="{{ route('category.show', $cate->cate_id) }}" class="item-link">
-                                        <img style="width: 20px; height:20px" class="mr-3" src="images/categories/logos/{{ $cate->cate_logo }}"
-                                            alt="">
+                                        <img style="width: 20px; height:20px" class="mr-3"
+                                            src="images/categories/logos/{{ $cate->cate_logo }}" alt="">
                                         {{ $cate->cate_name }}
                                     </a>
                                     <div class="nho">
@@ -23,13 +23,15 @@
                                                 <ul>
                                                     <h5>{{ $catehihi->cate_name }}</h5>
                                                     @foreach ($catehihi->products as $pro)
-                                                        <li><a href="{{ route('product.show', $pro->pro_id) }}">{{ $pro->pro_name }}</a></li>
-                                                        
+                                                        <li><a
+                                                                href="{{ route('product.show', $pro->pro_id) }}">{{ $pro->pro_name }}</a>
+                                                        </li>
+
                                                         @if ($proCount++ == 5) @break
                                                         @endif
-                                                     
+
                                                     @endforeach
-                                                    
+
                                                 </ul>
                                                 @if ($cateCount++ == 3) @break
                                                 @endif
@@ -59,38 +61,11 @@
                 </div>
                 <div class="list-product-res">
                     <ul class="list-product-res-content">
-                        <li class="product-res-content">
-                            <a href="">
-                                Công Nghệ</a>
-                        </li>
-                        <li class="product-res-content">
-                            <a href="">
-                                Gia Đình</a>
-                        </li>
-                        <li class="product-res-content">
-                            <a href="">
-                                Sức Khỏe</a>
-                        </li>
-                        <li class="product-res-content">
-                            <a href="">
-                                Mẹ & Bé</a>
-                        </li>
-                        <li class="product-res-content">
-                            <a href="">
-                                Đời Sống</a>
-                        </li>
-                        <li class="product-res-content">
-                            <a href="">
-                                Thời Trang</a>
-                        </li>
-                        <li class="product-res-content">
-                            <a href="">
-                                Xe Cộ</a>
-                        </li>
-                        <li class="product-res-content">
-                            <a href="">
-                                Sạch</a>
-                        </li>
+                        @foreach ($categories as $ca_repon)
+                            @if ($ca_repon->parent_id == null)
+                                <li class="product-res-content"><a href="#">{{ $ca_repon->cate_name }}</a></li>
+                            @endif
+                        @endforeach
                     </ul>
                 </div>
                 <div class="banner_bottom_container">
@@ -192,19 +167,20 @@
                                         </form>
                                     </div>
                                 </div>
-                                <span class="percent deal">{{FLOOR(100-($pro->pro_new_price/$pro->pro_old_price)*100)}}%</span>
+                                <span
+                                    class="percent deal">{{ FLOOR(100 - ($pro->pro_new_price / $pro->pro_old_price) * 100) }}%</span>
                                 <div class="product-bottom text-center">
+                                    {{ round($pro->reviews->avg('rate'), 1, PHP_ROUND_HALF_UP) }}
                                     <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star-half"></i>
-                                    <i class="far fa-star"></i>
-                                    <a href="{{ route('product.show', $pro->pro_id) }}"><p class="title">{{ $pro->pro_name }}</p></a>
-                                    
+                                    <a href="{{ route('product.show', $pro->pro_id) }}">
+                                        <p class="title">{{ $pro->pro_name }}</p>
+                                    </a>
+
                                     <h5 class="price">{{ number_format($pro->pro_new_price) }} đ
                                         <span class="original deal">{{ number_format($pro->pro_old_price) }}đ</span>
                                     </h5>
-                                    <button class=""><a href="{{ route('product.show', $pro->pro_id) }}">Xem ngay</a></button>
+                                    <button class=""><a href="{{ route('product.show', $pro->pro_id) }}">Xem
+                                            ngay</a></button>
                                 </div>
                             </div>
                         @endif
@@ -220,7 +196,7 @@
                 <div class="custom-slider">
                     @foreach ($topSales as $sa)
                         <div class="custom-box">
-                        <a href="#"><img src="images/products/{{$sa->pro_image}}" alt=""></a>
+                            <a href="#"><img src="images/products/{{ $sa->pro_image }}" alt=""></a>
                         </div>
                     @endforeach
                 </div>
@@ -229,6 +205,7 @@
                 <div id="gallery">
                     @foreach ($categories as $cate)
                         @if ($cate->parent_id != null)
+                        <a href="{{ route('category.show', $cate->cate_id) }}">
                             <div class="pro-hov">
                                 <div class="product-top">
                                     <img src="images/categories/images/{{ $cate->cate_image }}" alt="">
@@ -237,6 +214,7 @@
                                     <p class="title text-center">{{ $cate->cate_name }}</p>
                                 </div>
                             </div>
+                        </a>
                         @endif
                     @endforeach
                 </div>
@@ -274,23 +252,24 @@
                                         </form>
                                     </div>
                                 </div>
-                                <span class="percent deal">{{FLOOR(100-($hot->pro_new_price/$hot->pro_old_price)*100)}}%</span>
+                                <span
+                                    class="percent deal">{{ FLOOR(100 - ($hot->pro_new_price / $hot->pro_old_price) * 100) }}%</span>
                                 <div class="product-bottom text-center">
+                                    {{ round($hot->reviews->avg('rate'), 1, PHP_ROUND_HALF_UP) }}
                                     <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star-half"></i>
-                                    <i class="far fa-star"></i>
                                     <p class="title">{{ $hot->pro_name }}</p>
                                     <h5 class="price">{{ number_format($hot->pro_new_price) }} đ
                                         <span class="original deal">{{ number_format($hot->pro_old_price) }} đ</span>
                                     </h5>
-                                    <button class=""><a href="{{ route('product.show', $pro->pro_id) }}">Xem ngay</a></button>
+                                    <button class=""><a href="{{ route('product.show', $pro->pro_id) }}">Xem
+                                            ngay</a></button>
                                 </div>
                             </div>
                         @endforeach
                         <div class="btn-more text-center mt-3 mb-3 show-more">
-                            <button><p>@lang('main.see_more')</p></button>
+                            <button>
+                                <p>@lang('main.see_more')</p>
+                            </button>
                         </div>
                     </div>
                 </div>

@@ -51,7 +51,7 @@
                         <input type="password" name="password">
                     </label>
                     <button class="submit" type="submit">@lang('main.acc.login')</button>
-                    <p class="forgot-pass">@lang('main.acc.quenpass')</p>
+                    <p class="text-center"><a href="{{ route('password.request') }}" class="forgot-pass text-center">@lang('main.acc.quenpass')</a></p>
 
                     <div class="social-media">
                         <p>@lang('main.acc.socialogin')</p>

@@ -42,6 +42,11 @@ return [
         'acc_info' => 'Thông tin tài khoản',
         'admin_page' => 'Trang quản trị',
         'must_login' => 'Bạn phải đăng nhập',
+        'must_login_to_cmt' => 'Bạn phải đăng nhập để bình luận',
+        'must_login_to_rate' => 'Bạn phải đăng nhập để đánh giá',
+    ],
+    'searches' => [
+        'not_found' => 'Xin lỗi, không tìm thấy kết quả nào cho từ khóa này: ',
     ],
     'product' => [
         'detail' => 'Xem chi tiết',
@@ -58,6 +63,7 @@ return [
         'send_review' => 'Gửi bình luận và đánh giá',
         'cmt_placeholder' => 'Đặt bình luận về sản phẩm tại đây...',
         'order_check' => 'Đã mua hàng ở SkyMart',
+        'hethang' => 'Sản phẩm tạm hết hàng',
     ],
     'cart' => [
         'pro_desc' => 'Thông tin sản phẩm',

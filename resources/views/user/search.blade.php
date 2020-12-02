@@ -98,7 +98,7 @@
                 <div class="pro-box-right">
                     <div class="filter-list-box">
                         @if ($resultFind-> isEmpty())
-                        <h2>Sorry, no results found for the term <b>"{{ $key }}"</b>.</h2>
+                        <h2>@lang('main.searches.not_found') <b>"{{ $key }}"</b>.</h2>
                         @else
                         <h1>Có {{$resultFind->count()}} sản phẩm phù hợp với từ khóa "{{$key}}"</h1>
                         <div class="option-box-wrap">

@@ -21,6 +21,7 @@
     <link href="{{ asset('./assets/vendors/iCheck/skins/flat/green.css') }}" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://js.pusher.com/4.4/pusher.min.js"></script>
     <!-- bootstrap-progressbar -->
     <link href="{{ asset('./assets/vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css') }}"
         rel="stylesheet">
@@ -65,7 +66,8 @@
                                         <li><a
                                                 href="{{ route('admin.deal.index') }}">@lang('admin.banners.list_deal')</a>
                                         </li>
-                                        <li><a href="{{ route('admin.banner.create') }}">@lang('admin.banners.create')</a>
+                                        <li><a
+                                                href="{{ route('admin.banner.create') }}">@lang('admin.banners.create')</a>
                                         </li>
                                         <li><a href="{{ route('admin.banner.index') }}">@lang('admin.banners.view')</a>
                                         </li>
@@ -96,7 +98,9 @@
                                 <li><a><i class="fa fa-edit"></i> @lang('admin.reviews.rev_manage') <span
                                             class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
-                                        <li><a href="{{ route('admin.review.index') }}">@lang('admin.reviews.rev_view')</a></li>
+                                        <li><a
+                                                href="{{ route('admin.review.index') }}">@lang('admin.reviews.rev_view')</a>
+                                        </li>
                                     </ul>
                                 </li>
                                 <li><a><i class="fa fa-money"></i> @lang('admin.orders.order_manage') <span
@@ -113,7 +117,8 @@
                                         <li><a href="{{ route('admin.user.index') }}">@lang('admin.user.view')</a></li>
                                     </ul>
                                 </li>
-                                <li><a href="{{ route('home') }}"><i class="fa fa-backward"></i> @lang('admin.go_home') </a></li>
+                                <li><a href="{{ route('home') }}"><i class="fa fa-backward"></i> @lang('admin.go_home')
+                                    </a></li>
                             </ul>
                         </div>
 
@@ -158,79 +163,28 @@
                                     alt="avt">{{ Auth()->user()->fullname }}
                             </a>
                         </li>
-                        <li role="presentation" class="nav-item dropdown open">
-                            <a href="javascript:;" class="dropdown-toggle info-number" id="navbarDropdown1"
-                                data-toggle="dropdown" aria-expanded="false">
-                                <i class="fa fa-envelope-o"></i>
-                                <span class="badge bg-green">6</span>
+                        <li id="dropdown-notifications" class="nav-item dropdown p-2 text-nowrap">
+                            <a class="nav-link position-relative" href="#notifications-panel" id="notiDropdown" role="button" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                                @lang('admin.notification.notification')
+                                <i class="fa fa-bell notification-icon"></i>
+                                <span style="position: absolute; right:-6px; top:-5px; border-radius:50%; color:red; text-shadow: 0 0 3px yellow">
+                                    {{ count(Auth::user()->notifications) }}
+                                </span>
                             </a>
-                            <ul class="dropdown-menu list-unstyled msg_list" role="menu"
-                                aria-labelledby="navbarDropdown1">
-                                <li class="nav-item">
-                                    <a class="dropdown-item">
-                                        <span class="image"><img src="{{ asset('./assets/images/img.jpg') }}"
-                                                alt="Profile Image" /></span>
-                                        <span>
-                                            <span>John Smith</span>
-                                            <span class="time">3 mins ago</span>
-                                        </span>
-                                        <span class="message">
-                                            Film festivals used to be do-or-die moments for movie makers. They were
-                                            where...
-                                        </span>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="dropdown-item">
-                                        <span class="image"><img src="{{ asset('./assets/images/img.jpg') }}"
-                                                alt="Profile Image" /></span>
-                                        <span>
-                                            <span>John Smith</span>
-                                            <span class="time">3 mins ago</span>
-                                        </span>
-                                        <span class="message">
-                                            Film festivals used to be do-or-die moments for movie makers. They were
-                                            where...
-                                        </span>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="dropdown-item">
-                                        <span class="image"><img src="{{ asset('./assets/images/img.jpg') }}"
-                                                alt="Profile Image" /></span>
-                                        <span>
-                                            <span>John Smith</span>
-                                            <span class="time">3 mins ago</span>
-                                        </span>
-                                        <span class="message">
-                                            Film festivals used to be do-or-die moments for movie makers. They were
-                                            where...
-                                        </span>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="dropdown-item">
-                                        <span class="image"><img src="{{ asset('./assets/images/img.jpg') }}"
-                                                alt="Profile Image" /></span>
-                                        <span>
-                                            <span>John Smith</span>
-                                            <span class="time">3 mins ago</span>
-                                        </span>
-                                        <span class="message">
-                                            Film festivals used to be do-or-die moments for movie makers. They were
-                                            where...
-                                        </span>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <div class="text-center">
-                                        <a class="dropdown-item">
-                                            <strong>See All Alerts</strong>
-                                            <i class="fa fa-angle-right"></i>
+                            <div class="dropdown-menu noti-content noti-content-fix" aria-labelledby="notiDropdown">
+                                <div class="dropdown-header">@lang('admin.notification.notification')
+                                </div>
+                                <div id="notiContent">
+                                    @foreach (Auth::user()->notifications as $notification)
+                                        <a class="dropdown-item" href="{{ route('admin.order.index') }}"><strong>{{ $notification->data['title'] }}</strong>
+                                            <br />
+                                            <span class="text-muted text">{{ $notification->data['content'] }}</span>
+                                            <!--<small class="float-right">{{ $notification->created_at }}</small>-->
                                         </a>
-                                    </div>
-                                </li>
-                            </ul>
+                                    @endforeach
+                                </div>
+                            </div>
                         </li>
                     </ul>
                 </nav>
@@ -258,95 +212,125 @@
         CKEDITOR.replace('ckeditor1');
         CKEDITOR.replace('ckeditor2');
 
-    <!-- footer content -->
-    <footer>
-      <div class="pull-right">
-        Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
-      </div>
-      <div class="clearfix"></div>
-    </footer>
-    <!-- /footer content -->
-  </div>
-  </div>
-  <script type="text/javascript">
-    $('.confirmation').on('click', function () {
-        return confirm('Are you sure?');
-    });
-</script>
+        <
+        !--footer content-- >
+        <
+        footer >
+            <
+            div class = "pull-right" >
+            Gentelella - Bootstrap Admin Template by < a href = "https://colorlib.com" > Colorlib < /a> < /
+            div > <
+            div class = "clearfix" > < /div> < /
+            footer > <
+            !--/footer content --> < /
+            div > <
+            /div> <
+        script type = "text/javascript" >
+            $('.confirmation').on('click', function() {
+                return confirm('Are you sure?');
+            });
 
-  <script src="{{asset('./assets/ckeditor4/ckeditor.js')}}"></script>
-  <script >
-      CKEDITOR.replace('pro_desc');
-      CKEDITOR.replace('ckeditor1');
-      CKEDITOR.replace('ckeditor2');
+    </script>
 
-      CKEDITOR.editorConfig = function( config ) {
-	config.language = 'es';
-	config.uiColor = '#F7B42C';
-	config.height = 300;
-	config.toolbarCanCollapse = true;
-};
-  </script>
+    <script src="{{ asset('./assets/ckeditor4/ckeditor.js') }}"></script>
+    <script>
+        CKEDITOR.replace('pro_desc');
+        CKEDITOR.replace('ckeditor1');
+        CKEDITOR.replace('ckeditor2');
 
-<script type="text/javascript">
-  function createTextSnippet() {
-      //example as before, replace YOUR_TEXTAREA_ID
-      var html=CKEDITOR.instances.YOUR_TEXTAREA_ID.getSnapshot();
-      var dom=document.createElement("#ckeditor"); 
-      dom.innerHTML=html;
-      var plain_text=(dom.textContent || dom.innerText);
-  
-      //create and set a 128 char snippet to the hidden form field
-      var snippet=plain_text.substr(0,127);
-      document.getElementById("hidden_snippet").value=snippet;
-  
-      //return true, ok to submit the form
-      return true;
-  }
-  </script>
+        CKEDITOR.editorConfig = function(config) {
+            config.language = 'es';
+            config.uiColor = '#F7B42C';
+            config.height = 300;
+            config.toolbarCanCollapse = true;
+        };
 
-  <!-- jQuery -->
-  <script src="{{asset('./assets/vendors/jquery/dist/jquery.min.js')}}"></script>
-  <!-- Bootstrap -->
-  <script src="{{asset('./assets/vendors/bootstrap/dist/js/bootstrap.bundle.min.js')}}"></script>
-  <!-- FastClick -->
-  <script src="{{asset('./assets/vendors/fastclick/lib/fastclick.js')}}"></script>
-  <!-- NProgress -->
-  <script src="{{asset('./assets/vendors/nprogress/nprogress.js')}}"></script>
-  <!-- Chart.js -->
-  <script src="{{asset('./assets/vendors/Chart.js/dist/Chart.min.js')}}"></script>
-  <!-- gauge.js -->
-  <script src="{{asset('./assets/vendors/gauge.js/dist/gauge.min.js')}}"></script>
-  <!-- bootstrap-progressbar -->
-  <script src="{{asset('./assets/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js')}}"></script>
-  <!-- iCheck -->
-  <script src="{{asset('./assets/vendors/iCheck/icheck.min.js')}}"></script>
-  <!-- Skycons -->
-  <script src="{{asset('./assets/vendors/skycons/skycons.js')}}"></script>
-  <!-- Flot -->
-  <script src="{{asset('./assets/vendors/Flot/jquery.flot.js')}}"></script>
-  <script src="{{asset('./assets/vendors/Flot/jquery.flot.pie.js')}}"></script>
-  <script src="{{asset('./assets/vendors/Flot/jquery.flot.time.js')}}"></script>
-  <script src="{{asset('./assets/vendors/Flot/jquery.flot.stack.js')}}"></script>
-  <script src="{{asset('./assets/vendors/Flot/jquery.flot.resize.js')}}"></script>
-  <!-- Flot plugins -->
-  <script src="{{asset('./assets/vendors/flot.orderbars/js/jquery.flot.orderBars.js')}}"></script>
-  <script src="{{asset('./assets/vendors/flot-spline/js/jquery.flot.spline.min.js')}}"></script>
-  <script src="{{asset('./assets/vendors/flot.curvedlines/curvedLines.js')}}"></script>
-  <!-- DateJS -->
-  <script src="{{asset('./assets/vendors/DateJS/build/date.js')}}"></script>
-  <!-- JQVMap -->
-  <script src="{{asset('./assets/vendors/jqvmap/dist/jquery.vmap.js')}}"></script>
-  <script src="{{asset('./assets/vendors/jqvmap/dist/maps/jquery.vmap.world.js')}}"></script>
-  <script src="{{asset('./assets/vendors/jqvmap/examples/js/jquery.vmap.sampledata.js')}}"></script>
-  <!-- bootstrap-daterangepicker -->
-  <script src="{{asset('./assets/vendors/moment/min/moment.min.js')}}"></script>
-  <script src="{{asset('./assets/vendors/bootstrap-daterangepicker/daterangepicker.js')}}"></script>
+    </script>
+
+    <script type="text/javascript">
+        function createTextSnippet() {
+            //example as before, replace YOUR_TEXTAREA_ID
+            var html = CKEDITOR.instances.YOUR_TEXTAREA_ID.getSnapshot();
+            var dom = document.createElement("#ckeditor");
+            dom.innerHTML = html;
+            var plain_text = (dom.textContent || dom.innerText);
+
+            //create and set a 128 char snippet to the hidden form field
+            var snippet = plain_text.substr(0, 127);
+            document.getElementById("hidden_snippet").value = snippet;
+
+            //return true, ok to submit the form
+            return true;
+        }
+
+    </script>
+
+    <!-- jQuery -->
+    <script src="{{ asset('./assets/vendors/jquery/dist/jquery.min.js') }}"></script>
+    <!-- Bootstrap -->
+    <script src="{{ asset('./assets/vendors/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
+    <!-- FastClick -->
+    <script src="{{ asset('./assets/vendors/fastclick/lib/fastclick.js') }}"></script>
+    <!-- NProgress -->
+    <script src="{{ asset('./assets/vendors/nprogress/nprogress.js') }}"></script>
+    <!-- Chart.js -->
+    <script src="{{ asset('./assets/vendors/Chart.js/dist/Chart.min.js') }}"></script>
+    <!-- gauge.js -->
+    <script src="{{ asset('./assets/vendors/gauge.js/dist/gauge.min.js') }}"></script>
+    <!-- bootstrap-progressbar -->
+    <script src="{{ asset('./assets/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js') }}"></script>
+    <!-- iCheck -->
+    <script src="{{ asset('./assets/vendors/iCheck/icheck.min.js') }}"></script>
+    <!-- Skycons -->
+    <script src="{{ asset('./assets/vendors/skycons/skycons.js') }}"></script>
+    <!-- Flot -->
+    <script src="{{ asset('./assets/vendors/Flot/jquery.flot.js') }}"></script>
+    <script src="{{ asset('./assets/vendors/Flot/jquery.flot.pie.js') }}"></script>
+    <script src="{{ asset('./assets/vendors/Flot/jquery.flot.time.js') }}"></script>
+    <script src="{{ asset('./assets/vendors/Flot/jquery.flot.stack.js') }}"></script>
+    <script src="{{ asset('./assets/vendors/Flot/jquery.flot.resize.js') }}"></script>
+    <!-- Flot plugins -->
+    <script src="{{ asset('./assets/vendors/flot.orderbars/js/jquery.flot.orderBars.js') }}"></script>
+    <script src="{{ asset('./assets/vendors/flot-spline/js/jquery.flot.spline.min.js') }}"></script>
+    <script src="{{ asset('./assets/vendors/flot.curvedlines/curvedLines.js') }}"></script>
+    <!-- DateJS -->
+    <script src="{{ asset('./assets/vendors/DateJS/build/date.js') }}"></script>
+    <!-- JQVMap -->
+    <script src="{{ asset('./assets/vendors/jqvmap/dist/jquery.vmap.js') }}"></script>
+    <script src="{{ asset('./assets/vendors/jqvmap/dist/maps/jquery.vmap.world.js') }}"></script>
+    <script src="{{ asset('./assets/vendors/jqvmap/examples/js/jquery.vmap.sampledata.js') }}"></script>
+    <!-- bootstrap-daterangepicker -->
+    <script src="{{ asset('./assets/vendors/moment/min/moment.min.js') }}"></script>
+    <script src="{{ asset('./assets/vendors/bootstrap-daterangepicker/daterangepicker.js') }}"></script>
 
     <!-- Custom Theme Scripts -->
     <script src="{{ asset('./assets/build/js/custom.min.js') }}"></script>
-    {{-- anh phu   --}}
+    {{-- anh phu --}}
     <script src="{{ asset('./assets/js/anhphu.js') }}"></script>
+    <script type="text/javascript">
+        var pusher = new Pusher('eec3ab6632d20e677d76', {
+            encrypted: true,
+            cluster: "ap1"
+        });
+        var notificationsToggle = $('#dropdown-notifications').find('a[id="notiDropdown"]');
+        var notificationsCountElem = notificationsToggle.find('i[data-count]');
+        var notificationsCount = parseInt(notificationsCountElem.data('count'));
+        var channel = pusher.subscribe('NotificationEvent');
+        channel.bind('send-message', function(data) {
+            var newNotificationHtml = `
+            <a class="dropdown-item bg-warning" href="/admin/borrows"><strong>${data.title}</strong>
+            <br/>
+            <span class="text-muted text">${data.content}</span>
+            </a>
+            `;
+
+            $('#notiContent').prepend(newNotificationHtml);
+            notificationsCount += 1;
+            notificationsCountElem.attr('data-count', notificationsCount);
+            console.log(notificationsCount);
+        });
+
+    </script>
 
 </body>
 

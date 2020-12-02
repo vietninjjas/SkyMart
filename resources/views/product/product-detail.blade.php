@@ -29,10 +29,7 @@
                                 {{ $product->pro_name }}
                             </li>
                             <li>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
+                                {{ round($product->reviews->avg('rate'), 1, PHP_ROUND_HALF_UP) }}
                                 <i class="fas fa-star"></i>
                                 @lang('main.product.number_review', ['sodanhgia' => $product->reviews->count()])
                             </li>
@@ -56,24 +53,18 @@
                                 <div class="QualityInput__Wrapper">
                                     <p>@lang('main.cart.quantity')</p>
                                     <div class="group-input">
-                                        <button type="button" class="disable">
-                                            <img
-                                                src="https://frontend.tikicdn.com/_desktop-next/static/img/pdp_revamp_v2/icons-remove.svg">
-                                        </button>
-                                        <input type="number" value="1" name="quantity" class="input">
-                                        <button type="button">
-                                            <img
-                                                src="https://frontend.tikicdn.com/_desktop-next/static/img/pdp_revamp_v2/icons-add.svg">
-                                        </button>
+                                        <input style="width: 100px" class="form-control ml-5" type="number" value="1" min="1" max="{{ $product->quantity }}" name="quantity" class="input">
                                     </div>
-                                    <div class="yellow"><span>@lang('main.product.rest', ['quantity' =>
-                                            $product->quantity])</span></div>
                                     <input type="hidden" name="pro_id" value="{{ $product->pro_id }}">
-                                    <div class="group-button">
+                                    <div class="group-button mt-5 ml-5">
                                         @if (Auth::check())
-                                            <input type="hidden" name="pro_id" value="{{ $product->pro_id }}">
-                                            <button type="submit"
-                                                class="btn btn-add-to-cart">@lang('main.cart.add')</button>
+                                            @if ($product->quantity > 0)
+                                                <input type="hidden" name="pro_id" value="{{ $product->pro_id }}">
+                                                <div class="yellow"><span>@lang('main.product.rest', ['quantity' => $product->quantity])</span></div>
+                                                <button type="submit" class="btn btn-add-to-cart">@lang('main.cart.add')</button>
+                                            @else
+                                                <i class="text-danger text-center">@lang('main.product.hethang')</i>
+                                            @endif
                                         @else
                                             <button type="button" onclick="alert(' @lang('main.acc.must_login') ')"
                                                 class="btn btn-add-to-cart">@lang('main.cart.add')</button>
@@ -88,11 +79,7 @@
                                         <a href="{{ route('product.show', $same->pro_id) }}">
                                             <img src="images/products/{{ $same->pro_image }}" alt="">
                                         </a>
-                                        <p>+</p>
                                     @endforeach
-                                </div>
-                                <div class="btn-more text-center mt-3 mb-3">
-                                    <a href="">@lang('main.see_more')</a>
                                 </div>
                             </div>
                         </div>
@@ -124,11 +111,11 @@
         </div>
         <div class="row">
             <div class="col-9">
-                <h2>MÔ TẢ SẢN PHẨM</h2>
-                <div class="container-product" >
+                <h2>@lang('main.product.product_desc')</h2>
+                <div class="container-product">
                     @php
-                        Echo($product->pro_desc);
-                    @endphp                   
+                    Echo($product->pro_desc);
+                    @endphp
                 </div>
                 <h2>@lang('main.product.cus_review')</h2>
                 <div class="container-product">
@@ -150,6 +137,7 @@
                             <!-- số đánh giá -->
                             <div class="review-rating__detail">
                                 <div class="review-rating__level mt-5">
+                                    @if(Auth::check())
                                     <div class="stars">
                                         <input value="5" class="star star-5" id="star-5" type="radio" name="rate" />
                                         <label class="star star-5" for="star-5"></label>
@@ -162,6 +150,11 @@
                                         <input value="1" class="star star-1" id="star-1" type="radio" name="rate" />
                                         <label class="star star-1" for="star-1"></label>
                                     </div>
+                                    @else
+                                        <div class="star">
+                                            <h1><i class="text-secondary">"@lang('main.acc.must_login_to_rate')"</i></h1>
+                                        </div>
+                                    @endif
                                 </div>
                             </div>
                             <!-- chi tiết số đánh giá -->
@@ -173,21 +166,27 @@
                                     <li class="ml-4"><img src="images/users/{{ $rev->user->avatar }}" alt=""></li>
                                     {{ $rev->user->fullname }}
                                     <li></li>
-                                    @foreach ($rev->user->orders as $key)
-                                        @if ($key->user_id != null)
-                                            <li><i class="fas fa-comments"></i> @lang('main.product.order_check')</li>
+                                    <li>
+                                        @if ($rev->user->orders->count() > 0)
+                                            <i class="fas fa-comments"></i> @lang('main.product.order_check')
                                         @endif
-                                    @endforeach
+                                    </li>
                                 </ul>
                                 <div class="review-comment-content ml-4">
                                     {{ $rev->comment }}
                                 </div>
                         @endforeach
+                        @if(Auth::check())
                         <div class="form-cmt">
                             <input id="last-name" type="text" name="comment" placeholder="{{ trans('main.product.cmt_placeholder') }}">
                             <input type="hidden" value="{{ $product->pro_id }}" name="pro_id">
                             <button id="submit" type="submit">@lang('main.product.send_review')</button>
                         </div>
+                        @else
+                        <div class="form-cmt text-center justify-content-center">
+                            <i class="text-center text-secondary justify-content-center">"@lang('main.acc.must_login_to_cmt')"</i>
+                        </div>
+                        @endif
                 </div>
                 </form>
             </div>
@@ -198,13 +197,14 @@
     </div>
 
     <script>
-        $(document).ready(function(){
-            $("#haha li img").click(function(){ //khi click vào thẻ img
+        $(document).ready(function() {
+            $("#haha li img").click(function() { //khi click vào thẻ img
                 var getId = $(this).attr("src"); // đặt biến là getID = src ảnh của khi click
                 console.log(getId); //xuất ra xem
-                $(".demo").attr("src",getId); //sau khi click thẻ img có class demo sẽ thay đổi src mặc định sang src của getID(ảnh được click)
+                $(".demo").attr("src",
+                getId); //sau khi click thẻ img có class demo sẽ thay đổi src mặc định sang src của getID(ảnh được click)
             })
-            $("button#submit").click(function(){
+            $("button#submit").click(function() {
                 var submit = $("input#last-name").val();
                 var getGender = $("input[type='radio']").is(":checked");
                 var flag = true
@@ -214,25 +214,30 @@
                     alert("chưa chọn")
                     flag = false;
                 }
-                    if(submit ==''){
-                    $("input#last-name").css({"background" : "rgba(255, 147, 146, 0.3)", "border" : "2px solid rgb(255, 0, 0, 0.3)"});
-                        flag = false
-                        alert("Bạn vui lòng nội dung vào phần bình luận")
-                    }else{
-                        $("input#last-name").css({"background" : "rgb(100 216 90 / 30%)", "border" : "2px solid rgb(147 161 146 / 30%)"});
-                    }
+                if (submit == '') {
+                    $("input#last-name").css({
+                        "background": "rgba(255, 147, 146, 0.3)",
+                        "border": "2px solid rgb(255, 0, 0, 0.3)"
+                    });
+                    flag = false
+                    alert("Bạn vui lòng nội dung vào phần bình luận")
+                } else {
+                    $("input#last-name").css({
+                        "background": "rgb(100 216 90 / 30%)",
+                        "border": "2px solid rgb(147 161 146 / 30%)"
+                    });
+                }
 
-                    
-                    if(flag){
-                        alert("Gửi bình luận thành công")
-                        return true
-                    }
+
+                if (flag) {
+                    alert("Gửi bình luận thành công")
+                    return true
+                }
                 return false
             })
         })
 
-        
-</script>
+    </script>
 
 
     </div>
