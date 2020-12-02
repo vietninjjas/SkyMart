@@ -3,19 +3,20 @@
 namespace App\Events;
 
 use Illuminate\Broadcasting\Channel;
-use Illuminate\Broadcasting\InteractsWithSockets;
-use Illuminate\Broadcasting\PresenceChannel;
-use Illuminate\Broadcasting\PrivateChannel;
-use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
-use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Broadcasting\PrivateChannel;
+use Illuminate\Broadcasting\PresenceChannel;
+use Illuminate\Foundation\Events\Dispatchable;
+use Illuminate\Broadcasting\InteractsWithSockets;
+use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 
-
-class NotificationEvent
+class Notify
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
-    protected $data;
+    public $title;
+
+    public $message;
     /**
      * Create a new event instance.
      *
@@ -23,7 +24,8 @@ class NotificationEvent
      */
     public function __construct($data)
     {
-        $this->data = $data;
+        $this->title = $data['title'];
+        $this->message  = $data['content'];
     }
 
     /**

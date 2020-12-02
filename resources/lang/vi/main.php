@@ -128,6 +128,7 @@ return [
         'here' => 'Tại đây',
         'order_thanks' => 'Cám ơn bạn đã đặt hàng tại Skymart !',
         'continue_shopping' => 'Tiếp tục mua sắm',
+        'loading' => 'Đang xử lý đơn hàng của bạn',
     ],
     'ship' => [
         'select_ship' => 'Chọn hình thức giao hàng',
@@ -141,7 +142,9 @@ return [
     'payment' => [
         'select_pay' => 'Chọn hình thức thanh toán',
         'monney' => 'Thanh toán khi nhận hàng',
-        'paypal' => 'Thanh toán bằng paypal',
+        'online' => 'Thanh toán online',
+        'note_header' => 'Vui lòng chuyển khoản tới một trong số những ngân hàng sau đây:',
+        'note_footer' => 'Chụp màn hình chuyển khoản thành công và tải lên đây'
     ]
 
 ];

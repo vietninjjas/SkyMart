@@ -23,6 +23,7 @@ class Order extends Model
         'order_total',
         'order_qty',
         'order_status',
+        'bill_image',
     ];
 
     public function user()

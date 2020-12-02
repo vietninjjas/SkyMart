@@ -25,6 +25,7 @@ class OrderTableSeed extends Seeder
                 'ship_method' => 1,
                 'pay_method' => 1,
                 'order_total' => 1000000,
+                'order_status' => 1,
             ]);
         }
     }

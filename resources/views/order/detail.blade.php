@@ -91,7 +91,14 @@
                                                     @endforeach
                                                 </tbody>
                                             </table>
-                                            <p>@lang('admin.orders.order_qty'): {{ $order->order_qty }}</p>
+                                            
+                                            <p>@lang('main.ship.ship_fee'): 
+                                            @if($order->ship_method == 1)
+                                                30.000 đ
+                                            @else
+                                                50.000 đ
+                                            @endif
+                                            </p>
                                             <p>@lang('admin.orders.order_total'): {{ $order->order_total }}</p>
                                         </div>
                                         <div class="card-footer text-center">

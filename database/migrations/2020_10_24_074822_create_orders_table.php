@@ -27,6 +27,7 @@ class CreateOrdersTable extends Migration
             $table->integer('order_qty');
             $table->tinyInteger('ship_method');
             $table->tinyInteger('pay_method');
+            $table->text('bill_image')->nullable();
             $table->tinyInteger('order_status')->default(0);
             $table->timestamps();
             $table->softDeletes();
