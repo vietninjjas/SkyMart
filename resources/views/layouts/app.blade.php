@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-zoom/1.7.20/jquery.zoom.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
     <link rel="stylesheet" href="{{ asset('/assets/css/main.css') }}">
     <link rel="stylesheet" href="{{ asset('/assets/css/base.css') }}">
@@ -43,14 +44,14 @@
                     <h2>@lang('main.acc.login')</h2>
                     <label>
                         <span>@lang('main.acc.username')</span>
-                        <input type="text" name="username">
+                        <input id="last-name" type="text" name="username">
                     </label>
 
                     <label>
                         <span>@lang('main.acc.password')</span>
-                        <input type="password" name="password">
+                        <input id="passWord" type="password" name="password">
                     </label>
-                    <button class="submit" type="submit">@lang('main.acc.login')</button>
+                    <button id="submit" class="submit" type="submit">@lang('main.acc.login')</button>
                     <p class="text-center"><a href="{{ route('password.request') }}" class="forgot-pass text-center">@lang('main.acc.quenpass')</a></p>
 
                     <div class="social-media">
@@ -86,23 +87,23 @@
                             @csrf
                             <label>
                                 <span>@lang('main.acc.username')</span>
-                                <input name="username" type="text">
+                                <input id="user" name="username" type="text">
                             </label>
                             <label>
                                 <span>@lang('main.acc.fullname')</span>
-                                <input name="fullname" type="text">
+                                <input id="full-name" name="fullname" type="text">
                             </label>
                             <label>
                                 <span>Email</span>
-                                <input name="email" type="email">
+                                <input id="email" name="email" type="email">
                             </label>
                             <label>
                                 <span>@lang('main.acc.password')</span>
-                                <input name="password" type="password">
+                                <input id="pass" name="password" type="password">
                             </label>
                             <label>
                                 <span>@lang('main.acc.birthday')</span>
-                                <input name="birthday" type="date">
+                                <input id="date" name="birthday" type="date">
                             </label>
                             <label>
                                 <span>@lang('main.acc.gender')</span>
@@ -113,7 +114,7 @@
                                 </select>
 
                             </label>
-                            <button type="submit" class="submit">@lang('main.acc.register')</button>
+                            <button id="sign-up" type="submit" class="submit">@lang('main.acc.register')</button>
                         </form>
                     </div>
                 </div>
@@ -495,3 +496,71 @@ $('.show-more').on('click', function() {
  
 <!-- scrip của bán chạy -->
 <!-- script swiper slider -->
+<script>
+    $(document).ready(function(){
+        $("button#sign-up").click(function(){
+            var user = $("input#user").val()
+            var fullName = $("input#full-name").val()
+            var date = new Date($('#date').val());
+            var email = $("input#email").val()
+            var pass = $("input#pass").val()
+            var flag = true
+            if(user == ''){
+                $("input#user").css({"background" : "rgba(255, 147, 146, 0.3)", "border" : "2px solid rgb(255, 0, 0, 0.3)"});
+                flag = false
+            }else{
+                $("input#user").css({"background" : "rgb(100 216 90 / 30%)", "border" : "2px solid rgb(147 161 146 / 30%)"});
+            }
+            if(email == ''){
+                $("input#email").css({"background" : "rgba(255, 147, 146, 0.3)", "border" : "2px solid rgb(255, 0, 0, 0.3)"});
+                flag = false
+            }else{
+                $("input#email").css({"background" : "rgb(100 216 90 / 30%)", "border" : "2px solid rgb(147 161 146 / 30%)"});
+            }
+            if(fullName == ''){
+                $("input#full-name").css({"background" : "rgba(255, 147, 146, 0.3)", "border" : "2px solid rgb(255, 0, 0, 0.3)"});
+                flag = false
+            }else{
+                $("input#full-name").css({"background" : "rgb(100 216 90 / 30%)", "border" : "2px solid rgb(147 161 146 / 30%)"});
+            }
+            if(pass == ''){
+                $("input#pass").css({"background" : "rgba(255, 147, 146, 0.3)", "border" : "2px solid rgb(255, 0, 0, 0.3)"});
+                flag = false
+            }else{
+                $("input#pass").css({"background" : "rgb(100 216 90 / 30%)", "border" : "2px solid rgb(147 161 146 / 30%)"});
+            }
+            if(date == true){
+                $("input#date").css({"background" : "rgba(255, 147, 146, 0.3)", "border" : "2px solid rgb(255, 0, 0, 0.3)"});
+                flag = false
+            }else{
+                $("input#date").css({"background" : "rgb(100 216 90 / 30%)", "border" : "2px solid rgb(147 161 146 / 30%)"});
+            }
+            if(flag){
+                return true
+            }
+            return false
+        })
+        $("button#submit").click(function(){
+            var getLastName = $("input#last-name").val()
+            var PassWord = $("input#passWord").val()
+            var flag = true
+            if(getLastName == ''){
+                $("input#last-name").css({"background" : "rgba(255, 147, 146, 0.3)", "border" : "2px solid rgb(255, 0, 0, 0.3)"});
+                flag = false
+            }else{
+                $("input#last-name").css({"background" : "rgb(100 216 90 / 30%)", "border" : "2px solid rgb(147 161 146 / 30%)"});
+            }
+            if(PassWord == ''){
+                $("input#passWord").css({"background" : "rgba(255, 147, 146, 0.3)", "border" : "2px solid rgb(255, 0, 0, 0.3)"});
+                flag = false
+            }else{
+                $("input#passWord").css({"background" : "rgb(100 216 90 / 30%)", "border" : "2px solid rgb(147 161 146 / 30%)"});
+            }
+
+            if(flag){
+                return true
+            }
+            return false
+        })
+    })
+</script>

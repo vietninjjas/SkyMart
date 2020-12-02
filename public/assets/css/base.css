@@ -2849,3 +2849,6 @@ footer{
         content: '\f006';
         font-family: FontAwesome;
       }
+.cate-s{
+    display: none;
+}

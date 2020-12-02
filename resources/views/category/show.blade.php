@@ -50,7 +50,7 @@
                                 <ul class="cate-pro-item">
                                     @foreach ($categories as $category)
                                         @if ($category->parent_id == null)
-                                            <li>{{ $category->cate_name }}<span>({{ $category->children->count() }})</span><i class="fas fa-angle-down ml-2"></i>
+                                            <li style="cursor: pointer" class="cate-pro">{{ $category->cate_name }}<span>({{ $category->children->count() }})</span><i class="fas fa-angle-down ml-2"></i>
                                                 <ul class="cate-s">
                                                     @foreach ($category->children as $c)
                                                         <li><a href="{{ route('category.show', $c->cate_id) }}">-{{ $c->cate_name }}<span>({{ $c->products->count() }})</span></a></li>
@@ -190,5 +190,20 @@
             </div>
         </div>
     </div>
-
+    <script>
+        $(document).ready(function(){
+            $("li.cate-pro").click(function(){
+                $("li.cate-pro").find("ul.cate-s").hide(500);
+                if($(this).hasClass("cate-e")){
+                    $(this).find("ul.cate-s").hide(500);
+                    $(this).removeClass("cate-e")
+                }else{
+                    $(this).find("ul.cate-s").show(500);
+                    $("li.cate-pro").removeClass("cate-e");
+                    $(this).addClass("cate-e");
+                }
+            })
+            
+        })
+    </script>
 @endsection
