@@ -58,6 +58,12 @@
                                     <i style="margin:0 auto">(@lang('main.cart.vated'))</i>
                                 </span>
                             </p>
+                            <div class="cart-title">@lang('main.ship.ship_fee')</div>
+                            <p class="prices__total text-center justify-content-center">
+                                <span class="">
+                                    <i style="margin:0 auto">@lang('main.cart.shipToOrder')</i>
+                                </span>
+                            </p>
                         </div>
                     </div>
                 </div>

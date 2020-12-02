@@ -67,11 +67,11 @@
                                                 <div class="shipping-method2">
                                                     <label class="radio-check">
                                                         <p style="font-weight:bold">@lang('main.ship.ship1') </p>
-                                                        <input type="radio" checked="checked" value="1" name="ship_method">
+                                                        <input checked="checked" type="radio" value="1" name="ship_method">
                                                         <span class="checkmark"></span>
                                                         <div style="font-size: 12px; color: rgb(77, 75, 74);">
                                                             <p>@lang('main.ship.ship_desc1')</p>
-                                                            <p>@lang('main.ship.ship_fee'): 15.000đ</p>
+                                                            <p>@lang('main.ship.ship_fee'): 30.000đ</p>
                                                         </div>
                                                     </label>
                                                     <label class="radio-check">
@@ -80,7 +80,7 @@
                                                         <span class="checkmark"></span>
                                                         <div style="font-size: 12px; color: rgb(77, 75, 74);">
                                                             <p>@lang('main.ship.ship_desc2')</p>
-                                                            <p>@lang('main.ship.ship_fee'): 30.000đ</p>
+                                                            <p>@lang('main.ship.ship_fee'): 50.000đ</p>
                                                         </div>
                                                     </label>
 
@@ -111,9 +111,6 @@
                                                 </div>
                                             </div>
                                         </div>
-
-
-
                                     </div>
                                     <div class="col-md-3"></div>
                                 </div>
@@ -156,6 +153,10 @@
                                                                 <td>@lang('main.cart.total_price')</td>
                                                                 <td>{{ Cart::subTotal() }}đ</td>
                                                             </tr>
+                                                            <tr>
+                                                                <td>@lang('main.ship.ship_fee')</td>
+                                                                <td><i>(@lang('main.ship.chose'))</i></td>
+                                                            </tr>
                                                         </table>
                                                     </div>
 
@@ -172,7 +173,7 @@
                         <fieldset>
                             <div class="form-card">
                                 <br><br>
-                                <h2 class="purple-text text-center"><strong>Cám ơn bạn đã đặt hàng tại Skymart !</strong>
+                                <h2 class="purple-text text-center"><strong>@lang('main.order.order_thanks')</strong>
                                 </h2> <br>
                                 <div class="row justify-content-center">
                                     <div class="col-3"> <img
@@ -343,19 +344,8 @@
               
             }
             return false
-          })
+          });
+         
         })
       </script>
-
-    <script>
-        $(document).ready(function() {
-            
-
-        });
-
-    </script>
-
-    <!-- scrip của bán chạy -->
-    <!-- script swiper slider -->
-
 @endsection
