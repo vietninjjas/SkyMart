@@ -12,7 +12,7 @@
                         <fieldset>
                             <div class="form-card">
                                 <br><br>
-                                <h2 class="purple-text text-center"><strong>Cám ơn bạn đã đặt hàng tại Skymart !</strong>
+                                <h2 class="purple-text text-center"><strong>@lang('main.order.order_thanks')</strong>
                                 </h2> <br>
                                 <div class="row justify-content-center">
                                     <div class="col-3"> <img
@@ -25,7 +25,7 @@
                                         <h4 class=" text-center">@lang('main.order.see_your_order') <a href=""
                                                 style="color: rgb(243, 54, 54);">@lang('admin.action.here')</a></h4>
                                         <h4 class="purple-text text-center"><a href=""><i
-                                                    class="fas fa-cart-arrow-down"></i> Tiếp tục mua sắm</a></h4>
+                                                    class="fas fa-cart-arrow-down"></i>@lang('main.order.continue_shopping')</a></h4>
                                     </div>
                                 </div>
                             </div>

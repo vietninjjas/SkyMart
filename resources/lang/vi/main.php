@@ -72,6 +72,7 @@ return [
         'order' => 'Đặt hàng',
         'add' => 'Thêm vào giỏ',
         'vated' => 'Đã bao gồm VAT nếu có',
+        'shipToOrder' => 'Sẽ được tính khi bạn đặt hàng',
     ],
     'footer' => [
         'reg_get_news' => 'Đăng ký nhận bản tin Sky mart',
@@ -119,6 +120,8 @@ return [
         'sologan' => 'Đặt hàng cùng Skymart ngay hôm nay để nhận được nhiều khuyến mãi hấp dẫn',
         'see_your_order' => 'Xem đơn hàng của bạn',
         'here' => 'Tại đây',
+        'order_thanks' => 'Cám ơn bạn đã đặt hàng tại Skymart !',
+        'continue_shopping' => 'Tiếp tục mua sắm',
     ],
     'ship' => [
         'select_ship' => 'Chọn hình thức giao hàng',
@@ -127,6 +130,7 @@ return [
         'ship_fee' => 'Phí ship',
         'ship_desc1' => 'Giao từ 4-7 ngày tính từ ngày đặt hàng',
         'ship_desc2' => 'Giao từ 2-3 ngày tính từ ngày đặt hàng',
+        'chose' => 'Phương thức giao hàng đã chọn',
     ],
     'payment' => [
         'select_pay' => 'Chọn hình thức thanh toán',
