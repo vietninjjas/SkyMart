@@ -64,6 +64,7 @@ return [
         'cmt_placeholder' => 'Đặt bình luận về sản phẩm tại đây...',
         'order_check' => 'Đã mua hàng ở SkyMart',
         'hethang' => 'Sản phẩm tạm hết hàng',
+        'view' => 'Lượt xem',
     ],
     'cart' => [
         'pro_desc' => 'Thông tin sản phẩm',
@@ -145,6 +146,5 @@ return [
         'online' => 'Thanh toán online',
         'note_header' => 'Vui lòng chuyển khoản tới một trong số những ngân hàng sau đây:',
         'note_footer' => 'Chụp màn hình chuyển khoản thành công và tải lên đây'
-    ]
-
+    ],
 ];
