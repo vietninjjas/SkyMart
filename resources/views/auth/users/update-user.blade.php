@@ -20,7 +20,7 @@
                                             <label for="">Họ và tên:</label>
                                         </div>
                                         <div class="col-7">
-                                            <input type="text" name="fullname" value="{{ $user->fullname }}">
+                                            <input type="text" name="name" value="{{ $user->name }}">
                                         </div>
                                     </div>
                                     <div class="row">

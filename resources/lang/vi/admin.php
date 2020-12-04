@@ -37,6 +37,7 @@ return [
         'return' => 'Quay lại',
         'here' => 'tại đây',
         'close' => 'Đóng',
+        'option' => 'Tùy chọn',
     ],
     'categories' => [
         'cate_manage' => 'Quản lý danh mục',
@@ -130,7 +131,7 @@ return [
         'pay_method' => [
             'pay_method' => 'Hình thức thanh toán',
             'pay1' => 'Thanh toán khi nhận hàng',
-            'pay2' => 'Thanh toán bằng paypal'
+            'pay2' => 'Thanh toán online'
         ],
         'quantity' => 'Số lượng',
         'total_price' => 'Thành tiền',

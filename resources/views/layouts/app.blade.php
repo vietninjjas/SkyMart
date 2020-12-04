@@ -56,11 +56,7 @@
                     <div class="social-media">
                         <p>@lang('main.acc.socialogin')</p>
                         <ul>
-                        <a href="{{ url('/auth/redirect/google') }}" class="btn btn-primary"><i class="fa fa-google"></i> Google</a>
-                            <li><img src="{{ asset('/assets/images/facebook.png') }}"></li>
-                            <li><img src="{{ asset('/assets/images/google.png') }}"></li>
-                            <li><img src="{{ asset('/assets/images/zalo.png') }}"></li>
-                            <li><img src="{{ asset('/assets/images/linkedin.png') }}"></li>
+                            <li><a href="{{ url('/auth/redirect/google') }}"><img src="{{ asset('/assets/images/google.png') }}"></a></li>
                         </ul>
                     </div>
                 </form>
@@ -90,7 +86,7 @@
                             </label>
                             <label>
                                 <span>@lang('main.acc.fullname')</span>
-                                <input name="fullname" type="text">
+                                <input name="name" type="text">
                             </label>
                             <label>
                                 <span>Email</span>
@@ -157,7 +153,7 @@
                                     <button class="dropdown-toggle" type="button" id="dropdownMenuButton"
                                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         <i class="fas fa-user"></i>
-                                        @lang('main.acc.hello') {{ Auth::user()->fullname }}
+                                        @lang('main.acc.hello') {{ Auth::user()->name }}
                                     </button>
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                         <a class="dropdown-item text-dark"
@@ -169,7 +165,12 @@
                                         @endif
                                         <a class="dropdown-item text-dark"
                                             href="{{ route('account.changePass', Auth::user()->user_id) }}"> <i
-                                                class="fas fa-exchange-alt"></i> @lang('main.acc.changed_password')</a>
+                                                class="fas fa-exchange-alt"></i> @lang('main.acc.changed_password')
+                                        </a>
+                                        <a class="dropdown-item text-dark"
+                                            href="{{ route('order.history', Auth::user()->user_id) }}">
+                                            <i class="fa fa-history"></i> @lang('main.order.history')
+                                        </a>
                                         <form action="{{ route('logout') }}" method="post" style="margin-left: 40px">
                                             @csrf
                                             <button>
@@ -177,6 +178,7 @@
                                                 @lang('main.acc.logout')
                                             </button>
                                         </form>
+
                                     </div>
                                 </div>
                             </li>

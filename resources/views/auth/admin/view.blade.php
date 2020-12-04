@@ -53,7 +53,7 @@
                                                 <tr>
                                                     <th>@lang('admin.user.id')</th>
                                                     <th>@lang('admin.user.username')</th>
-                                                    <th>@lang('admin.user.fullname')</th>
+                                                    <th>@lang('admin.user.name')</th>
                                                     <td colspan="2"></td>
                                                 </tr>
                                             </thead>
@@ -62,7 +62,7 @@
                                                     <tr>
                                                         <td>{{ $user->user_id }}</td>
                                                         <td>{{ $user->username }}</td>
-                                                        <td>{{ $user->fullname }}</td>
+                                                        <td>{{ $user->name }}</td>
                                                         <td class="text-center"><a
                                                                 href="{{ route('admin.user.show', $user->user_id) }}"
                                                                 class="btn btn-outline-info btn-xs"><i
