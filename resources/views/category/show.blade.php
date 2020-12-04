@@ -50,7 +50,7 @@
                                 <ul class="cate-pro-item">
                                     @foreach ($categories as $category)
                                         @if ($category->parent_id == null)
-                                            <li>{{ $category->cate_name }}<span>({{ $category->children->count() }})</span><i class="fas fa-angle-down ml-2"></i>
+                                            <li style="cursor: pointer" class="cate-pro">{{ $category->cate_name }}<span>({{ $category->children->count() }})</span><i class="fas fa-angle-down ml-2"></i>
                                                 <ul class="cate-s">
                                                     @foreach ($category->children as $c)
                                                         <li><a href="{{ route('category.show', $c->cate_id) }}">-{{ $c->cate_name }}<span>({{ $c->products->count() }})</span></a></li>
