@@ -5,7 +5,9 @@
         <div class="container-product p-5 mt-5">
             <div class="container-row">
                 <div class="product-image">
-                    <img class="demo" src="images/products/{{ $product->pro_image }}" alt="">
+                    <div id="produto">
+                        <img class="demo" src="images/products/{{ $product->pro_image }}" alt="">
+                    </div>
                     <ul id="haha">
                         @foreach ($product->proChillImages as $chill)
                             <li>
@@ -249,6 +251,7 @@
 
     <script>
         $(document).ready(function() {
+            $('#produto').zoom();
             $("#haha li img").click(function() { //khi click vào thẻ img
                 var getId = $(this).attr("src"); // đặt biến là getID = src ảnh của khi click
                 console.log(getId); //xuất ra xem
