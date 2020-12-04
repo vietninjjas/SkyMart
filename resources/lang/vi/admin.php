@@ -6,6 +6,11 @@ return [
     'dashboard' => [
         'dashboard' => 'Tổng quan',
     ],
+    'message' => [
+        'add_success' => 'Thêm thành công !',
+        'update_success' => 'Cập nhật thành công !',
+        'del_success' => 'Xóa thành công !',
+    ],
     'user' => [
         'fullname' => 'Họ và tên',
         'email' => 'Email',
@@ -50,6 +55,7 @@ return [
         'cate_image' => 'Ảnh',
         'cate_desc' => 'Mô tả',
         'parent' => 'Danh mục',
+        'hihi' => 'Danh sách danh mục sản phẩm',
     ],
     'banners' => [
         'ban_manage' => 'Quản lý banner',

@@ -46,7 +46,7 @@ class BannerController extends Controller
             'ban_name'  => $request -> input('ban_name'),
         ]);
 
-        return redirect()->route('admin.banner.index');
+        return redirect()->route('admin.banner.index')->with('add_success', trans('admin.message.add_success'));
     }
 
     /**
@@ -94,7 +94,7 @@ class BannerController extends Controller
             $ban -> ban_name  = $request -> input('ban_name');
             $ban -> save();
 
-        return redirect()->route('admin.banner.index');
+        return redirect()->route('admin.banner.index')->with('update_success', trans('admin.message.update_success'));
     }
 
     /**
@@ -108,6 +108,6 @@ class BannerController extends Controller
         $ban = Banner::findOrFail($banID);
         $ban -> delete();
 
-        return redirect()->route('admin.banner.index');
+        return redirect()->route('admin.banner.index')->with('del_success', trans('admin.message.del_success'));
     }
 }

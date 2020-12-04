@@ -70,6 +70,7 @@
                                                 </tr>
                                             </table> <br>
 
+                                            <img style="width: 300px;" src="images/cart/{{ $order->bill_image }}" alt="">
 
                                             <table id="datatable" class="table table-striped table-bordered" style="width:100%">
                                                 <thead>
