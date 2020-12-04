@@ -191,4 +191,21 @@
         </div>
     </div>
 
+
+    <script>
+        $(document).ready(function(){
+            $("li.cate-pro").click(function(){
+                $("li.cate-pro").find("ul.cate-s").hide(500);
+                if($(this).hasClass("cate-e")){
+                    $(this).find("ul.cate-s").hide(500);
+                    $(this).removeClass("cate-e")
+                }else{
+                    $(this).find("ul.cate-s").show(500);
+                    $("li.cate-pro").removeClass("cate-e");
+                    $(this).addClass("cate-e");
+                }
+            })
+            
+        })
+    </script>
 @endsection
