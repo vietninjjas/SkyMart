@@ -22,7 +22,7 @@
 
                                 <div class="row justify-content-center">
                                     <div class="col-7 text-center">
-                                        <h4 class=" text-center">@lang('main.order.see_your_order') <a href=""
+                                        <h4 class=" text-center">@lang('main.order.see_your_order') <a href="{{ route('order.history', Auth::user()->user_id) }}"
                                                 style="color: rgb(243, 54, 54);">@lang('admin.action.here')</a></h4>
                                         <h4 class="purple-text text-center"><a href=""><i
                                                     class="fas fa-cart-arrow-down"></i>@lang('main.order.continue_shopping')</a></h4>

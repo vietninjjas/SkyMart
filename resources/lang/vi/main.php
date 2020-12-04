@@ -64,6 +64,7 @@ return [
         'cmt_placeholder' => 'Đặt bình luận về sản phẩm tại đây...',
         'order_check' => 'Đã mua hàng ở SkyMart',
         'hethang' => 'Sản phẩm tạm hết hàng',
+        'view' => 'Lượt xem',
     ],
     'cart' => [
         'pro_desc' => 'Thông tin sản phẩm',
@@ -129,6 +130,13 @@ return [
         'order_thanks' => 'Cám ơn bạn đã đặt hàng tại Skymart !',
         'continue_shopping' => 'Tiếp tục mua sắm',
         'loading' => 'Đang xử lý đơn hàng của bạn',
+        'history' => 'Lịch sử mua hàng',
+        'order_detail' => 'CHI TIẾT ĐƠN HÀNG',
+        'your_order' => 'ĐƠN HÀNG CỦA BẠN',
+        'order_cancel' => 'Hủy đơn',
+        'order_time' => 'Đã đặt: :hour - Ngày: :day',
+        'order_info' => 'Thông tin nhận hàng',
+        'phan_phoi' => 'Sản phẩm được phân phổi bởi',
     ],
     'ship' => [
         'select_ship' => 'Chọn hình thức giao hàng',
@@ -145,6 +153,5 @@ return [
         'online' => 'Thanh toán online',
         'note_header' => 'Vui lòng chuyển khoản tới một trong số những ngân hàng sau đây:',
         'note_footer' => 'Chụp màn hình chuyển khoản thành công và tải lên đây'
-    ]
-
+    ],
 ];

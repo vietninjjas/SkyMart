@@ -6,6 +6,11 @@ return [
     'dashboard' => [
         'dashboard' => 'Tổng quan',
     ],
+    'message' => [
+        'add_success' => 'Thêm thành công !',
+        'update_success' => 'Cập nhật thành công !',
+        'del_success' => 'Xóa thành công !',
+    ],
     'user' => [
         'fullname' => 'Họ và tên',
         'email' => 'Email',
@@ -37,6 +42,7 @@ return [
         'return' => 'Quay lại',
         'here' => 'tại đây',
         'close' => 'Đóng',
+        'option' => 'Tùy chọn',
     ],
     'categories' => [
         'cate_manage' => 'Quản lý danh mục',
@@ -49,6 +55,7 @@ return [
         'cate_image' => 'Ảnh',
         'cate_desc' => 'Mô tả',
         'parent' => 'Danh mục',
+        'hihi' => 'Danh sách danh mục sản phẩm',
     ],
     'banners' => [
         'ban_manage' => 'Quản lý banner',
@@ -130,7 +137,7 @@ return [
         'pay_method' => [
             'pay_method' => 'Hình thức thanh toán',
             'pay1' => 'Thanh toán khi nhận hàng',
-            'pay2' => 'Thanh toán bằng paypal'
+            'pay2' => 'Thanh toán online'
         ],
         'quantity' => 'Số lượng',
         'total_price' => 'Thành tiền',
@@ -139,5 +146,33 @@ return [
         'notification' => 'Thông báo',
         'title' => 'Có đơn hàng mới',
         'content' => 'Xem ngay',
-    ]
+    ],
+    'chart' => [
+        'user_total' => 'Tổng số người dùng',
+        'admin_total' => 'Tổng số Admin',
+        'user_male' => 'Tổng số nam',
+        'user_female' => 'Tổng số nữ',
+        'review_total' => 'Tổng số tương tác',
+        'user_buy' => 'Tổng số người mua hàng',
+        'order_chart' => 'Thống kê đơn hàng trong năm',
+        'best_product' => 'Top sản phẩm',
+        'jan' => 'Tháng 1',
+        'feb' => 'Tháng 2',
+        'mar' => 'Tháng 3',
+        'apr' => 'Tháng 4',
+        'may' => 'Tháng 5',
+        'jun' => 'Tháng 6',
+        'jul' => 'Tháng 7',
+        'aug' => 'Tháng 8',
+        'sep' => 'Tháng 9',
+        'oct' => 'Tháng 10',
+        'nov' => 'Tháng 11',
+        'dec' => 'Tháng 12',
+        'top_price' => 'Giá tiền',
+        'pro_price' => 'Thống kê sản phẩm theo giá',
+        'category' => 'Thống kê danh mục',
+        'category_con' => 'Số danh mục con: ',
+        'order_status' => 'Thống kê tình trạng đơn hàng',
+        'order_status_total' => 'Số đơn: '
+    ],
 ];

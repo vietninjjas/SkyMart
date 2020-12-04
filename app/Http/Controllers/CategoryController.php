@@ -53,7 +53,7 @@ class CategoryController extends Controller
             'parent_id' => $request->input('parent_id'),
         ]);
 
-        return redirect()->route('admin.category.index');
+        return redirect()->route('admin.category.index')->with('add_success', trans('admin.message.add_success'));
     }
 
     /**
@@ -114,7 +114,7 @@ class CategoryController extends Controller
         $cate->parent_id = $request->input('parent_id');
         $cate->save();
 
-        return redirect()->route('admin.category.index');
+        return redirect()->route('admin.category.index')->with('update_success', trans('admin.message.update_success'));
     }
 
     /**
@@ -128,6 +128,6 @@ class CategoryController extends Controller
         $cate = Category::findOrFail($cateId);
         $cate->delete();
 
-        return redirect()->route('admin.category.index');
+        return redirect()->route('admin.category.index')->with('del_success', trans('admin.message.del_success'));
     }
 }

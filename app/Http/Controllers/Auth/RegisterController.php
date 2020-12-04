@@ -70,7 +70,7 @@ class RegisterController extends Controller
             'username' => $data['username'],
             'email' => $data['email'],
             'password' => ($data['password']),
-            'fullname' => $data['fullname'],
+            'name' => $data['name'],
             'birthday' => $data['birthday'],
             'gender' => $data['gender'],
             'role' => config('app.user_role'),

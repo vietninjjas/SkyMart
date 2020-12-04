@@ -9,6 +9,7 @@ use App\Checkout;
 use App\Events\NotificationEvent;
 use App\Product;
 use Illuminate\Support\Facades\Auth;
+use App\User;
 
 class OrderController extends Controller
 {
@@ -156,5 +157,27 @@ class OrderController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function history($id)
+    {
+        $history = User::findOrFail($id);
+
+        return view('order.history', compact('history'));
+    }
+
+    public function cancel($id){
+        $order = Order::findOrFail($id);
+        $order->order_status = 4;
+        $order->save();
+
+        return redirect()->back();
+    }
+
+    public function historyDetail($id)
+    {
+        $order = Order::findOrFail($id);
+
+        return view('order.history-detail', compact('order'));
     }
 }

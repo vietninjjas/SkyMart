@@ -44,7 +44,7 @@ class DealController extends Controller
             'deal_image' => $fileName,
             'deal_name' => $request -> input('deal_name'),
         ]);
-        return redirect()->route('admin.deal.index');
+        return redirect()->route('admin.deal.index')->with('add_success', trans('admin.message.add_success'));
     }
 
     /**
@@ -91,7 +91,7 @@ class DealController extends Controller
             $deal -> deal_image = $fileName;
             $deal -> save();
 
-        return redirect()->route('admin.deal.index');
+        return redirect()->route('admin.deal.index')->with('update_success', trans('admin.message.update_success'));
     }
 
     /**
@@ -105,6 +105,6 @@ class DealController extends Controller
         $deal = Deal::findOrFail($id);
         $deal -> delete();
 
-        return redirect()->route('admin.deal.index');
+        return redirect()->route('admin.deal.index')->with('del_success', trans('admin.message.del_success'));
     }
 }

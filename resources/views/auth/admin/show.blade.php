@@ -59,7 +59,7 @@
                                                             <ul>
                                                             <li><img src="images/users/{{ $user->avatar }}" alt="" class="img-thumbnail"></li>
                                                                 <li>Họ và tên: <span
-                                                                        class="inf">{{ $user->fullname }}</span></li>
+                                                                        class="inf">{{ $user->name }}</span></li>
                                                                 <li>Ngày sinh: <span
                                                                         class="inf">{{ $user->birthday }}</span></li>
                                                                 <li>Số điện thoại: <span

@@ -67,7 +67,7 @@ class ProductController extends Controller
             $chillImage->save();
         }
 
-        return redirect()->route('admin.product.index');
+        return redirect()->route('admin.product.index')->with('add_success', trans('admin.message.add_success'));
     }
 
     /**
@@ -134,7 +134,7 @@ class ProductController extends Controller
             $chillImage->save();
         }
 
-        return redirect()->route('admin.product.index');
+        return redirect()->route('admin.product.index')->with('update_success', trans('admin.message.update_success'));
     }
 
     /**
@@ -151,7 +151,6 @@ class ProductController extends Controller
         $pro->wishlists()->delete();
         $pro->delete();
 
-
-        return redirect()->route('admin.product.index');
+        return redirect()->route('admin.product.index')->with('del_success', trans('admin.message.del_success'));
     }
 }

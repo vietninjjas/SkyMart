@@ -12,6 +12,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-zoom/1.7.20/jquery.zoom.min.js"></script>
     <link rel="stylesheet" href="{{ asset('/assets/css/main.css') }}">
     <link rel="stylesheet" href="{{ asset('/assets/css/base.css') }}">
     <script src="{{ asset('/assets/js/js.js') }}"></script>
@@ -45,24 +46,20 @@
                     <h2>@lang('main.acc.login')</h2>
                     <label>
                         <span>@lang('main.acc.username')</span>
-                        <input type="text" name="username">
+                        <input id="last-name" type="text" name="username">
                     </label>
 
                     <label>
                         <span>@lang('main.acc.password')</span>
-                        <input type="password" name="password">
+                        <input id="passWord" type="password" name="password">
                     </label>
-                    <button class="submit" type="submit">@lang('main.acc.login')</button>
+                    <button id="submit" class="submit" type="submit">@lang('main.acc.login')</button>
                     <p class="text-center"><a href="{{ route('password.request') }}" class="forgot-pass text-center">@lang('main.acc.quenpass')</a></p>
 
                     <div class="social-media">
                         <p>@lang('main.acc.socialogin')</p>
                         <ul>
-                        <a href="{{ url('/auth/redirect/google') }}" class="btn btn-primary"><i class="fa fa-google"></i> Google</a>
-                            <li><img src="{{ asset('/assets/images/facebook.png') }}"></li>
-                            <li><img src="{{ asset('/assets/images/google.png') }}"></li>
-                            <li><img src="{{ asset('/assets/images/zalo.png') }}"></li>
-                            <li><img src="{{ asset('/assets/images/linkedin.png') }}"></li>
+                            <li><a href="{{ url('/auth/redirect/google') }}"><img src="{{ asset('/assets/images/google.png') }}"></a></li>
                         </ul>
                     </div>
                 </form>
@@ -88,23 +85,23 @@
                             @csrf
                             <label>
                                 <span>@lang('main.acc.username')</span>
-                                <input name="username" type="text">
+                                <input id="user" name="username" type="text">
                             </label>
                             <label>
                                 <span>@lang('main.acc.fullname')</span>
-                                <input name="fullname" type="text">
+                                <input id="full-name" name="name" type="text">
                             </label>
                             <label>
                                 <span>Email</span>
-                                <input name="email" type="email">
+                                <input id="email" name="email" type="email">
                             </label>
                             <label>
                                 <span>@lang('main.acc.password')</span>
-                                <input name="password" type="password">
+                                <input id="pass" name="password" type="password">
                             </label>
                             <label>
                                 <span>@lang('main.acc.birthday')</span>
-                                <input name="birthday" type="date">
+                                <input id="date" name="birthday" type="date">
                             </label>
                             <label>
                                 <span>@lang('main.acc.gender')</span>
@@ -115,7 +112,7 @@
                                 </select>
 
                             </label>
-                            <button type="submit" class="submit">@lang('main.acc.register')</button>
+                            <button id="sign-up" type="submit" class="submit">@lang('main.acc.register')</button>
                         </form>
                     </div>
                 </div>
@@ -159,7 +156,7 @@
                                     <button class="dropdown-toggle" type="button" id="dropdownMenuButton"
                                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         <i class="fas fa-user"></i>
-                                        @lang('main.acc.hello') {{ Auth::user()->fullname }}
+                                        @lang('main.acc.hello') {{ Auth::user()->name }}
                                     </button>
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                         <a class="dropdown-item text-dark"
@@ -171,7 +168,12 @@
                                         @endif
                                         <a class="dropdown-item text-dark"
                                             href="{{ route('account.changePass', Auth::user()->user_id) }}"> <i
-                                                class="fas fa-exchange-alt"></i> @lang('main.acc.changed_password')</a>
+                                                class="fas fa-exchange-alt"></i> @lang('main.acc.changed_password')
+                                        </a>
+                                        <a class="dropdown-item text-dark"
+                                            href="{{ route('order.history', Auth::user()->user_id) }}">
+                                            <i class="fa fa-history"></i> @lang('main.order.history')
+                                        </a>
                                         <form action="{{ route('logout') }}" method="post" style="margin-left: 40px">
                                             @csrf
                                             <button>
@@ -179,6 +181,7 @@
                                                 @lang('main.acc.logout')
                                             </button>
                                         </form>
+
                                     </div>
                                 </div>
                             </li>
@@ -580,3 +583,71 @@ $("#login2").validate({
  
 <!-- scrip của bán chạy -->
 <!-- script swiper slider -->
+<script>
+    $(document).ready(function(){
+        $("button#sign-up").click(function(){
+            var user = $("input#user").val()
+            var fullName = $("input#full-name").val()
+            var date = new Date($('#date').val());
+            var email = $("input#email").val()
+            var pass = $("input#pass").val()
+            var flag = true
+            if(user == ''){
+                $("input#user").css({"background" : "rgba(255, 147, 146, 0.3)", "border" : "2px solid rgb(255, 0, 0, 0.3)"});
+                flag = false
+            }else{
+                $("input#user").css({"background" : "rgb(100 216 90 / 30%)", "border" : "2px solid rgb(147 161 146 / 30%)"});
+            }
+            if(email == ''){
+                $("input#email").css({"background" : "rgba(255, 147, 146, 0.3)", "border" : "2px solid rgb(255, 0, 0, 0.3)"});
+                flag = false
+            }else{
+                $("input#email").css({"background" : "rgb(100 216 90 / 30%)", "border" : "2px solid rgb(147 161 146 / 30%)"});
+            }
+            if(fullName == ''){
+                $("input#full-name").css({"background" : "rgba(255, 147, 146, 0.3)", "border" : "2px solid rgb(255, 0, 0, 0.3)"});
+                flag = false
+            }else{
+                $("input#full-name").css({"background" : "rgb(100 216 90 / 30%)", "border" : "2px solid rgb(147 161 146 / 30%)"});
+            }
+            if(pass == ''){
+                $("input#pass").css({"background" : "rgba(255, 147, 146, 0.3)", "border" : "2px solid rgb(255, 0, 0, 0.3)"});
+                flag = false
+            }else{
+                $("input#pass").css({"background" : "rgb(100 216 90 / 30%)", "border" : "2px solid rgb(147 161 146 / 30%)"});
+            }
+            if(date == true){
+                $("input#date").css({"background" : "rgba(255, 147, 146, 0.3)", "border" : "2px solid rgb(255, 0, 0, 0.3)"});
+                flag = false
+            }else{
+                $("input#date").css({"background" : "rgb(100 216 90 / 30%)", "border" : "2px solid rgb(147 161 146 / 30%)"});
+            }
+            if(flag){
+                return true
+            }
+            return false
+        })
+        $("button#submit").click(function(){
+            var getLastName = $("input#last-name").val()
+            var PassWord = $("input#passWord").val()
+            var flag = true
+            if(getLastName == ''){
+                $("input#last-name").css({"background" : "rgba(255, 147, 146, 0.3)", "border" : "2px solid rgb(255, 0, 0, 0.3)"});
+                flag = false
+            }else{
+                $("input#last-name").css({"background" : "rgb(100 216 90 / 30%)", "border" : "2px solid rgb(147 161 146 / 30%)"});
+            }
+            if(PassWord == ''){
+                $("input#passWord").css({"background" : "rgba(255, 147, 146, 0.3)", "border" : "2px solid rgb(255, 0, 0, 0.3)"});
+                flag = false
+            }else{
+                $("input#passWord").css({"background" : "rgb(100 216 90 / 30%)", "border" : "2px solid rgb(147 161 146 / 30%)"});
+            }
+
+            if(flag){
+                return true
+            }
+            return false
+        })
+    })
+</script>

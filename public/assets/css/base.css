@@ -3042,5 +3042,8 @@ footer{
         margin-top: 5px;
     }
     input.error{
-        border: 1px solid red;
+        border: 1px solid red;}
+        
+    .cate-s{
+        display: none;
     }
