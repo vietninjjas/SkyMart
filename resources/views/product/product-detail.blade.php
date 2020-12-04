@@ -164,10 +164,21 @@
             <div class="col-9">
                 <h2>@lang('main.product.product_desc')</h2>
                 <div class="container-product">
-                    @php
-                    Echo($product->pro_desc);
-                    @endphp
+                    <div style="padding: 20px 20px">
+                        @php
+                        Echo($product->pro_desc);
+                        @endphp
+                    </div>
+                   
                 </div>
+            </div>
+            <div class="col-3">
+                <img  style="margin-top:45px" src="https://c0.anthill.vn/images/2020/11/16/46524b889f7d5522e3cd8552edf1351e.jpg" alt="">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-9">
+                
                 <h2>@lang('main.product.cus_review')</h2>
                 <div class="container-product">
                     <form action="{{ route('review.store') }}" method="post">
@@ -245,7 +256,7 @@
             </div>
         </div>
         <div class="col-3">
-            <img class="mt-5" src="https://c0.anthill.vn/images/2020/11/16/46524b889f7d5522e3cd8552edf1351e.jpg" alt="">
+            
         </div>
     </div>
 

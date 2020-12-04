@@ -12,7 +12,7 @@
                             <h3 class="text-align-center">Đổi mật khẩu</h3>
                         </div>
                         <div class="infor-main">
-                            <form action="{{ route('account.updatePass', $user->user_id) }}" method="post">
+                            <form action="{{ route('account.updatePass', $user->user_id) }}" id="change-pass" method="post">
                                 @csrf
                                 <div class="row">
                                     <div class="col-5">
@@ -33,6 +33,27 @@
 
 
     </div>
-
+    <script>
+        $(document).ready(function(){
+            $("#change-pass").validate({
+		onfocusout: false,
+		onkeyup: false,
+		onclick: false,
+		rules: {
+            "password":{
+                required: true,
+                minlength: 8
+            },	
+		},
+		messages: {
+			"password": {
+				required: "*Bạn chưa nhập mật khẩu",
+				maxlength: "*Hãy nhập ít nhất 8 ký tự"
+			},
+        },
+        
+	});
+        });
+    </script>
 
 @endsection

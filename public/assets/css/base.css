@@ -3003,6 +3003,47 @@ footer{
         font-size: 13px;
 
     }
+
+
+    a.morelink {
+        text-decoration:none;
+        outline: none;
+    }
+    .morecontent span {
+        display: none;
+    }
+
+    .cont label.error{
+        color: red;
+        font-size:10px ;
+        display: block;
+        margin-left:60px;
+        margin-top: 5px;
+    }
+
+    .sign-up label.error{
+        color: red;
+        font-size:10px ;
+        display: block;
+        margin-left:60px;
+       
+    }
+    .sign-up label.error {
+        display: inline-block;
+        width: 260px;
+        margin: 0px 0px;
+        text-align: center;
+    }
+    .information-page label.error{
+        color: red;
+        font-size:10px ;
+        display: block;
+        margin-left: 00px;
+        margin-top: 5px;
+    }
+    input.error{
+        border: 1px solid red;}
+        
     .cate-s{
         display: none;
     }

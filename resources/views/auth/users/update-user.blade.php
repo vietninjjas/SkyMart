@@ -12,7 +12,7 @@
                                 <h3 class="text-align-center">Cập nhật tài khoản</h3>
                             </div>
                             <div class="infor-main">
-                                <form action="{{ route('account.update', $user->user_id) }}" method="post" enctype="multipart/form-data">
+                                <form action="{{ route('account.update', $user->user_id) }}" method="post" id="change" enctype="multipart/form-data">
                                     @csrf
                                     @method('PUT')
                                     <div class="row">
@@ -97,4 +97,59 @@
             </div>
         </div>
     @endif
+    <script>
+        $(document).ready(function(){
+            $("#change").validate({
+		onfocusout: false,
+		onkeyup: false,
+		onclick: false,
+		rules: {
+            "fullname":{
+                required: true,
+            },
+            "phone": {
+				required: true,
+				maxlength: 10
+			},
+            "email":{
+                required: true,
+                email: true
+            },
+            "birthday":{
+                required: true,
+                date: true
+            },
+			"avatar": {
+				required: true,
+				file: true
+			},
+			
+		},
+		messages: {
+			"phone": {
+				required: "*Bạn chưa nhập số điện thoại",
+				maxlength: "*Hãy nhập tối đa 25 ký tự"
+			},
+            "fullname": {
+				required: "*Bạn chưa nhập tên",
+				maxlength: "*Hãy nhập tối đa 25 ký tự"
+			},
+            "email": {
+				required: "*Bạn chưa nhập email",
+				email: "*Nhập sai định dạng email"
+			},
+            "birthday": {
+				required: "*Bạn chưa nhập ngày sinh",
+				date: "*Nhập sai ngày"
+			},
+			"avatar": {
+				required: "*Bạn chưa chọn ảnh",
+				
+			},
+			
+        },
+        
+	});
+        });
+    </script>
 @endsection
