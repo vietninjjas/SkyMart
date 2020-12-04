@@ -130,6 +130,13 @@ return [
         'order_thanks' => 'Cám ơn bạn đã đặt hàng tại Skymart !',
         'continue_shopping' => 'Tiếp tục mua sắm',
         'loading' => 'Đang xử lý đơn hàng của bạn',
+        'history' => 'Lịch sử mua hàng',
+        'order_detail' => 'CHI TIẾT ĐƠN HÀNG',
+        'your_order' => 'ĐƠN HÀNG CỦA BẠN',
+        'order_cancel' => 'Hủy đơn',
+        'order_time' => 'Đã đặt: :hour - Ngày: :day',
+        'order_info' => 'Thông tin nhận hàng',
+        'phan_phoi' => 'Sản phẩm được phân phổi bởi',
     ],
     'ship' => [
         'select_ship' => 'Chọn hình thức giao hàng',

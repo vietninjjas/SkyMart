@@ -55,6 +55,9 @@ Route::get('order/create', 'OrderController@create')->name('order.create');
 Route::post('order/store', 'OrderController@store')->name('order.store');
 Route::post('review/store', 'ReviewController@store')->name('review.store');
 Route::get('/filter', 'HomeController@filter');
+Route::get('order/{id}/history', 'OrderController@history')->name('order.history');
+Route::post('order/cancel/{id}', 'OrderController@cancel')->name('order.cancel');
+Route::get('order/history-detail/{id}', 'OrderController@historyDetail')->name('order.history-detail');
 
 Route::get('/auth/redirect/{provider}', 'SocialController@redirect');
 Route::get('/{provider}/callback', 'SocialController@callback');
