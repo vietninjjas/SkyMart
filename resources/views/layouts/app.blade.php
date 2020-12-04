@@ -23,6 +23,8 @@
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
     <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <base href="{{ asset('') }}">
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js" type="text/javascript"></script>
+    <script src="validation.js" type="text/javascript"></script>
 </head>
 
 <body>
@@ -38,7 +40,7 @@
     <div class="main vc">
         <div id="form-modal">
             <div class="cont" id="ex1">
-                <form method="POST" action="{{ route('login') }}" class="form sign-in">
+                <form method="POST" action="{{ route('login') }}" id="login" class="form sign-in">
                     @csrf
                     <h2>@lang('main.acc.login')</h2>
                     <label>
@@ -82,7 +84,7 @@
                     </div>
                     <div class="form sign-up">
                         <h2>@lang('main.acc.createAcc')</h2>
-                        <form action="{{ route('register') }}" method="POST">
+                        <form action="{{ route('register') }}" id="login2" method="POST">
                             @csrf
                             <label>
                                 <span>@lang('main.acc.username')</span>
@@ -442,6 +444,90 @@ $('.show-more').on('click', function() {
  
   $(this).text() === 'Xem thêm' ? $(this).text('Xem thêm') : $(this).text('Rút gọn');
 });
+
+
+$("#login2").validate({
+		onfocusout: false,
+		onkeyup: false,
+		onclick: false,
+		rules: {
+			"username": {
+				required: true,
+				maxlength: 25
+			},
+            "fullname":{
+                required: true,
+            },
+            "email":{
+                required: true,
+                email: true
+            },
+            "birthday":{
+                required: true,
+                date: true
+            },
+			"password": {
+				required: true,
+				minlength: 8
+			},
+			
+		},
+		messages: {
+			"username": {
+				required: "*Bạn chưa nhập tên đăng nhập",
+				maxlength: "*Hãy nhập tối đa 25 ký tự"
+			},
+            "fullname": {
+				required: "*Bạn chưa nhập tên",
+				maxlength: "*Hãy nhập tối đa 25 ký tự"
+			},
+            "email": {
+				required: "*Bạn chưa nhập email",
+				email: "*Nhập sai định dạng email"
+			},
+            "birthday": {
+				required: "*Bạn chưa nhập ngày sinh",
+				date: "*Nhập sai ngày"
+			},
+			"password": {
+				required: "*Bạn chưa nhập password",
+				minlength: "*Hãy nhập ít nhất 8 ký tự"
+			},
+			
+        },
+        
+	});
+
+
+    $("#login").validate({
+		onfocusout: false,
+		onkeyup: false,
+		onclick: false,
+		rules: {
+			"username": {
+				required: true,
+				maxlength: 25
+			},
+			"password": {
+				required: true,
+				minlength: 8
+			},
+			
+		},
+		messages: {
+			"username": {
+				required: "*Bạn chưa nhập tên đăng nhập",
+				maxlength: "*Hãy nhập tối đa 25 ký tự"
+			},
+			"password": {
+				required: "*Bạn chưa nhập password",
+				minlength: "*Hãy nhập ít nhất 8 ký tự"
+			},
+			
+        },
+        
+	});
+
 </script>
 <!-- scrip của khuyến mãi -->
 <!-- Hiệu ứng slider slick-->
@@ -477,7 +563,6 @@ $('.show-more').on('click', function() {
             }
         }]
     });
-
 </script>
 <!-- Hiệu ứng preloading-->
 <script>
