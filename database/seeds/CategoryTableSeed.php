@@ -19,27 +19,15 @@ class CategoryTableSeed extends Seeder
                 'cate_logo' => 'cate_logo.png',
                 'cate_image' => 'cate_image.png',
             ]);
-            Category::create([
-                'cate_name' => 'Danh muc con cua ' . $i,
-                'cate_desc' => 'mo ta danh muc ',
-                'cate_logo' => 'cate_logo.png',
-                'cate_image' => 'cate_image.png',
-                'parent_id' => $i,
-            ]);
-            Category::create([
-                'cate_name' => 'Danh muc con cua ' . $i,
-                'cate_desc' => 'mo ta danh muc ',
-                'cate_logo' => 'cate_logo.png',
-                'cate_image' => 'cate_image.png',
-                'parent_id' => $i,
-            ]);
-            Category::create([
-                'cate_name' => 'Danh muc con cua ' . $i,
-                'cate_desc' => 'mo ta danh muc ',
-                'cate_logo' => 'cate_logo.png',
-                'cate_image' => 'cate_image.png',
-                'parent_id' => $i,
-            ]);
+            for ($y = 0; $y < 3; $y++){
+                Category::create([
+                    'cate_name' => 'Danh muc con ' . $y,
+                    'cate_desc' => 'mo ta danh muc ',
+                    'cate_logo' => 'cate_logo.png',
+                    'cate_image' => 'cate_image.png',
+                    'parent_id' => $i,
+                ]);
+            }
         }
     }
 }

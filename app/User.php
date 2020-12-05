@@ -60,10 +60,6 @@ class User extends Authenticatable
         return $this->attributes['password'] = bcrypt($password);
     }
 
-    public function feedbacks()
-    {
-        return $this->hasMany(Feedback::class, 'user_id');
-    }
     public function carts()
     {
         return $this->hasMany(Cart::class, 'user_id');
