@@ -2760,11 +2760,12 @@ footer{
          .wl-header img{
              width: 30%;
          }
-         .wl-header h2{
-             font-size: 40px;
+         .wl-header h4{
+             font-size: 20px;
              font-weight: bold;
              text-transform: uppercase;
              color: #eb4d32;
+             text-shadow: 0 0 2px red;
          }
          .wl-content{
              display: block;

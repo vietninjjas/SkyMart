@@ -141,7 +141,7 @@
                             @if(Auth::check())
                             <a href="{{ route('showWish', Auth::user()->user_id) }}" class="notifications-help">
                                 <i class="fas fa-heart" aria-hidden="true"></i>
-                                @lang('main.wishlist') <span>{{Auth::user()->wishlist->count() }}</span>
+                                @lang('main.wishlist.wishlist') <span>({{ Auth::user()->wishlist->count() }})</span>
                             </a>
                             @endif
                         </li>
