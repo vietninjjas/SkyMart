@@ -154,4 +154,8 @@ return [
         'note_header' => 'Vui lòng chuyển khoản tới một trong số những ngân hàng sau đây:',
         'note_footer' => 'Chụp màn hình chuyển khoản thành công và tải lên đây'
     ],
+    'wishlist' => [
+        'title' => 'yêu thích',
+        'wishlist' => 'Sản phẩm yêu thích'
+    ]
 ];

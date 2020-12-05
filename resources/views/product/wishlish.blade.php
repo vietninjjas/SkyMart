@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', trans('main.cart.cart'))
+@section('title', trans('main.wishlist.title'))
 @section('content')
 
 <div class="wishlist-page">
@@ -7,34 +7,32 @@
     <div class="wishlist-main">
       <div class="wl-header">
         <img src="./assets/images/logo_nne.png" alt="">
-        <h2><i class="far fa-heart"></i> wishlist</h2>
+        <h4><i class="far fa-heart"></i> @lang('main.wishlist.wishlist')</h4>
       </div>
       <div class="wl-content">
-        @if (Auth::user()->wishlist->count() )
         @foreach($wish->wishlist as $pro)
-        <div class="row">
-          <div class="col-1 wl-x">
+        <div class="row p-5 justify-content-center">
+          <div class="col-1 wl-x mt-5">
             <form action="{{route('deleteWish', $pro -> wish_id)}}" method="post">
               @csrf
-              <button type="submit">XÓA</button>
+              <button type="submit"><i class="fas fa-minus-square"></i></button>
             </form>
           </div>
           <div class="col-2 wl-img">
-            <img src="images/products/{{$pro->product -> pro_image}}" alt="">
+            <img style="width:100px" src="images/products/{{$pro->product -> pro_image}}" alt="">
           </div>
-          <div class="col-5 wl-name">
-            <p>{{$pro->pro_id}}</p>
+          <div class="col-2 wl-name">
+            <p>{{$pro->product->pro_name}}</p>
           </div>
-          <div class="col-1 wl-name">
-            <p style="margin-right: 30px;">{{$pro->product -> pro_new_price}}</p>
+          <div class="col-2 wl-name">
+            <p style="margin-right: 30px;">{{ number_format($pro->product->pro_new_price) }}đ </p>
           </div>
           <div class="col-2 wl-btn">
-            <button class="btn-wl"><a href="{{route('product.show',$pro -> pro_id)}}"> Xem sảm phẩm</a></button>
+            <a href="{{route('product.show', $pro->pro_id)}}"><button><i class="fa fa-eye"></i></button></a>
           </div>
         </div>
+        @endforeach
       </div>
-      @endforeach
-      @endif
     </div>
   </div>
 </div>
