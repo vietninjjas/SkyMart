@@ -44,9 +44,9 @@
                         <div class="left">
                             <div class="price-and-icon">
                                 <div class="flash-sale-price">
-                                    <span>{{ $product->pro_new_price }} ₫</span>
+                                    <span>{{ number_format($product->pro_new_price) }} ₫</span>
                                     <span>{{ FLOOR(100 - ($product->pro_new_price / $product->pro_old_price) * 100) }}%</span>
-                                    <span>{{ $product->pro_old_price }}</span>
+                                    <span>{{ number_format($product->pro_old_price) }}</span>
                                 </div>
                             </div>
                             <div class="inner">
