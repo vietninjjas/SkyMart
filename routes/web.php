@@ -61,3 +61,7 @@ Route::get('order/history-detail/{id}', 'OrderController@historyDetail')->name('
 
 Route::get('/auth/redirect/{provider}', 'SocialController@redirect');
 Route::get('/{provider}/callback', 'SocialController@callback');
+
+Route::post('add-wishlist', 'WishlistController@save_wishlist')->name('addWish');
+Route::get('show-wishlist/{id}', 'WishlistController@show_wishlist')->name('showWish');
+Route::post('delete-wishlist/{rowId}', 'WishlistController@delete_wishlist')->name('deleteWish');
