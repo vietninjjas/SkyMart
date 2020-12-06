@@ -1,12 +1,12 @@
 <?php
 
 return [
+    'theme' => 'Đổi Giao Diện',
     'home' => 'Sky Mart',
     'welcome' => 'Chào mừng bạn đã đến cửa hàng của chúng tôi',
     'connect' => 'Hãy Kết Nối Với Chúng Tôi',
     'alert' => 'Thông báo',
-    'wishlist' => 'Yêu thích',
-    'help' => 'Trợ giúp',
+    'help' => 'Liên hệ',
     'vietnam' => 'Tiếng việt',
     'english' => 'Tiếng anh',
     'search' => 'Tìm kiếm',
@@ -25,7 +25,7 @@ return [
         'password' => 'Mật khẩu:',
         'login' => 'Đăng nhập',
         'logDesc' => 'Đăng nhập để theo dõi đơn hàng, lưu danh sách sản phẩm yêu thích, nhận nhiều ưu đãi hấp dẫn!',
-        'quenpass' => 'quên mật khẩu?',
+        'quenpass' => 'Quên mật khẩu?',
         'socialogin' => 'Hoặc đăng nhập bằng tài khoản bằng mạng xã hội:',
         'createAcc' => 'Tạo tài khoản',
         'regDesc' => 'Tạo tài khoản để theo dõi đơn hàng, lưu danh sách sản phẩm yêu thích, nhận nhiều ưu đãi hấp dẫn.!',
@@ -157,5 +157,16 @@ return [
     'wishlist' => [
         'title' => 'yêu thích',
         'wishlist' => 'Sản phẩm yêu thích'
-    ]
+    ],
+    'about' => [
+        'line1' => 'Dịch vụ của',
+        'line2' => 'Tận hưởng dịch vụ giao hàng nhanh hoàn toàn miễn phí, giảm giá vé xem phim và rất nhiều lợi ích khác dành riêng cho thành viên Skymart.',
+        'line3' => 'Miễn phí vận chuyển',
+        'line4' => 'Tặng voucer khuyến mãi mỗi ngày',
+        'line5' => 'Ưu đãi dành cho thành viên của Skymart',
+        'line6' => 'Mua Ngay',
+        'line7' => 'Liên hệ với chúng tôi',
+        'line8' => 'Skymart - mang đến mọi thứ mà bạn cần !!!',
+        'line9' => 'Quay về trang chủ ',
+    ],
 ];

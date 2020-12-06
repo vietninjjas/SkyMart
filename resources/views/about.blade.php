@@ -1,23 +1,24 @@
 @extends('layouts.app')
+@section('title', 'Sky Mart')
 @section('content')
 
 <div class="about-page">
     <div class="about-sky">
        <div class="container">
          <div class="about-title">
-           Dịch vụ của <span style="color: rgb(233, 83, 23);">SkyMart</span> 
+           @lang('main.about.line1') <span style="color: rgb(233, 83, 23);">SkyMart</span> 
          </div>
          <div class="about-content">
            <div class="row">
              <div class="col-7">
-               <p>Tận hưởng dịch vụ giao hàng nhanh hoàn toàn miễn phí, giảm giá vé xem phim và rất nhiều lợi ích khác dành riêng cho thành viên Skymart.</p>
+               <p>@lang('main.about.line2')</p>
                <ul class="features">
-                 <li><img src="https://salt.tikicdn.com/ts/upload/40/df/a0/f3513d2eeb61d26bfff775654c40e45e.png" alt="">Miễn phí vận chuyển</li>
-                 <li><img src="https://salt.tikicdn.com/ts/upload/40/df/a0/f3513d2eeb61d26bfff775654c40e45e.png">Tặng voucer khuyến mãi mỗi ngày</li>
-                 <li> <img src="https://salt.tikicdn.com/ts/upload/40/df/a0/f3513d2eeb61d26bfff775654c40e45e.png">Ưu đãi dành cho thành viên của Skymart</li>
+                 <li><img src="https://salt.tikicdn.com/ts/upload/40/df/a0/f3513d2eeb61d26bfff775654c40e45e.png" alt="">@lang('main.about.line3')</li>
+                 <li><img src="https://salt.tikicdn.com/ts/upload/40/df/a0/f3513d2eeb61d26bfff775654c40e45e.png">@lang('main.about.line4')</li>
+                 <li> <img src="https://salt.tikicdn.com/ts/upload/40/df/a0/f3513d2eeb61d26bfff775654c40e45e.png">@lang('main.about.line6')</li>
                </ul>
                <span class="button-wrap"> 
-                   <button class="ab-btn mb-3">Mua Ngay</button>
+                   <a href="{{ route('home') }}"><button class="ab-btn mb-3">@lang('main.about.line6')</button></a>
                </span>
              </div>
              <div class="col-5">
@@ -31,7 +32,7 @@
      <div class="container">
       <div class="form-contact">
         <div class="contact-title">
-            <h3>Liên hệ với chúng tôi</h3>
+            <h3>@lang('main.about.line7')</h3>
         </div>
         <div class="contack-form">
           <div class="row">
@@ -41,7 +42,7 @@
                 <div class="row">
                   <div class="col-md-4">
                     <div class="form-group">
-                      <label class="form-control-label mbr-fonts-style display-7" for="">Tên</label>
+                      <label class="form-control-label mbr-fonts-style display-7" for="">@lang('main.acc.')</label>
                       <input type="text" class="form-control" name="name" id="">
                     </div>
                   </div>
@@ -74,14 +75,14 @@
     <div class="doi-tac">
       <div class="container">
        <div class="doitac-title">
-         <h3>Skymart - mang đến mọi thứ mà bạn cần !!!</h3>
+         <h3>@lang('main.about.line8')</h3>
        </div>
        
       </div>
       
     </div>
     <div class="ql">
-     <span class="text">Quay về trang chủ  <i class="fas fa-arrow-right"></i></span>
+     <span class="text"><a style="color: white" href="{{ route('home') }}">@lang('main.about.line9') <i class="fas fa-arrow-right"></i></a></span>
    </div>
   </div>
 
