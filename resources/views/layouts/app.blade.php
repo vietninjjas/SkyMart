@@ -146,7 +146,7 @@
                             @endif
                         </li>
                         <li>
-                            <a href="" class="notifications-help">
+                            <a href="contact" class="notifications-help">
                                 <i class="fa fa-question" aria-hidden="true"></i>
                                 @lang('main.help')</a>
                         </li>
@@ -198,7 +198,7 @@
                             |
                             <a href="{{ route('user.change-language', ['en']) }}">@lang('main.english')</a>
                             |
-                            <a style="cursor: pointer" class="lol" id="clbg">Đổi Giao Diện</a>
+                            <a style="cursor: pointer" class="lol" id="clbg">@lang('main.theme')</a>
                         </li>
                     </ul>
                 </div>

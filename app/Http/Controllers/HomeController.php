@@ -65,4 +65,9 @@ class HomeController extends Controller
         
         return view('user.filter', array('ketqua' => $ketqua,'ketqua1' => $ketqua1, 'max' => $max, 'cate' => $cate));
     }
+
+    public function contact()
+    {
+        return view('about');
+    }
 }
