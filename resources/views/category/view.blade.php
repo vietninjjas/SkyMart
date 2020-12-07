@@ -6,17 +6,6 @@
                 <div class="title_left">
                     <h3>@lang('admin.categories.cate_manage')</h3>
                 </div>
-
-                <div class="title_right">
-                    <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
-                        <div class="input-group">
-                            <input type="text" class="form-control" placeholder="{{ trans('admin.action.search') }}">
-                            <span class="input-group-btn">
-                                <button class="btn btn-secondary" type="submit">Go!</button>
-                            </span>
-                        </div>
-                    </div>
-                </div>
             </div>
 
             <div class="clearfix"></div>
@@ -47,11 +36,14 @@
                             <div class="row">
                                 <div class="col-sm-12">
                                     @if (session()->has('del_success'))
-                                        <div class="text-success" style="text-shadow: 0 0 1px black;">{{ session()->get('del_success') }}</div>
+                                        <div class="text-success" style="text-shadow: 0 0 1px black;">
+                                            {{ session()->get('del_success') }}</div>
                                     @elseif( session()->has('add_success'))
-                                        <div class="atext-success" style="text-shadow: 0 0 1px black;">{{ session()->get('add_success') }}</div>
+                                        <div class="atext-success" style="text-shadow: 0 0 1px black;">
+                                            {{ session()->get('add_success') }}</div>
                                     @elseif (session()->has('update_success'))
-                                        <div class="text-success" style="text-shadow: 0 0 1px black;">{{ session()->get('update_success') }}</div>
+                                        <div class="text-success" style="text-shadow: 0 0 1px black;">
+                                            {{ session()->get('update_success') }}</div>
                                     @endif
                                     <div class="card-box table-responsive">
 
@@ -65,7 +57,8 @@
                                                     <th>@lang('admin.categories.cate_desc')</th>
                                                     <th colspan="2" class="text-center">
                                                         <a href="{{ route('admin.category.create') }}"
-                                                            class="btn btn-outline-success">@lang('admin.action.create')</a>
+                                                            class="btn btn-outline-success">@lang('admin.action.create')
+                                                        </a>
                                                     </th>
                                                 </tr>
                                             </thead>
@@ -83,21 +76,23 @@
                                                             @else
                                                                 <img class="img-thumbnail"
                                                                     style="width: 100px; height:100px;"
-                                                                    src="images/categories/cate_images/{{ $cate->cate_image }}" alt="">
+                                                                    src="images/categories/cate_images/{{ $cate->cate_image }}"
+                                                                    alt="">
                                                             @endif
                                                         </td>
                                                         <td>
-                                                          @if ($cate->cate_logo == null)
-                                                              <img class="img-thumbnail"
-                                                                  style="width: 100px; height:100px;"
-                                                                  src="https://logos.textgiraffe.com/logos/logo-name/Cate-designstyle-smoothie-m.png"
-                                                                  alt="">
-                                                          @else
-                                                              <img class="img-thumbnail"
-                                                                  style="width: 100px; height:100px;"
-                                                                  src="images/categories/logos/{{ $cate->cate_logo }}" alt="">
-                                                          @endif
-                                                      </td>
+                                                            @if ($cate->cate_logo == null)
+                                                                <img class="img-thumbnail"
+                                                                    style="width: 100px; height:100px;"
+                                                                    src="https://logos.textgiraffe.com/logos/logo-name/Cate-designstyle-smoothie-m.png"
+                                                                    alt="">
+                                                            @else
+                                                                <img class="img-thumbnail"
+                                                                    style="width: 100px; height:100px;"
+                                                                    src="images/categories/logos/{{ $cate->cate_logo }}"
+                                                                    alt="">
+                                                            @endif
+                                                        </td>
                                                         <td>{{ $cate->cate_desc }}</td>
                                                         <td class="text-center"><a
                                                                 href="{{ route('admin.category.edit', $cate->cate_id) }}"
@@ -158,7 +153,9 @@
                                                                     method="post">
                                                                     @csrf
                                                                     @method('DELETE')
-                                                                    <button type="submit" onclick="return confirm('Bạn có chắc muốn xóa?');" class="btn btn-outline-danger"><i
+                                                                    <button type="submit"
+                                                                        onclick="return confirm('Bạn có chắc muốn xóa?');"
+                                                                        class="btn btn-outline-danger"><i
                                                                             class="fa fa-trash-o"></i>
                                                                         @lang('admin.action.delete') </button>
                                                                 </form>
@@ -168,6 +165,7 @@
                                                 @endforeach
                                             </tbody>
                                         </table>
+                                        {{ $categories->links() }}
                                     </div>
                                 </div>
                             </div>

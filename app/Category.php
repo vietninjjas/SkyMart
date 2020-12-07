@@ -31,5 +31,4 @@ class Category extends Model
     {
         return $this->belongsTo(Category::class, 'cate_id');
     }
-
 }

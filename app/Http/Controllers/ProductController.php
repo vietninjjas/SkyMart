@@ -8,6 +8,7 @@ use App\Product;
 use App\Review;
 use App\Order;
 use App\proChillImage;
+use Symfony\Component\Console\Input\Input;
 
 class ProductController extends Controller
 {
@@ -16,8 +17,15 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        if($request->has('search')){
+            $search = $request->input('search');
+            $products = Product::search($search)->paginate(10);
+            $countModal = 1;
+            
+            return view('product.view', compact('products', 'countModal'));
+        }
         $products = Product::with('category')->latest()->get();
         $countModal = 1;
 
@@ -152,5 +160,64 @@ class ProductController extends Controller
         $pro->delete();
 
         return redirect()->route('admin.product.index')->with('del_success', trans('admin.message.del_success'));
+    }
+
+    public function showAll(Request $request)
+    {
+        if($request->has('min_pri') && $request->has('max_pri')){
+            $min = $request->input('min_pri');
+            $max = $request->input('max_pri');
+            $categories = Category::all();
+            $products = Product::pricebetween($min,$max)->paginate(12);
+            return view('product.showAllProduct', compact('categories', 'products'));
+        }
+        $filter = $request->input('filter');
+        switch ($filter)
+        {
+            case 'newest': 
+                $categories = Category::all();
+                $products = Product::newest()->paginate(12);
+                return view('product.showAllProduct', compact('categories', 'products'));
+            break;
+            case 'viewest':
+                $categories = Category::all();
+                $products = Product::viewest()->paginate(12);
+                return view('product.showAllProduct', compact('categories', 'products'));
+            break;
+            case 'best_discount':
+                $categories = Category::all();
+                $products = Product::viewest()->paginate(12);
+                return view('product.showAllProduct', compact('categories', 'products'));
+            break;
+            case 'saling':
+                $categories = Category::all();
+                $products = Product::saling()->paginate(12);
+                return view('product.showAllProduct', compact('categories', 'products'));
+            break;
+            case 'saling':
+                $categories = Category::all();
+                $products = Product::saling()->paginate(12);
+                return view('product.showAllProduct', compact('categories', 'products'));
+            break;
+            case 'Ascending':
+                $categories = Category::all();
+                $products = Product::ascending()->paginate(12);
+                return view('product.showAllProduct', compact('categories', 'products'));
+            break;
+            case 'Decrease':
+                $categories = Category::all();
+                $products = Product::decrease()->paginate(12);
+                return view('product.showAllProduct', compact('categories', 'products'));
+            break;
+            default: 
+                $categories = Category::all();
+                $products = Product::nameproduct($filter)->paginate(12);
+                return view('product.showAllProduct', compact('categories', 'products'));
+            break;
+        };
+        $categories = Category::all();
+        $products = Product::paginate(12);
+
+        return view('product.showAllProduct', compact('categories', 'products'));
     }
 }

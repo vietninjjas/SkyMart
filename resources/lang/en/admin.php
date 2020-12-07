@@ -141,6 +141,7 @@ return [
         ],
         'quantity' => 'Quantity',
         'total_price' => 'Amount',
+        'product_deleted' => 'This product has been deleted!',
     ],
     'notification' => [
         'notification' => 'Notifications',

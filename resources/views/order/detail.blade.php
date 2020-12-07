@@ -83,12 +83,18 @@
                                                 </thead>
                                                 <tbody>
                                                     @foreach ($order->checkouts as $checkout)
+                                                    @if($checkout->product)
                                                         <tr>
                                                             <td>{{ $checkout->product->pro_name }}</td>
                                                             <td>{{ $checkout->product->pro_new_price }}</td>
                                                             <td>{{ $checkout->quantity }}</td>
                                                             <td>{{ $checkout->product->pro_new_price * $checkout->quantity }}</td>
                                                         </tr>
+                                                    @else
+                                                    <tr>
+                                                        <td>@lang('admin.orders.product_deleted')</td>
+                                                    </tr>
+                                                    @endif
                                                     @endforeach
                                                 </tbody>
                                             </table>

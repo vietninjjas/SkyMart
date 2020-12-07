@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Category;
+use App\Product;
 
 class CategoryController extends Controller
 {
@@ -12,9 +13,15 @@ class CategoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $categories = Category::whereNull('parent_id')->with('children')->get();
+        if($request->has('search')){
+            $search = $request->input('search');
+            $categories = Category::search($search)->paginate(10);
+            
+            return view('category.view', compact('categories'));
+        }
+        $categories = Category::whereNull('parent_id')->with('children')->paginate(10);
 
         return view('category.view', compact('categories'));
     }
@@ -27,7 +34,7 @@ class CategoryController extends Controller
     public function create()
     {
         $categories = Category::whereNull('parent_id')->get();
-        
+
         return view('category.create', compact('categories'));
     }
 
@@ -62,19 +69,67 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($cateId)
+    public function show($cateId, Request $request)
     {
+        if ($request->has('min_pri') && $request->has('max_pri')) {
+            $min = $request->input('min_pri');
+            $max = $request->input('max_pri');
+            $categories = Category::all();
+            $cate = Category::findOrFail($cateId);
+            $products = Product::where('cate_id', $cateId)->pricebetween($min, $max)->paginate(12);
+            return view('category.show', compact('cate', 'categories', 'products'));
+        }
+        $filter = $request->input('filter');
+        switch ($filter) {
+            case 'newest':
+                $categories = Category::all();
+                $products = Product::where('cate_id', $cateId)->newest()->paginate(12);
+                $cate = Category::findOrFail($cateId);
+                return view('category.show', compact('cate', 'categories', 'products'));
+            break;
+            case 'viewest':
+                $categories = Category::all();
+                $products = Product::where('cate_id', $cateId)->viewest()->paginate(12);
+                $cate = Category::findOrFail($cateId);
+                return view('category.show', compact('cate', 'categories', 'products'));
+            break;
+            case 'best_discount':
+                $categories = Category::all();
+                $products = Product::where('cate_id', $cateId)->viewest()->paginate(12);
+                $cate = Category::findOrFail($cateId);
+                return view('category.show', compact('cate', 'categories', 'products'));
+            break;
+            case 'saling':
+                $categories = Category::all();
+                $products = Product::where('cate_id', $cateId)->saling()->paginate(12);
+                $cate = Category::findOrFail($cateId);
+                return view('category.show', compact('cate', 'categories', 'products'));
+            break;
+            case 'Ascending':
+                $categories = Category::all();
+                $products = Product::where('cate_id', $cateId)->ascending()->paginate(12);
+                $cate = Category::findOrFail($cateId);
+                return view('category.show', compact('cate', 'categories', 'products'));
+            break;
+            case 'Decrease':
+                $categories = Category::all();
+                $products = Product::where('cate_id', $cateId)->decrease()->paginate(12);
+                $cate = Category::findOrFail($cateId);
+                return view('category.show', compact('cate', 'categories', 'products'));
+            break;
+            default:
+                $categories = Category::all();
+                $products = Product::where('cate_id', $cateId)->nameproduct($filter)->paginate(12);
+                $cate = Category::findOrFail($cateId);
+                return view('category.show', compact('cate', 'categories', 'products'));
+            break;
+        };
         $categories = Category::all();
         $cate = Category::findOrFail($cateId);
+        $products = Product::where('cate_id', $cateId)->paginate(12);
 
-        return view('category.show', compact('cate', 'categories'));
+        return view('category.show', compact('cate', 'categories', 'products'));
     }
-
-    public function filterProductCategory($search)
-    {
-        
-    }
-
     /**
      * Show the form for editing the specified resource.
      *
@@ -106,7 +161,7 @@ class CategoryController extends Controller
         $fileImage = $request->file('cate_image');
         $fileNameImage = uniqid() . '_' . $fileImage->getClientOriginalName();
         $fileImage->move('images/categories/images', $fileNameImage);
-        
+
         $cate->cate_name = $request->input('cate_name');
         $cate->cate_desc = $request->input('cate_desc');
         $cate->cate_image = $fileNameImage;
