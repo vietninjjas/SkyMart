@@ -49,6 +49,7 @@ return [
         'not_found' => 'Sorry, no results found for this keyword: ',
     ],
     'product' => [
+        'all' => 'All products',
         'detail' => 'View details',
         'add_wishlist' => 'Add to wishlist',
         'add_cart' => 'Add to cart',
@@ -65,6 +66,14 @@ return [
         'order_check' => 'Purchased at SkyMart',
         'hethang' => 'Products are temporarily out of stock',
         'view' => 'View',
+        'pro_about' => 'Price range',
+        'search_result' => 'Result',
+        'priority_view' => 'Priority view: ',
+        'newest' => 'Newest',
+        'viewest' => 'Viewest',
+        'saling' => 'Saling',
+        'pri_ascending' => 'Ascending price',
+        'pri_decrease' => 'Decrease Price', 
     ],
     'cart' => [
         'pro_desc' => 'Product info',

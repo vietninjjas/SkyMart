@@ -49,4 +49,38 @@ class Product extends Model
     {
         return $this->hasMany(proChillImage::class, 'pro_id');
     }
+
+    public function scopeNewest($query)
+    {
+        return $query->orderBy('updated_at', 'desc');
+    }
+
+    public function scopeViewest($query)
+    {
+        return $query->orderBy('view', 'desc');
+    }
+    public function scopeSaling($query)
+    {
+        return $query->where('pro_sale', 1);
+    }
+    public function scopeAscending($query)
+    {
+        return $query->orderBy('pro_new_price', 'asc');
+    }
+    public function scopeDecrease($query)
+    {
+        return $query->orderBy('pro_new_price', 'desc');
+    }
+    public function scopeNameproduct($query, $filter)
+    {
+        return $query->where('pro_name', 'LIKE', '%' . $filter . '%');
+    }
+    public function scopePricebetween($query, $min, $max)
+    {
+        return $query->whereBetween('pro_new_price', [$min, $max]);
+    }
+    public function scopeSearch($query, $search)
+    {
+        return $query->where('pro_name', 'LIKE', '%' . $search . '%');
+    }
 }

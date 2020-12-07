@@ -49,6 +49,7 @@ return [
         'not_found' => 'Xin lỗi, không tìm thấy kết quả nào cho từ khóa này: ',
     ],
     'product' => [
+        'all' => 'Tất cả sản phẩm',
         'detail' => 'Xem chi tiết',
         'add_wishlist' => 'Thêm vào yêu thích',
         'add_cart' => 'Thêm vào giỏ',
@@ -65,6 +66,14 @@ return [
         'order_check' => 'Đã mua hàng ở SkyMart',
         'hethang' => 'Sản phẩm tạm hết hàng',
         'view' => 'Lượt xem',
+        'pro_about' => 'Khoảng giá',
+        'search_result' => 'kết quả',
+        'priority_view' => 'Ưu tiên xem:',
+        'newest' => 'Mới nhất',
+        'viewest' => 'Xem nhiều nhất',
+        'saling' => 'Đang khuyến mãi',
+        'pri_ascending' => 'Giá tăng dần',
+        'pri_decrease' => 'Giá giảm dần', 
     ],
     'cart' => [
         'pro_desc' => 'Thông tin sản phẩm',

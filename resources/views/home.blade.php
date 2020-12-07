@@ -180,14 +180,13 @@
                         <h5 class="price">{{ number_format($pro->pro_new_price) }} đ
                             <span class="original deal">{{ number_format($pro->pro_old_price) }}đ</span>
                         </h5>
-                        <button class=""><a href="{{ route('product.show', $pro->pro_id) }}">Xem
-                                ngay</a></button>
+                        <button class=""><a href="{{ route('product.show', $pro->pro_id) }}">@lang('admin.notification.content')</a></button>
                     </div>
                 </div>
                 @endif
                 @endforeach
                 <div class="btn-more text-center mt-3 mb-3">
-                    <a href="">@lang('main.see_more')</a>
+                    <a href="{{ route('product.showAll') }}">@lang('main.see_more')</a>
                 </div>
             </div>
         </div>

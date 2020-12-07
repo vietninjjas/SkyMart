@@ -27,7 +27,6 @@ class CreateProductsTable extends Migration
             $table->boolean('pro_sale')->default(0);
             $table->foreign('cate_id')->references('cate_id')->on('categories');
             $table->timestamps();
-            $table->softDeletes();
         });
         Schema::enableForeignKeyConstraints();
     }

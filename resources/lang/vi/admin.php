@@ -141,6 +141,7 @@ return [
         ],
         'quantity' => 'Số lượng',
         'total_price' => 'Thành tiền',
+        'product_deleted' => 'Sản phẩm này đã bị xóa',
     ],
     'notification' => [
         'notification' => 'Thông báo',

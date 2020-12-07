@@ -80,7 +80,7 @@
                                         <label for="middle-name"
                                             class="col-form-label col-md-3 col-sm-3 label-align">@lang('admin.categories.parent')</label>
                                         <div class="col-md-6 col-sm-6 ">
-                                            <select class="form-control cars" name="parent_id">
+                                            <select class="form-control" name="parent_id">
                                                 <option value="">___</option>
                                                 @foreach ($categories as $category)
                                                     @if ($category->cate_id != $cate->cate_id)

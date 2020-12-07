@@ -7,13 +7,16 @@
             <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img src="assets/images/bannerForsearch.png" class="d-block w-100" alt="...">
+                        <img src="assets/images/bannerForsearch.png" class="d-block w-100"
+                            alt="...">
                     </div>
                     <div class="carousel-item">
-                        <img src="assets/images/bannerForsearch.png" class="d-block w-100" alt="...">
+                        <img src="assets/images/bannerForsearch.png" class="d-block w-100"
+                            alt="...">
                     </div>
                     <div class="carousel-item">
-                        <img src="assets/images/bannerForsearch.png" class="d-block w-100" alt="...">
+                        <img src="assets/images/bannerForsearch.png" class="d-block w-100"
+                            alt="...">
                     </div>
                 </div>
             </div>
@@ -57,51 +60,52 @@
                                 </ul>
                             </div>
                         </div>
-                        <form action="{{ route('category.show', $cate->cate_id) }}" method="GET">
-                            <div class="pro-cate">
-                                <div class="pro-title">
-                                    <h4>@lang('main.product.pro_about')</h4>
-                                </div>
-                                <div style="display: flex; align-items: center; justify-content: space-between;">
-                                    <input name="min_pri" type="text" class="slide-input slide-from">
-                                    <span class="pro-to"><i class="fa fa-arrow-circle-right"></i></span>
-                                    <input name="max_pri" type="text" class="slide-input slide-to">
-                                </div>
-                                <button type="submit" class="btn btn-default btn-block">OK</button>
+                        <form action="{{ route('product.showAll') }}" method="GET">
+                        <div class="pro-cate">
+                            <div class="pro-title">
+                                <h4>@lang('main.product.pro_about')</h4>
                             </div>
+                            <div style="display: flex; align-items: center; justify-content: space-between;">
+                                <input name="min_pri" type="text" class="slide-input slide-from">
+                                <span class="pro-to"><i class="fa fa-arrow-circle-right"></i></span>
+                                <input name="max_pri" type="text" class="slide-input slide-to">
+                            </div>
+                            <button type="submit" class="btn btn-default btn-block">Ok</button>
+                        </div>
                         </form>
                     </div>
                 </div>
                 <div class="col-lg-9 box-pro-2">
                     <div class="pro-box-right">
                         <div class="filter-list-box">
-                            <h1>{{ $cate->cate_name }}</h1>
+                            <h1></h1>
+                            <h4> @lang('main.product.all')</h4>
                             <div class="option-box-wrap">
                                 <div class="option-box">
                                     <div class="sort-box-holder">
                                         <div class="btn-group pull-right search-right-box">
-                                            <form action="{{ route('category.show', $cate->cate_id) }}" class="category-search-frm">
-                                                <input type="text" name="filter" placeholder="Tìm trong {{ $cate->cate_name }} ...">
-                                                <button type="submit">@lang('main.search')</button>
+                                            <form action="{{ route('product.showAll') }}" class="category-search-frm">
+                                                <input type="text" name="filter">
+                                                <button>@lang('main.search')</button>
                                             </form>
                                         </div>
                                         <div class="btn-group pull-left sort-box">
-                                            <span>Ưu tiên xem: </span>
+                                            <span>@lang('main.product.priority_view')</span>
                                             <ul class="sort-list">
                                                 <li><a
-                                                        href="{{ route('category.show', $cate->cate_id . '?filter=newest') }}">@lang('main.product.newest')</a>
+                                                        href="{{ route('product.showAll', 'filter=newest') }}">@lang('main.product.newest')</a>
                                                 </li>
                                                 <li><a
-                                                        href="{{ route('category.show', $cate->cate_id . '?filter=viewest') }}">@lang('main.product.viewest')</a>
+                                                        href="{{ route('product.showAll', 'filter=viewest') }}">@lang('main.product.viewest')</a>
                                                 </li>
                                                 <li><a
-                                                        href="{{ route('category.show', $cate->cate_id . '?filter=saling') }}">@lang('main.product.saling')</a>
+                                                        href="{{ route('product.showAll', 'filter=saling') }}">@lang('main.product.saling')</a>
                                                 </li>
                                                 <li><a
-                                                        href="{{ route('category.show', $cate->cate_id . '?filter=Ascending') }}">@lang('main.product.pri_ascending')</a>
+                                                        href="{{ route('product.showAll', 'filter=Ascending') }}">@lang('main.product.pri_ascending')</a>
                                                 </li>
                                                 <li><a
-                                                        href="{{ route('category.show', $cate->cate_id . '?filter=Decrease') }}">@lang('main.product.pri_decrease')</a>
+                                                        href="{{ route('product.showAll', 'filter=Decrease') }}">@lang('main.product.pri_decrease')</a>
                                                 </li>
                                             </ul>
                                         </div>
@@ -131,7 +135,8 @@
                                         </div>
                                     </div>
                                     @if ($pro->pro_sale == 1)
-                                        <span class="percent deal">{{ FLOOR(100 - ($pro->pro_new_price / $pro->pro_old_price) * 100) }}%</span>
+                                        <span
+                                            class="percent deal">{{ FLOOR(100 - ($pro->pro_new_price / $pro->pro_old_price) * 100) }}%</span>
                                     @endif
                                     <div class="product-bottom text-center">
                                         <div class="ratings">
@@ -144,10 +149,11 @@
                                         </p>
                                         <h5 class="price">{{ number_format($pro->pro_new_price) }} đ <span
                                                 class="original deal">{{ number_format($pro->pro_old_price) }} đ</span></h5>
-                                        <button class=""><a href="{{ route('product.show', $pro->pro_id) }}">Xem
-                                                ngay</a></button>
+                                        <button class=""><a
+                                                href="{{ route('product.show', $pro->pro_id) }}">@lang('admin.notification.content')</a></button>
                                     </div>
                                 </div>
+
                             @endforeach
                         </div>
                         {{ $products->links() }}

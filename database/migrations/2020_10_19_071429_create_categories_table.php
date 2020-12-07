@@ -22,7 +22,6 @@ class CreateCategoriesTable extends Migration
             $table->text('cate_image')->nullable();
             $table->integer('parent_id')->unsigned()->nullable();
             $table->timestamps();
-            $table->softDeletes();
         });
         Schema::enableForeignKeyConstraints();
     }

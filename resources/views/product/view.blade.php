@@ -7,16 +7,19 @@
                     <h3>@lang('admin.products.pro_manage')</h3>
                 </div>
 
-                <div class="title_right">
-                    <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
-                        <div class="input-group">
-                            <input type="text" class="form-control" placeholder="{{ trans('admin.action.search') }}">
-                            <span class="input-group-btn">
-                                <button class="btn btn-secondary" type="submit">Go!</button>
-                            </span>
+                <form action="{{ route('admin.product.index') }}" method="GET">
+                    <div class="title_right">
+                        <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+                            <div class="input-group">
+                                <input name="search" type="text" class="form-control"
+                                    placeholder="{{ trans('admin.action.search') }}">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-secondary" type="submit">Go!</button>
+                                </span>
+                            </div>
                         </div>
                     </div>
-                </div>
+                </form>
             </div>
 
             <div class="clearfix"></div>

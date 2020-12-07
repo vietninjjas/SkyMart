@@ -22,7 +22,6 @@ class CreateCheckoutsTable extends Migration
             $table->integer('total_price');
             $table->timestamps();
             $table->foreign('order_id')->references('order_id')->on('orders');
-            $table->softDeletes();
         });
         Schema::enableForeignKeyConstraints();
     }
