@@ -26,7 +26,7 @@
                                     <div class="col-md-6">
                                         <div class="row">
                                             <label class="fieldlabels col-3">@lang('main.order.name') : </label> 
-                                            <input id="last-name" name="order_name" type="text" class="col-8" placeholder="{{ trans('main.order.name') }}" />
+                                            <input id="last-name" name="order_name" type="text" class="col-8 last-name" placeholder="{{ trans('main.order.name') }}" />
                                             {{--  tên  --}}
 
                                             <label class="fieldlabels col-3">@lang('main.order.phone'): </label> 
@@ -222,7 +222,7 @@
     <script>
         $(document).ready(function(){
           $("input#submit").click(function(){
-            var submit = $("input#last-name").val();
+            var last_name = $("input.last-name").val();
             var file = $("input#file").val();
             var ckeditor = $("input#ckeditor1").val();
             var first_name = $("input#first-name").val();
@@ -230,13 +230,13 @@
             var getCheckprice = $("input#checkprice").val();
             var adress = $("input#adress").val();
             var flag = true
-            if(submit ==''){
-              $("input#last-name").css({"background" : "rgba(255, 147, 146, 0.3)", "border" : "2px solid rgb(255, 0, 0, 0.3)"});
+            if(last_name ==''){
+              $("input.last-name").css({"background" : "rgba(255, 147, 146, 0.3)", "border" : "2px solid rgb(255, 0, 0, 0.3)"});
               flag = false
             }else{
-              $("input#last-name").css({"background" : "rgb(100 216 90 / 30%)", "border" : "2px solid rgb(147 161 146 / 30%)"});
+              $("input.last-name").css({"background" : "rgb(100 216 90 / 30%)", "border" : "2px solid rgb(147 161 146 / 30%)"});
             }
-            {{--    --}}
+            
             if(file ==''){
                 $("input#file").css({"background" : "rgba(255, 147, 146, 0.3)", "border" : "2px solid rgb(255, 0, 0, 0.3)"});
                 flag = false
@@ -282,6 +282,7 @@
         {{--    --}}
       
             if(flag == true){
+                
                 var current_fs, next_fs, previous_fs; //fieldsets
                 var opacity;
                 var current = 1;
