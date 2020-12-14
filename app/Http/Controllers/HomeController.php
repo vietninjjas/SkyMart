@@ -43,7 +43,7 @@ class HomeController extends Controller
             'topSales',
             'hots',
             'deals',
-            'cateCount',
+            'cateCount'
         ));
     }
 

@@ -134,7 +134,7 @@
                             <!--  -->
                         </div>
                     </div>
-                    
+
                 </div>
                 <!-- end brand -->
             </div>
@@ -169,7 +169,7 @@
                         Echo($product->pro_desc);
                         @endphp
                     </div>
-                   
+
                 </div>
             </div>
             <div class="col-3">
@@ -178,7 +178,7 @@
         </div>
         <div class="row">
             <div class="col-9">
-                
+
                 <h2>@lang('main.product.cus_review')</h2>
                 <div class="container-product">
                     <form action="{{ route('review.store') }}" method="post">
@@ -242,7 +242,7 @@
                         @endforeach
                         @if(Auth::check())
                         <div class="form-cmt">
-                            <input id="last-name" type="text" name="comment" placeholder="{{ trans('main.product.cmt_placeholder') }}">
+                            <input id="comment" type="text" name="comment" placeholder="{{ trans('main.product.cmt_placeholder') }}">
                             <input type="hidden" value="{{ $product->pro_id }}" name="pro_id">
                             <button id="submit" type="submit">@lang('main.product.send_review')</button>
                         </div>
@@ -256,7 +256,7 @@
             </div>
         </div>
         <div class="col-3">
-            
+
         </div>
     </div>
 
@@ -270,7 +270,7 @@
                 getId); //sau khi click thẻ img có class demo sẽ thay đổi src mặc định sang src của getID(ảnh được click)
             })
             $("button#submit").click(function() {
-                var submit = $("input#last-name").val();
+                var comment = $("input#comment").val();
                 var getGender = $("input[type='radio']").is(":checked");
                 var flag = true
                 if (getGender != false) {
@@ -279,15 +279,15 @@
                     alert("chưa chọn")
                     flag = false;
                 }
-                if (submit == '') {
-                    $("input#last-name").css({
+                if (comment == '') {
+                    $("input#comment").css({
                         "background": "rgba(255, 147, 146, 0.3)",
                         "border": "2px solid rgb(255, 0, 0, 0.3)"
                     });
                     flag = false
                     alert("Bạn vui lòng nội dung vào phần bình luận")
                 } else {
-                    $("input#last-name").css({
+                    $("input#comment").css({
                         "background": "rgb(100 216 90 / 30%)",
                         "border": "2px solid rgb(147 161 146 / 30%)"
                     });
