@@ -78,7 +78,7 @@ class AccountController extends Controller
         $fileName = uniqid() . '_' . $file->getClientOriginalName();
         $file->move('images/users', $fileName);
         $user = User::findOrFail($id);
-        $user->fullname = $request->input('fullname');
+        $user->name = $request->input('name');
         $user->phone = $request->input('phone');
         $user->email = $request->input('email');
         $user->birthday = $request->input('birthday');
@@ -101,7 +101,7 @@ class AccountController extends Controller
         $user = User::findOrFail($id);
         $user->password = $request->input('password');
         $user->save();
-        
+
         return redirect()->route('home');
     }
     /**

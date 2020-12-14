@@ -16,7 +16,7 @@
                                 <li>
                                     <img class="img-thumbnail" src="images/users/{{ $user->avatar }}" alt="">
                                 </li>
-                                <li>Họ và tên: <span class="inf">{{ $user->fullname }}</span></li>
+                                <li>Họ và tên: <span class="inf">{{ $user->name }}</span></li>
                                 <li>Ngày sinh: <span class="inf">{{ $user->birthday }}</span></li>
                                 <li>Số điện thoại: <span class="inf">{{ $user->phone }}</span></li>
                                 <li>Email: <span class="inf">{{ $user->email }}</span></li>

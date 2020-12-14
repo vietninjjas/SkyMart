@@ -1,4 +1,5 @@
 @extends('layouts.admin')
+@section('title', 'Skymart')
 @section('content')
     <div class="right_col" role="main">
         <div class="">
@@ -29,7 +30,7 @@
                                 @csrf
                                 <div class="item form-group">
                                     <label class="col-form-label col-md-3 col-sm-3 label-align"
-                                        for="first-name">@lang('admin.products.pro_name') 
+                                        for="first-name">@lang('admin.products.pro_name')
                                         <span class="required">*</span></label>
                                     <div class="col-md-6 col-sm-6 ">
                                         <input type="text" id="first-name" name="pro_name" class="form-control ">
@@ -99,7 +100,7 @@
                                 </div>
                                 <div class="item form-group">
                                     <label class="col-form-label col-md-3 col-sm-3 label-align"
-                                        for="last-name">@lang('admin.products.pro_new_price')</label>
+                                        for="last-name">@lang('admin.products.pro_sale')</label>
                                     <div class="col-md-6 col-sm-6 ">
                                         <select class="form-control" name="pro_sale" id="">
                                             <option value="0">@lang('admin.products.not_sale')</option>
@@ -125,7 +126,7 @@
             </div>
         </div>
     </div>
-    
+
     <script>
         $(document).ready(function(){
           $("button#submit").click(function(){
@@ -186,7 +187,7 @@
                 $("input#quantity").css({"background" : "rgb(100 216 90 / 30%)", "border" : "2px solid rgb(147 161 146 / 30%)"});
             }
             {{--    --}}
-        
+
             if(flag == true){
               alert("Thêm Thành Công")
               return true

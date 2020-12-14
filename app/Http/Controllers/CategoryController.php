@@ -18,7 +18,7 @@ class CategoryController extends Controller
         if($request->has('search')){
             $search = $request->input('search');
             $categories = Category::search($search)->paginate(10);
-            
+
             return view('category.view', compact('categories'));
         }
         $categories = Category::whereNull('parent_id')->with('children')->paginate(10);

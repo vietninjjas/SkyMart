@@ -68,7 +68,7 @@
                                                         <td>{{ $cate->cate_id }}</td>
                                                         <td>{{ $cate->cate_name }}</td>
                                                         <td>
-                                                            @if ($cate->cate_logo == null)
+                                                            @if ($cate->cate_image == null)
                                                                 <img class="img-thumbnail"
                                                                     style="width: 100px; height:100px;"
                                                                     src="https://logos.textgiraffe.com/logos/logo-name/Cate-designstyle-smoothie-m.png"
@@ -76,7 +76,7 @@
                                                             @else
                                                                 <img class="img-thumbnail"
                                                                     style="width: 100px; height:100px;"
-                                                                    src="images/categories/cate_images/{{ $cate->cate_image }}"
+                                                                    src="images/categories/images/{{ $cate->cate_image }}"
                                                                     alt="">
                                                             @endif
                                                         </td>
@@ -124,7 +124,7 @@
                                                                 @else
                                                                     <img class="img-thumbnail"
                                                                         style="width: 100px; height:100px;"
-                                                                        src="images/categories/cate_images/{{ $key->cate_image }}"
+                                                                        src="images/categories/images/{{ $key->cate_image }}"
                                                                         alt="">
                                                                 @endif
                                                             </td>
