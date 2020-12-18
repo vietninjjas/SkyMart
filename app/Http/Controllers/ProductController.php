@@ -23,10 +23,10 @@ class ProductController extends Controller
             $search = $request->input('search');
             $products = Product::search($search)->paginate(10);
             $countModal = 1;
-            
+
             return view('product.view', compact('products', 'countModal'));
         }
-        $products = Product::with('category')->latest()->get();
+        $products = Product::with('category')->latest()->paginate(10);
         $countModal = 1;
 
         return view('product.view', compact('products', 'countModal'));
@@ -174,7 +174,7 @@ class ProductController extends Controller
         $filter = $request->input('filter');
         switch ($filter)
         {
-            case 'newest': 
+            case 'newest':
                 $categories = Category::all();
                 $products = Product::newest()->paginate(12);
                 return view('product.showAllProduct', compact('categories', 'products'));
@@ -209,7 +209,7 @@ class ProductController extends Controller
                 $products = Product::decrease()->paginate(12);
                 return view('product.showAllProduct', compact('categories', 'products'));
             break;
-            default: 
+            default:
                 $categories = Category::all();
                 $products = Product::nameproduct($filter)->paginate(12);
                 return view('product.showAllProduct', compact('categories', 'products'));

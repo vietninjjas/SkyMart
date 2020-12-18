@@ -25,7 +25,7 @@
                                     <li><a href="{{ route('product.show', $pro->pro_id) }}">{{ $pro->pro_name }}</a>
                                     </li>
 
-                                    @if ($proCount++ == 5) @break
+                                    @if ($proCount++ == 10) @break
                                     @endif
 
                                     @endforeach

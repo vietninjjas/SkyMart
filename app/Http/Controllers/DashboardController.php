@@ -23,7 +23,7 @@ class DashboardController extends Controller
         $user_female = User::where('gender', 0)->count();
         $user_buy = User::all();
         $review_total = Review::all()->count();
-        // order chart 
+        // order chart
         $currentYear = Carbon::now()->year;
         $orderChart = new OrderChart;
         $orderChart->labels([
@@ -71,9 +71,9 @@ class DashboardController extends Controller
         }
         $cateChart = new CategoryChart;
         $cateChart->labels($cateLabel);
-        $cateChart->dataset(trans('admin.chart.category_con'), 'radar', collect($cateData));
+        $cateChart->dataset(trans('admin.chart.category_con'), 'line', collect($cateData));
 
-        // order status chart 
+        // order status chart
         $orderSttChart = new OrderStatusChart;
         $orderSttChart->labels([
             trans('admin.orders.order_status.wait'),
@@ -103,6 +103,6 @@ class DashboardController extends Controller
             'cateChart',
             'orderSttChart'
         ));
-       
+
     }
 }
