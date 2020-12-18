@@ -9,10 +9,10 @@
                 <div class="or-top">
                     <div class="or-title">
                         <div class="row">
-                            <div class="col-7">
+                            <div class="col-6">
                                 <h3><i class="fas fa-cart-arrow-down"></i> @lang('main.order.order_detail')</h3>
                             </div>
-                            <div class="col-5">
+                            <div class="col-6">
                                 <p>@lang('main.order.order_time', ['hour' => $order->created_at->format('H:i:s'), 'day' =>
                                     $order->created_at->format('Y.m.d')])</p>
                             </div>

@@ -161,7 +161,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-9">
+            <div class="col-lg-9 col-md-12">
                 <h2>@lang('main.product.product_desc')</h2>
                 <div class="container-product">
                     <div style="padding: 20px 20px">
@@ -172,12 +172,12 @@
                    
                 </div>
             </div>
-            <div class="col-3">
+            <div class="col-lg-3 qc-right">
                 <img  style="margin-top:45px" src="https://c0.anthill.vn/images/2020/11/16/46524b889f7d5522e3cd8552edf1351e.jpg" alt="">
             </div>
         </div>
         <div class="row">
-            <div class="col-9">
+            <div class="col-lg-9 col-md-12">
                 
                 <h2>@lang('main.product.cus_review')</h2>
                 <div class="container-product">
@@ -202,7 +202,7 @@
                             <div class="review-rating__detail">
                                 <div class="review-rating__level mt-5">
                                     @if(Auth::check())
-                                    <div class="stars">
+                                    <div class="stars" style="width: 100%">
                                         <input value="5" class="star star-5" id="star-5" type="radio" name="rate" />
                                         <label class="star star-5" for="star-5"></label>
                                         <input value="4" class="star star-4" id="star-4" type="radio" name="rate" />
@@ -241,9 +241,10 @@
                                 </div>
                         @endforeach
                         @if(Auth::check())
-                        <div class="form-cmt">
-                            <input id="last-name" type="text" name="comment" placeholder="{{ trans('main.product.cmt_placeholder') }}">
-                            <input type="hidden" value="{{ $product->pro_id }}" name="pro_id">
+                        <div class="form-cmt ">
+                            <input class=""  id="xxx" type="text" name="comment" placeholder="{{ trans('main.product.cmt_placeholder') }}">
+                            <input id="last-name1" type="hidden" value="{{ $product->pro_id }}" name="pro_id">
+                            <p class="err_cmt text-danger"></p>
                             <button id="submit" type="submit">@lang('main.product.send_review')</button>
                         </div>
                         @else
@@ -255,7 +256,7 @@
                 </form>
             </div>
         </div>
-        <div class="col-3">
+        <div class="col-3 qc-right">
             
         </div>
     </div>
@@ -270,37 +271,35 @@
                 getId); //sau khi click thẻ img có class demo sẽ thay đổi src mặc định sang src của getID(ảnh được click)
             })
             $("button#submit").click(function() {
-                var submit = $("input#last-name").val();
+                var lastName = $("input#xxx").val();
+                var lastName1 = $("input#last-name1").val();
                 var getGender = $("input[type='radio']").is(":checked");
+                console.log(lastName)
                 var flag = true
                 if (getGender != false) {
-                    alert("Đã chọn")
+                    console.log("Thanh cong")
                 } else {
-                    alert("chưa chọn")
+                    $("p.err_cmt").text("Bạn chưa đánh giá")
                     flag = false;
                 }
-                if (submit == '') {
-                    $("input#last-name").css({
-                        "background": "rgba(255, 147, 146, 0.3)",
-                        "border": "2px solid rgb(255, 0, 0, 0.3)"
-                    });
+                if( lastName ==''){
+                    $("input#xxx").css({"background" : "rgba(255, 147, 146, 0.3)", "border" : "2px solid rgb(255, 0, 0, 0.3)"});
+                    $("p.err_cmt").text("Bạn chưa nhập bình luận")
                     flag = false
-                    alert("Bạn vui lòng nội dung vào phần bình luận")
-                } else {
-                    $("input#last-name").css({
-                        "background": "rgb(100 216 90 / 30%)",
-                        "border": "2px solid rgb(147 161 146 / 30%)"
-                    });
+                }else{
+                    $("input#xxx").css({"background" : "rgb(100 216 90 / 30%)", "border" : "2px solid rgb(147 161 146 / 30%)"});
                 }
 
 
-                if (flag) {
-                    alert("Gửi bình luận thành công")
+                if (flag == true) {
+                   
                     return true
                 }
                 return false
             })
         })
+
+    
 
     </script>
 

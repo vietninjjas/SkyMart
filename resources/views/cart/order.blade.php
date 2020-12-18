@@ -26,11 +26,11 @@
                                     <div class="col-md-6">
                                         <div class="row">
                                             <label class="fieldlabels col-3">@lang('main.order.name') : </label> 
-                                            <input id="last-name" name="order_name" type="text" class="col-8" placeholder="{{ trans('main.order.name') }}" />
+                                            <input id="huhu-name" name="order_name" type="text" class="col-8" placeholder="{{ trans('main.order.name') }}" />
                                             {{--  tên  --}}
 
                                             <label class="fieldlabels col-3">@lang('main.order.phone'): </label> 
-                                            <input id="first-name" type="text" name="order_phone" class="col-8" placeholder="{{ trans('main.order.phone') }}" />
+                                            <input id="first-name" type="number" name="order_phone" class="col-8" placeholder="{{ trans('main.order.phone') }}" />
                                             {{--  sđt nhận hàng  --}}
 
                                             <label class="fieldlabels col-3">@lang('main.order.city'): </label> 
@@ -222,7 +222,7 @@
     <script>
         $(document).ready(function(){
           $("input#submit").click(function(){
-            var submit = $("input#last-name").val();
+            var susu = $("input#huhu-name").val();
             var file = $("input#file").val();
             var ckeditor = $("input#ckeditor1").val();
             var first_name = $("input#first-name").val();
@@ -230,11 +230,11 @@
             var getCheckprice = $("input#checkprice").val();
             var adress = $("input#adress").val();
             var flag = true
-            if(submit ==''){
-              $("input#last-name").css({"background" : "rgba(255, 147, 146, 0.3)", "border" : "2px solid rgb(255, 0, 0, 0.3)"});
+            if(susu ==''){
+              $("input#huhu-name").css({"background" : "rgba(255, 147, 146, 0.3)", "border" : "2px solid rgb(255, 0, 0, 0.3)"});
               flag = false
             }else{
-              $("input#last-name").css({"background" : "rgb(100 216 90 / 30%)", "border" : "2px solid rgb(147 161 146 / 30%)"});
+              $("input#huhu-name").css({"background" : "rgb(100 216 90 / 30%)", "border" : "2px solid rgb(147 161 146 / 30%)"});
             }
             {{--    --}}
             if(file ==''){
@@ -286,20 +286,21 @@
                 var opacity;
                 var current = 1;
                 var steps = $("fieldset").length;
-    
+                console.log("âsasas")
                 setProgressBar(current);
-    
+                
                 
                 $(".next").click(function() {
     
-                    current_fs = $(this).parent();
-                    next_fs = $(this).parent().next();
-    
+                    current_fs = $(this).parent(); //lấy thành phần cha trực tiếp của của thành phần chính
+                    next_fs = $(this).parent().next(); //lấy thành phần cha trực tiếp của của thành phần sau
+                    
                     //Add Class Active
                     $("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
     
                     //show the next fieldset
                     next_fs.show();
+                    console.log(next_fs)
                     //hide the current fieldset with style
                     current_fs.animate({
                         opacity: 0
@@ -324,7 +325,7 @@
                 $(".previous").click(function() {
     
                     current_fs = $(this).parent();
-                    previous_fs = $(this).parent().prev();
+                    previous_fs = $(this).parent().prev(); 
     
                     //Remove class active
                     $("#progressbar li").eq($("fieldset").index(current_fs)).removeClass("active");
