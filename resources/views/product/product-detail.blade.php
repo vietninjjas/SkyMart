@@ -177,13 +177,8 @@
             </div>
         </div>
         <div class="row">
-<<<<<<< HEAD
-            <div class="col-9">
-
-=======
             <div class="col-lg-9 col-md-12">
-                
->>>>>>> 33a5f13... update css
+
                 <h2>@lang('main.product.cus_review')</h2>
                 <div class="container-product">
                     <form action="{{ route('review.store') }}" method="post">
@@ -246,16 +241,10 @@
                                 </div>
                         @endforeach
                         @if(Auth::check())
-<<<<<<< HEAD
-                        <div class="form-cmt">
-                            <input id="comment" type="text" name="comment" placeholder="{{ trans('main.product.cmt_placeholder') }}">
-                            <input type="hidden" value="{{ $product->pro_id }}" name="pro_id">
-=======
                         <div class="form-cmt ">
                             <input class=""  id="xxx" type="text" name="comment" placeholder="{{ trans('main.product.cmt_placeholder') }}">
                             <input id="last-name1" type="hidden" value="{{ $product->pro_id }}" name="pro_id">
                             <p class="err_cmt text-danger"></p>
->>>>>>> 33a5f13... update css
                             <button id="submit" type="submit">@lang('main.product.send_review')</button>
                         </div>
                         @else
@@ -267,13 +256,8 @@
                 </form>
             </div>
         </div>
-<<<<<<< HEAD
-        <div class="col-3">
-
-=======
         <div class="col-3 qc-right">
-            
->>>>>>> 33a5f13... update css
+
         </div>
     </div>
 
@@ -287,12 +271,8 @@
                 getId); //sau khi click thẻ img có class demo sẽ thay đổi src mặc định sang src của getID(ảnh được click)
             })
             $("button#submit").click(function() {
-<<<<<<< HEAD
-                var comment = $("input#comment").val();
-=======
                 var lastName = $("input#xxx").val();
                 var lastName1 = $("input#last-name1").val();
->>>>>>> 33a5f13... update css
                 var getGender = $("input[type='radio']").is(":checked");
                 console.log(lastName)
                 var flag = true
@@ -302,39 +282,24 @@
                     $("p.err_cmt").text("Bạn chưa đánh giá")
                     flag = false;
                 }
-<<<<<<< HEAD
-                if (comment == '') {
-                    $("input#comment").css({
-                        "background": "rgba(255, 147, 146, 0.3)",
-                        "border": "2px solid rgb(255, 0, 0, 0.3)"
-                    });
-                    flag = false
-                    alert("Bạn vui lòng nội dung vào phần bình luận")
-                } else {
-                    $("input#comment").css({
-                        "background": "rgb(100 216 90 / 30%)",
-                        "border": "2px solid rgb(147 161 146 / 30%)"
-                    });
-=======
                 if( lastName ==''){
                     $("input#xxx").css({"background" : "rgba(255, 147, 146, 0.3)", "border" : "2px solid rgb(255, 0, 0, 0.3)"});
                     $("p.err_cmt").text("Bạn chưa nhập bình luận")
                     flag = false
                 }else{
                     $("input#xxx").css({"background" : "rgb(100 216 90 / 30%)", "border" : "2px solid rgb(147 161 146 / 30%)"});
->>>>>>> 33a5f13... update css
                 }
 
 
                 if (flag == true) {
-                   
+
                     return true
                 }
                 return false
             })
         })
 
-    
+
 
     </script>
 
