@@ -25,19 +25,15 @@
                                     <div class="col-md-3"></div>
                                     <div class="col-md-6">
                                         <div class="row">
-                                            <label class="fieldlabels col-3">@lang('main.order.name') : </label> 
-<<<<<<< HEAD
-                                            <input id="last-name" name="order_name" type="text" class="col-8 last-name" placeholder="{{ trans('main.order.name') }}" />
-=======
+                                            <label class="fieldlabels col-3">@lang('main.order.name') : </label>
                                             <input id="huhu-name" name="order_name" type="text" class="col-8" placeholder="{{ trans('main.order.name') }}" />
->>>>>>> 33a5f13... update css
                                             {{--  tên  --}}
 
-                                            <label class="fieldlabels col-3">@lang('main.order.phone'): </label> 
+                                            <label class="fieldlabels col-3">@lang('main.order.phone'): </label>
                                             <input id="first-name" type="number" name="order_phone" class="col-8" placeholder="{{ trans('main.order.phone') }}" />
                                             {{--  sđt nhận hàng  --}}
 
-                                            <label class="fieldlabels col-3">@lang('main.order.city'): </label> 
+                                            <label class="fieldlabels col-3">@lang('main.order.city'): </label>
                                             <input id="checkprice" type="text" name="order_city" class="col-8" placeholder="{{ trans('main.order.city') }}" />
                                             {{--  thành phố  --}}
 
@@ -49,11 +45,11 @@
                                             <input id="cars" type="text" name="order_ward" class="col-8" placeholder="{{ trans('main.order.ward') }}" />
                                             {{--  phường xã  --}}
 
-                                            <label class="fieldlabels col-3">@lang('main.order.address'): </label> 
+                                            <label class="fieldlabels col-3">@lang('main.order.address'): </label>
                                             <input id="adress" type="text" name="order_address" class="col-8" placeholder="{{ trans('main.order.address') }}" />
                                             {{--  địa chỉ  --}}
                                         </div>
-                                        
+
                                     </div>
                                     <div class="col-md-3"></div>
                                 </div>
@@ -203,7 +199,7 @@
                                 <br><br>
                                 </h2> <br>
                                 <div class="row justify-content-center">
-                                    <div class="col-3 text-center justify-content-center"> 
+                                    <div class="col-3 text-center justify-content-center">
                                         <div style="width: 300px; height:300px" class="spinner-border text-info" role="status">
                                             <span class="sr-only"></span>
                                           </div>
@@ -226,11 +222,7 @@
     <script>
         $(document).ready(function(){
           $("input#submit").click(function(){
-<<<<<<< HEAD
-            var last_name = $("input.last-name").val();
-=======
             var susu = $("input#huhu-name").val();
->>>>>>> 33a5f13... update css
             var file = $("input#file").val();
             var ckeditor = $("input#ckeditor1").val();
             var first_name = $("input#first-name").val();
@@ -238,21 +230,13 @@
             var getCheckprice = $("input#checkprice").val();
             var adress = $("input#adress").val();
             var flag = true
-<<<<<<< HEAD
-            if(last_name ==''){
-              $("input.last-name").css({"background" : "rgba(255, 147, 146, 0.3)", "border" : "2px solid rgb(255, 0, 0, 0.3)"});
-              flag = false
-            }else{
-              $("input.last-name").css({"background" : "rgb(100 216 90 / 30%)", "border" : "2px solid rgb(147 161 146 / 30%)"});
-=======
             if(susu ==''){
               $("input#huhu-name").css({"background" : "rgba(255, 147, 146, 0.3)", "border" : "2px solid rgb(255, 0, 0, 0.3)"});
               flag = false
             }else{
               $("input#huhu-name").css({"background" : "rgb(100 216 90 / 30%)", "border" : "2px solid rgb(147 161 146 / 30%)"});
->>>>>>> 33a5f13... update css
             }
-            
+
             if(file ==''){
                 $("input#file").css({"background" : "rgba(255, 147, 146, 0.3)", "border" : "2px solid rgb(255, 0, 0, 0.3)"});
                 flag = false
@@ -296,25 +280,25 @@
             $("input#adress").css({"background" : "rgb(100 216 90 / 30%)", "border" : "2px solid rgb(147 161 146 / 30%)"});
         }
         {{--    --}}
-      
+
             if(flag == true){
-                
+
                 var current_fs, next_fs, previous_fs; //fieldsets
                 var opacity;
                 var current = 1;
                 var steps = $("fieldset").length;
                 console.log("âsasas")
                 setProgressBar(current);
-                
-                
+
+
                 $(".next").click(function() {
-    
+
                     current_fs = $(this).parent(); //lấy thành phần cha trực tiếp của của thành phần chính
                     next_fs = $(this).parent().next(); //lấy thành phần cha trực tiếp của của thành phần sau
-                    
+
                     //Add Class Active
                     $("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
-    
+
                     //show the next fieldset
                     next_fs.show();
                     console.log(next_fs)
@@ -325,7 +309,7 @@
                         step: function(now) {
                             // for making fielset appear animation
                             opacity = 1 - now;
-    
+
                             current_fs.css({
                                 'display': 'none',
                                 'position': 'relative'
@@ -338,18 +322,18 @@
                     });
                     setProgressBar(++current);
                 });
-    
+
                 $(".previous").click(function() {
-    
+
                     current_fs = $(this).parent();
-                    previous_fs = $(this).parent().prev(); 
-    
+                    previous_fs = $(this).parent().prev();
+
                     //Remove class active
                     $("#progressbar li").eq($("fieldset").index(current_fs)).removeClass("active");
-    
+
                     //show the previous fieldset
                     previous_fs.show();
-    
+
                     //hide the current fieldset with style
                     current_fs.animate({
                         opacity: 0
@@ -357,7 +341,7 @@
                         step: function(now) {
                             // for making fielset appear animation
                             opacity = 1 - now;
-    
+
                             current_fs.css({
                                 'display': 'none',
                                 'position': 'relative'
@@ -370,22 +354,22 @@
                     });
                     setProgressBar(--current);
                 });
-    
+
                 function setProgressBar(curStep) {
                     var percent = parseFloat(100 / steps) * curStep;
                     percent = percent.toFixed();
                     $(".progress-bar")
                         .css("width", percent + "%")
                 }
-    
+
                 $(".submit").click(function() {
                     return false;
                 })
-              
+
             }
             return false
           });
-         
+
         })
       </script>
 @endsection
