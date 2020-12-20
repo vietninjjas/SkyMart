@@ -48,11 +48,13 @@
                                             </thead>
                                             <tbody>
                                                 @foreach($reviews as $rev)
+                                                @if($rev->reviews->count() > 0)
                                                 <tr class="text-center">
-                                                    <th>{{ $rev->pro_name }}</th>
+                                                    <th class="text-left">{{ $rev->pro_name }}</th>
                                                     <th>{{ $rev->reviews->count() }}</th>
                                                     <th><a href="{{ route('admin.review.show', $rev->pro_id) }}">@lang('main.see_more')</a></th>
                                                 </tr>
+                                                @endif
                                                 @endforeach
                                             </tbody>
                                         </table>

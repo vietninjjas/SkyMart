@@ -53,13 +53,13 @@
                                     <div class="or-name mt-5">
                                         <a
                                             href="{{ route('product.show', $checkout->product->pro_id) }}">{{ $checkout->product->pro_name }}</a>
-                                        <p>{{ $checkout->product->pro_new_price }}đ</p>
+                                        <p>{{ number_format($checkout->product->pro_new_price )}}đ</p>
                                         <span>x{{ $checkout->quantity }}</span>
                                     </div>
                                 </div>
                                 <div class="col-2">
                                     <div class="or-price">
-                                        {{ $checkout->product->pro_new_price * $checkout->quantity }}đ
+                                        {{ number_format($checkout->product->pro_new_price * $checkout->quantity )}}đ
                                     </div>
                                 </div>
                             </div>
@@ -103,7 +103,7 @@
             </div>
 
         </div>
-        @else 
+        @else
 
         <div class="row">
           <div class="col-md-12 justify-content-center text-center">

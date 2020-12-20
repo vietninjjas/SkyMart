@@ -32,7 +32,7 @@ class HomeController extends Controller
         $deals = Deal::all();
         $categories = Category::with('products')->get();
         $topSales = Product::where('pro_sale', 1)->orderBy('updated_at', 'desc')->distinct('cate_id')->get();
-        $hots = Product::orderBy('view', 'desc')->get();
+        $hots = Product::orderBy('view', 'desc')->paginate(57);
 
         return view('home', compact(
             'banners',

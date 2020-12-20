@@ -196,7 +196,7 @@
             <div class="custom-slider">
                 @foreach ($topSales as $sa)
                 <div class="custom-box">
-                    <a href="#"><img src="images/products/{{ $sa->pro_image }}" alt=""></a>
+                    <a href="{{ route('product.show', $sa -> pro_id) }}"><img src="images/products/{{ $sa->pro_image }}" alt=""></a>
                 </div>
                 @endforeach
             </div>

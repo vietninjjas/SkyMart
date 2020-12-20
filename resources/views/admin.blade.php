@@ -50,7 +50,7 @@
                         <div class="col-md-12 col-sm-12 ">
                             @foreach($bestProducts as $best)
                             <div>
-                                <p>{{ $best->pro_name }} <small class="text-danger">({{ $best->view }} @lang('main.product.view')) </small></p>
+                                <p>{{ $best->pro_name, 0, 30 }} <small class="text-danger">({{ $best->view }} @lang('main.product.view')) </small></p>
                                 <div style="width:70%">
                                     <div class="progress progress_sm" style="width: 100%;">
                                         <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="{{ $best->view * 0.1 }}"></div>
@@ -59,8 +59,6 @@
                             </div>
                             @endforeach
                         </div>
-                        
-
                     </div>
 
                     <div class="clearfix"></div>
@@ -82,7 +80,7 @@
                         @foreach($prices as $pri)
                         <div class="widget_summary">
                             <div class="w_left w_25">
-                                <span>{{ $pri->pro_name }}</span>
+                                <span>{{ substr($pri->pro_name, 0, 8) }}...</span>
                             </div>
                             <div class="w_center w_55">
                                 <div class="progress">
@@ -122,7 +120,7 @@
                         {!! $orderSttChart->container() !!}
                         {!! $orderSttChart->script() !!}
                     </div>
-                    
+
                 </div>
             </div>
 
