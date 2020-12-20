@@ -43,7 +43,7 @@
     width: 70%;
     margin-top: 10px;
     font-size: 1.6rem;
-    
+
 }
 .brand-header ul li:first-child{
     width: 30%;
@@ -59,11 +59,11 @@
 .brand-header ul li i{
     color: gold;
 }
-.brand .left{   
+.brand .left{
     display: block;
     clear: both;
     width: 65%;
-    
+
 }
 .brand .left .price-and-icon{
     display: flex;
@@ -168,7 +168,7 @@
     font-weight: 300;
 }
 .brand .right{
-    margin-left: 10px;  
+    margin-left: 10px;
     width: 35%;
     height: 265px;
     border-radius: 4px;
@@ -240,9 +240,14 @@
     font-weight: 600;
 }
 .container-product p{
+    overflow: hidden;
     font-size: 1.3rem;
     padding: 10px 30px;
     color: rgb(68, 65, 65);
+}
+.container-product p img{
+    width: 100% !important;
+    height: auto !important;
 }
 .form-cmt{
     display: flex;
@@ -334,7 +339,7 @@
     -webkit-box-align: center;
     align-items: center;
     font-size: 1.6rem;
-    
+
 }
 /*  */
 .review-comment__avatar ul{
