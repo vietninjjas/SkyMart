@@ -137,7 +137,7 @@
                 <img src="https://frontend.tikicdn.com/_desktop-next/static/img/homnay.svg" alt="">
             </div>
             <div class="row">
-                @foreach ($products as $pro)
+                @foreach ($topSales as $pro)
                 @if ($pro->pro_sale == 1)
                 <div class="col-lg-3 col-md-6 col-sm-6 col-xs-6  pro-hov ty-compact-list2">
                     <div class="product-top">

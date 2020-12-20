@@ -31,9 +31,9 @@ class HomeController extends Controller
         $CateParentCount = 1;
         $deals = Deal::all();
         $categories = Category::with('products')->get();
-        $topSales = Product::where('pro_sale', 1)->orderBy('updated_at', 'desc')->get();
+        $topSales = Product::where('pro_sale', 1)->orderBy('updated_at', 'desc')->distinct('cate_id')->get();
         $hots = Product::orderBy('view', 'desc')->get();
-        
+
         return view('home', compact(
             'banners',
             'categories',
@@ -62,7 +62,7 @@ class HomeController extends Controller
         $ketqua = Product::whereBetween('pro_new_price', ["$min", "$max"])->get();
 
         $ketqua1 = Review::Where('rate', '<', "$star")->get();
-        
+
         return view('user.filter', array('ketqua' => $ketqua,'ketqua1' => $ketqua1, 'max' => $max, 'cate' => $cate));
     }
 
