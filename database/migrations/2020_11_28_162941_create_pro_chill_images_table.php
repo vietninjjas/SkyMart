@@ -18,7 +18,7 @@ class CreateProChillImagesTable extends Migration
             $table->unsignedInteger('chill_id')->autoIncrement();
             $table->unsignedInteger('pro_id');
             $table->text('chill_image')->nullable();
-            $table->foreign('pro_id')->references('pro_id')->on('products');
+            $table->foreign('pro_id')->references('pro_id')->on('products')->onDelete('cascade');
             $table->timestamps();
         });
         Schema::enableForeignKeyConstraints();

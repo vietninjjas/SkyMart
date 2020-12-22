@@ -181,7 +181,11 @@ class CategoryController extends Controller
     public function destroy($cateId)
     {
         $cate = Category::findOrFail($cateId);
-        $cate->delete();
+        if($cate->parent_id == null){
+            $cate->children()->delete();
+            $cate->products()->delete();
+            $cate->delete();
+        }
 
         return redirect()->route('admin.category.index')->with('del_success', trans('admin.message.del_success'));
     }
