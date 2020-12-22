@@ -32,11 +32,11 @@
     <div id='af-preloader'>
 
         <div class='af-preloader-wrap'>
-      
+
           <div class='af-sp af-sp-wave'></div>
-      
+
         </div>
-      
+
       </div>
     <div class="main vc">
         <div id="form-modal">
@@ -422,7 +422,7 @@
 
 <script>
     //Slider album ảnh
-    $('#gallery').slick({ 
+    $('#gallery').slick({
         slidesToShow: 6,
         slidesToScroll: 1,
         autoplay: true,
@@ -442,9 +442,9 @@
 }
 //Hiển thị thêm sản phẩm
 $('.show-more').on('click', function() {
- 
+
   $('.ty-compact-list:gt(6)').toggle();
- 
+
   $(this).text() === 'Xem thêm' ? $(this).text('Xem thêm') : $(this).text('Rút gọn');
 });
 
@@ -458,7 +458,7 @@ $("#login2").validate({
 				required: true,
 				maxlength: 25
 			},
-            "fullname":{
+            "name":{
                 required: true,
             },
             "email":{
@@ -473,14 +473,14 @@ $("#login2").validate({
 				required: true,
 				minlength: 8
 			},
-			
+
 		},
 		messages: {
 			"username": {
 				required: "*Bạn chưa nhập tên đăng nhập",
 				maxlength: "*Hãy nhập tối đa 25 ký tự"
 			},
-            "fullname": {
+            "name": {
 				required: "*Bạn chưa nhập tên",
 				maxlength: "*Hãy nhập tối đa 25 ký tự"
 			},
@@ -496,9 +496,9 @@ $("#login2").validate({
 				required: "*Bạn chưa nhập password",
 				minlength: "*Hãy nhập ít nhất 8 ký tự"
 			},
-			
+
         },
-        
+
 	});
 
 
@@ -515,7 +515,7 @@ $("#login2").validate({
 				required: true,
 				minlength: 8
 			},
-			
+
 		},
 		messages: {
 			"username": {
@@ -526,9 +526,9 @@ $("#login2").validate({
 				required: "*Bạn chưa nhập password",
 				minlength: "*Hãy nhập ít nhất 8 ký tự"
 			},
-			
+
         },
-        
+
 	});
 
 </script>
@@ -574,12 +574,12 @@ $("#login2").validate({
       document.getElementById('af-preloader').style.display = 'none'
     })
     $(window).on('load', function() {
-        
+
         $('#af-preloader').delay(700).fadeOut('slow')
-      
+
       })
-    
+
     //]]></script>
- 
+
 <!-- scrip của bán chạy -->
 <!-- script swiper slider -->

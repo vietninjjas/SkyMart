@@ -25,7 +25,7 @@ class CreateProductsTable extends Migration
             $table->integer('pro_old_price')->nullable();
             $table->integer('pro_new_price')->nullable();
             $table->boolean('pro_sale')->default(0);
-            $table->foreign('cate_id')->references('cate_id')->on('categories');
+            $table->foreign('cate_id')->references('cate_id')->on('categories')->onDelete('cascade');
             $table->timestamps();
         });
         Schema::enableForeignKeyConstraints();
