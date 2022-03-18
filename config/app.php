@@ -34,10 +34,11 @@ return [
     ],
     'order_status' => [
         0 => 'wait',
-        1 => 'shippingNotPay',
-        2 => 'shippingPaid',
-        3 => 'complete',
-        4 => 'cancelled',
+        1 => 'waitPaid',
+        2 => 'shippingNotPay',
+        3 => 'shippingPaid',
+        4 => 'complete',
+        5 => 'cancelled',
     ],
 
     /*

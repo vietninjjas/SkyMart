@@ -123,6 +123,7 @@ return [
         'order_status' => [
             'order_status' => 'Trạng thái',
             'wait' => 'Đang chờ',
+            'waitPaid' => 'Đang chờ, chưa thanh toán',
             'shippingNotPay' => 'Đang giao, chưa thanh toán',
             'shippingPaid' => 'Đang giao, đã thanh toán',
             'complete' => 'Hoàn thành',

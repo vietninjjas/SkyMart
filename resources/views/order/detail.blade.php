@@ -113,7 +113,7 @@
                                                 @csrf
                                                 @method('PUT')
                                                 <label for="">@lang('admin.orders.order_status.order_status'): </label>
-                                                <select onchange='this.form.submit()' name="order_status" id="" @if($order->order_status == 3 || $order->order_status == 4 ) disabled="disabled" @endif>
+                                                <select onchange='this.form.submit()' name="order_status" id="" @if($order->order_status == 4 || $order->order_status == 5 ) disabled="disabled" @endif>
                                                     <option value="">@lang('admin.orders.order_status.'.config('app.order_status.'. $order->order_status))</option>
                                                     @foreach (config('app.order_status') as $key => $value)
                                                         <option value="{{ $key }}">@lang('admin.orders.order_status.'.config('app.order_status.'. $key))</option>
